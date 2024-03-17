@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=Windows-1252">
+  <title>Customizing ToolBar
+objects</title>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Customizing
+Rebar objects</font></b></p>
+<hr>
+<p><font face="Arial" size="2">When customizing a <b>Rebar</b>
+object, you will see the following
+window:<br>
+<br>
+</font></p>
+<p><font face="Arial" size="2"><img
+ style="border: 0px solid ; width: 411px; height: 331px;" alt=""
+ src="CustomRB.gif" hspace="0"><br>
+<br>
+</font></p>
+<p><font face="Arial" size="2">You have the possibility
+to add a bitmap resource to each band so that its
+image might be the background for the referred band. If so, the bitmap
+must be an existing resource in the
+<b>Image Table</b>
+of the Resource Editor. All bitmap resources being there will be
+available in the
+Rebar customizing window.<br>
+<br>
+Each band may have an existing control assigned to it, but only for
+those controls being a child of the Rebar object. So, all child
+controls to be assigned to bands must
+be placed inside the Rebar object, as they will be the only available
+controls in the <b>Child control</b>
+combo box.</font></p>
+<p><font face="Arial" size="2"><br>
+<b>REMARKS</b>:
+The index number for each band in a <b>Rebar</b>
+object is
+also its <b>ID</b>entifier.
+At run time, this <b>ID</b>entifier
+is used to identify the band for custom draw notification
+messages.</font></p>
+<p><font face="Arial" size="2"><b>WARNING</b>:
+A child control can only be assigned to a band of the
+<b>Rebar</b>
+object. At run time, all controls being a child of the <b>Rebar</b>
+object, and not being
+assigned to a band, will be hidden (not visible).<br>
+</font></p>
+</body>
+</html>

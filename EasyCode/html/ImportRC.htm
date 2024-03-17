@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Importing resource files</title>
+
+</head>
+
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Importing resource files (all project
+type)</font></b></p>
+<hr>
+<p><font color="#800000" face="Arial" size="4"><b>WARNING:
+This option is not yet available.</b></font></p>
+<p><font face="Arial" size="2">Available
+through the <b>File-&gt;Import resource-definition file</b>
+menu.</font></p>
+<p><font face="Arial" size="2">Easy Code can
+import resource-definition files (scripts), that is, text files with
+extension <b>.RC</b>. The resource keywords accepted by
+the IDE are the following:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>ACCELERATORS</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">An accelerator table</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>BITMAP</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A file containing a bitmap</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>DIALOG</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A dialog box</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>DIALOGEX</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">An extended dialog box</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>ICON</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A file containing an icon</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>MENU</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A menu definition</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>RCDATA</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A binary data definition (raw
+data)</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>RT_FILEDATA</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A file containing binary data
+(Easy Code
+defined)</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>STRINGTABLE</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A string table</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>CURSOR</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A file containing a cursor</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="120"><font face="Arial" size="2"><b>VERSIONINFO</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">A version definition</font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+<p><font face="Arial" size="2">All other
+resource types will be ignored. The .RC file must match the resource
+compiler
+syntax, that is, it must compile without errors in order to be properly
+imported. With this new option, you can define
+all your resources in the IDE (recommended) and importing those
+belonging to old projects from its corresponding .RC
+file. Doing so, you will able to easily convert all your assembly
+projects to Easy Code.</font></p>
+<p><font face="Arial" size="2">It is
+recommended the Resource editor to be empty (no resources created) when
+importing
+a resource-definition file, so that the imported resources do not
+conflict with existing ones, even though Easy Code
+performs some checking (see <strong>REMARKS</strong>). In
+order to keep imported resources as much unchanged as
+possible, the <b><font color="#000080">IDC_STATIC</font></b>,
+<b><font color="#000080">IDOK</font></b>
+and <b><font color="#000080">IDCANCEL</font></b>
+IDentifiers for child controls (<b>-1</b>, <b>1</b>
+and <b>2</b> respectively) always
+remain unchanged, even though multiple controls have one of these ID's.
+This can cause problems in visual projects as
+they use the control name or ID for several operations (i.e. to name
+the window procedure), so it is highly recommended
+to change all matching ID's to any other name.</font></p>
+<p><font face="Arial"><font size="2"><b>IMPORTANT</b>:
+As said before, visual projects have their own dialog boxes: the
+<b>DialogBox</b> object. So, when importing .RC files in
+visual projects, dialog boxes will be imported as
+<b>DialogBox</b> objects and the dialog class (if any) will
+be ignored. On the other hand, and in order to avoid
+problems, if two or more of the imported controls have the same ID,
+change all the necessary names until each control
+has a unique ID.</font></font></p>
+<p><font face="Arial"><font size="2"><b>REMARKS:</b>
+While importing .RC files, the imported resource ID's are compared
+with existing ones. If any of them matches (except for the ones said
+before), it is renamed and listed in the importing
+window list. The only exception is for the ID's of accelerator tables,
+which remain unchanged as they refer to menu
+items.</font></font><br>
+<br>
+</p>
+</body></html>

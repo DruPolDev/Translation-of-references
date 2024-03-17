@@ -1,0 +1,54 @@
+<a name="IDH_508"></a>
+<title>IDA address space concepts</title>
+<table width="100%"><tr valign="top"><td><h2>IDA address space concepts</h2></td>
+<td width="64"><img src="ida55.bmp"/></td></tr></table>
+Internally, IDA has 32-bit linear address space (IDA64 uses 64-bit address space).
+The internal addresses are called &quot;linear addresses&quot;. The input program
+is loaded into this linear address space.
+<p>
+Please note that usually the linear addresses are not used in the program
+directly.
+During disassembling, we use so-called &quot;virtual addresses&quot;, which
+are calculated by the following formula:
+<pre>
+        VirtualAddress = LinearAddress - (SegmentBase &lt;&lt; 4);
+</pre>
+We see that the SegmentBase determines what addresses will be
+displayed on the screen. More than that, IDA allows to create
+several segments with the same virtual address in them. For this,
+you just need to create segments with correct segment base values.
+<p>
+Normally a SegmentBase is a 16bit quantity.
+To create a segment with base &gt;= 0x10000, you need to use
+<a href="591.html">selectors</a>. However, if you try to create a segment
+with a segment base &gt;= 0x10000, IDA will automatically choose appropriately
+a free selector and setup for the new segment.
+<p>
+All SegmentBases are looked up in the <a href="591.html">selector</a> table.
+<p>
+There are some address restrictions in IDA.
+<p>
+There is a range of addresses that are used for internal housekeeping. This
+range can be specified by the configuration variable PRIVRANGE (start address
+and size). It is not recommended to use these addresses for other purposes.
+<p>
+There is also one address which must never be used in the disassembly.
+It is the 'all ones' address, or -1. Internally, it is used as a BADADDR (bad address).
+No address or address range can include BADADDR.
+<pre>
+ Click <a href="509.html">here</a> to see an example of segment creation
+ (simple case - IBM PC)
+</pre>
+<pre>
+ Click <a href="510.html">here</a> to see an example of segment creation
+ (simple case - Z80)
+</pre>
+<pre>
+ Click <a href="511.html">here</a> to see another example of segment creation
+ (automatically chosen selector)
+</pre>
+<pre>
+ Click <a href="512.html">here</a> to see another example of segment creation
+ (user-defined selector)
+</pre>
+See also <a href="521.html">How to change segment translation</a>

@@ -1,0 +1,50 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Initializing the Symbol Handler </TITLE><META NAME="MS-HAID" CONTENT="_win32_initializing_the_symbol_handler">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.initializing_the_symbol_handler"></A>Initializing the Symbol Handler</H1>
+<P>The following code demonstrates how to initialize the symbol handler. The 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function defers symbol loading until symbol information is requested. The code loads the symbols for each module in the specified process by passing a value of TRUE for the <i>bInvade</i> parameter of the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function. (This function calls the 
+<A HREF="symloadmodule64.htm"><b>SymLoadModule64</b></A> function for each module the process has mapped into its address space.)</P>
+<P>If the specified process is not the process that called 
+<b>SymInitialize</b>, the code passes a process identifier as the first parameter of 
+<b>SymInitialize</b>.</P>
+<P>Specifying NULL as the second parameter of 
+<b>SymInitialize</b> indicates that the symbol handler should use the default search path to locate symbol files. For detailed information on how the symbol handler locates symbol files or how an application can specify a symbol search path, see 
+<A HREF="symbol_paths.htm">Symbol Paths</A>.</P>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve">DWORD  error;
+HANDLE hProcess;
+DWORD  processId;
+
+SymSetOptions(SYMOPT_UNDNAME | SYMOPT_DEFERRED_LOADS);
+
+hProcess = GetCurrentProcess();
+// hProcess = (HANDLE)processId;
+
+if (SymInitialize(hProcess, NULL, TRUE))
+{
+    // SymInitialize returned success
+}
+else
+{
+    // SymInitialize failed
+    error = GetLastError();
+    printf("SymInitialize returned error : %d\n", error);
+}</PRE></DIV>
+</DIV><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Initializing the Symbol Handler%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

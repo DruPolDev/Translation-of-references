@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Programming 64-bit applications</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><a name="unicode"></a><b><font color="#004080" face="Arial" size="6">Programming
+64-bit applications</font></b></p>
+<hr>
+<p><font face="Arial" size="2">The 64-bit
+Windows operating
+systems use the <b>fastcall</b> calling convention, that
+is, when
+calling a function the first four parameters are passed
+in the <b><font color="#606000">Rcx</font></b>,
+<b><font color="#606000">Rdx</font></b>,
+<b><font color="#606000">R8</font></b>
+and
+<b><font color="#606000">R9</font></b>
+registers, respectively, and all
+parameters are expected to be 8-byte values (<b><font color="#0000ff">QWORD</font></b>). When writng a
+64-bit
+window procedure, you have to save the four mentioned
+registers in the corresponding arguments (<b>except for
+the GoAsm assembler</b>), that is, <font color="#606000"><b>Rcx</b></font>
+in 1st argument, <font color="#606000"><b>Rdx</b></font>
+in 2nd argument, <font color="#606000"><b>R8</b></font>
+in 3rd argument and <font color="#606000"><b>R9</b></font>
+in 4th argument. The rest of arguments, if more than four,
+are passed on the stack.
+<font face="Courier New" size="2"><br>
+<br>
+<b>wndMainProcedure <font color="#0000ff">Proc</font>
+hWnd<font color="#ff00ff">:</font><font color="#0000ff">QWORD</font><font color="#ff00ff">,</font>
+uMsg<font color="#ff00ff">:</font><font color="#0000ff">QWORD</font><font color="#ff00ff">,</font>
+wParam<font color="#ff00ff">:</font><font color="#0000ff">QWORD</font><font color="#ff00ff">,</font>
+lParam<font color="#ff00ff">:</font><font color="#0000ff">QWORD</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Mov</font>
+hWnd<font color="#ff00ff">,</font> <font color="#808000">Rcx</font><font color="#808080">&nbsp;&nbsp;;Not
+needed for GoAsm</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Mov</font>
+uMsg<font color="#ff00ff">,</font> <font color="#808000">Rdx</font><font color="#808080">&nbsp;&nbsp;;Not
+needed for GoAsm</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Mov</font>
+wParam<font color="#ff00ff">,</font> <font color="#808000">R8</font><font color="#808080">&nbsp;;Not
+needed for GoAsm</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Mov</font>
+lParam<font color="#ff00ff">,</font> <font color="#808000">R9</font><font color="#808080">&nbsp;;Not
+needed for GoAsm</font><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Ret</font>
+<br>
+<font color="#000000">wndMainProcedure</font> <font color="#0000ff">EndP</font><br>
+</b></font><br>
+<br>
+<b>REMARKS</b>: Note that the lines above are
+written in MASM syntax. Please take into account
+to make the necessary syntax conversion when
+programming with other assemblers.<br>
+<br>
+</font></p>
+<p><font face="Arial" size="2">You have to
+mostly use the
+64-bit registers in applications (<b><font color="#606000">Rax</font></b>,
+<b><font color="#606000">Rbx</font></b>,
+<b><font color="#606000">Rcx</font></b>,
+<b><font color="#606000">Rdx</font></b>,
+etc.),
+and the <b><font color="#606000">Rsp</font></b>
+register (the stack pointer) has to be <b>always</b>
+16-byte aligned when calling an API function, otherwise
+the application will probably crash. The best you can do
+in order to get into 64-bit programming, is to have a
+deep look at the various Easy Code 64-bit examples,
+located at the <b>\EasyCode\Examples</b> folder.</font></p>
+<p><font face="Arial" size="2">There are some
+important
+considerations
+that you should take into account when writing code inside
+a 64-bit <b><font color="#0000ff">proc</font></b>edure
+(or a <b><font color="#0000ff">frame</font></b>
+in GOASM syntax):<br>
+<ul>
+<li>
+GOASM copies the
+<b><font color="#606000">Rcx</font></b>,
+<b><font color="#606000">Rdx</font></b>,
+<b><font color="#606000">R8</font></b>
+and <b><font color="#606000">R9</font></b>
+registers to the corresponding arguments (shadow
+space), so you <b>do not need</b> to do this.
+ASMC, JWASM and UASM64 also copy the registers to
+the shadow space, but ONLY if the <b>Option win64:1</b> is
+activated.
+To do so, please see <a href="OptionWin64.htm"><b>Configuring
+Option win64:n</b></a>. For all other assemblers <b>you
+have</b>
+to copy the registers manually.
+</li>
+<br>
+<li>POASM uses the <b><font color="#606000">Rsp</font></b>
+register to address local variables instead of
+<b><font color="#606000">Rbp</font></b>.
+As a result
+the <b><font color="#ff0000">Push</font></b>
+and
+<b><font color="#ff0000">Pop</font></b>
+instructions
+should not be used if there are local variables in the
+procedure, as the <b><font color="#606000">Rsp</font></b>
+register would change its value and it could not address
+the variables properly. One solution is to declare
+more local variables in order to save and restore the
+necessary registers.
+</li>
+<br>
+<li>Pushing any value before calling a function or a
+procedure, may disalign the <b><font color="#606000">Rsp</font></b>
+register and, if so,
+the application will probably crash. If you <b><font color="#ff0000">Push</font></b> something, make
+sure <b><font color="#606000">Rsp</font></b>
+is properly 16-byte aligned, or <b><font color="#ff0000">Pop</font></b>
+whatever you
+pushed before calling an API function or a
+procedure (please see the <b>REMARKS</b>).<br>
+<br>
+<b>REMARKS</b>: This consideration can be ignored when
+working with <b>GoAsm</b> and/or when the call is
+made with <font color="#800080"><b>ECInvoke</b></font>.
+<br>
+</li>
+<br>
+<li>
+The <b><font color="#606000">Rbx</font></b>,
+<b><font color="#606000">Rbp</font></b>,
+<b><font color="#606000">Rdi</font></b>,
+<b><font color="#606000">Rsi</font></b>,
+<b><font color="#606000">R12</font></b>,
+<b><font color="#606000">R13</font></b>,
+<b><font color="#606000">R14</font></b>
+and
+<b><font color="#606000">R15</font></b>
+registers have to be preserved if they are
+used. API functions always preserve them.
+</li>
+<br>
+<li>When calling any of the Easy Code methods,
+you can be sure that all registers will be preserved,
+<b>EXCEPT <font color="#606000">Rax</font></b>,
+commonly used as the return value, and those used
+by the <b>fastcall calling convention</b> (<b><font color="#606000">Rcx</font></b>, <b><font color="#606000">Rdx</font></b>, <b><font color="#606000">R8</font></b> and <b><font color="#606000">R9</font></b>).
+</li>
+<br>
+<li>Microsoft Windows 64-bit operating systems
+use digitally signed drivers. If you need to
+test a 64-bit driver without a digital signature
+(i.e. a 64-bit driver you are programming, or the
+<b>ECDrv64</b> 64-bit driver example coming with
+Easy Code), press the <b>F8</b> key when the system
+boots and in the boot menu choose the <b>Disable
+driver signature enforcement</b> option. Otherwise
+the non-signed drivers will not work. However,
+pressing <b>F8</b> at boot <b>NOT ALWAYS</b>
+works
+on Windows 10.
+</li>
+</ul>
+There is very liitle 64-bit example code in the
+internet and it is extremely simple, or in some
+cases it does not work. All the Easy Code 64-bit
+support is due to the hard work of my good friend
+<b>H&eacute;ctor A. Medina</b>. Without his help,
+I would not have been able to program the 64-bit
+examples included in Easy Code.<br>
+<br>
+However, despite
+the complexity of 64-bit programming, you will
+get surprised on how Easy Code makes it much
+easier. Thanks for using Easy Code and good luck!
+</font></p>
+<br>
+<br>
+</body></html>

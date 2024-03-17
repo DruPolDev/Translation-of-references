@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>The Easy Code editor</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">The
+Easy Code 2 Editor</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Each module
+(and <b>Window</b>
+object in visual projects) has its own editor. The editor
+<b>always works in Unicode mode</b>, in order to support
+all
+languages, and can be splitted so that you can have two
+windows in one:</font></p>
+<p><img src="ECEditor.gif" border="0" height="495" hspace="0" width="676"></p>
+<p><font face="Arial" size="2">You can
+customize the editor
+colors, font, and many other options in the <b>Editor</b>
+tab
+of the "</font><a href="Settings.htm#editortab"><font face="Arial" size="2"><b>Tools--&gt;Settings</b></font></a><font face="Arial" size="2">" menu.</font></p>
+<p><font face="Arial" size="2">Keywords may
+be automatically
+corrected and beautified when changing from a line to another,
+according to different options set in the <b>Syntax</b>
+tab of
+the "<a href="Settings.htm#syntaxtab"><b>Tools--&gt;Settings</b></a>"
+menu. You can convert and beautify the whole text by selecting
+the "<b>Tools--&gt;Beautify syntax</b>" menu or by
+pressing the
+<b>F11</b> key when the editor has te focus, but take into
+account
+that the results may vary according to the editor settings, also
+beautifying the syntax could take some time depending on the number
+of text lines.<br><br>When moving the cursor from a line to another,
+if the previous line was modified, it is corrected and beautified in
+the same way. If you do not want any correction for a given line without
+having to disable the corresponding options, press the <b>F12</b> key
+just before moving the cursor and the line will remain unchanged.</font></p>
+<p><font face="Arial" size="2">To make syntax
+correction as accurated and smart as possible, the editor searches up
+for the word "<b><font color="#0000ff">.code</font></b>"
+(case insensitive) in order to know whether the line being
+corrected is inside the <b><font color="#0000ff">.code</font></b>
+section or not. So, if any window or module does not
+have this word (it always should), apart from working very slowly,
+correction can behave strangely. However you can still
+avoid it by disabling the corresponding options.</font></p>
+<p><font face="Arial" size="2">When opening
+an include
+file from the node named <b>Includes</b>, in the Project
+Explorer, if it belongs to a reserved <b>include</b>
+folder,
+it will be open in read-only mode in order to avoid undesired
+changes (those files should not be modified). However, you
+will be able to modify it by pressing <b>Ctrl+Shift+F2</b>.</font></p>
+<p><font face="Arial" size="2"><br>
+<b>Context help</b></font></p>
+<p><font face="Arial" size="2">Easy code
+offers you
+some useful context help while typing, or by pressing some key
+combinations. This help can be customized according to the settings
+specified in the <b>Editor</b>
+tab of the "<a href="Settings.htm#editortab"><b>Tools--&gt;Settings</b></a>"
+menu.</font></p>
+<p><font face="Arial" size="2">After typing
+the "<b><font color="#ff0000">Call</font></b>",
+"<b><font color="#0000ff">Invoke</font></b>",
+"<b><font color="#800080">ECInvoke</font></b>",
+"<b><font color="#0000ff">stdcall</font></b>"
+or "<b><font color="#0000ff">fastcall</font></b>"
+word,
+plus a blank (<b>&lt;Space&gt;</b>
+or <b>&lt;Tab&gt;</b>
+keys), the editor displays
+a list box containing all API functions, Easy Code methods
+(only for visual projects) and existing procedures. That
+list box can be displayed at any time by pressing
+<b>Ctrl+I</b>.</font></p>
+<p><font face="Arial" size="2">After typing a
+colon
+character (<b>:</b>),
+a list box with all variable types and
+Windows structures will be displayed.</font></p>
+<p><font face="Arial" size="2">After typing
+any API
+function, Easy Code method (only for visual projects) or
+procedure name plus a comma, a window with the required
+parameters will be displayed.</font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2">Pressing <b>Ctrl+I</b>
+will display a list box containing
+all API functions, Easy Code methods (only in visual projects) and
+procedures.<br>
+</font><font face="Arial" size="2">Pressing <b>Ctrl+Shift+I</b>
+will display a list box containing all API constants.<br>
+</font><font face="Arial" size="2">Pressing <b>Ctrl+J</b>
+will display a list box containing all variables and constants in the
+window or module, or in the whole project (see <strong>REMARKS</strong>).<br>
+</font><font face="Arial" size="2">Pressing <b>Ctrl+Shift+J</b>
+will display a list box containing all identifiers (ID's) in the
+project.</font></font></p>
+<p><font face="Arial" size="2">Once you have
+found the
+needed name in the list box, you can insert its corresponding
+text into the editor by double-clicking on any item or, if an item is
+selected, by pressing the <b>&lt;Space&gt;</b>
+or <b>&lt;Enter&gt;</b>
+keys.</font></p>
+<p><font face="Arial"><font size="2"><b>REMARKS</b>:
+When pressing <b>Ctrl+J</b>
+for <b>classic projects</b>,
+a list
+box will be filled with all variables and constants in the project only
+if the <b>Make all variables
+global</b> option
+is enabled in the </font></font><a href="Project.htm#project1cla"><font face="Arial" size="2"><b>Project Properties</b></font></a><font face="Arial" size="2">. If not, only the variables
+and constants being
+in the same module will be displayed (those variables which are under
+scope). When pressing <b>Ctrl+J</b>
+for <b>visual projects</b>,
+a list box will be filled
+with all Easy Code constants plus all variables and constants from any
+module in the project (remember that in visual
+projects, modules are global to the whole project).</font></p>
+<p><font face="Arial"><font size="2"><b>WARNING</b>:
+In some old slow computers, the context help list box may take
+some time to be displayed.</font></font></p>
+<br>
+</body></html>

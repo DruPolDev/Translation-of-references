@@ -1,0 +1,42 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Loading a Symbol Module </TITLE><META NAME="MS-HAID" CONTENT="_win32_loading_a_symbol_module">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.loading_a_symbol_module"></A>Loading a Symbol Module</H1>
+<P>If an application does not call the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function with the <i>fInvadeProcess</i> parameter set to TRUE, it must load symbols for a module when they are required. To load a symbol module on demand, the application can call the 
+<A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A> function with a full path to a module name. When the module is loaded, the symbol handler will either load the symbols immediately or defer the load, depending on the options set using the 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function.</P>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P><p>The following code loads a symbol module. Note that it assumes you have initialized the symbol handler using the code in <A HREF="initializing_the_symbol_handler.htm">Initializing the Symbol Handler</A>.</p></P><DIV class="codeSnippet"><PRE xml:space="preserve">char  szImageName[MAX_PATH];
+DWORD64 dwBaseAddr;
+
+if (SymLoadModuleEx(hProcess, NULL, szImageName, NULL, 
+                    dwBaseAddr, 0, NULL, 0))
+{
+    // SymLoadModuleEx returned success
+}
+else
+{
+    // SymLoadModuleEx failed
+    error = GetLastError();
+    printf("SymLoadModuleEx returned error : %d\n", error);
+}</PRE></DIV>
+</DIV>
+<P>Note that <i>szImageName</i> can be a path to any executable module that has debugging information (.exe, .dll, .drv, .sys, .scr, .cpl, .com). Also, <i>dwBaseAddr</i> is the base address of the symbol module to be loaded. If this value is 0, the symbol handler will obtain the base address from the specified symbol module.</P>
+<H4>See Also</H4>
+<P><A HREF="unloading_a_symbol_module.htm">Unloading a Symbol Module</A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Loading a Symbol Module%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

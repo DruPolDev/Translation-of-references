@@ -1,0 +1,28 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Public, Global, and Local Symbols </TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.public__global__and_local_symbols"></A>Public, Global, and Local Symbols</H1>
+<p>The symbol handling capabilities of the DbgHelp API have evolved over the years. To ensure that your code works in a variety of  scenarios and provides full details on the symbols, use the newest functions whenever possible. For example, <A HREF="symenumsymbols.htm"><b>SymEnumSymbols</b></A> replaces <A HREF="symenumeratesymbols64.htm"><b>SymEnumerateSymbols64</b></A>, <A HREF="symfromname.htm"><b>SymFromName</b></A> replaces <A HREF="symgetsymfromname64.htm"><b>SymGetSymFromName64</b></A>, and <A HREF="symfromaddr.htm"><b>SymFromAddr</b></A> replaces <A HREF="symgetsymfromaddr64.htm"><b>SymGetSymFromAddr64</b></A>.</p>
+<H4><A NAME="public_symbols"></A>Public Symbols</H4>
+<P>Initial versions of DbgHelp.dll  supported examining only public symbols. These symbols are generated for any item in the code that must be exposed between different source files. They also include all items that are exported out of the module. </P>
+<P>The symbols are either embedded in the image, or stored separately in a .dbg or .pdb file. The only information stored is the symbol name and address. The names are available as decorated names. To view undecorated names, call the <A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function with SYMOPT_UNDNAME, or use the <A HREF="undecoratesymbolname.htm"><b>UnDecorateSymbolName</b></A> function.</P>
+<P>Note that the DbgHelp API was not initially designed to support multiple instances of the same symbol within a module. This is because public symbols are restricted to unique names within a module. Therefore, <b>SymGetSymFromName64</b> returns only the first symbol that matches. To retrieve all symbols that match, call <b>SymEnumSymbols</b>. </P>
+<H4><A NAME="global_and_local_symbols"></A>Global and Local Symbols</H4>
+<P>Newer versions of DbgHelp.dll support global and local symbols when using .pdb files. These new versions include static functions, functions scoped within a source file, function parameters, and local variables. When DbgHelp searches for a symbol, it checks the global and local symbol tables before checking the public symbol table. This is because there is more information available for these types of symbols than is available for public symbols.</P>
+<P>Global and local symbols are stored with undecorated names. Therefore, the SYMOPT_UNDNAME flag has no effect. To get decorated symbol names, you must use the SYMOPT_PUBLICS_ONLY flag. This causes DbgHelp to search only the public symbols. </P>
+<P>To view local symbols or function parameters, call  the <A HREF="symsetcontext.htm"><b>SymSetContext</b></A> function with the <b>InstructionOffset</b> member of the <A HREF="imagehlp_stack_frame_str.htm"><b>IMAGEHLP_STACK_FRAME</b></A> structure set to the address of any function symbol. Subsequent calls to <b>SymFromName</b> and <b>SymEnumSymbols</b> can operate within the context of this address. To do so, set the <i>BaseOfDll</i> parameter  to NULL and omit the module specifier from the <i>Name</i> or <i>Mask</i> parameter. This forces DbgHelp to search for matching symbols within the scope indicated by <b>SymSetContext</b>.</P>
+<P>To determine if a symbol is a parameter, check the <b>Flags</b> member of the <A HREF="symbol_info_str.htm"><b>SYMBOL_INFO</b></A> structure. If the symbol is a parameter, the member contains SYMFLAG_PARAMETER. If it is a local symbol, the member contains SYMFLAG_LOCAL.</P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Public, Global, and Local Symbols%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

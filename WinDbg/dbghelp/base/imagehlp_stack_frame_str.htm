@@ -1,0 +1,91 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGEHLP_STACK_FRAME Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_imagehlp_stack_frame_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagehlp_stack_frame_str"></A>IMAGEHLP_STACK_FRAME Structure</H1>
+<P><P>Contains the stack frame information. This structure is used with the 
+<A HREF="symsetcontext.htm"><b>SymSetContext</b></A> function.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGEHLP_STACK_FRAME {<br>  ULONG64 InstructionOffset;<br>  ULONG64 ReturnOffset;<br>  ULONG64 FrameOffset;<br>  ULONG64 StackOffset;<br>  ULONG64 BackingStoreOffset;<br>  ULONG64 FuncTableEntry;<br>  ULONG64 Params[4];<br>  ULONG64 Reserved[5];<br>  BOOL Virtual;<br>  ULONG Reserved2;
+} IMAGEHLP_STACK_FRAME, <br> *PIMAGEHLP_STACK_FRAME;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>InstructionOffset</B></DT>
+<DD><p>The program counter. 
+
+
+</p>
+<BLOCKQUOTE><B>x86:  </B>The program counter is EIP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>Intel IPF:  </B>The program counter is a combination of the bundle address and a slot indicator of 0, 4, or 8 for the slot within the bundle.</BLOCKQUOTE>
+<BLOCKQUOTE><B>x64:  </B>The program counter is RIP.</BLOCKQUOTE>
+</DD>
+<DT><B>ReturnOffset</B></DT>
+<DD><p>The return address.</p>
+</DD>
+<DT><B>FrameOffset</B></DT>
+<DD><p>The frame pointer. 
+
+
+</p>
+<BLOCKQUOTE><B>x86:  </B>The frame pointer is EBP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>Intel IPF:  </B>There is no frame pointer, but <b>AddrBStore</b> is used.</BLOCKQUOTE>
+<BLOCKQUOTE><B>x64:  </B>The frame pointer is RBP. AMD-64 does not always use this value.</BLOCKQUOTE>
+</DD>
+<DT><B>StackOffset</B></DT>
+<DD><p>The stack pointer. 
+
+
+</p>
+<BLOCKQUOTE><B>x86:  </B>The stack pointer is ESP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>Intel IPF:  </B>The stack pointer is SP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>x64:  </B>The stack pointer is RSP.</BLOCKQUOTE>
+</DD>
+<DT><B>BackingStoreOffset</B></DT>
+<DD><BLOCKQUOTE><B>Intel IPF:  </B>The backing store address.</BLOCKQUOTE>
+</DD>
+<DT><B>FuncTableEntry</B></DT>
+<DD><BLOCKQUOTE><B>x86:  </B>An 
+<A HREF="fpo_data_str.htm"><b>FPO_DATA</b></A> structure. If there is no function table entry, this member is NULL.</BLOCKQUOTE>
+</DD>
+<DT><B>Params</B></DT>
+<DD><p>The possible arguments to the function.</p>
+</DD>
+<DT><B>Reserved</B></DT>
+<DD><p>This member is reserved for system use.</p>
+</DD>
+<DT><B>Virtual</B></DT>
+<DD><p>If this is a virtual frame, this member is TRUE. Otherwise, this member is FALSE.</p>
+</DD>
+<DT><B>Reserved2</B></DT>
+<DD><p>This member is reserved for system use.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="symsetcontext.htm"><b>SymSetContext</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGEHLP_STACK_FRAME%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

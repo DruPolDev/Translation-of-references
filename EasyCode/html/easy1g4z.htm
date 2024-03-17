@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>ScrollBars property</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#004080" size="6">ScrollBars
+property</font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Window</b>, <b>MDIWindow</b>, <b>DialogBox</b>, <b>Edit</b>, <b>Picture</b> and <b>RichEdit</b> 
+objects.</font> </p>
+
+<p><b><font face="Arial" size="2">Read/Write 
+at design time<br></font>   </b><b><font face="Arial" 
+size=2>Read/Write at run time</font>   </b></p>
+
+<p><font face="Arial" size="2">Specifies whether an object has 
+scroll bars. It can be one of the following values:</font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><strong>0&nbsp; <font
+color=#800080>ecNone</font></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Object has no scroll bars (<b>default</b>)<br></font></font><font face="Arial"><font
+size=2><strong>1&nbsp; <font
+color=#800080>ecHorizontal</font> </strong>&nbsp;&nbsp;&nbsp;&nbsp;Object has a
+horizontal scroll bar<br></font></font><font face="Arial"><font
+size=2><strong>2&nbsp; <font
+color=#800080>ecVertical</font> </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Object has a vertical scroll bar<br></font></font><font face="Arial"><font
+size=2><strong>3&nbsp; <font
+color=#800080>ecBoth</font>
+</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object
+has both, horizontal and vertical scroll bars</font></font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>REMARKS</b>: Scroll bars created by this property have no handle, that is, they are not controls like <b>HScroll</b> and/or <b>VScroll</b> objects. When sending <b><font
+color=#000080>WM_HSCROLL</font></b> and <b><font
+color=#000080>WM_VSCROLL</font></b> messages to their parent, the <b>lParam</b> parameter is <b><font
+color=#000080>NULL</font></b>. On the other hand, when <b>HScroll</b> and <b>VScroll</b> objects send <b><font color="#000080">WM_HSCROLL</font></b> and <b><font color="#000080">WM_VSCROLL</font></b> messages to their parent, the <b>lParam</b> parameter is the handle to the control object
+sending the message.</font></font></p>
+
+<p><font face="Arial" size="2"></font>&nbsp;</p>
+
+</body>
+</html>

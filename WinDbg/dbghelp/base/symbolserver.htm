@@ -1,0 +1,88 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymbolServer Callback Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_symbolserver">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbolserver"></A>SymbolServer Callback Function</H1>
+<P><P>An entry point to the symbol server DLL. It is used to locate a symbol file. This function should not be called directly.</P>
+<P>The <b>PSYMBOLSERVERPROC</b> type defines a pointer to this callback function. 
+<b>SymbolServer</b> is a placeholder for the library-defined function name.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL CALLBACK SymbolServer(
+  [in]                 LPCSTR <I>params</I>,
+  [in]                 LPCSTR <I>filename</I>,
+  [in]                 PVOID <I>id</I>,
+  [in]                 DWORD <I>two</I>,
+  [in]                 DWORD <I>three</I>,
+  [out]                LPSTR <I>path</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>params</I></DT>
+<DD>
+<p>The server-specific information. This information is used to identify which store to use for locating symbols. For more information, see 
+<A HREF="symbol_servers_and_symbol_stores.htm">Symbol Servers and Symbol Stores</A>.</p>
+</DD>
+<DT><I>filename</I></DT>
+<DD>
+<p>The name of the symbol file to be returned. For the default symbol server, this name cannot include path information.</p>
+</DD>
+<DT><I>id</I></DT>
+<DD>
+<p>The first of three identifying parameters (see Remarks).</p>
+</DD>
+<DT><I>two</I></DT>
+<DD>
+<p>The second of three identifying parameters (see Remarks).</p>
+</DD>
+<DT><I>three</I></DT>
+<DD>
+<p>The third of three identifying parameters (see Remarks).</p>
+</DD>
+<DT><I>path</I></DT>
+<DD>
+<p>A pointer to a buffer that receives the fully qualified path to the symbol file. This buffer should be at least MAX_PATH bytes.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the server locates a valid symbol file, it returns TRUE; otherwise, it returns FALSE and 
+<b>GetLastError</b> returns a value that indicates why the symbol file was not returned.</P>
+<H4>Remarks</H4>
+<P><p>The identifying parameters are to be filled in as follows:</p>
+</P>
+<ul>
+<li>If DbgHelp is looking for a .dbg file, the <i>id</i> parameter contains the TimeDateStamp of the original image as found in its PE header. Parameter <i>two</i> contains the SizeOfImage field, also extracted from the PE header. Parameter <i>three</i> is unused and set to zero.</li>
+<li>If DbgHelp is looking for a .pdb file, the <i>id</i> parameter contains a pointer to the PDB GUID. Parameter <i>two</i> contains the PDB age. Parameter <i>three</i> is unused and set to zero.</li>
+<li>If DbgHelp is looking for any other type of image, such as an executable file, it is probably being called through the 
+<A HREF="symfindfileinpath.htm"><b>SymFindFileInPath</b></A> function. In this case, the parameters are opaque to DbgHelp. However, if this function is being used to retrieve an executable file, it is expected that the parameters will be filled in as for a .dbg file, using TimeDateStamp and the image size as parameters.</li>
+</ul>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="symfindfileinpath.htm"><b>SymFindFileInPath</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymbolServer%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

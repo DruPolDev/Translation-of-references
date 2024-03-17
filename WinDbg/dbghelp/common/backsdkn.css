@@ -1,0 +1,11 @@
+body,table     { font-family:Verdana,Sans-Serif; }
+h1,h2,h3,h4,h5 { font-weight:bold; font-size: 76%; font-family:Verdana,Tahoma,Sans-Serif; }
+h4,h5          { margin-top:3pt; }
+code           { font-family:"Lucida Sans Typewriter", Consolas, "Courier New", Courier, monospace; }
+pre            { font-family:"Lucida Sans Typewriter", Consolas, "Courier New", Courier, monospace; }
+img            { vertical-align:middle; }
+.indent1       { margin-left:12pt; }
+.indent2       { margin-left:24pt; }
+.indent3       { margin-left:36pt; }
+sub            { text-decoration:none;	vertical-align:sub;	font-family:"Small Fonts", Sans-Serif; }
+sup            { text-decoration:none;	vertical-align:super;	font-family:"Small Fonts", Sans-Serif; }

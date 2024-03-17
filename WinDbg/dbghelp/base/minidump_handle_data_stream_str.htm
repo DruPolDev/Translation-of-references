@@ -1,0 +1,56 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_HANDLE_DATA_STREAM Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_handle_data_stream_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_handle_data_stream_str"></A>MINIDUMP_HANDLE_DATA_STREAM Structure</H1>
+<P><P>Represents the header for a handle data stream.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_HANDLE_DATA_STREAM {<br>  ULONG32 SizeOfHeader;<br>  ULONG32 SizeOfDescriptor;<br>  ULONG32 NumberOfDescriptors;<br>  ULONG32 Reserved;
+} MINIDUMP_HANDLE_DATA_STREAM, <br> *PMINIDUMP_HANDLE_DATA_STREAM;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>SizeOfHeader</B></DT>
+<DD><p>The size of the header information for the stream, in bytes. This value is <CODE>sizeof(MINIDUMP_HANDLE_DATA_STREAM)</CODE>.</p>
+</DD>
+<DT><B>SizeOfDescriptor</B></DT>
+<DD><p>The size of a descriptor in the stream, in bytes. This value is <CODE>sizeof(MINIDUMP_HANDLE_DESCRIPTOR)</CODE> or <CODE>sizeof(MINIDUMP_HANDLE_DESCRIPTOR_2)</CODE>.</p>
+</DD>
+<DT><B>NumberOfDescriptors</B></DT>
+<DD><p>The number of descriptors in the stream.</p>
+</DD>
+<DT><B>Reserved</B></DT>
+<DD><p>Reserved for future use; must be zero.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>In this context, a data stream is a set of data in a minidump file. This header structure is followed by <b>NumberOfDescriptors</b> 
+<A HREF="minidump_handle_descriptor_str.htm"><b>MINIDUMP_HANDLE_DESCRIPTOR</b></A> or <A HREF="minidump_handle_descriptor_2.htm"><b>MINIDUMP_HANDLE_DESCRIPTOR_2</b></A> structures.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_handle_descriptor_str.htm"><b>MINIDUMP_HANDLE_DESCRIPTOR</b></A><BR><A HREF="minidump_handle_descriptor_2.htm"><b>MINIDUMP_HANDLE_DESCRIPTOR_2</b></A><BR><A HREF="minidump_stream_type.htm"><b>MINIDUMP_STREAM_TYPE</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_HANDLE_DATA_STREAM%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,155 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymFindFileInPath Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_symfindfileinpath">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symfindfileinpath"></A>SymFindFileInPath Function</H1>
+<P><P>Locates a symbol file or executable image.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL WINAPI SymFindFileInPath(
+  __in          HANDLE <I>hProcess</I>,
+  __in          PCTSTR <I>SearchPath</I>,
+  __in          PCTSTR <I>FileName</I>,
+  __in          PVOID <I>id</I>,
+  __in          DWORD <I>two</I>,
+  __in          DWORD <I>three</I>,
+  __in          DWORD <I>flags</I>,
+  __out         PTSTR <I>FilePath</I>,
+  __in          PFINDFILEINPATHCALLBACK <I>callback</I>,
+  __in          PVOID <I>context</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to the process that was originally passed to the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function.</p>
+</DD>
+<DT><I>SearchPath</I></DT>
+<DD>
+<p>The search path. This can be multiple paths separated by semicolons. It can include both directories and symbol servers. If this parameter is NULL, the function uses the search path set using the 
+<A HREF="symsetsearchpath.htm"><b>SymSetSearchPath</b></A> or <b>SymInitialize</b> function.</p>
+</DD>
+<DT><I>FileName</I></DT>
+<DD>
+<p>The name of the file. You can specify a path; however, only the file name is used.</p>
+</DD>
+<DT><I>id</I></DT>
+<DD>
+<p>The first of three identifying parameters (see Remarks).</p>
+</DD>
+<DT><I>two</I></DT>
+<DD>
+<p>The second of three identifying parameters (see Remarks).</p>
+</DD>
+<DT><I>three</I></DT>
+<DD>
+<p>The third of three identifying parameters (see Remarks).</p>
+</DD>
+<DT><I>flags</I></DT>
+<DD>
+<p>The format of the <i>id</i> parameter. This parameter can be one of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>SSRVOPT_DWORD<BR>0x0002</p>
+</TD>
+<TD width="60%"><p>The <i>id</i> parameter is a <b>DWORD</b>.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SSRVOPT_DWORDPTR<BR>0x0004</p>
+</TD>
+<TD width="60%"><p>The <i>id</i> parameter is a pointer to a <b>DWORD</b>.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SSRVOPT_GUIDPTR<BR>0x0008</p>
+</TD>
+<TD width="60%"><p>The <i>id</i> parameter is a pointer to a <b>GUID</b>.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><I>FilePath</I></DT>
+<DD>
+<p>A pointer to a buffer that receives the fully qualified path to the symbol file. This buffer must be at least MAX_PATH characters.</p>
+</DD>
+<DT><I>callback</I></DT>
+<DD>
+<p>A <A HREF="symfindfileinpathproc.htm"><b>SymFindFileInPathProc</b></A> callback function.</p>
+</DD>
+<DT><I>context</I></DT>
+<DD>
+<p>A user-defined value or NULL. This value is simply passed to the callback function. This parameter is typically used by an application to pass a pointer to a data structure that provides some context for the callback function.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the server locates a valid symbol file, it returns TRUE; otherwise, it returns FALSE and 
+<b>GetLastError</b> returns a value that indicates why the symbol file was not returned.</P>
+<H4>Remarks</H4>
+<P><p>The identifying parameters are filled in as follows:</p>
+</P>
+<ul>
+<li>If DbgHelp is looking for a .pdb file, the <i>id</i> parameter specifies the PDB signature as found in the codeview debug directory of the original image. Parameter <i>two</i> specifies the PDB age. Parameter <i>three</i> is unused and set to zero.</li>
+<li>If DbgHelp is looking for any other type of image, such as an executable file or .dbg file, the <i>id</i> parameter specifies the TimeDateStamp of the original image as found in its PE header. Parameter <i>two</i> specifies the SizeOfImage field, also extracted from the PE header. Parameter <i>three</i> is unused and set to zero.</li>
+</ul>
+<p>When searching a directory, this function does not verify that the symbol identifiers match by default. To ensure the matching symbol files are located, call the <A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function with SYMOPT_EXACT_SYMBOLS.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<p>To call the Unicode version of this function, define DBGHELP_TRANSLATE_TCHAR.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>SymFindFileInPathW</B> (Unicode) and <B>SymFindFileInPath</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="symfindfileinpathproc.htm"><b>SymFindFileInPathProc</b></A><BR><A HREF="syminitialize.htm"><b>SymInitialize</b></A><BR><A HREF="symsetsearchpath.htm"><b>SymSetSearchPath</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymFindFileInPath%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

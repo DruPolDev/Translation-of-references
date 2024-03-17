@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>FindCollectionExactItem method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">FindCollectionExactItem
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">FindCollectionExactItem</font> <font
+color="#0000FF">Proto</font></b> <b>hHandle<font color="#FF00FF">:</font><font
+color="#000080">HANDLE</font><font color="#FF00FF">,</font> lpszString<font color="#FF00FF">:</font><font
+color="#000080">LPSTR</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font> <font
+color="#800080">FindCollectionExactItem</font><font color="#FF00FF">,</font> hHandle<font color="#FF00FF">,</font>
+lpszString</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Finds the first string in a collection that exactly matches the specified
+string.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hHandle</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to the collection.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>lpszString</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the effective address of the null-terminated string
+to be searched for.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns the zero-based index for
+the item in the collection, or <b>-1</b> if the string was not found.</font></font></p></blockquote>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The <font color="#800080"><b>FindCollectionExactItem</b></font>
+method finds <b>lpszString</b> as a Unicode string if the application is running as Unicode, or as an ANSI string
+if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a> method). You can call <font
+color="#800080"><b>FindCollectionExactItemA</b></font> to find ANSI strings in Unicode applications, or <font
+color="#800080"><b>FindCollectionExactItemW</b></font> to find Unicode strings in ANSI applications.<br><br></font></p>
+
+</body>
+</html>

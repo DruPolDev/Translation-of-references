@@ -1,0 +1,87 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>ImageRvaToVa Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_imagervatova">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagervatova"></A>ImageRvaToVa Function</H1>
+<P><P>Locates a relative virtual address (RVA) within the image header of a file that is mapped as a file and returns the virtual address of the corresponding byte in the file.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+PVOID WINAPI ImageRvaToVa(
+  __in          PIMAGE_NT_HEADERS <I>NtHeaders</I>,
+  __in          PVOID <I>Base</I>,
+  __in          ULONG <I>Rva</I>,
+  __in_out      PIMAGE_SECTION_HEADER* <I>LastRvaSection</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>NtHeaders</I></DT>
+<DD>
+<p>A pointer to an 
+<A HREF="image_nt_headers_str.htm"><b>IMAGE_NT_HEADERS</b></A> structure. This structure can be obtained by calling the 
+<A HREF="imagentheader.htm"><b>ImageNtHeader</b></A> function.</p>
+</DD>
+<DT><I>Base</I></DT>
+<DD>
+<p>The base address of an image that is mapped into memory through a call to the 
+<b>MapViewOfFile</b> function.</p>
+</DD>
+<DT><I>Rva</I></DT>
+<DD>
+<p>The relative virtual address to be located.</p>
+</DD>
+<DT><I>LastRvaSection</I></DT>
+<DD>
+<p>A pointer to an 
+<A HREF="image_section_header_str.htm"><b>IMAGE_SECTION_HEADER</b></A> structure that specifies the last RVA section. This is an optional parameter. When specified, it points to a variable that contains the last section value used for the specified image to translate an RVA to a VA.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is the virtual address in the mapped file.</P>
+<P>If the function fails, the return value is NULL. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>ImageRvaToVa</b> function locates an RVA within the image header of a file that is mapped as a file and returns the virtual address of the corresponding byte in the file.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="image_nt_headers_str.htm"><b>IMAGE_NT_HEADERS</b></A><BR><A HREF="image_section_header_str.htm"><b>IMAGE_SECTION_HEADER</b></A><BR><A HREF="imagentheader.htm"><b>ImageNtHeader</b></A><BR><b>MapViewOfFile</b></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20ImageRvaToVa%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

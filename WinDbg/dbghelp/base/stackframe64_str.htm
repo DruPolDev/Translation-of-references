@@ -1,0 +1,102 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>STACKFRAME64 Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_stackframe64_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.stackframe64_str"></A>STACKFRAME64 Structure</H1>
+<P><P>Represents a stack frame.</P>
+<P>This structure supersedes the <A><b>STACKFRAME</b></A> structure. For more information, see 
+<A HREF="updated_platform_support.htm">Updated Platform Support</A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _tagSTACKFRAME64 {<br>  ADDRESS64 AddrPC;<br>  ADDRESS64 AddrReturn;<br>  ADDRESS64 AddrFrame;<br>  ADDRESS64 AddrStack;<br>  ADDRESS64 AddrBStore;<br>  PVOID FuncTableEntry;<br>  DWORD64 Params[4];<br>  BOOL Far;<br>  BOOL Virtual;<br>  DWORD64 Reserved[3];<br>  KDHELP64 KdHelp;
+} STACKFRAME64, <br> *LPSTACKFRAME64;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>AddrPC</B></DT>
+<DD><p>An 
+<A HREF="address64_str.htm"><b>ADDRESS64</b></A> structure that specifies the program counter. 
+
+
+</p>
+<BLOCKQUOTE><B>x86:  </B>The program counter is EIP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>Intel IPF:  </B>The program counter is StIIP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>x64:  </B>The program counter is RIP.</BLOCKQUOTE>
+</DD>
+<DT><B>AddrReturn</B></DT>
+<DD><p>An 
+<A HREF="address64_str.htm"><b>ADDRESS64</b></A> structure that specifies the return address.</p>
+</DD>
+<DT><B>AddrFrame</B></DT>
+<DD><p>An 
+<A HREF="address64_str.htm"><b>ADDRESS64</b></A> structure that specifies the frame pointer. 
+
+
+</p>
+<BLOCKQUOTE><B>x86:  </B>The frame pointer is EBP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>Intel IPF:  </B>There is no frame pointer, but <b>AddrBStore</b> is used.</BLOCKQUOTE>
+<BLOCKQUOTE><B>x64:  </B>The frame pointer is RBP or RDI. This value is not always used.</BLOCKQUOTE>
+</DD>
+<DT><B>AddrStack</B></DT>
+<DD><p>An 
+<A HREF="address64_str.htm"><b>ADDRESS64</b></A> structure that specifies the stack pointer. 
+
+
+</p>
+<BLOCKQUOTE><B>x86:  </B>The stack pointer is ESP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>Intel IPF:  </B>The stack pointer is SP.</BLOCKQUOTE>
+<BLOCKQUOTE><B>x64:  </B>The stack pointer is RSP.</BLOCKQUOTE>
+</DD>
+<DT><B>AddrBStore</B></DT>
+<DD><BLOCKQUOTE><B>Intel IPF:  </B>An 
+<A HREF="address64_str.htm"><b>ADDRESS64</b></A> structure that specifies the backing store (RsBSP).</BLOCKQUOTE>
+</DD>
+<DT><B>FuncTableEntry</B></DT>
+<DD><p>On x86 computers, this member is an 
+<A HREF="fpo_data_str.htm"><b>FPO_DATA</b></A> structure. If there is no function table entry, this member is NULL.</p>
+</DD>
+<DT><B>Params</B></DT>
+<DD><p>The possible arguments to the function.</p>
+</DD>
+<DT><B>Far</B></DT>
+<DD><p>This member is TRUE if this is a WOW far call.</p>
+</DD>
+<DT><B>Virtual</B></DT>
+<DD><p>This member is TRUE if this is a virtual frame.</p>
+</DD>
+<DT><B>Reserved</B></DT>
+<DD><p>This member is used internally by the 
+<A HREF="stackwalk64.htm"><b>StackWalk64</b></A> function.</p>
+</DD>
+<DT><B>KdHelp</B></DT>
+<DD><p>A 
+<A HREF="kdhelp64_str.htm"><b>KDHELP64</b></A> structure that specifies helper data for walking kernel callback frames.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="address64_str.htm"><b>ADDRESS64</b></A><BR><A HREF="fpo_data_str.htm"><b>FPO_DATA</b></A><BR><A HREF="image_function_entry_str.htm"><b>IMAGE_FUNCTION_ENTRY</b></A><BR><A HREF="kdhelp64_str.htm"><b>KDHELP64</b></A><BR><A HREF="stackwalk64.htm"><b>StackWalk64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20STACKFRAME64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Symbol Paths </TITLE><META NAME="MS-HAID" CONTENT="_win32_symbol_paths">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbol_paths"></A>Symbol Paths</H1>
+<P>The library uses the symbol search path to locate debug symbols (.dbg file) for .dll, .exe, and .sys files by appending "\symbols" and "\dll" or "\exe" or "\sys" to the path. For example, the typical location of symbol files for .dll files is c:\mysymbols\symbols\dll. For .exe files, the location is c:\mysymbols\symbols\exe.</P>
+<P>To specify where the symbol handler will search disk directories for symbol files, call the 
+<A HREF="symsetsearchpath.htm"><b>SymSetSearchPath</b></A> function. Alternatively, you can specify a symbol search path in the <i>UserSearchPath</i> parameter of the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function.</P>
+<P>The <i>UserSearchPath</i> parameter in 
+<b>SymInitialize</b> and the <i>SearchPath</i> parameter in 
+<b>SymSetSearchPath</b> take a pointer to a null-terminated string that specifies a path, or series of paths separated by a semicolon. The symbol handler uses these paths to search for symbol files. If this parameter is specified as a non-null value, the symbol handler searches only the paths set by the application. If this parameter is NULL, the symbol handler first searches the current working directory of the application, then the system root directory (%windir%). If you set the _NT_SYMBOL_PATH or _NT_ALT_SYMBOL_PATH environment variable, the symbol handler searches for symbol files in the following order:</P>
+<ol>
+<li>The current working directory of the application.</li>
+<li>The _NT_SYMBOL_PATH environment variable.</li>
+<li>The _NT_ALT_SYMBOL_PATH environment variable.</li>
+</ol>
+<P>To retrieve the search paths, call the 
+<A HREF="symgetsearchpath.htm"><b>SymGetSearchPath</b></A> function.</P>
+<P>The search path for program database (.pdb) files is different than the path for debug (.dbg) files. The algorithm is determined by the functionality of the symbol library. By default, Microsoft Visual C/C++ creates Microsoft format symbols, strips them from the image, and places them in a separate .pdb file. Typically, the .pdb file will be located in the directory that contains the executable image. Visual C/C++ embeds the absolute path to the .pdb file in the executable image. If the symbol handler cannot find the .pdb file in that location or if the .pdb file was moved to another directory, the symbol handler will locate the .pdb file using the search path described for .dbg files.</P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Symbol Paths%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

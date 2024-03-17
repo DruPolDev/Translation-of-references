@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>SetWaitCursor method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">SetWaitCursor
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">SetWaitCursor</font></b> <b><font
+color="#0000FF">Proto</font></b> <b>hWnd<font color="#FF00FF">:</font><font
+color="#000080">HWND</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font></b> <b><font
+color="#800080">SetWaitCursor</font><font color="#FF00FF">,</font>
+hWnd</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Changes the cursor shape to an hourglass and captures the
+mouse.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to the object which will capture the
+mouse.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size=2>None</font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>REMARKS</b>: You should call this method while performing a task
+which may last for a certain period of time, so that the hourglass mouse pointer warns the user that he/she
+has to wait. As the method makes the object (<b>hWnd</b>) to capture the mouse, you must call </font></font><a
+href="easy7v76.htm"><font face="Arial" size=2><b>SetDefautCursor</b></font></a><font face="Arial" size="2">
+after performing the task, so that the mouse is released. If not, it will remain captured and you will loose
+all mouse control on your application.</font></p>
+
+<p><font face="Arial"><font size="2"><b>IMPORTANT</b>: Each call to this method must match a call to
+</font></font><a href="easy7v76.htm"><font face="Arial" size=2><b>SetDefautCursor</b></font></a><font
+face="Arial" size="2">.<br><br></font></p>
+
+</body>
+</html>

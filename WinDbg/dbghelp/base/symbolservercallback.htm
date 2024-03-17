@@ -1,0 +1,101 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymbolServerCallback Callback Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_symbolservercallback">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbolservercallback"></A>SymbolServerCallback Callback Function</H1>
+<P><P>An entry point to the symbol server DLL.</P>
+<P>The <b>PSYMBOLSERVERCALLBACKPROC</b> type defines a pointer to this callback function. 
+<b>SymbolServerCallback</b> is a placeholder for the library-defined function name.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL CALLBACK SymbolServerCallback(
+                       UINT_PTR <I>action</I>,
+                       ULONG64 <I>data</I>,
+                       ULONG64 <I>context</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>action</I></DT>
+<DD>
+<p>The action code. This parameter can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>SSRVACTION_EVENT<BR>3</p>
+</TD>
+<TD width="60%"><p>Provide debug trace information. The <i>data</i> parameter is a pointer to an <A HREF="imagehlp_cba_event_str.htm"><b>IMAGEHLP_CBA_EVENT</b></A> structure.</p>
+<BLOCKQUOTE><B>DbgHelp 6.0 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SSRVACTION_QUERYCANCEL<BR>2</p>
+</TD>
+<TD width="60%"><p>Cancel the file copy. The <i>data</i> parameter is a <b>ULONG64</b> value. If this value is zero, continue the operation. Otherwise, cancel the operation.</p>
+<BLOCKQUOTE><B>DbgHelp 6.0 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SSRVACTION_SIZE<BR>5</p>
+</TD>
+<TD width="60%"><p>TBD</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SSRVACTION_TRACE<BR>1</p>
+</TD>
+<TD width="60%"><p>Provide debug trace information. The <i>data</i> parameter is a text string.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><I>data</I></DT>
+<DD>
+<p>The format of this parameter depends on the value of the <i>action</i> parameter.</p>
+</DD>
+<DT><I>context</I></DT>
+<DD>
+<p>The context information provided by calling <A HREF="symbolserversetoptions.htm"><b>SymbolServerSetOptions</b></A> with SSRVOPT_SETCONTEXT.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<p>To indicate success, return TRUE.</p>
+<P>To indicate failure, return FALSE and call the 
+<b>SetLastError</b> function to indicate an error condition. If you do not handle a particular action code, you should also return FALSE. (Returning TRUE in this case may have unintended consequences.)</P>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp
+		  Functions</A><BR><A HREF="imagehlp_cba_event_str.htm"><b>IMAGEHLP_CBA_EVENT</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymbolServerCallback%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

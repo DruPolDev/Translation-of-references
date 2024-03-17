@@ -1,0 +1,597 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Меню настроек</title>
+
+</head>
+<body style="COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,255)"    >
+<p><b><font color="#004080" face="Arial" size="6">Меню&nbsp;настроек -
+конфигурация Easy Code</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Each assembler
+must have its
+corresponding ".cfg" file (<b>Fasm.cfg</b>, <b>Fasm64.cfg</b>,
+<b>GoAsm.cfg</b>, <b>GoAsm64.cfg</b>, etc.) in
+the
+<b>EasyCode\Config</b> folder. but when you download Easy
+Code 2 there is no ".cfg" file. Instead there is a file
+with extension ".ori" (<b>ori</b>-ginal) for each assembler
+configuration, as a reference for you to have an idea of what
+to configure. Those files contain, among other values, the
+paths and command line options for each assembler, linker,
+resource and library compilers, and for each project type.
+Once again, all paths are referred to the root of drive C:\
+for simplicity, but as said before they should be in any other drive
+or path. You just have to take into account the paths where
+you have the corresponding tools and set the right path for each
+tool in the <A href="Settings.htm#projectpaths"><b>Paths
+and
+command line options</b></a>, as we will see later on in
+this
+section. <b>Once again, using the system drive C: IS NOT
+recommended, specially on Window 8.1, Windows 10 and Windows 11, because
+of the permissions restriction.</b><br>
+<br>
+<font color="#000080"><b>When Easy Code starts, it
+checks whether each
+"ori" file has its "cfg" equivalent file. If the "cfg" file already
+exists nothing happens, if not, it makes a copy of the "ori" file
+but with the "cfg" extension. Doing so makes "ori" files always
+remain unchanged and avoids ".cfg" files to be created more than
+once (overwritten). If you already ran Easy Code, you can see the
+".cfg" files in the "EasyCode\Config" folder.</b></font></font></p>
+<p><font face="Arial" size="2"><br>
+The <b>Settings</b> section is
+available through the <b>Tools--&gt;Settings</b> menu
+and it
+displays the following window:</font></p>
+<p><a name="generaltab"><font face="Arial" size="2"><br>
+<strong>General </strong>Tab</font></a></p>
+<p><a name="generaltab"><font face="Arial" size="2"><font size="1"><font style="BACKGROUND-COLOR: rgb(255,255,255)" ><font size="2"><font style="BACKGROUND-COLOR: rgb(255,255,255)" ><IMG border=0 hspace=0 src="Settings1.gif" width=538 height=399></font></font></font></font></font></a></p>
+<ul>
+<a name="generaltab"> <li>
+<div><font face="Arial" size="2"><b>Show
+grid on
+window objects</b>: Specifies whether a grid is shown
+on each window object</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Align
+controls
+to grid</b>: Specifies whether controls have to be
+aligned to grid</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Show
+window
+asking for project type when starting application</b>:
+Specifies whether a window asking for a new project
+type is shown when Easy Code is started with no project
+in its command line</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Show
+output
+window only when errors occur</b>: Specifies whether
+the Output window is only shown when errors occur at
+compile/link time</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Auto
+save
+project every (minutes)</b>: Specifies the period
+of time (in minutes) in which the project will be
+automatically saved. A value of <b>0</b> (default)
+means that "auto save" is disabled</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Application
+priority</b>: Sets the application priority to
+Normal (default), High or Low.</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Default
+configuration for new projects</b>: Specifies the
+default configuration to be selected when creating
+a new project.</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Sound
+for
+a successful operation</b>: Specifies which sound
+(or none) will be played for a successful
+operation</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Sound
+for
+a failed operation</b>: Specifies which sound
+(or none) will be played for a failed
+operation</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Language</b>:
+Sets the language for the application.</font></div>
+<li>
+<div><font face="Arial" size="2"><b>Restore
+settings to default values</b>: Restores all
+previous settings to their default values</font></div>
+</a></LI>
+</ul>
+<p><a name="generaltab"><br>
+</a><a name="editortab"></a><br>
+<font face="Arial" size="2"><strong>Editor
+</strong>Tab</font></p>
+<p><IMG border=0 hspace=0 src="Settings2.gif" width=538 height=399></p>
+<p><font face="Arial" size="2">Several
+options
+allow you to customize the editor and the Easy Code panels
+(Project Explorer, Properties Window and Output Window).</font></p>
+<p><font face="Arial"><font size="2"><b>Colors</b></font></font></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Editor
+background</font></div>
+<li>
+<div><font face="Arial" size="2">Text
+foreground</font></div>
+<li>
+<div><font face="Arial" size="2">Selected
+text background</font></div>
+<li>
+<div><font face="Arial" size="2">Selected
+text foreground</font></div>
+<li>
+<div><font face="Arial" size="2">Selection
+bar background</font></div>
+<li>
+<div><font face="Arial" size="2">Selection
+bar foreground</font></div>
+<li>
+<div><font face="Arial" size="2">Cursor
+line background</font></div>
+<li>
+<div><font face="Arial" size="2">Locked
+text background</font></div>
+<li>
+<div><font face="Arial" size="2">Double
+quoted text</font></div>
+<li>
+<div><font face="Arial" size="2">Single
+quoted text</font></div>
+<li>
+<div><font face="Arial" size="2">Commented
+text</font></div>
+<li>
+<div><font face="Arial" size="2">Numbers</font></div>
+<li>
+<div><font face="Arial" size="2">Operators
+/ Separators</font></div>
+<li>
+<div><font face="Arial" size="2">Macros</font></div>
+<li>
+<div><font face="Arial" size="2">API
+functions</font></div>
+<li>
+<div><font face="Arial" size="2">API
+constants</font></div>
+<li>
+<div><font face="Arial" size="2">API
+structures</font></div>
+<li>
+<div><font face="Arial" size="2">Easy
+Code reserved words</font></div>
+<li>
+<div><font face="Arial" size="2">Right
+margin</font></div>
+<li>
+<div><font face="Arial" size="2">Easy
+Code
+panels background</font></div>
+<li>
+<div><font face="Arial" size="2">Easy
+Code
+panels foreground</font></div>
+</li>
+</ul>
+<p><b><font face="Arial"><font size="2">Font</font></font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Changes
+the name, type and
+size of the font</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Automatic
+indentation</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">When
+pressing the
+&lt;<b>Enter</b>&gt; key, the next line is properly
+indented</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Autocomplete
+Procs, Macros
+and Structures</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Autocomplets
+the whole
+block for procedures, macros and structures</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Context
+help for variables
+and constants</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">When the
+mouse pointer
+is over a variable or a constant, displays a window showing
+its type or value</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Context
+help for functions
+and macros</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">When
+typing a comma
+character after a function (or procedure) name, displays
+its complete prototype. It also displays
+the required arguments for macros</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Context
+help for
+structures (not yet implemented)</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">When
+typing a dot
+character after a structure name, displays a window
+showing all its members. <b>This feature is not yet implemented</b></font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Highlight
+API constants
+and structures</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Highlights
+the
+names of API constants and structures (may take some
+time in slow computers)</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Convert
+tabs to
+spaces</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Converts
+tabulation
+characters to spaces. The number of spaces is specified
+by the <b>Tabulation size</b> option</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Hide
+selected
+text</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Hides
+the selected
+text when the editor does not have the focus</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Show
+collapse
+buttons</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Shows/hides
+the
+collapse/expand buttons</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Show
+line
+numbers</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Shows/hides
+the line
+numbers in the selection bar</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Show
+selection
+bar</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Shows/hides
+the
+selection bar</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Draw
+line after
+EndP / EndM / EndS</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Draws a
+line
+after EndP / EndF / EndM / EndS</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Draw
+vertical lines
+in tab positions</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Draws a
+vertical
+line in each tab position</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Tabulation
+size
+(in spaces):</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Sets the
+number
+of spaces for a <b>&lt;Tab&gt;</b> character</font></div>
+</li>
+</ul>
+<p><b><font face="Arial" size="2">Right
+Margin:</font></b></p>
+<ul>
+<li>
+<div><font face="Arial" size="2">Specifies
+whether the right margin will be
+drawn, its style (solid or dashed) and
+the column where it has to be drawn</font></div>
+</li>
+</ul>
+<p><font face="Arial" size="2"><br>
+<b>REMARKS</b>: The editor may scrolls slowly
+in old computers. If so, try to uncheck the
+<b>Highlight API constants and
+structures</b> option.</font></p>
+<p><br>
+<a name="syntaxtab"></a><br>
+<font face="Arial" size="2"><strong>Syntax</strong>
+Tab</font></p>
+<p><IMG border=0 hspace=0 src="Settings3.gif" width=538 height=399></p>
+<p><font face="Arial" size="2">Here you can
+specify whether
+(and how) the syntax for different keywords will be
+converted.<br>
+<blockquote><b>Compiler</b>
+<blockquote>Checking the <b>Default
+conversion</b> option (recommended) means that compiler keywords
+will be converted to the same syntax as they have in their
+corresponding configuration file.</blockquote>
+<b>API functions,
+constants and structures</b>
+<blockquote>Checking the <b>Convert
+to API case</b> option (recommended) will convert all API names
+to their right syntax.</blockquote>
+<b>Convert procedures,
+macros, structs and variable names</b>
+<blockquote>Checking
+this option (recommended) will convert all mentioned
+names to their right syntax.</blockquote>
+<b>Enable
+syntax hightlighting</b>
+<blockquote>Specifies whether keywords
+will be highlighted or not.</blockquote>
+<b>Beautify syntax</b>
+<blockquote>Specifies
+whether Easy Code adds or removes blanks to beautify the
+syntax.</blockquote>
+</blockquote>
+</font>
+<P></P>
+<p><br>
+<a name="configtab"></a><br>
+<font face="Arial" size="2"><strong>Configurations</strong>
+Tab</font></p>
+<p><IMG border=0 hspace=0 src="Settings4.gif" width=538 height=402></p>
+<p><font face="Arial" size="2">The <b>Configurations</b>
+tab
+is the most important part of the whole settings, as it is
+where all assembler configurations are properly set in order
+to work fine and without errors.<br>
+<br>
+The <b>Configuration</b>
+combo box selects the configuration to be inspected
+or modified. Once a configuration is selected, you can choose
+the text encoding in the <b>Text encoding</b> combo box.
+ANSI text is the default value (recommended) and does not
+affect to the <A href="ECEditor.htm"><b>code editor</b></a>,
+which <b>always works in Unicode mode</b>, but you can
+choose
+any other encoding method if you like, <b>ONLY IF</b> it
+is supported by the
+corresponding compiler. Otherwise, errors will be fired when
+compiling the source code and the project will not be built.
+<br>
+<br>
+On the other hand, there are ten groups of different
+colours where you can add or remove keywords (keywords
+coming by default are the ones supported by the compiler being
+configured) taking into account that keywords will be
+highlighted with the colour of the group they are included in (
+of course you can change the colour of each group at your
+own).<br>
+<br>
+<b>IMPORTANT</b>: When new keywords have to be added to one
+or more configuration files (<b>.cfg</b>), Easy Code will
+include those new keywords in the corresponding <b>.ori</b>
+files. The <b>.ori</b> files are distributed with Easy
+Code
+and <b>ALWAYS</b> must be in the <b>Config</b>
+subfolder. If
+there are new keywords for the selected <b>Group</b> of
+the
+selected <b>Configuration</b>, the <b>Update</b>
+button will
+be enabled so that you can update the corresponding
+<b>Configuration</b> file (<b>.cfg</b>),
+otherwise the
+<b>Update</b> button will be disabled. When you click the
+<b>Update</b> button the new keyword(s) will be added to
+the
+corresponding <b>Group</b> and they will appear at the end
+of
+the keywords list box, which will enable the <b>OK</b> and
+<b>Apply</b> buttons. Finally, by clicking any of those two
+buttons, the new keywords will be added to the corresponding
+<b>Group</b> of the corresponding <b>Configuration</b>
+file
+(<b>.cfg</b>) without modifying anything else.<br>
+<br>
+Now you have to specify the right paths for
+the assembler you are configuring. If there is any project loaded
+please close it, then click on the
+<b>Paths and command line options</b> button and the
+following window will be shown:</font></p>
+<p><a name="projectpaths"><IMG border=0 hspace=0 src="Paths.gif" width=556 height=423></a></p>
+<p><font face="Arial" size="2">It is highly
+recommended to have
+no project loaded while setting the paths and command line
+options shown in the window above for any of the assemblers
+you are configuring.</font></p>
+<p><a name="projectpaths"><font face="Arial" size="2">As you
+can see in the window above, all wrong paths are painted in
+red colour (in the window above all paths are red-coloured
+because I have all those tools in drive <b>G:</b>). Now
+please
+enter the right paths for the required files and remember that
+all non-existing (wrong) paths will be painted in red colour.
+It is important that you have the tools specified for each
+assembler, you just have to set the path where you have
+installed them and, if possible, in any other drive <b>not</b>
+being the system drive <b>C:</b>.<br>
+<br>
+<b>REMARKS:</b> To set the right paths is an essential step
+in order to be able to build projects easily and without
+errors.<br>
+<br>
+The essential paths (not
+optional) you have to set in order to build all
+project types, are those labeled as:
+<ul>
+<li>
+<b>Compiler</b>
+<br>
+<li><b>Linker</b>
+<br>
+<li><b>Linker for drivers</b> (only 
+  needed for JWasm and JWasm64 configurations, it should be set to the 
+  Microsoft's "link.exe" path. No matter whether it is set or not for other 
+  configurations 
+<br>
+<li><b>Resource compiler</b>
+<br>
+<li><b>Library compiler</b> (only needed for
+building ".lib" projects.
+Fasm and GoAsm cannot build library files, so Fasm, Fasm64, GoAsm
+and GoAsm64 configurations do not need that path
+</li>
+</ul>
+<ul>
+<li>
+<b>Include files folder</b>
+<br>
+<li><b>Library files folder</b> (although Fasm and
+GoAsm do
+not use library
+files, Fasm, Fasm64, GoAsm and GoAsm64 configurations also need this
+path
+for
+visual projects). Set this path to <b>\Masm32\Lib</b> for
+32-bit
+configurations and to <b>\EasyCode\Lib\x64</b> for 64-bit
+configurations
+</li>
+</ul>
+<br>
+<b>All other paths are optional</b>.<br>
+<br>
+Once you have entered all
+the required paths, you can click on the <b>Options</b>
+tab
+and the following window will be shown:</font></a>
+<P></P>
+<p><a name="projectpaths"><IMG border=0 hspace=0 src="Options.gif" width=556 height=423></a></p>
+<p><a name="projectpaths"><font face="Arial" size="2">You can have a look if
+you like at the commmand line options for the compiler,
+linker and resource and library compilers, both Debug and
+Release modes, <b>but it is highly recommended NOT TO MODIFY
+any command line option at this time</b>.<br>
+<br>
+Please save this
+configuration by clicking on the <b>OK</b> button. Now you
+may want to repeat the same steps for all other configurations, but
+it would be better trying to build the examples for the
+assembler you just have configured (recommended).</font></a></p>
+<p><a name="projectpaths"><br>
+</a></p>
+<p><a name="projectpaths"><font face="Arial" size="2"><strong>Tools</strong>
+Tab</font></a></p>
+<p><a name="projectpaths"><IMG border=0 hspace=0 src="Settings5.gif" width=538 height=399></a><br>
+<br>
+<font face="Arial" size="2">Here you can specify
+the path
+for:</font></p>
+<ul>
+<a name="projectpaths"> <li>
+<div><font face="Arial" size="2">An image
+editor in order to
+edit bitmaps, icons or
+cursors</font></div>
+<li>
+<div><font face="Arial" size="2">The
+Win32 help. It will be
+started when pressing
+<b>Ctrl+W</b></font></div>
+<li>
+<div><font face="Arial" size="2">A
+debugger program. This
+debugger can be different for each configuration,
+so it cannot be set if there is no project
+loaded. The debugger will be started
+when pressing the <b>F5</b>
+key (only for executable file projects)</font></div>
+<li>
+<div><font face="Arial" size="2">A
+calculator program
+(Windows <b>calc.exe</b> by
+default)</font></div>
+<li>
+<div><font face="Arial" size="2">A text
+editor program
+(Windows <b>notepad.exe</b> by
+default)</font></div>
+</a></LI>
+</ul>
+<p><br>
+<a name="helptab"></a><br>
+<font face="Arial" size="2"><strong>Help</strong>
+Tab - Configuring other help files</font></p>
+<p><IMG border=0 hspace=0 src="Settings6.gif" width=538 height=399></p>
+<p><font face="Arial" size="2">In the <b>Help</b>
+tab you can
+define up to six other help files (for opcodes, FPU,
+MMX, etc.). By double-clicking on a label (<b>Help
+#1</b>, <b>Help #2</b>, etc.) you will be able to
+change its caption according to the related file to be
+launched. The text for each label will be shown in
+the corresponding item of the <b>Help</b> menu.<br>
+<br>
+<b>REMARKS</b>: Each entry can specify the path to a
+help file, or a web address (URL). Both, file or URL
+will be printed in red colour if they are wrong. To
+determine whether a path conforms to a valid URL format
+or not, the <font color="#800000"><b>PathIsURL</b></font>
+API function is called.</font></p>
+<font face="Arial" size="2"><br>
+</font>
+</body></html>

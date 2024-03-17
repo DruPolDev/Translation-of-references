@@ -1,0 +1,200 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>ImageDirectoryEntryToData Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_imagedirectoryentrytodata">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagedirectoryentrytodata"></A>ImageDirectoryEntryToData Function</H1>
+<P><P>Obtains access to image-specific data.</P>
+<P>This function has been superseded by the 
+<A HREF="imagedirectoryentrytodataex.htm"><b>ImageDirectoryEntryToDataEx</b></A> function. Use 
+<b>ImageDirectoryEntryToDataEx</b> to retrieve the section header.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+PVOID WINAPI ImageDirectoryEntryToData(
+  __in          PVOID <I>Base</I>,
+  __in          BOOLEAN <I>MappedAsImage</I>,
+  __in          USHORT <I>DirectoryEntry</I>,
+  __out         PULONG <I>Size</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>Base</I></DT>
+<DD>
+<p>The base address of the image.</p>
+</DD>
+<DT><I>MappedAsImage</I></DT>
+<DD>
+<p>If this parameter is TRUE, the file is mapped by the system as an image. If the flag is FALSE, the file is mapped as a data file by the 
+<b>MapViewOfFile</b> function.</p>
+</DD>
+<DT><I>DirectoryEntry</I></DT>
+<DD>
+<p>The index number of the desired directory entry. This parameter can be one of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_ARCHITECTURE<BR>7</p>
+</TD>
+<TD width="60%"><p>Architecture-specific data</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_BASERELOC<BR>5</p>
+</TD>
+<TD width="60%"><p>Base relocation table</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT<BR>11</p>
+</TD>
+<TD width="60%"><p>Bound import directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR<BR>14</p>
+</TD>
+<TD width="60%"><p>COM descriptor table</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_DEBUG<BR>6</p>
+</TD>
+<TD width="60%"><p>Debug directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT<BR>13</p>
+</TD>
+<TD width="60%"><p>Delay import table</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_EXCEPTION<BR>3</p>
+</TD>
+<TD width="60%"><p>Exception directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_EXPORT<BR>0</p>
+</TD>
+<TD width="60%"><p>Export directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_GLOBALPTR<BR>8</p>
+</TD>
+<TD width="60%"><p>The relative virtual address of global pointer</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_IAT<BR>12</p>
+</TD>
+<TD width="60%"><p>Import address table</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_IMPORT<BR>1</p>
+</TD>
+<TD width="60%"><p>Import directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG<BR>10</p>
+</TD>
+<TD width="60%"><p>Load configuration directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_RESOURCE<BR>2</p>
+</TD>
+<TD width="60%"><p>Resource directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_SECURITY<BR>4</p>
+</TD>
+<TD width="60%"><p>Security directory</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_DIRECTORY_ENTRY_TLS<BR>9</p>
+</TD>
+<TD width="60%"><p>Thread local storage directory</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><I>Size</I></DT>
+<DD>
+<p>A pointer to a variable that receives the size of the data for the directory entry, in bytes.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is a pointer to the directory entry's data.</P>
+<P>If the function fails, the return value is NULL. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>ImageDirectoryEntryToData</b> function is used to obtain access to image-specific data.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="imagedirectoryentrytodataex.htm"><b>ImageDirectoryEntryToDataEx</b></A><BR><b>MapViewOfFile</b></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20ImageDirectoryEntryToData%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

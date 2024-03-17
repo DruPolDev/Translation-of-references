@@ -1,0 +1,31 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Symbol Servers and Symbol Stores </TITLE><META NAME="MS-HAID" CONTENT="_win32_symbol_servers_and_symbol_stores">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbol_servers_and_symbol_stores"></A>Symbol Servers and Symbol Stores</H1>
+<P>To set up symbols correctly for debugging can be a challenging task, particularly for kernel debugging. It often requires that you know the names and releases of all products on your computer. The debugger must be able to locate the symbol files that correspond to each product release and service pack. This can result in an extremely long symbol path consisting of a long list of directories.</P>
+<P>To simplify these difficulties in coordinating symbol files, use the <I>symbol server</I>. The symbol server enables the debuggers to automatically retrieve the correct symbol files without product names, releases, or build numbers. Debugging Tools for Windows contains the SymSrv symbol server.</P>
+<P>The symbol server is activated by including a certain text string in the symbol path. Each time the debugger needs to load symbols for a newly loaded module, it calls the symbol server to locate the appropriate symbol files. The symbol server locates the files in a <I>symbol store</I>. This is a collection of symbol files, an index, and a tool that can be used by an administrator to add and delete files. The files are indexed according to unique parameters such as the time stamp and image size. Debugging Tools for Windows contains a symbol store tool called SymStore.</P>
+<P>For more information, see:</P>
+<P></P>
+<ul>
+<li><A HREF="using_symsrv.htm">Using SymSrv</A></li>
+<li><A HREF="using_symstore.htm">Using SymStore</A></li>
+<li><A HREF="using_other_symbol_stores.htm">Using Other Symbol Stores</A></li>
+<li><A HREF="symstore_command_line_options.htm">SymStore Command-Line Options</A></li>
+<li><A HREF="symbol_servers_and_internet_firewalls.htm">Symbol Servers and Internet Firewalls</A></li>
+</ul><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Symbol Servers and Symbol Stores%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

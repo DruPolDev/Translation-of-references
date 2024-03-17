@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Создание NT драйверов</title>
+
+</head>
+<body style="COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,255)"    >
+<p><b><font color="#004080" face="Arial" size="6">Создание
+NT драйверов</font></b></p>
+<hr><br>
+<p></p>
+<p><IMG border=0 hspace=0 src="TypeDrv.gif" width=361 height=439></p>
+<p><br>
+</p>
+<p><font face="Arial" size="2">Easy Code
+allows you to get
+into NT driver programming. When you choose a <b>Classic
+NT driver (sys)</b> project type, a basic structure is
+created and the minimum required files are also added.
+This NT driver default code can be built without errors,
+but it just does nothing.<br>
+<br>
+In addtiion to the
+usual <b>.inc</b> files, NT driver programming requires
+some extra <b>.inc</b> files which can be found in the
+Easy Code's <b>Include</b> folder. So, in order to avoid
+errors when programming a driver, please take into
+account the following considerations:<br>
+<br>
+<ul>
+<li>
+<div><font face="Arial" size="2">The
+driver entry
+procedure must <b>ALWAYS</b>
+be named <b>DriverEntry</b>
+(case sensitive) and so it is expected by the linker.
+Otherwise, the corresponding error will be fired at
+link time.</font></div>
+</li>
+</ul>
+<ul>
+<li>
+<div><font face="Arial" size="2"><b>NEVER</b>
+include the <b>windows.inc</b> file (if included,
+errors will be fired at compile time). Instead,
+<b>ntddk.inc</b> must always be included.</font></div>
+</li>
+</ul>
+<ul>
+<li>
+<div><font face="Arial" size="2">Any
+other file being
+used in a project, and not related to Driver Development
+Kit, should be placed in the project folder.<br>
+</font></div>
+</li>
+</ul>
+<br>
+Although Easy Code gives the necessary support,
+driver programming is not an easy task, specially for
+being debugged, and most programming errors go into a
+blue screen (BSOD).<br>
+<br>
+You can find a simple driver example
+(<b>ECPDriver</b>),
+which gets all processes running
+in the system, and a little application to test it
+(<b>ECPDrvTest</b>).
+Both have
+been programmed by <b>Héctor A.
+Medina</b> and are located in the
+<b>\EasyCode\Examples</b> folders.</font>
+<P></P>
+<p><font face="Arial" size="2"><b>SPECIAL
+THANKS</b> to <b>Héctor
+Antonio Medina</b> who has worked very hard to make Easy
+Code to be able to include the necessary support for
+driver programming.</font></p>
+<br>
+<br>
+</body></html>

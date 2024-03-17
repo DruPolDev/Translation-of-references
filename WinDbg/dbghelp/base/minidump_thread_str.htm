@@ -1,0 +1,65 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_THREAD Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_thread_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_thread_str"></A>MINIDUMP_THREAD Structure</H1>
+<P><P>Contains information for a specific thread.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_THREAD {<br>  ULONG32 ThreadId;<br>  ULONG32 SuspendCount;<br>  ULONG32 PriorityClass;<br>  ULONG32 Priority;<br>  ULONG64 Teb;<br>  MINIDUMP_MEMORY_DESCRIPTOR Stack;<br>  MINIDUMP_LOCATION_DESCRIPTOR ThreadContext;
+} MINIDUMP_THREAD, <br> *PMINIDUMP_THREAD;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>ThreadId</B></DT>
+<DD><p>The identifier of the thread.</p>
+</DD>
+<DT><B>SuspendCount</B></DT>
+<DD><p>The suspend count for the thread. If the suspend count is greater than zero, the thread is suspended; otherwise, the thread is not suspended. The maximum value is MAXIMUM_SUSPEND_COUNT.</p>
+</DD>
+<DT><B>PriorityClass</B></DT>
+<DD><p>The priority class of the thread. See 
+Scheduling Priorities.</p>
+</DD>
+<DT><B>Priority</B></DT>
+<DD><p>The priority level of the thread.</p>
+</DD>
+<DT><B>Teb</B></DT>
+<DD><p>The thread environment block.</p>
+</DD>
+<DT><B>Stack</B></DT>
+<DD><p>A 
+<A HREF="minidump_memory_descriptor_str.htm"><b>MINIDUMP_MEMORY_DESCRIPTOR</b></A> structure.</p>
+</DD>
+<DT><B>ThreadContext</B></DT>
+<DD><p>A 
+<A HREF="minidump_location_descriptor_str.htm"><b>MINIDUMP_LOCATION_DESCRIPTOR</b></A> structure.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_location_descriptor_str.htm"><b>MINIDUMP_LOCATION_DESCRIPTOR</b></A><BR><A HREF="minidump_memory_descriptor_str.htm"><b>MINIDUMP_MEMORY_DESCRIPTOR</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_THREAD%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

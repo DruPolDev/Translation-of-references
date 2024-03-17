@@ -1,0 +1,21 @@
+<a name="IDH_1374"></a>
+<title>Load PDB debug information file</title>
+<table width="100%"><tr valign="top"><td><h2>Load PDB debug information file</h2></td>
+<td width="64"><img src="ida55.png"/></td></tr></table>
+<pre>
+ Action    name: LoadPdbFile
+ </pre>
+This command loads a PDB file.
+<p>
+If the program being disassembled has a companion PDB file, then
+this command may be used to load information from the PDB file into the
+database.
+<p>
+By default IDA uses in-house code to parse and load PDB files. However, our
+code can not parse old v2.0 PDB files. For them, IDA can fall back to using
+Microsoft DLLs (the default is &quot;do not fall back&quot;). Please read more
+in cfg/pdb.cfg.
+<pre>
+  See also
+        <a href="430.html">Load... submenu</a> commands.
+        <a href="1457.html">Debugger module list</a> command.</pre>

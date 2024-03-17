@@ -1,0 +1,180 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_STREAM_TYPE Enumeration</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_stream_type">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_stream_type"></A>MINIDUMP_STREAM_TYPE Enumeration</H1>
+<P><P>Represents the type of a minidump data stream.</P>
+</P>
+<PRE class="syntaxNew" xml:space="preserve">typedef enum _MINIDUMP_STREAM_TYPE
+{
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">UnusedStream</A><div class="classNewTip" ID="UnusedStream"><DL><DT>UnusedStream</DT><DD><p>Reserved. Do not use this enumeration value.</p>
+</DD></DL></div> = 0,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ReservedStream0</A><div class="classNewTip" ID="ReservedStream0"><DL><DT>ReservedStream0</DT><DD><p>Reserved. Do not use this enumeration value.</p>
+</DD></DL></div> = 1,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ReservedStream1</A><div class="classNewTip" ID="ReservedStream1"><DL><DT>ReservedStream1</DT><DD><p>Reserved. Do not use this enumeration value.</p>
+</DD></DL></div> = 2,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ThreadListStream</A><div class="classNewTip" ID="ThreadListStream"><DL><DT>ThreadListStream</DT><DD><p>The stream contains thread information. For more information, see 
+<A HREF="minidump_thread_list_str.htm"><b>MINIDUMP_THREAD_LIST</b></A>.</p>
+</DD></DL></div> = 3,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ModuleListStream</A><div class="classNewTip" ID="ModuleListStream"><DL><DT>ModuleListStream</DT><DD><p>The stream contains module information. For more information, see 
+<A HREF="minidump_module_list_str.htm"><b>MINIDUMP_MODULE_LIST</b></A>.</p>
+</DD></DL></div> = 4,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MemoryListStream</A><div class="classNewTip" ID="MemoryListStream"><DL><DT>MemoryListStream</DT><DD><p>The stream contains memory allocation information. For more information, see 
+<A HREF="minidump_memory_list_str.htm"><b>MINIDUMP_MEMORY_LIST</b></A>.</p>
+</DD></DL></div> = 5,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ExceptionStream</A><div class="classNewTip" ID="ExceptionStream"><DL><DT>ExceptionStream</DT><DD><p>The stream contains exception information. For more information, see 
+<A HREF="minidump_exception_stream_str.htm"><b>MINIDUMP_EXCEPTION_STREAM</b></A>.</p>
+</DD></DL></div> = 6,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">SystemInfoStream</A><div class="classNewTip" ID="SystemInfoStream"><DL><DT>SystemInfoStream</DT><DD><p>The stream contains general system information. For more information, see 
+<A HREF="minidump_system_info_str.htm"><b>MINIDUMP_SYSTEM_INFO</b></A>.</p>
+</DD></DL></div> = 7,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ThreadExListStream</A><div class="classNewTip" ID="ThreadExListStream"><DL><DT>ThreadExListStream</DT><DD><p>The stream contains extended thread information. For more information, see 
+<A HREF="minidump_thread_ex_list_str.htm"><b>MINIDUMP_THREAD_EX_LIST</b></A>.</p>
+</DD></DL></div> = 8,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">Memory64ListStream</A><div class="classNewTip" ID="Memory64ListStream"><DL><DT>Memory64ListStream</DT><DD><p>The stream contains memory allocation information. For more information, see 
+<A HREF="minidump_memory_list_str.htm"><b>MINIDUMP_MEMORY64_LIST</b></A>.</p>
+</DD></DL></div> = 9,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">CommentStreamA</A><div class="classNewTip" ID="CommentStreamA"><DL><DT>CommentStreamA</DT><DD><p>The stream contains an ANSI string used for documentation purposes.</p>
+</DD></DL></div> = 10,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">CommentStreamW</A><div class="classNewTip" ID="CommentStreamW"><DL><DT>CommentStreamW</DT><DD><p>The stream contains a Unicode string used for documentation purposes.</p>
+</DD></DL></div> = 11,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">HandleDataStream</A><div class="classNewTip" ID="HandleDataStream"><DL><DT>HandleDataStream</DT><DD><p>The stream contains high-level information about the active operating system handles. For more information, see 
+<A HREF="minidump_handle_data_stream_str.htm"><b>MINIDUMP_HANDLE_DATA_STREAM</b></A>.</p>
+</DD></DL></div> = 12,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">FunctionTableStream</A><div class="classNewTip" ID="FunctionTableStream"><DL><DT>FunctionTableStream</DT><DD><p>The stream contains function table information. For more information, see 
+<A HREF="minidump_function_table_stream_str.htm"><b>MINIDUMP_FUNCTION_TABLE_STREAM</b></A>.</p>
+</DD></DL></div> = 13,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">UnloadedModuleListStream</A><div class="classNewTip" ID="UnloadedModuleListStream"><DL><DT>UnloadedModuleListStream</DT><DD><p>The stream contains module information for the unloaded modules. For more information, see 
+<A HREF="minidump_unloaded_module_list_str.htm"><b>MINIDUMP_UNLOADED_MODULE_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 14,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiscInfoStream</A><div class="classNewTip" ID="MiscInfoStream"><DL><DT>MiscInfoStream</DT><DD><p>The stream contains miscellaneous information. For more information, see 
+<A HREF="minidump_misc_info_str.htm"><b>MINIDUMP_MISC_INFO</b></A> or <A HREF="minidump_misc_info_2.htm"><b>MINIDUMP_MISC_INFO_2</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 15,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MemoryInfoListStream</A><div class="classNewTip" ID="MemoryInfoListStream"><DL><DT>MemoryInfoListStream</DT><DD><p>The stream contains memory region description information. It corresponds to the information that would be returned for the process from the <b>VirtualQuery</b> function. For more information, see <A HREF="minidump_memory_info_list_str.htm"><b>MINIDUMP_MEMORY_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 16,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ThreadInfoListStream</A><div class="classNewTip" ID="ThreadInfoListStream"><DL><DT>ThreadInfoListStream</DT><DD><p>The stream contains thread state information. For more information, see <A HREF="minidump_thread_info_list_str.htm"><b>MINIDUMP_THREAD_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 17,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">HandleOperationListStream</A><div class="classNewTip" ID="HandleOperationListStream"><DL><DT>HandleOperationListStream</DT><DD><p>This stream contains operation list information. For more information, see <A HREF="minidump_handle_operation_list.htm"><b>MINIDUMP_HANDLE_OPERATION_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 18,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">LastReservedStream</A><div class="classNewTip" ID="LastReservedStream"><DL><DT>LastReservedStream</DT><DD><p>Any value greater than this value will not be used by the system and can be used to represent application-defined data streams. For more information, see 
+<A HREF="minidump_user_stream_str.htm"><b>MINIDUMP_USER_STREAM</b></A>.</p>
+</DD></DL></div> = 0xffff
+}MINIDUMP_STREAM_TYPE;</PRE>
+<H4>Constants</H4>
+<DL>
+<DT><B>UnusedStream</B></DT>
+<DD><p>Reserved. Do not use this enumeration value.</p>
+</DD>
+<DT><B>ReservedStream0</B></DT>
+<DD><p>Reserved. Do not use this enumeration value.</p>
+</DD>
+<DT><B>ReservedStream1</B></DT>
+<DD><p>Reserved. Do not use this enumeration value.</p>
+</DD>
+<DT><B>ThreadListStream</B></DT>
+<DD><p>The stream contains thread information. For more information, see 
+<A HREF="minidump_thread_list_str.htm"><b>MINIDUMP_THREAD_LIST</b></A>.</p>
+</DD>
+<DT><B>ModuleListStream</B></DT>
+<DD><p>The stream contains module information. For more information, see 
+<A HREF="minidump_module_list_str.htm"><b>MINIDUMP_MODULE_LIST</b></A>.</p>
+</DD>
+<DT><B>MemoryListStream</B></DT>
+<DD><p>The stream contains memory allocation information. For more information, see 
+<A HREF="minidump_memory_list_str.htm"><b>MINIDUMP_MEMORY_LIST</b></A>.</p>
+</DD>
+<DT><B>ExceptionStream</B></DT>
+<DD><p>The stream contains exception information. For more information, see 
+<A HREF="minidump_exception_stream_str.htm"><b>MINIDUMP_EXCEPTION_STREAM</b></A>.</p>
+</DD>
+<DT><B>SystemInfoStream</B></DT>
+<DD><p>The stream contains general system information. For more information, see 
+<A HREF="minidump_system_info_str.htm"><b>MINIDUMP_SYSTEM_INFO</b></A>.</p>
+</DD>
+<DT><B>ThreadExListStream</B></DT>
+<DD><p>The stream contains extended thread information. For more information, see 
+<A HREF="minidump_thread_ex_list_str.htm"><b>MINIDUMP_THREAD_EX_LIST</b></A>.</p>
+</DD>
+<DT><B>Memory64ListStream</B></DT>
+<DD><p>The stream contains memory allocation information. For more information, see 
+<A HREF="minidump_memory_list_str.htm"><b>MINIDUMP_MEMORY64_LIST</b></A>.</p>
+</DD>
+<DT><B>CommentStreamA</B></DT>
+<DD><p>The stream contains an ANSI string used for documentation purposes.</p>
+</DD>
+<DT><B>CommentStreamW</B></DT>
+<DD><p>The stream contains a Unicode string used for documentation purposes.</p>
+</DD>
+<DT><B>HandleDataStream</B></DT>
+<DD><p>The stream contains high-level information about the active operating system handles. For more information, see 
+<A HREF="minidump_handle_data_stream_str.htm"><b>MINIDUMP_HANDLE_DATA_STREAM</b></A>.</p>
+</DD>
+<DT><B>FunctionTableStream</B></DT>
+<DD><p>The stream contains function table information. For more information, see 
+<A HREF="minidump_function_table_stream_str.htm"><b>MINIDUMP_FUNCTION_TABLE_STREAM</b></A>.</p>
+</DD>
+<DT><B>UnloadedModuleListStream</B></DT>
+<DD><p>The stream contains module information for the unloaded modules. For more information, see 
+<A HREF="minidump_unloaded_module_list_str.htm"><b>MINIDUMP_UNLOADED_MODULE_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiscInfoStream</B></DT>
+<DD><p>The stream contains miscellaneous information. For more information, see 
+<A HREF="minidump_misc_info_str.htm"><b>MINIDUMP_MISC_INFO</b></A> or <A HREF="minidump_misc_info_2.htm"><b>MINIDUMP_MISC_INFO_2</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MemoryInfoListStream</B></DT>
+<DD><p>The stream contains memory region description information. It corresponds to the information that would be returned for the process from the <b>VirtualQuery</b> function. For more information, see <A HREF="minidump_memory_info_list_str.htm"><b>MINIDUMP_MEMORY_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>ThreadInfoListStream</B></DT>
+<DD><p>The stream contains thread state information. For more information, see <A HREF="minidump_thread_info_list_str.htm"><b>MINIDUMP_THREAD_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>HandleOperationListStream</B></DT>
+<DD><p>This stream contains operation list information. For more information, see <A HREF="minidump_handle_operation_list.htm"><b>MINIDUMP_HANDLE_OPERATION_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>LastReservedStream</B></DT>
+<DD><p>Any value greater than this value will not be used by the system and can be used to represent application-defined data streams. For more information, see 
+<A HREF="minidump_user_stream_str.htm"><b>MINIDUMP_USER_STREAM</b></A>.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>In this context, a data stream is a set of data in a minidump file.</p>
+<p>The <b>StreamType</b> member of the 
+<A HREF="minidump_directory_str.htm"><b>MINIDUMP_DIRECTORY</b></A> structure can be one of these types. Additional types may be added in the future, so if a program reading the minidump header encounters a stream type it does not recognize, it should ignore the stream altogether.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_directory_str.htm"><b>MINIDUMP_DIRECTORY</b></A><BR><A HREF="minidump_exception_stream_str.htm"><b>MINIDUMP_EXCEPTION_STREAM</b></A><BR><A HREF="minidump_function_table_stream_str.htm"><b>MINIDUMP_FUNCTION_TABLE_STREAM</b></A><BR><A HREF="minidump_handle_data_stream_str.htm"><b>MINIDUMP_HANDLE_DATA_STREAM</b></A><BR><A HREF="minidump_handle_operation_list.htm"><b>MINIDUMP_HANDLE_OPERATION_LIST</b></A><BR><A HREF="minidump_memory_info_list_str.htm"><b>MINIDUMP_MEMORY_INFO_LIST</b></A><BR><A HREF="minidump_memory_list_str.htm"><b>MINIDUMP_MEMORY_LIST</b></A><BR><A HREF="minidump_misc_info_str.htm"><b>MINIDUMP_MISC_INFO</b></A><BR><A HREF="minidump_module_list_str.htm"><b>MINIDUMP_MODULE_LIST</b></A><BR><A HREF="minidump_system_info_str.htm"><b>MINIDUMP_SYSTEM_INFO</b></A><BR><A HREF="minidump_thread_ex_list_str.htm"><b>MINIDUMP_THREAD_EX_LIST</b></A><BR><A HREF="minidump_thread_info_list_str.htm"><b>MINIDUMP_THREAD_INFO_LIST</b></A><BR><A HREF="minidump_thread_list_str.htm"><b>MINIDUMP_THREAD_LIST</b></A><BR><A HREF="minidump_unloaded_module_list_str.htm"><b>MINIDUMP_UNLOADED_MODULE_LIST</b></A><BR><A HREF="minidump_user_stream_str.htm"><b>MINIDUMP_USER_STREAM</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_STREAM_TYPE%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

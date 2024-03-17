@@ -1,0 +1,26 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><title>Точки изменения сегментного регистра</title>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY><a name="IDH_524"></a>
+<table width="100%"><tr valign="top"><td><h2>Точки изменения сегментного регистра</h2></td>
+<td width="64"><IMG src="ida55.bmp"></td></tr></table>
+When IDA encounters an instruction which changes a segment
+register, it creates a segment register change point.
+So, mostly change points are maintained by IDA itself. IDA assumes that
+the segment registers do not change their values between change
+points. If you find out that IDA failed to locate a segment register change,
+or if you want to change a register value,
+you can create a change point using <A href="523.html">Change Segment Register</a>
+command. You can change the value of a segment register
+using <A href="522.html">Set default segment register value</a> command too.
+<p>
+IDA classifies the change points. In the list of the change points,
+you can see the following postfixes after the register values:
+<pre>
+ a (auto)     - Created by IDA. May be changed by IDA afterwards.
+ u (by user)  - Created by user. IDA will not change it.
+</pre>
+IDA generates the appropriate 'assume' instructions for the
+change points if it was not disabled
+by <A href="608.html">the corresponding command</a>.</BODY></HTML>

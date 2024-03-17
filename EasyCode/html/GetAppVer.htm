@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>GetAppVersion method</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">GetAppVersion
+<font color="#004080">method</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#800080">GetAppVersion</font>
+lpszBuffer<font color="#ff00ff">:</font><font color="#000080">LPSTR</font></b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Syntax</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#0000ff">Invoke</font>
+<font color="#800080">GetAppVersion</font><font color="#ff00ff">,</font>
+lpszBuffer</b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Function</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Retreives
+the
+version of the running application.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Parameters</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><b><font face="Arial" size="2">lpszBuffer</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Pointer to
+a buffer that will be filled
+with the version string. It can be <font color="#000080"><b>NULL</b></font>
+if you do not wish
+to retreive the string.</font></p>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2">Return
+value</font> </b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns the
+version number in the following format:<br>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<font face="Courier New" size="2">Bits <b>24-31</b>:
+The major version (most significant byte)<br>
+Bits <b>16-23</b>: The minor version<br>
+Bits &nbsp;<b>8-15</b>: The version revision<br>
+Bits &nbsp;&nbsp;<b>0-7</b>: The version
+subrevision (less significant byte)<br>
+</font>
+</blockquote>
+</font></font></p>
+</blockquote>
+<p><font face="Arial" size="2"><br>
+The string returned in the
+buffer pointed by <b>lpszBuffer</b> will be a
+null-terminated
+string having the format <b>00.00.00.0000</b> (i.e.
+<b>2.00.0.0001</b>) plus the final null character, so the
+buffer must be at least 14 TCHARS long (14 bytes for an ANSI
+string or 28 bytes for a Unicode string).</font></p>
+<p><font face="Arial" size="2"><br>
+<b>REMARKS</b>: If <b>lpszBuffer</b> is not <font color="#000080"><b>NULL</b></font>, the <font color="#800080"><b>GetAppVersion</b></font>
+method fills the buffer with a Unicode string if
+the application is running as Unicode, or with an
+ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a> method).
+You can call <font color="#800080"><b>GetAppVersionA</b></font>
+to get ANSI strings in Unicode applications,
+or <font color="#800080"><b>GetAppVersionW</b></font>
+to get Unicode strings in ANSI applications.<br>
+<br>
+</font></p>
+</body></html>

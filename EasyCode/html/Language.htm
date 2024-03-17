@@ -1,0 +1,220 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="ca"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Файлы локализации</title>
+
+</head>
+
+<body style="COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,255)"    >
+<p><b><font color="#004080" face="Arial" size="6">Файлы
+локализации</font>
+</b></p>
+<hr>
+<p><font face="Arial" size="2">Easy Code
+takes
+advantage of Unicode text strings and allows you to work with
+practically all
+languages (see <A href="Multilang.htm">Multilanguage
+support</a>). Language
+files must have the <b>lge</b>
+extension and they must be located in the <b>Language</b>
+subfolder of the Easy Code main folder. All <b>.lge</b>
+files being there will be
+listed in the <b>Language</b> combo box of the <A href="Settings.htm#generaltab">Settings</a>
+window so that you can choose the
+one you wish for Easy Code. When running on Wndows 95/98/ME, languages
+having
+more than one byte per character will not be shown in the available
+languages list
+as they cannot be properly displayed.<br>
+<br>
+A language file must be in <b>Unicode
+format</b> (2 bytes per character)
+and looks like this:<br>
+<br>
+<font color="#000040">;--------------------------------------------------------------------------------------------------------<br>
+Lang=English (International) ; Author: Ramon Sala (asm@easycode.cat)<br>
+;--------------------------------------------------------------------------------------------------------<br>
+<br>
+[Strings]<br>
+10000=Visual interface development environment<br>
+10001=Acc&amp;elerator:<br>
+10002=Enable synta&amp;x highlighting<br>
+10003=&amp;Add<br>
+...<br>
+...</font><br>
+<br>
+<br>
+Language files have to follow a few rules in order to work properly:<br>
+<br>
+&nbsp;&nbsp;1 - All comments must be preceeded by a semicolon ("<b>;</b>")<br>
+&nbsp;&nbsp;2 - You can add as many comments as you like before
+the <b>[Strings]</b>
+keyword.<br>
+&nbsp;&nbsp;3 - The <b>Lang</b>
+keyword must exist (before the <b>[Strings]</b>
+keyword) and
+specifies the language name, i.e. <b><i>English
+(United Kingdom)</i></b>.<br>
+&nbsp;&nbsp;4 - The <b>[Strings]</b>
+keyword must exist and specifies the begining of text strings.<br>
+&nbsp;&nbsp;5 - Each text string must be preceeded by the
+number which identifies the string and the "<b>=</b>"
+separator.<br>
+&nbsp;&nbsp;6 - There must not be anything else than text
+strings after
+the <b>[Strings]</b>
+keyword.<br>
+<br>
+<br>
+When choosing a language in the <A href="Settings.htm">Settings</a>
+window, the text after
+the <b>Lang</b>
+keyword, and before the semicolon, will be the one being shown as the
+chosen language, and the text strings (in the <b>[Strings]</b>
+section) will be the ones being used by
+Easy Code. So, to make a new language file, i.e. french, we open the <b>ECEngIN.lge</b>
+file with Windows <b>"Notepad"</b>
+and do the following:<br>
+<br>
+&nbsp;&nbsp;1 - Change the language name and author (note the
+semicolon separating the author's name and email):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000040">;--------------------------------------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lang=Français
+(France)&nbsp;&nbsp;<b>;</b>
+Author: <b><i>Name
+Surname (email@address)</i></b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;;--------------------------------------------------------------------------------------------------------</font><br>
+<br>
+&nbsp;&nbsp;2 - Translate all text strings to the new language
+<b>without modifying the string number</b> (nor its
+position)
+and taking into account a few considerations
+commented below.<br>
+<br>
+&nbsp;&nbsp;3 - Save the modified file (as <b>UNICODE</b>
+text) using a different name
+(see <A href="Language.htm#LangFileName"><b>LANGUAGE
+FILE NAMES</b></a>)
+and place it
+in the Easy Code's <b>Language</b>
+subfolder.<br>
+<br>
+<br>
+An ampersand ("<b>&amp;</b>")
+specifies that the character immediately
+after it will be shown underlined. As text is translated, you can
+modify the
+ampersands position according to the translation, but only for those
+strings
+which originally had one. That is, you should not include an
+ampersand in a string that did not have one in the original file.<br>
+<br>
+Character combinations consisting of a backslash ("<b>\</b>")
+followed by
+a letter or the zero number are called “escape
+sequences”. For example, to specify a backslash
+you must type it twice ("<b>\\</b>"),
+like you would do in C language. Easy Code only recognizes the
+following escape sequences (letters must be lower case):<br>
+<br>
+<font face="Courier New">
+&nbsp;&nbsp;<b>\0</b>&nbsp;&nbsp;NULL
+(UNICODE character 0). Note the "<b>0</b>"
+number after the backslash,
+not the upper "<b>O</b>"
+letter.<br>
+&nbsp;&nbsp;<b>\a</b>&nbsp;&nbsp;Alert
+(UNICODE character 7)<br>
+&nbsp;&nbsp;<b>\b</b>&nbsp;&nbsp;Backspace
+(UNICODE character 8)<br>
+&nbsp;&nbsp;<b>\f</b>&nbsp;&nbsp;Form
+feed (UNICODE character 12)<br>
+&nbsp;&nbsp;<b>\n</b>&nbsp;&nbsp;Line
+feed (UNICODE character 10)<br>
+&nbsp;&nbsp;<b>\r</b>&nbsp;&nbsp;Carriage
+return (UNICODE character 13)<br>
+&nbsp;&nbsp;<b>\t</b>&nbsp;&nbsp;Horizontal
+tab (UNICODE character 9)<br>
+&nbsp;&nbsp;<b>\v</b>&nbsp;&nbsp;Vertical
+tab (UNICODE character 11)<br>
+&nbsp;&nbsp;<b>\"</b>&nbsp;&nbsp;Double
+quotation mark (UNICODE character 34)<br>
+&nbsp;&nbsp;<b>\'</b>&nbsp;&nbsp;Single
+quotation mark (UNICODE character 39)<br>
+&nbsp;&nbsp;<b>\?</b>&nbsp;&nbsp;Literal
+question mark (UNICODE character 63)<br>
+&nbsp;&nbsp;<b>\\</b>&nbsp;&nbsp;Backslash
+(UNICODE character 92)<br>
+</font><br>
+<br>
+Please take care to translate text strings respecting all blanks,
+escape sequences and those
+characters not being letters, without modifying the string number nor
+the "<b>=</b>"
+separator.
+Otherwise, Easy Code could display wrong messages or even behave in a
+strange way. If one or more
+text strings are missing, the default language (English) will be loaded.</font></p>
+<p><br>
+<a name="LangFileName"></a><font face="Arial" size="2"><b>LANGUAGE
+FILE NAMES</b></font></p>
+<p><font face="Arial" size="2">Any name may
+be valid
+for a language file if it has the "<b>lge</b>"
+extension and it is less or equal than 30 characters long, but it
+would be better to fit the following
+convention:<br>
+<br>
+&nbsp;&nbsp;- The first two characters indentify the
+application using the
+file (<b>EC</b>
+for Easy Code).<br>
+&nbsp;&nbsp;- Next three characters for the language name (<b>Eng</b>
+for English, <b>Cat</b> for Catalan, <b>Esp</b>
+for Spanish, etc.).<br>
+&nbsp;&nbsp;- Two (or three) final characters for the country
+or
+region name (<b>UK</b>
+for United Kingdom, <b>US</b>
+for United States, etc.).<br>
+&nbsp;&nbsp;- Finally, the "<b>.lge</b>"
+extension in order to be a valid language file.<br>
+&nbsp;&nbsp;- Also, remeber that the file must be saved in <b>UNICODE</b>
+format.<br>
+<br>
+So, for a file translated to french for France, the appropiated name
+would be
+<b>ECFraFR.lge</b>,
+while <b>ECFraCA.lge</b>
+would mean french for Canada.<br>
+<br>
+<br>
+<b>REMARKS</b>:
+Easy Code is distributed with a few language files that I personally
+translated. Please forgive me if you find any error, or an inappropiate
+syntax, and report
+it to me so that I can modify it immediately. That way, it will be
+ready for next versions
+of Easy Code.<br>
+<br>
+<br>
+<b>IMPORTANT</b>:
+Language files must be saved in <b>UNICODE
+format</b> (<b>UTF-16</b>)
+using 16 bits per
+character (not "UTF-8" nor "Unicode
+big endian"), otherwise they will not work.
+You can use the Windows <b>"Notepad"</b>
+application (just Windows NT and later) and save the language files as
+Unicode text.<br>
+<br>
+<br>
+<b>NOTE</b>:
+If you translate a file to any other language, please send it to me. I
+will be pleased
+to include it in next versions of Easy Code.
+</font><br>
+</p>
+<p><br>
+</p>
+</body></html>

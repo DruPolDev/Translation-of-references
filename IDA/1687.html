@@ -1,0 +1,206 @@
+<a name="IDH_1687"></a>
+<title>Objective-C Analysis Plugin</title>
+<table width="100%"><tr valign="top"><td><h2>Objective-C Analysis Plugin</h2></td>
+<td width="64"><img src="ida55.bmp"/></td></tr></table>
+The objc plugin performs Objective-C specific analysis on the database.
+<p>
+For an overview of what the plugin can do, see the menu options in Edit&gt;Other&gt;Objective-C,
+or the config options in objc.cfg.
+
+<p>
+Type Information
+<p>
+The bulk of the plugin's work is done at file load time, when it will parse all
+Objective-C type information embedded in the binary, and use this to create
+tinfo_t structures for all known classes and construct prototypes for all known
+methods.
+<p>
+This analysis can be invoked manually at any time with:
+<pre>
+  Edit&gt;Other&gt;Objective-C&gt;Reload Objective-C info
+</pre>
+Or:
+<pre>
+  idaapi.load_and_run_plugin(&quot;objc&quot;, 1)
+</pre>
+You can also disable objc analysis at load time with command line option:
+<pre>
+  -Oobjc:+l
+</pre>
+Or check the &quot;Lazy mode&quot; option in:
+<pre>
+  Edit&gt;Other&gt;Objective-C&gt;Objective-C Options...
+
+</pre>
+Decompilation
+<p>
+The plugin will also perform Objective-C analysis during decompilation.
+<p>
+When a function is decompiled, the plugin will analyze any calls to objc_msgSend,
+and use the arguments to determine if objc_msgSend will ultimately invoke one of
+the methods in the current database.
+<p>
+If such a situation is detected, the plugin will replace the call to objc_msgSend with
+a call to the target method, and add an xref to the method. This is done in the hopes that
+continued use of the decompiler will improve call graphs for Objective-C binaries.
+<p>
+If the target method has type information, then the return type can be used to refine
+the types of local variables in the pseudocode, which in turn could lead to more method
+calls being detected, and so on.
+<p>
+You can disable objc analysis in the pseudocode with command line option:
+<pre>
+  -Oobjc:-h
+</pre>
+Or uncheck the &quot;Enable decompiler plugin for Objective-C&quot; option in:
+<pre>
+  Edit&gt;Other&gt;Objective-C&gt;Objective-C Options...
+
+</pre>
+Debugging
+<p>
+objc also provides tools for dynamic analysis.
+<p>
+During debugging, you can analyze objc info for a specific library
+by right-clicking in the Modules window and selecting &quot;Load debug info&quot;.
+<p>
+This operation can also be performed programmatically with:
+<pre>
+  n = idaapi.netnode()
+  n.create(&quot;$ objc&quot;)
+  n.supset(1, &quot;/module/path&quot;, 'R')
+  idaapi.load_and_run_plugin(&quot;objc&quot;, 3)
+</pre>
+If you prefer that objc does not perform analysis during &quot;Load debug info&quot;,
+(say if DWARF information is available for a module and you prefer that),
+you can disable this functionality with command line option:
+<pre>
+  -Oobjc:-s
+</pre>
+Or by unchecking the &quot;Enable SIP for Objective-C&quot; option in:
+<pre>
+  Edit&gt;Other&gt;Objective-C&gt;Objective-C Options...
+
+</pre>
+Step Into Message
+<p>
+The plugin also implements a &quot;step into&quot; debugger action for Objective-C.
+<p>
+If you use this action before a call to objc_msgSend, objc will try to calculate
+the address of method that is being invoked, and break at the method address
+rather than step into the objc_msgSend function itself.
+<p>
+You can perform this action with shortcut:
+<pre>
+  Shift+O
+</pre>
+Or via the menu option:
+<pre>
+  Debugger&gt;Run until message received
+</pre>
+Or programmatically with:
+<pre>
+  idaapi.load_and_run_plugin(&quot;objc&quot;, 2)
+</pre>
+This action can be very useful, but you must be careful. When invoked, the action
+will automatically run to the address of objc_msgSend, analyze its arguments,
+then continue to the target method.
+<p>
+If there is no subsequent call to objc_msgSend in the program, you will lose control
+of the process. It is best to use this action only when you are sure that IP is
+in the vicinity of an objc_msgSend call.
+
+<p>
+NSConcreteStackBlock
+--------------------
+<p>
+The objc plugin can also be used to analyze Apple binaries that make heavy
+use of blocks: <a href="https://clang.llvm.org/docs/Block-ABI-Apple.html">https://clang.llvm.org/docs/Block-ABI-Apple.html</a>
+<p>
+The analysis involves identifying NSConcreteStackBlock instances on the stack,
+and creating a specialized Block_layout structure to apply to the function's
+stack frame.
+<p>
+The end result transforms the following sequence of statements:
+<pre>
+  loc_BF60:                                 Block_layout_BF60 v1;
+    v1 = _NSConcreteStackBlock;             v1.isa        = _NSConcreteStackBlock;
+    v2 = 0x...;                             v1.flags      = 0x...;
+    v3 = 0;                                 v1.reserved   = 0;
+    v4 = __block_invoke;             =&gt;     v1.invoke     = __block_invoke;
+    v5 = &amp;__block_descriptor_tmp;           v1.descriptor = &amp;__block_descriptor_tmp;
+    v6 = ...                                v1.lvar1      = ...
+    v7 = ...                                v1.lvar2      = ...
+    ...                                     ...
+    func(&amp;v1);                              func(&amp;v1);
+</pre>
+Already this cleans up the analysis quite a lot, but more importantly this new
+Block_layout_BF60 structure will be applied to the prototype of __block_invoke,
+which can heavily improve the pseudocode.
+<p>
+Block analysis can be performed on the database with:
+<pre>
+  Edit&gt;Other&gt;Objective-C&gt;Analyze stack-allocated blocks (entire database)
+</pre>
+Or programmatically with:
+<pre>
+  idaapi.load_and_run_plugin(&quot;objc&quot;, 5)
+</pre>
+You can also perform block analysis on a specific function:
+<pre>
+  Edit&gt;Other&gt;Objective-C&gt;Analyze stack-allocated blocks (current function)
+</pre>
+Or with shortcut:
+<pre>
+  Ctrl+Shift+S
+</pre>
+Or programmatically:
+<pre>
+  n = idaapi.netnode()
+  n.create(&quot;$ objc&quot;)
+  n.altset(1, 0xBF60, 'R') # the address can be any address within the function
+  idaapi.load_and_run_plugin(&quot;objc&quot;, 5)
+</pre>
+These actions work in both the disassembly and pseudocode windows,
+but note that you must refresh the pseudocode with F5 for the changes
+to take full effect.
+<p>
+Also, please note that this feature makes use of the microcode in the hexrays SDK,
+so you must have the decompiler in order to use it.
+
+<p>
+NSConcreteGlobalBlock
+---------------------
+<p>
+Global blocks (i.e. blocks that don't make use of local variables) are much easier
+to analyze, and simply involve identifying references to NSConcreteGlobalBlock in
+the __const segment.
+<p>
+Global blocks are analyzed automatically at load time, but the analysis
+can be performed manually at any time with:
+<pre>
+  Edit&gt;Other&gt;Objective-C&gt;Re-analyze global block functions
+</pre>
+Or:
+<pre>
+  idaapi.load_and_run_plugin(&quot;objc&quot;, 4)
+
+</pre>
+Command Line
+------------
+<p>
+Here's a summary of the command-line arguments that can be passed to objc:
+<p>
+objc features can be enabled or disabled using '+' or '-', followed by one of the following characters:
+<pre>
+  v: verbose mode
+  s: source info provider
+  h: hexrays decompiler analysis
+  l: lazy mode
+</pre>
+For example, -Oobjc:+v:+l:-s will enable verbose and lazy mode, and will disable the objc SIP.
+
+<p>
+See also <a href="1078.html">Debugger for macOS</a>
+         <a href="1677.html">Remote iOS debugger</a>
+         <a href="1705.html">DYLD Shared Cache Utils</a>

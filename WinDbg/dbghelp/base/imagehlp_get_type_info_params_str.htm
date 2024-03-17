@@ -1,0 +1,114 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGEHLP_GET_TYPE_INFO_PARAMS Structure</TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagehlp_get_type_info_params_str"></A>IMAGEHLP_GET_TYPE_INFO_PARAMS Structure</H1>
+<P><p>Contains type information for a module.</p>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGEHLP_GET_TYPE_INFO_PARAMS {<br>  ULONG SizeOfStruct;<br>  ULONG Flags;<br>  ULONG NumIds;<br>  PULONG TypeIds;<br>  ULONG64 TagFilter;<br>  ULONG NumReqs;<br>  IMAGEHLP_SYMBOL_TYPE_INFO* ReqKinds;<br>  PULONG_PTR ReqOffsets;<br>  PULONG ReqSizes;<br>  ULONG_PTR ReqStride;<br>  ULONG_PTR BufferSize;<br>  PVOID Buffer;<br>  ULONG EntriesMatched;<br>  ULONG EntriesFilled;<br>  ULONG64 TagsFound;<br>  ULONG64 AllReqsValid;<br>  ULONG NumReqsValid;<br>  PULONG64 ReqsValid;
+} IMAGEHLP_GET_TYPE_INFO_PARAMS, <br> *PIMAGEHLP_GET_TYPE_INFO_PARAMS;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>SizeOfStruct</B></DT>
+<DD><p>The size of this structure, in bytes.</p>
+</DD>
+<DT><B>Flags</B></DT>
+<DD><p>This member can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGEHLP_GET_TYPE_INFO_CHILDREN<BR>0x00000002</p>
+</TD>
+<TD width="60%"><p>Retrieve information about the children of the specified types, not the types themselves.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGEHLP_GET_TYPE_INFO_UNCACHED<BR>0x00000001</p>
+</TD>
+<TD width="60%"><p>Do not cache the data for later retrievals. It is good to use this flag if you will not be requesting the information again.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>NumIds</B></DT>
+<DD><p>The number of elements specified in the <b>TypeIds</b> array.</p>
+</DD>
+<DT><B>TypeIds</B></DT>
+<DD><p>An array of type indexes.</p>
+</DD>
+<DT><B>TagFilter</B></DT>
+<DD><p>The filter for return values. For example, set this member to 1 &lt;&lt; SymTagData to return only results with a symbol tag of SymTagData. For a list of tags, see the <A><b>SymTagEnum</b></A> type defined in Dbghelp.h</p>
+</DD>
+<DT><B>NumReqs</B></DT>
+<DD><p>The number of elements specified in the arrays specified in the <b>ReqKinds</b>, <b>ReqOffsets</b>, and <b>ReqSizes</b> members. These arrays must be the same size.</p>
+</DD>
+<DT><B>ReqKinds</B></DT>
+<DD><p>An array of information types to be requested. Each element is one of the enumeration values in the <A HREF="imagehlp_symbol_type_info.htm"><b>IMAGEHLP_SYMBOL_TYPE_INFO</b></A> enumeration type.</p>
+</DD>
+<DT><B>ReqOffsets</B></DT>
+<DD><p>An array of offsets that specify where to store the data for each request within each element of <b>Buffer</b> array.</p>
+</DD>
+<DT><B>ReqSizes</B></DT>
+<DD><p>The size of each data request, in bytes. The required sizes are described in <A HREF="imagehlp_symbol_type_info.htm"><b>IMAGEHLP_SYMBOL_TYPE_INFO</b></A>.</p>
+</DD>
+<DT><B>ReqStride</B></DT>
+<DD><p>The number of bytes for each element in the <b>Buffer</b> array.</p>
+</DD>
+<DT><B>BufferSize</B></DT>
+<DD><p>The size of the <b>Buffer</b> array, in bytes.</p>
+</DD>
+<DT><B>Buffer</B></DT>
+<DD><p>An array of records used for storing query results. Each record is separated by <b>ReqStride</b> bytes. Each type for which data is to be retrieved requires one record in the array. Within each record, there are <b>NumReqs</b> pieces of data stored as the result of individual queries. The data is stored within the record according to the offsets specified in <b>ReqOffsets</b>. The format of the data depends on the value of the <b>ReqKinds</b> member in use.</p>
+</DD>
+<DT><B>EntriesMatched</B></DT>
+<DD><p>The number of type entries that match the filter.</p>
+</DD>
+<DT><B>EntriesFilled</B></DT>
+<DD><p>The number of elements in the <b>Buffer</b> array that received results.</p>
+</DD>
+<DT><B>TagsFound</B></DT>
+<DD><p>A bitmask indicating all tag bits encountered during the search operation.</p>
+</DD>
+<DT><B>AllReqsValid</B></DT>
+<DD><p>A bitmask indicate the bit-wise AND of all <b>ReqsValid</b> fields.</p>
+</DD>
+<DT><B>NumReqsValid</B></DT>
+<DD><p>The size of <b>ReqsValid</b>, in elements.</p>
+</DD>
+<DT><B>ReqsValid</B></DT>
+<DD><p>A bitmask indexed by <b>Buffer</b> element index that indicates which request data is valid. This member can be NULL.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 6.3 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_symbol_type_info.htm"><b>IMAGEHLP_SYMBOL_TYPE_INFO</b></A><BR><A HREF="symgettypeinfoex.htm"><b>SymGetTypeInfoEx</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGEHLP_GET_TYPE_INFO_PARAMS%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

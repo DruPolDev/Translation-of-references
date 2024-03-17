@@ -1,0 +1,32 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Symbol Loading </TITLE><META NAME="MS-HAID" CONTENT="_win32_symbol_loading">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbol_loading"></A>Symbol Loading</H1>
+<P>The symbol handler will load symbols when you call the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function with the <i>fInvadeProcess</i> parameter set to TRUE or when you call the 
+<A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A> function to specify a module. In either case, the symbol handler either loads the symbols or defers symbol loading until symbols are requested, depending on the options set by the 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function.</P>
+<P>The symbol handler can be used to retrieve symbolic information for any module; it does not need to be associated with a process specified in the 
+<b>SymInitialize</b> call. To use an arbitrary module, specify the full path to the module image in the <i>ImageName</i> parameter. You can use a path to any executable module that has debugging information (.exe, .dll, .drv, .sys, .scr, .cpl, or .com). Use the <i>BaseOfDll</i> parameter to specify any load address, then symbol addresses will be based from that address.</P>
+<P>It may not be necessary to keep a symbol module loaded through the duration of an application. To release the symbol module from the symbol handler's list of modules, use the 
+<A HREF="symunloadmodule64.htm"><b>SymUnloadModule64</b></A> function. This function releases the memory allocated for the symbol module. To use symbols for that module again, you must call the 
+<b>SymLoadModuleEx</b> function even if the symbol deferred load option is set.</P>
+<H4><A NAME="diagnosing_symbol_load_problems"></A>Diagnosing Symbol Load Problems</H4>
+<P>To view all attempts to load symbols, call <b>SymSetOptions</b> with SYMOPT_DEBUG. This causes DbgHelp to call the <b>OutputDebugString</b> function with detailed information on symbol searches, such as the directories it is searching and and error messages. If your code uses <A HREF="symregistercallback64.htm"><b>SymRegisterCallback64</b></A>, DbgHelp will call your callback function instead of calling <b>OutputDebugString</b>. The <i>ActionCode</i> parameter is set to CBA_DEBUG_INFO and the <i>CallbackData</i> parameter is a string that can be displayed.</P>
+<P>To enable this debug output to be displayed to the console without changing your source code, set the DBGHELP_DBGOUT environment variable to a non-NULL value before calling the <b>SymInitialize</b> function. To log the information to a file, set the DBGHELP_LOG environment variable to the name of the log file to be used.</P>
+<P>Note that these features should be used only when needed. They may slow down symbol loading of modules that contain many symbols.</P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Symbol Loading%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,165 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>DbgHelp Functions </TITLE><META NAME="MS-HAID" CONTENT="_win32_dbghelp_functions">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.dbghelp_functions"></A>DbgHelp Functions</H1>
+<P>The following are the DbgHelp functions.</P>
+<H4><A NAME="general"></A>General</H4>
+<P>The following are general helper functions:</P>
+<P></P>
+<dl>
+<dd><A HREF="enumdirtree.htm"><b>EnumDirTree</b></A></dd>
+<dd><A HREF="imagehlpapiversion.htm"><b>ImagehlpApiVersion</b></A></dd>
+<dd><A HREF="imagehlpapiversionex.htm"><b>ImagehlpApiVersionEx</b></A></dd>
+<dd><A HREF="makesuredirectorypathexists.htm"><b>MakeSureDirectoryPathExists</b></A></dd>
+<dd><A HREF="searchtreeforfile.htm"><b>SearchTreeForFile</b></A></dd>
+</dl>
+<H4><A NAME="debugger"></A>Debugger</H4>
+<P>The debugging service functions are the functions most suited for use by a debugger or the debugging code in an application. These functions can be used in concert with the symbol handler functions for easier use.</P>
+<P></P>
+<dl>
+<dd><A HREF="enumerateloadedmodules64.htm"><b>EnumerateLoadedModules64</b></A></dd>
+<dd><A HREF="enumerateloadedmodulesex.htm"><b>EnumerateLoadedModulesEx</b></A></dd>
+<dd><A HREF="finddebuginfofile.htm"><b>FindDebugInfoFile</b></A></dd>
+<dd><A HREF="finddebuginfofileex.htm"><b>FindDebugInfoFileEx</b></A></dd>
+<dd><A HREF="findexecutableimage.htm"><b>FindExecutableImage</b></A></dd>
+<dd><A HREF="findexecutableimageex.htm"><b>FindExecutableImageEx</b></A></dd>
+<dd><A HREF="stackwalk64.htm"><b>StackWalk64</b></A></dd>
+<dd><A HREF="symsetparentwindow.htm"><b>SymSetParentWindow</b></A></dd>
+<dd><A HREF="undecoratesymbolname.htm"><b>UnDecorateSymbolName</b></A></dd>
+</dl>
+<H4><A NAME="image_access"></A>Image Access</H4>
+<P>The image access functions access the data in an executable image. The functions provide high-level access to the base of images and very specific access to the most common parts of an image's data.</P>
+<P></P>
+<dl>
+<dd><A HREF="gettimestampforloadedlibrary.htm"><b>GetTimestampForLoadedLibrary</b></A></dd>
+<dd><A HREF="imagedirectoryentrytodata.htm"><b>ImageDirectoryEntryToData</b></A></dd>
+<dd><A HREF="imagedirectoryentrytodataex.htm"><b>ImageDirectoryEntryToDataEx</b></A></dd>
+<dd><A HREF="imagentheader.htm"><b>ImageNtHeader</b></A></dd>
+<dd><A HREF="imagervatosection.htm"><b>ImageRvaToSection</b></A></dd>
+<dd><A HREF="imagervatova.htm"><b>ImageRvaToVa</b></A></dd>
+</dl>
+<H4><A NAME="symbol_handler"></A>Symbol Handler</H4>
+<P>The <A HREF="symbol_handling.htm">symbol handler</A> functions give applications easy and portable access to the symbolic debugging information of an image. These functions should be used exclusively to ensure access to symbolic information. This is necessary because these functions isolate the application from the symbol format.</P>
+<P></P>
+<dl>
+<dd><A HREF="symaddsourcestream.htm"><b>SymAddSourceStream</b></A></dd>
+<dd><A HREF="symaddsymbol.htm"><b>SymAddSymbol</b></A></dd>
+<dd><A HREF="symcleanup.htm"><b>
+SymCleanup</b></A></dd>
+<dd><A HREF="symdeletesymbol.htm"><b>SymDeleteSymbol</b></A></dd>
+<dd><A HREF="symenumeratemodules64.htm"><b>
+SymEnumerateModules64</b></A></dd>
+<dd><A HREF="symenumlines.htm"><b>SymEnumLines</b></A></dd>
+<dd><A HREF="symenumprocesses.htm"><b>SymEnumProcesses</b></A></dd>
+<dd><A HREF="symenumsourcefiles.htm"><b>SymEnumSourceFiles</b></A></dd>
+<dd><A HREF="symenumsourcefiletokens.htm"><b>SymEnumSourceFileTokens</b></A></dd>
+<dd><A HREF="symenumsourcelines.htm"><b>SymEnumSourceLines</b></A></dd>
+<dd><A HREF="symenumsymbols.htm"><b>SymEnumSymbols</b></A></dd>
+<dd><A HREF="symenumsymbolsforaddr.htm"><b>SymEnumSymbolsForAddr</b></A></dd>
+<dd><A HREF="symenumtypes.htm"><b>SymEnumTypes</b></A></dd>
+<dd><A HREF="symenumtypesbyname.htm"><b>SymEnumTypesByName</b></A></dd>
+<dd><A HREF="symfinddebuginfofile.htm"><b>SymFindDebugInfoFile</b></A></dd>
+<dd><A HREF="symfindexecutableimage.htm"><b>SymFindExecutableImage</b></A></dd>
+<dd><A HREF="symfindfileinpath.htm"><b>SymFindFileInPath</b></A></dd>
+<dd><A HREF="symfromaddr.htm"><b>SymFromAddr</b></A></dd>
+<dd><A HREF="symfromindex.htm"><b>SymFromIndex</b></A></dd>
+<dd><A HREF="symfromname.htm"><b>SymFromName</b></A></dd>
+<dd><A HREF="symfromtoken.htm"><b>SymFromToken</b></A></dd>
+<dd><A HREF="symfunctiontableaccess64.htm"><b>SymFunctionTableAccess64</b></A></dd>
+<dd><A HREF="symgetfilelineoffsets64.htm"><b>SymGetFileLineOffsets64</b></A></dd>
+<dd><A HREF="symgethomedirectory.htm"><b>SymGetHomeDirectory</b></A></dd>
+<dd><A HREF="symgetlinefromaddr64.htm"><b>SymGetLineFromAddr64</b></A></dd>
+<dd><A HREF="symgetlinefromname64.htm"><b>SymGetLineFromName64</b></A></dd>
+<dd><A HREF="symgetlinenext64.htm"><b>SymGetLineNext64</b></A></dd>
+<dd><A HREF="symgetlineprev64.htm"><b>SymGetLinePrev64</b></A></dd>
+<dd><A HREF="symgetmodulebase64.htm"><b>SymGetModuleBase64</b></A></dd>
+<dd><A HREF="symgetmoduleinfo64.htm"><b>SymGetModuleInfo64</b></A></dd>
+<dd><A HREF="symgetomaps.htm"><b>SymGetOmaps</b></A></dd>
+<dd><A HREF="symgetoptions.htm"><b>SymGetOptions</b></A></dd>
+<dd><A HREF="symgetscope.htm"><b>SymGetScope</b></A></dd>
+<dd><A HREF="symgetsearchpath.htm"><b>SymGetSearchPath</b></A></dd>
+<dd><A HREF="symgetsymbolfile.htm"><b>SymGetSymbolFile</b></A></dd>
+<dd><A HREF="symgettypefromname.htm"><b>SymGetTypeFromName</b></A></dd>
+<dd><A HREF="symgettypeinfo.htm"><b>SymGetTypeInfo</b></A></dd>
+<dd><A HREF="symgettypeinfoex.htm"><b>SymGetTypeInfoEx</b></A></dd>
+<dd><A HREF="symgetunwindinfo.htm"><b>SymGetUnwindInfo</b></A></dd>
+<dd><A HREF="syminitialize.htm"><b>SymInitialize</b></A></dd>
+<dd><A HREF="symloadmodule64.htm"><b>SymLoadModule64</b></A></dd>
+<dd><A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A></dd>
+<dd><A HREF="symmatchfilename.htm"><b>SymMatchFileName</b></A></dd>
+<dd><A HREF="symmatchstring.htm"><b>SymMatchString</b></A></dd>
+<dd><A HREF="symnext.htm"><b>SymNext</b></A></dd>
+<dd><A HREF="symprev.htm"><b>SymPrev</b></A></dd>
+<dd><A HREF="symrefreshmodulelist.htm"><b>SymRefreshModuleList</b></A></dd>
+<dd><A HREF="symregistercallback64.htm"><b>SymRegisterCallback64</b></A></dd>
+<dd><A HREF="symregisterfunctionentrycallback64.htm"><b>SymRegisterFunctionEntryCallback64</b></A></dd>
+<dd><A HREF="symsearch.htm"><b>SymSearch</b></A></dd>
+<dd><A HREF="symsetcontext.htm"><b>SymSetContext</b></A></dd>
+<dd><A HREF="symsethomedirectory.htm"><b>SymSetHomeDirectory</b></A></dd>
+<dd><A HREF="symsetoptions.htm"><b>SymSetOptions</b></A></dd>
+<dd><A HREF="symsetscopefromaddr.htm"><b>SymSetScopeFromAddr</b></A></dd>
+<dd><A HREF="symsetscopefromindex.htm"><b>SymSetScopeFromIndex</b></A></dd>
+<dd><A HREF="symsetsearchpath.htm"><b>SymSetSearchPath</b></A></dd>
+<dd><A HREF="symundname64.htm"><b>SymUnDName64</b></A></dd>
+<dd><A HREF="symunloadmodule64.htm"><b>SymUnloadModule64</b></A></dd>
+</dl>
+<H4><A NAME="symbol_server"></A>Symbol Server</H4>
+<P>The <A HREF="symbol_servers_and_symbol_stores.htm">symbol server</A> enables debuggers to automatically retrieve the correct symbol files without product names, releases, or build numbers. The following functions are used with the symbol server.</P>
+<P></P>
+<dl>
+<dd><A HREF="symbolserver.htm"><b>SymbolServer</b></A></dd>
+<dd><A HREF="symbolserverclose.htm"><b>SymbolServerClose</b></A></dd>
+<dd><A HREF="symbolservergetoptions.htm"><b>SymbolServerGetOptions</b></A></dd>
+<dd><A HREF="symbolserversetoptions.htm"><b>SymbolServerSetOptions</b></A></dd>
+<dd><A HREF="symsrvdeltaname.htm"><b>SymSrvDeltaName</b></A></dd>
+<dd><A HREF="symsrvgetfileindexes.htm"><b>SymSrvGetFileIndexes</b></A></dd>
+<dd><A HREF="symsrvgetfileindexinfo.htm"><b>SymSrvGetFileIndexInfo</b></A></dd>
+<dd><A HREF="symsrvgetfileindexstring.htm"><b>SymSrvGetFileIndexString</b></A></dd>
+<dd><A HREF="symsrvgetsupplement.htm"><b>SymSrvGetSupplement</b></A></dd>
+<dd><A HREF="symsrvisstore.htm"><b>SymSrvIsStore</b></A></dd>
+<dd><A HREF="symsrvstorefile.htm"><b>SymSrvStoreFile</b></A></dd>
+<dd><A HREF="symsrvstoresupplement.htm"><b>SymSrvStoreSupplement</b></A></dd>
+</dl>
+<H4><A NAME="user-mode_minidump_files"></A>User-mode Minidump Files</H4>
+<P>The minidump functions provide a way for applications to produce crashdump files that contain a useful subset of the entire process context; this is known as a <A HREF="minidump_files.htm">minidump file</A>. The following functions are used with minidump files.</P>
+<P></P>
+<dl>
+<dd><A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A></dd>
+<dd><A HREF="minidumpreaddumpstream.htm"><b>MiniDumpReadDumpStream</b></A></dd>
+<dd><A HREF="minidumpwritedump.htm"><b>MiniDumpWriteDump</b></A></dd>
+</dl>
+<H4><A NAME="source_server"></A>Source Server</H4>
+<P>Source server enables a client to retrieve the exact version of the source files that were used to build an application. The following functions are used with source server.</P>
+<P></P>
+<ul>
+<li><A HREF="symgetsourcefile.htm"><b>SymGetSourceFile</b></A></li>
+<li><A HREF="symgetsourcefilefromtoken.htm"><b>SymGetSourceFileFromToken</b></A></li>
+<li><A HREF="symgetsourcefiletoken.htm"><b>SymGetSourceFileToken</b></A></li>
+<li><A HREF="symgetsourcevarfromtoken.htm"><b>SymGetSourceVarFromToken</b></A></li>
+</ul>
+<H4><A NAME="obsolete_functions"></A>Obsolete Functions</H4>
+<P></P>
+<dl>
+<dd><A HREF="mapdebuginformation.htm"><b>MapDebugInformation</b></A></dd>
+<dd><A HREF="symenumeratesymbols64.htm"><b>SymEnumerateSymbols64</b></A></dd>
+<dd><A HREF="symgetsymfromaddr64.htm"><b>SymGetSymFromAddr64</b></A></dd>
+<dd><A HREF="symgetsymfromname64.htm"><b>SymGetSymFromName64</b></A></dd>
+<dd><A HREF="symgetsymnext64.htm"><b>SymGetSymNext64</b></A></dd>
+<dd><A HREF="symgetsymprev64.htm"><b>SymGetSymPrev64</b></A></dd>
+<dd><A HREF="unmapdebuginformation.htm"><b>UnMapDebugInformation</b></A></dd>
+</dl><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20DbgHelp Functions%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

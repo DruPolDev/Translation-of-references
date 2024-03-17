@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>SetRegistryValue method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">SetRegistryValue
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">SetRegistryValue</font></b> <b><font
+color="#0000FF">Proto</font></b> <b>hKey<font color="#FF00FF">:</font><font color="#000080">HKEY</font><font
+color="#FF00FF">,</font></b> <b>lpszSubKey<font color="#FF00FF">:</font><font color="#000080">LPSTR</font><font
+color="#FF00FF">,</font></b> <b>lpszValueName<font color="#FF00FF">:</font><font
+color="#000080">LPSTR</font><font color="#FF00FF">,</font></b> <b>lpszValue<font color="#FF00FF">:</font><font
+color="#000080">LPSTR</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font></b> <b><font
+color="#800080">SetRegistryValue</font><font color="#FF00FF">,</font></b> <b>hKey<font color="#FF00FF">,</font>
+lpszSubKey<font color="#FF00FF">,</font></b> <b>lpszValueName<font color="#FF00FF">,</font>
+lpszValue</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Sets the specified named value from the specified registry
+subkey.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hKey</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to one of the following predefined keys:</font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" color="#800080"
+size=2>ecClassesRoot<br></font></b><b><font color="#800080"
+face=Arial size=2>ecCurrentUser<br></font></b><b><font face="Arial"
+size=2 color="#800080">ecLocalMachine<br></font></b><b><font color="#800080"
+face=Arial size=2>ecUsers<br></font></b><b><font color="#800080"
+face=Arial size=2>ecPerformanceData<br></font></b><b><font face="Arial"
+size=2 color="#800080">ecCurrentConfig<br></font></b><b><font color="#800080"
+face=Arial size=2 color="#800080">ecDynData</font></b></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size=2>lpszSubKey</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the effective address
+of a null-terminated string that names the path of the subkey containing the
+named value to be set.</font></p></blockquote>
+
+<p dir="ltr"><b><font face="Arial" size=2>lpszValueName</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the effective address
+of a null-terminated string that names the named value to be
+set.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>lpszValue</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the effective address
+of a null-terminated string containing the value to be
+set.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <strong><font
+color="#000080">TRUE</font></strong> if successfull, or <strong><font color="#000080">FALSE</font></strong>
+if not.</font></font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><br><b>NOTE</b>: If the named value especified by <b>lpszValueName</b>
+does not exist, the method creates a named value with the specified name and sets it to the value specified by
+<b>lpszValue</b>.</font></font></p>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The <font color="#800080"><b>SetRegistryValue</b></font>
+method expects <b>lpszSubKey</b>, <b>lpszValueName</b> and <b>lpszValue</b> to be Unicode strings if the
+application is running as Unicode, or ANSI strings if not (see the <a href="AppUnicode.htm"><font
+color="#800080">IsAppUnicode</font></a> method). You can call <font color="#800080"><b>SetRegistryValueA</b></font>
+to write keys with ANSI values in Unicode applications, or <font color="#800080"><b>SetRegistryValueW</b></font>
+to write keys with Unicode values in ANSI applications.<br><br></font></p>
+
+</body>
+</html>

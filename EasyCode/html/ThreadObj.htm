@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Thread object</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><a name="threadobj"></a><b><font color="#004080" face="Arial" size="6">Thread
+object (Only Visual Project Type)</font>
+</b></p>
+<hr>
+<p><font face="Arial" size="2">Easy Code
+includes
+the <b>thread</b> object, which can easily create
+threads in any visual application.
+A <b>thread</b> object is treated as a child control, so
+it has a control identifier
+constant as any other control. For more information
+on how to get the control identifier, please see
+<a href="Visual.htm#childcontrolids"><font face="Arial" size="2">Getting
+child control identifiers</font></a>.<br>
+<br>
+When adding a <b>thread</b>
+object to a window, a procedure for
+the thread is also created. The name for this procedure will be the
+owner
+window name plus the <b>thread</b> object name (case
+sensitive) as in any
+other control. For example, if the thread is named <b>Thread1</b>
+and it is
+inside a window named <b>Window1</b>, its procedure name
+will be
+<b>Window1Thread1</b> and this will be the procedure called
+by the thread. Taking
+that into account, NEVER CHANGE the procedure name manually so that the
+thread
+can properly work. When you change the thread object name (or
+the owner window name) in the Properties window, Easy Code also changes
+the thread's procedure name according to the new name.</font></p>
+<p><font face="Arial" size="2">Also, you can
+pass
+the address of an existing variable to the thread's procedure
+by specifying its name in the <b>Parameter</b> property.
+The
+address of the specified variable will be passed as the
+<b>lpParameter</b> argument. Please see the <a href="Parameter.htm"><b>Parameter</b></a>
+property for more information.</font></p>
+<p><font face="Arial" size="2">After a thread
+is created, you may need to get
+its handle so that you can change its state and/or priority
+(set at design time). If so, just call the <a href="easy4f8t.htm"><b><font color="#800080">GetWindowItem</font></b></a>
+method as you do for any other control. Please see the <b>Threads</b>
+example in the <b>\EasyCode\Examples</b> folder.</font></p>
+<p><font face="Arial" size="2"><br>
+<b>REMARKS</b>: Easy Code can create up to
+48 threads for each application. In order to control a thread's
+priority and/or state,
+please refer to the <font color="#800000"><b>GetThreadPriority</b></font>,
+<font color="#800000"><b>SetThreadPriority</b></font>,
+<font color="#800000"><b>ResumeThread</b></font>
+and <font color="#800000"><b>SuspendThread</b></font>
+API functions.</font></p>
+<br>
+<br>
+</body></html>

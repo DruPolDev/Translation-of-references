@@ -1,0 +1,208 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGE_FILE_HEADER Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_image_file_header_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.image_file_header_str"></A>IMAGE_FILE_HEADER Structure</H1>
+<P><P>Represents the COFF header format.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGE_FILE_HEADER {<br>  WORD Machine;<br>  WORD NumberOfSections;<br>  DWORD TimeDateStamp;<br>  DWORD PointerToSymbolTable;<br>  DWORD NumberOfSymbols;<br>  WORD SizeOfOptionalHeader;<br>  WORD Characteristics;
+} IMAGE_FILE_HEADER, <br> *PIMAGE_FILE_HEADER;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>Machine</B></DT>
+<DD><p>The architecture type of the computer. An image file can only be run on the specified computer or a system that emulates the specified computer. This member can be one of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_I386<BR>0x014c</p>
+</TD>
+<TD width="60%"><p>x86</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_IA64<BR>0x0200</p>
+</TD>
+<TD width="60%"><p>Intel IPF</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_AMD64<BR>0x8664</p>
+</TD>
+<TD width="60%"><p>x64</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>NumberOfSections</B></DT>
+<DD><p>The number of sections. This indicates the size of the section table, which immediately follows the headers. Note that the Windows loader limits the number of sections to 96.</p>
+</DD>
+<DT><B>TimeDateStamp</B></DT>
+<DD><p>The low 32 bits of the time stamp of the image. This represents the date and time the image was created by the linker. The value is represented in the number of seconds elapsed since midnight (00:00:00), January 1, 1970, Universal Coordinated Time, according to the system clock.</p>
+</DD>
+<DT><B>PointerToSymbolTable</B></DT>
+<DD><p>The offset of the symbol table, in bytes, or zero if no COFF symbol table exists.</p>
+</DD>
+<DT><B>NumberOfSymbols</B></DT>
+<DD><p>The number of symbols in the symbol table.</p>
+</DD>
+<DT><B>SizeOfOptionalHeader</B></DT>
+<DD><p>The size of the optional header, in bytes. This value should be 0 for object files.</p>
+</DD>
+<DT><B>Characteristics</B></DT>
+<DD><p>The characteristics of the image. This member can be one or more of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_RELOCS_STRIPPED<BR>0x0001</p>
+</TD>
+<TD width="60%"><p>Relocation information was stripped from the file. The file must be loaded at its preferred base address. If the base address is not available, the loader reports an error.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_EXECUTABLE_IMAGE<BR>0x0002</p>
+</TD>
+<TD width="60%"><p>The file is executable (there are no unresolved external references).</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_LINE_NUMS_STRIPPED<BR>0x0004</p>
+</TD>
+<TD width="60%"><p>COFF line numbers were stripped from the file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_LOCAL_SYMS_STRIPPED<BR>0x0008</p>
+</TD>
+<TD width="60%"><p>COFF symbol table entries were stripped from file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_AGGRESIVE_WS_TRIM<BR>0x0010</p>
+</TD>
+<TD width="60%"><p>Aggressively trim the working set. This value is obsolete as of Windows 2000.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_LARGE_ADDRESS_AWARE<BR>0x0020</p>
+</TD>
+<TD width="60%"><p>The application can handle addresses larger than 2 GB.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_BYTES_REVERSED_LO<BR>0x0080</p>
+</TD>
+<TD width="60%"><p>The bytes of the word are reversed. This flag is obsolete.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_32BIT_MACHINE<BR>0x0100</p>
+</TD>
+<TD width="60%"><p>The computer supports 32-bit words.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_DEBUG_STRIPPED<BR>0x0200</p>
+</TD>
+<TD width="60%"><p>Debugging information was removed and stored separately in another file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP<BR>0x0400</p>
+</TD>
+<TD width="60%"><p>If the image is on removable media, copy it to and run it from the swap file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_NET_RUN_FROM_SWAP<BR>0x0800</p>
+</TD>
+<TD width="60%"><p>If the image is on the network, copy it to and run it from the swap file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_SYSTEM<BR>0x1000</p>
+</TD>
+<TD width="60%"><p>The image is a system file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_DLL<BR>0x2000</p>
+</TD>
+<TD width="60%"><p>The image is a DLL file. While it is an executable file, it cannot be run directly.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_UP_SYSTEM_ONLY<BR>0x4000</p>
+</TD>
+<TD width="60%"><p>The file should be run only on a uniprocessor computer.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_BYTES_REVERSED_HI<BR>0x8000</p>
+</TD>
+<TD width="60%"><p>The bytes of the word are reversed. This flag is obsolete.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, Windows 2000 Professional, Windows NT Workstation 4.0, Windows Me, Windows 98, or Windows 95.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, Windows 2000 Server, or Windows NT Server 4.0.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Winnt.h; include Windows.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_structures.htm">ImageHlp Structures</A><BR><A HREF="image_nt_headers_str.htm"><b>IMAGE_NT_HEADERS</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGE_FILE_HEADER%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>IsModal method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">IsModal
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Window</b> (non MDI child) and <b>DialogBox</b>
+objects.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">IsModal</font></b> <b><font
+color="#0000ff">Proto</font></b> <b>hWnd<font color="#ff00ff">:</font><font
+color=#000080>HWND</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000ff">Invoke</font></b> <b><font
+color="#800080">IsModal</font><font color=#ff00ff>,</font></b> <b>hWnd</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">Determines whether the specified window object is modal or modeless.</font></p>
+</blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to the window object.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns the modal condition for
+the specified window object.</font></font></p></blockquote>
+
+<p><font face="Arial" size="2"><br>Possible returned values are:</font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b><font color="#000080">TRUE</font></b>&nbsp;&nbsp;&nbsp;&nbsp;The specified
+window is modal.<br><b><font color="#000080">FALSE</font></b>&nbsp;&nbsp;The specified window is
+modeless.<br><b>-1</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>hWnd</b> is not a valid
+handle.</b></font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>REMARKS</b>: You should call this method before destroying a
+<b>Window</b> or a <b>DialogBox</b> object in order to know whether it is a modal or a modeless window. Modal
+windows <b>ALWAYS MUST</b> be destroyed by calling the </font></font><a href="easy5418.htm"><font face=Arial
+size=2><b><font color="#800080">EndModal</font></b></font></a><font face="Arial" size="2">
+method.<br><br></font></p>
+
+</body>
+</html>

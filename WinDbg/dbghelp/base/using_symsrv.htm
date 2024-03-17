@@ -1,0 +1,108 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Using SymSrv </TITLE><META NAME="MS-HAID" CONTENT="_win32_using_symsrv">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.using_symsrv"></A>Using SymSrv</H1>
+<P>The SymSrv (symsrv.dll) symbol server is included in the Debugging Tools for Windows package. It must be installed in the same directory as the copy of Dbghelp.dll that you are loading. To ensure that you load the correct version of Dbghelp.dll, delay-load the DLL instead of having the operating system load it. Be sure to specify a full path to Dbghelp.dll when calling the <b>LoadLibrary</b> function.</P>
+<P>SymSrv delivers symbol files from a centralized symbol store. This store can contain any number of symbol files, corresponding to any number of programs or operating systems. The store can also contain binary files (this is useful when debugging minidump files).</P>
+<P>The store can contain the actual symbol and binary files, or it can simply contain pointers to symbol files. If the store contains pointers, SymSrv will retrieve the actual files directly from their sources.</P>
+<P>SymSrv can also separate a large symbol store into a smaller subset that is appropriate for a specialized debugging task.</P>
+<P>Finally, SymSrv can obtain symbol files from an HTTP or HTTPS source using the logon information provided by the operating system. SymSrv supports HTTPS sites protected by smartcards, certificates, and regular logins and passwords.</P>
+<H4><A NAME="setting_the_symbol_path"></A>Setting the Symbol Path</H4>
+<P>The symbol path (_NT_SYMBOL_PATH environment variable) can include several directories separated by semicolons for SymSrv to use to locate symbol files. This path can also include symbol stores using the following syntax:</P>
+<P></P>
+<dl>
+<dd>symsrv*<i>ServerDLL</i>*<i>DownstreamStore</i>*\\<i>Server</i>\<i>Share</i></dd>
+<dd>symsrv*<i>ServerDLL</i>*\\<i>Server</i>\<i>Share</i></dd>
+<dd>srv*<i>DownstreamStore</i>*\\<i>Server</i>\<i>Share</i></dd>
+<dd>srv*<i>DownstreamStore1</i>*<i>DownstreamStoreN</i>*\\<i>Server</i>\<i>Share</i></dd>
+<dd>srv*\\<i>Server</i>\<i>Share</i></dd>
+<dd>srv**\\<i>Server</i>\<i>Share</i></dd>
+<dd>srv**\\<i>Server</i>\<i>Share</i>*http://<i>InternetSite</i></dd>
+</dl>
+<P>The following table describes elements of this syntax.</P>
+<TABLE CLASS="clsStd">
+<TR>
+<TH>Field</TH>
+<TH>Description</TH>
+</TR>
+<TR>
+<TD>symsrv</TD>
+<TD>Indicates to the debugger that this item is a symbol server, not just a normal symbol directory.</TD>
+</TR>
+<TR>
+<TD><i>ServerDLL</i></TD>
+<TD>The name of the symbol server DLL. If you are using the SymSrv symbol server, this will always be Symsrv.dll.</TD>
+</TR>
+<TR>
+<TD>srv*</TD>
+<TD>Same as symsrv*symsrv.dll.</TD>
+</TR>
+<TR>
+<TD>srv**</TD>
+<TD>Same as symsrv*symsrv.dll plus the default downstream store, which is set using <A HREF="symsethomedirectory.htm"><b>SymSetHomeDirectory</b></A>.</TD>
+</TR>
+<TR>
+<TD><i>DownstreamStore1</i> to <i>DownstreamStore10</i></TD>
+<TD>A series of one to ten local directories or network shares that will be used to cache individual symbol files. If a directory does not exist, SymStore will attempt to create it. <P>For performance reasons, it is a good idea to make the first downstream store specified a local directory.</P>
+</TD>
+</TR>
+<TR>
+<TD>\\<i>Server</i>\<i>Share</i></TD>
+<TD>The server and share of the master symbol store.</TD>
+</TR>
+<TR>
+<TD>&lt;empty field&gt;</TD>
+<TD>An empty field (either ** or a terminating asterisk) indicates the default downstream store.</TD>
+</TR>
+</TABLE>
+<P>If a downstream store is not included, the debugger will load all symbol files from the specified server and share.</P>
+<P>If a downstream store is included, the debugger will first look for a symbol file in this location. If the symbol file is not found, the debugger will locate the symbol file from the specified server and share and copy this file to the downstream store. The file will be copied to a subdirectory in the tree under <i>DownstreamStore</i> which corresponds to its location in the tree under \\<i>Server</i>\<i>Share</i>.</P>
+<P>Instead of specifying the directory for the downstream store in the symbol path, you can call <A HREF="symbolserversetoptions.htm"><b>SymbolServerSetOptions</b></A> with SSRVOPT_DOWNSTREAM_STORE to set the downstream store, then use the shortened syntax srv**\\<i>Server</i>\<i>Share</i>.</P>
+<P>For example, to use SymSrv as the symbol server with a symbol store on \\mybuilds\mysymbols, set the following symbol path:</P>
+<p><b>set _NT_SYMBOL_PATH= srv*\\mybuilds\mysymbols</b></p>
+<P>To set the symbol path so that the debugger will copy symbol files from a symbol store on \\mybuilds\mysymbols to your local directory c:\localsymbols, use:</P>
+<p><b>set _NT_SYMBOL_PATH=srv*c:\localsymbols*\\mybuilds\mysymbols</b></p>
+<P>To use a cascading store, set the following symbol path: </P>
+<p><b>set _NT_SYMBOL_PATH = srv*c:\localsymbols*\\server\store*\\mybuilds\mysymbols</b></p>
+<P>In this example, SymSrv first looks for the file in c:\localsymbols. If it is found there, it will return a path to the file. Otherwise, SymSrv looks for the file in \\server\store. If it is found there, SymSrv copies the file to c:\localsymbols and returns a path to the file. Otherwise, SymSrv looks for the file in \\mybuilds\mysymbols. If it is found there, SymSrv copies the file to \\server\store, then to c:\localsymbols.</P>
+<H4><A NAME="compressed_files"></A>Compressed Files</H4>
+<P>SymSrv is compatible with symbol stores that contain compressed files, as long as this compression has been done with the Compress.exe tool that was distributed with the Windows Server 2003 Resource Kit. Compressed files should have an underscore as the last character in their file extensions (for example, module1.pd_ or module2.db_). For details, see 
+<A HREF="using_symstore.htm">Using SymStore</A>.</P>
+<P>Files are not uncompressed unless the target store is the bottom-most store in the path. </P>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier.:  </B>If the files in the master store are compressed, you must use a downstream store. SymSrv will uncompress all files before copying them to the downstream store.</BLOCKQUOTE>
+<H4><A NAME="deleting_the_cache"></A>Deleting the Cache</H4>
+<P>If you are using a downstream store as a cache, you can delete this directory at any time to save disk space.</P>
+<P>It is possible to have a vast symbol store that includes symbol files for many different programs or Windows versions. If you upgrade the version of Windows used on your target computer, the cached symbol files will all match the earlier version. These cached files will not be of any further use, and therefore this might be a good time to delete the cache.</P>
+<H4><A NAME="downstream_stores"></A>Downstream Stores</H4>
+<P>A downstream store can be useful in an environment where the symbols are located in a distant location on a potentially slow network. A group of users can create a common downstream store that is physically close to them, so that the slow file access occurs only the first time the symbol is accessed and copied to the downstream store. It is not necessary to specify a downstream store unless you are accessing symbols from an HTTP or HTTPS site or using compressed files on your store.</P>
+<P>It is possible to declare the default downstream store as a flat directory, rather than a standard symbol tree structure. To do so, call the <A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function with SYMOPT_FLAT_DIRECTORY (this also sets the SSRVOPT_FLAT_DEFAULT_STORE option in SymSrv). Be sure to call <b>SymSetHomeDirectory</b> before doing so; otherwise, the symbol files can be written to the program directory. </P>
+<H4><A NAME="pointer_files"></A>Pointer Files</H4>
+<P>SymStore can create and use files that point to a target file rather than the target file itself. If a symbol store contains such a pointer file, the default is to copy the file from the location indicated in the pointer file to the store. To configure a store such that the pointer file is copied instead of the file it points to, create a file named Wantsptr.txt in the root of the target store. The contents of Wantsptr.txt are not important, only the presence of the file.</P>
+<H4><A NAME="how_symsrv_locates_files"></A>How SymSrv Locates Files</H4>
+<P>SymSrv creates a fully-qualified UNC path to the desired symbol file. This path begins with the path to the symbol store recorded in the _NT_SYMBOL_PATH environment variable. The 
+<A HREF="symbolserver.htm"><b>SymbolServer</b></A> routine is then used to identify the name of the desired file; this name is appended to the path as a directory name. Another directory name, consisting of the concatenation of the <i>id</i>, <i>two</i>, and <i>three</i> parameters passed to 
+<b>SymbolServer</b>, is then appended; if any of these values are zero, they are omitted.</P>
+<P>The resulting directory is searched for the symbol file, or a symbol store pointer file.</P>
+<P>If this search is successful, the path is passed to the caller and TRUE is returned. If the file is not found, FALSE is returned.</P>
+<H4><A NAME="excluding_files_from_symbols_list"></A>Excluding Files from Symbols List</H4>
+<P>To exclude files from a symbols search, you can specify their names in Symsrv.ini or in the registry. To specify the files in Symsrv.ini, create a section named Exclusions and list the files. The file names can contain wildcards, as shown in the following example:</P>
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve">[Exclusions]
+dbghelp.pdb
+symsrv.*
+mso*</PRE></DIV>
+<P>Alternatively, you can store the files to be excluded in the registry. Create the following registry key: <B>HKEY_LOCAL_MACHINE\Sofware\Microsoft\Symbol Server\Exclusions</B>. Store each file name as a string value (REG_SZ) within this key. The name of the string value specifies the name of the file to be excluded. You can use the contents of the string value to store a comment describing why the file is being excluded.</P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Using SymSrv%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

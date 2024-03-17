@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="ca"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Classic projects</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#0000a0" face="Arial" size="6">Classic
+Projects - The traditional
+mode</font></b></p>
+<hr><br>
+<p></p>
+<p><img src="TypeCls.gif" border="0" height="439" hspace="0" width="361"></p>
+<p><br>
+<font face="Arial" size="2">To
+create a classic project, choose one of the <b>Classic</b>
+options.
+Classic projects are not visual, that is, they are traditional
+assembler programs,
+where you write all code and then build the project like in other
+IDE's. Anyway, Easy Code offers some advantages
+that make your work considerably easier, and for that reason you have
+to take into account some considerations in
+order to avoid errors:</font></p>
+<p><font face="Arial" size="2">If the project
+is a <b>driver</b>
+type, you <b>NEVER</b> have to include the <b>windows.inc</b>
+file,
+instead the <b>ntddk.inc</b> has to be included. Easy Code
+takes
+care of that when creating the project.</font></p>
+<p><font face="Arial" size="2">For
+ASMC/JWASM/UASM,
+MASM and POASM projects,
+variables can be made global to the whole project by checking the
+<b>Make all variables global</b> option in the </font><a href="Project.htm#project1cla"><font face="Arial" size="2"><b>Project Properties</b></font></a><font face="Arial" size="2">, so that you do not have to
+write
+the corresponding <font color="#0000ff"><b>ExternDef</b></font>
+directives. Easy Code write them internally when the mentioned
+option is checked.</font></p>
+<p><font face="Arial" size="2">For
+ASMC/JWASM/UASM,
+MASM and POASM
+projects, prototypes for all procedures in the project (<b style="color: rgb(0, 0, 255);">Protos</b>) are also
+written
+internally by Easy Code, so you do not have to worry
+about them.</font></p>
+<p><font face="Arial" size="2">When working
+with <b>exe</b>,
+<b>dll</b>
+and <b>console</b>
+projects, resources for
+your application can be made by the <a href="ResEdit.htm"><b>Resource
+Editor</b></a>
+in a very easy way. The Resource
+Editor is not available for static libraries (<b>lib</b>
+projects) because they cannot have resources</font></p>
+<p><font face="Arial" size="2">You also can
+add one
+external compiled resource file (*.res) made outside Easy Code.
+If you do so, as only one resource file can be linked to the
+application, take into account the following
+considerations:</font></p>
+<dl>
+<dd>
+<div><font face="Arial" size="2">- All
+resources in the
+Easy Code Resource Editor will be ignored.</font></div>
+</dd>
+<dd>
+<div><font face="Arial" size="2">- Only
+one external
+compiled resource file (<b>*.res</b>)
+is accepted by Easy
+Code.</font></div>
+</dd>
+<dd>
+<div><font face="Arial" size="2">- Text
+files with
+extension <b>*.rc</b>
+(not compiled resources) <b>ARE
+NOT</b>
+accepted as external resources (except for being imported).</font></div>
+</dd>
+<dd>
+<div><font face="Arial" size="2">- The
+added <b>*.res</b>
+external file must be inside the <b>Res</b>
+subfolder of
+the project directory.</font></div>
+</dd>
+</dl>
+<p><font face="Arial" size="2"><br>
+When saving a project for the first time, Easy Code creates a
+subfolder named <b>Res</b>
+inside the project directory. All image and any other file related to
+resources (and the external
+<b>*.res</b>
+file, if you add one) must be located in the <b>Res</b>
+subfolder, so that Easy Code can find them when
+building the project. If not, errors will be generated and project will
+not be built.</font></p>
+<p><font face="Arial" size="2">If you want to
+use the
+Rich Edit or the Windows Common controls, mark the corresponding
+check box in the </font><a href="Project.htm#project2"><font face="Arial" size="2"><b>Project Properties</b></font></a><font face="Arial" size="2"> and the corresponding buttons
+will be
+shown in the tool box.</font></p>
+<p><font face="Arial" size="2">The <b>Manifest</b>
+check box
+specifies whether the new comon controls, available in Windows
+XP and later systems, will be activated. For more information,
+please see the <a href="Manifest.htm"><b>Including
+a Manifest
+in the project</b></a> topic.</font></p>
+<p><font face="Arial"><font size="2"><br>
+<b>IMPORTANT</b>:
+As only one resource file can be linked to an application, if
+you add an external compiled resource file (<b>*.res</b>),
+it is supposed to be the one that must be linked.
+Consequently, all existing resources in the Easy Code's <a href="ResEdit.htm"><b>Resource Editor</b></a>
+(if any) will be
+ignored.</font></font></p>
+<p><font face="Arial"><font face="Arial" size="2">To avoid undesired
+errors, all files needed for building a project, including those
+necessary files for Windows applications (<b>kernel32.inc</b>,
+<b>user32.inc</b>,
+<b>kernel32.lib</b>,
+<b>user32.lib</b>,
+etc.), should be added to project through the Easy Code interface
+(better than including them in
+the code) using the following menus:</font></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font face="Arial" size="2">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td v="" valign="top" width="250"><font face="Arial" size="2">Include
+files (*.inc;*.h)</font></td>
+<td><font face="Arial" size="2">Use <strong>Project--&gt;Add
+Include files (*.inc;.h)</strong>
+menu</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="250"><font face="Arial" size="2"><font face="Arial" size="2">Library files
+(*.lib)</font></font></td>
+<td><font face="Arial" size="2">Use <strong>Project--&gt;Add
+Library files (*.lib)</strong> menu</font></td>
+</tr>
+<tr>
+<td valign="top" width="250"><font face="Arial" size="2">Compiled
+resource file
+(*.res)</font></td>
+<td><font size="2"><font face="Arial">Use
+<font color="#000000"><b>Project--&gt;Add
+external resources (*.res)</b>
+menu</font></font></font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="250"><font face="Arial" size="2">Definition
+file (*.def)</font></td>
+<td><font face="Arial" size="2">Use <strong>Project--&gt;Add
+Definition file (*.def)</strong> menu</font></td>
+</tr>
+</tbody>
+</table>
+</font></font></p>
+</blockquote>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2"><br>
+For ASMC/JWASM/UASM, MASM and POASM projects,
+you do not need to write the <b><font color="#0000ff">.model</font></b>
+and <b><font color="#0000ff">option casemap</font></b>
+directives
+in your code. The Easy Code interface <b>always</b>
+adds internally the following sentences:</font></font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><b><font face="Arial" size="2"><font color="#0000ff">.model flat<font color="#ff00ff">,</font>
+stdcall</font></font></b><br>
+<b><font color="#0000ff" face="Arial" size="2">option
+casemap<font color="#ff00ff">:</font>none</font></b></font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2">Include
+and library
+files (<b>*.inc</b>
+and <b>*.lib</b>)
+are always searched in the
+following folders:</font></font></font></p>
+<dl>
+<dd>
+<div><font face="Arial" size="2">- The
+project folder<br>
+- The <b>Include</b>
+and <b>Lib</b>
+subfolders
+(specified in <a href="Settings.htm#projectpaths"><b>Tools--&gt;Settings</b></a><font face="Arial" size="2">
+menu)<br>
+- The <b>Include</b>
+subfolder
+of the <b>EasyCode</b> folder</font></font></div>
+</dd>
+</dl>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2">So,
+all Include or
+Library files needed must be added through the corresponding menu
+options, and must be in any of the specified folders. Any other
+files needed must also be added to project and placed in the project
+folder (except image, extern <b>*.res</b>, and other
+resources
+related files, which must be in <b>Res</b>
+subfolder).</font></font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2">When
+building <b>Static
+Libraries</b> (<b>lib</b>
+projects) and/or <b>Dynamic</b>
+<b>Link Libraries</b>
+(<b>dll</b>
+projects), it is possible to add a definition file (<b>*.def</b>).
+If so, just one
+definition file can be added to a project and it also must be in the
+project directory.</font></font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2">The
+final name of the
+executable, dynamic link library, console application, static library,
+COFF object file, driver or service, is always
+the project name plus the corresponding extension (<b>exe</b>,
+<b>dll</b>,
+<b>lib</b>,
+<b>obj</b>
+or <b>sys</b>).
+That is, a project named
+<b>Project1</b>
+will be <b>Project1.exe</b>,
+<b>Project1.dll</b>,
+<b>Project1.lib</b>,
+<b>Project1.obj</b>
+or <b>Project1.sys</b>,
+depending on the project
+type. If you are going to build a <b>Classic
+NT driver (sys)</b>,
+please carefully read <a href="Drivers.htm"><b>Building
+NT
+drivers</b></a>.</font></font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2">When
+creating a new
+classic project, Easy Code automatically adds a module.
+You can add as many new or existing modules as
+you like, using the following
+menus:</font></font></font></p>
+<dl>
+<dd>
+<div><font face="Arial"><font face="Arial" size="2"><b><font face="Arial"><font size="2">Project--&gt;Add
+Module<br>
+</font></font></b><b><font face="Arial"><font size="2">Project--&gt;Add
+existing file</font></font> </b></font></font></div>
+</dd>
+</dl>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2">When
+adding existing
+modules, they should be made by Easy Code in order to work
+properly. Anyway, in many cases, assembler files (<b>*.asm</b>),
+not created by Easy Code, can be loaded
+successfully.</font></font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2">When
+designing dialog
+boxes in the Resource Editor, you can place different controls
+inside them. For a list of available controls see </font><a href="CtrlObj.htm"><font face="Arial" size="2"><b>Control
+objects</b></font></a><font face="Arial" size="2">.</font></font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><font face="Arial"><font size="2"><b>REMARKS</b>:
+In classic projects, you should write all the necessary code
+(just some initial code is written by Easy Code) and you are
+responsible for any directives (except those mentioned
+above), preserving registers <b><font color="#808000">Ebx</font></b>,
+<b><font color="#808000">Edi</font></b>
+and <b><font color="#808000">Esi</font></b>
+(as required by Windows), etc., in order to compile and link without
+errors.</font></font></font></font></p>
+<br>
+</body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=Windows-1252">
+  <title>DragAndDrop property</title>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">DragAndDrop
+property</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Available for all child
+controls except
+for <b>IpAddress</b>
+and <b>ImageList</b>
+objects.</font></p>
+<p><b><font face="Arial" size="2">Read/Write at design time<br>
+</font></b></p>
+<p><font face="Arial" size="2">Specifies whether the
+object
+can be a drag-and-drop target (see <b>REMARKS</b>).
+It can be one of the following values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+  <p><font face="Arial" size="2"><b><font color="#000080">TRUE</font></b>&nbsp;&nbsp;&nbsp;&nbsp;The
+object
+can be a drag-and-drop target.<br>
+  </font><font face="Arial"><font size="2"><b><font color="#000080">FALSE</font></b>&nbsp;&nbsp;The
+object
+cannot be a drag-and-drop target
+(<b>default</b>).</font></font></p>
+</blockquote>
+<p><font face="Arial" size="2">When this property is
+set to
+<b><font color="#000080">TRUE</font></b>
+and a dragged file
+is dropped on the control, a <b><font color="#000080">WM_DROPFILES</font></b>
+message is sent to the control procedure. For more information on how
+to manage this message, please refer to the MSDN help or <a
+ href="https://easycode.cat/English/Download/DragDropMasm.zip">download
+this simple drag-and-drop example</a>.</font></p>
+<p><font face="Arial" size="2"><br>
+<b>REMARKS</b>:
+For <b>Pager</b>
+objects
+this property refers to the contained control,
+while for <b>Header</b>
+objects it just specifies
+whether the object allows drag-and-drop reordering
+of header items.</font></p>
+<br>
+</body>
+</html>

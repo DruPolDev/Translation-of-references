@@ -1,0 +1,322 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGEHLP_SYMBOL_TYPE_INFO Enumeration</TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagehlp_symbol_type_info"></A>IMAGEHLP_SYMBOL_TYPE_INFO Enumeration</H1>
+<P><p>Identifies the type of symbol information to be retrieved.</p>
+</P>
+<PRE class="syntaxNew" xml:space="preserve">typedef enum 
+{
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_SYMTAG</A><div class="classNewTip" ID="TI_GET_SYMTAG"><DL><DT>TI_GET_SYMTAG</DT><DD><p>The symbol tag.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_SYMNAME</A><div class="classNewTip" ID="TI_GET_SYMNAME"><DL><DT>TI_GET_SYMNAME</DT><DD><p>The symbol name.</p>
+<P>The data type is <b>WCHAR**</b>. The caller must free the buffer.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_LENGTH</A><div class="classNewTip" ID="TI_GET_LENGTH"><DL><DT>TI_GET_LENGTH</DT><DD><p>The length of the type.</p>
+<P>The data type is <b>ULONG64*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_TYPE</A><div class="classNewTip" ID="TI_GET_TYPE"><DL><DT>TI_GET_TYPE</DT><DD><p>The type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_TYPEID</A><div class="classNewTip" ID="TI_GET_TYPEID"><DL><DT>TI_GET_TYPEID</DT><DD><p>The type index.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_BASETYPE</A><div class="classNewTip" ID="TI_GET_BASETYPE"><DL><DT>TI_GET_BASETYPE</DT><DD><p>The base type for the type index.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_ARRAYINDEXTYPEID</A><div class="classNewTip" ID="TI_GET_ARRAYINDEXTYPEID"><DL><DT>TI_GET_ARRAYINDEXTYPEID</DT><DD><p>The type index for index of an array type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_FINDCHILDREN</A><div class="classNewTip" ID="TI_FINDCHILDREN"><DL><DT>TI_FINDCHILDREN</DT><DD><p>The type index of all children.</p>
+<P>The data type  is a pointer to a 
+<A HREF="ti_findchildren_params_str.htm"><b>TI_FINDCHILDREN_PARAMS</b></A> structure. The <b>Count</b> member should be initialized with the number of children.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_DATAKIND</A><div class="classNewTip" ID="TI_GET_DATAKIND"><DL><DT>TI_GET_DATAKIND</DT><DD><p>The data kind.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_ADDRESSOFFSET</A><div class="classNewTip" ID="TI_GET_ADDRESSOFFSET"><DL><DT>TI_GET_ADDRESSOFFSET</DT><DD><p>The address offset.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_OFFSET</A><div class="classNewTip" ID="TI_GET_OFFSET"><DL><DT>TI_GET_OFFSET</DT><DD><p>The offset of the type in the parent. Members can use this to get their offset in a structure.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_VALUE</A><div class="classNewTip" ID="TI_GET_VALUE"><DL><DT>TI_GET_VALUE</DT><DD><p>The value of a constant or enumeration value.</p>
+<P>The data type is <b>VARIANT*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_COUNT</A><div class="classNewTip" ID="TI_GET_COUNT"><DL><DT>TI_GET_COUNT</DT><DD><p>The count of array elements.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_CHILDRENCOUNT</A><div class="classNewTip" ID="TI_GET_CHILDRENCOUNT"><DL><DT>TI_GET_CHILDRENCOUNT</DT><DD><p>The number of children.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_BITPOSITION</A><div class="classNewTip" ID="TI_GET_BITPOSITION"><DL><DT>TI_GET_BITPOSITION</DT><DD><p>The bit position of a bitfield.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_VIRTUALBASECLASS</A><div class="classNewTip" ID="TI_GET_VIRTUALBASECLASS"><DL><DT>TI_GET_VIRTUALBASECLASS</DT><DD><p>A value that indicates whether the base class is virtually inherited.</p>
+<P>The data type is <b>BOOL</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_VIRTUALTABLESHAPEID</A><div class="classNewTip" ID="TI_GET_VIRTUALTABLESHAPEID"><DL><DT>TI_GET_VIRTUALTABLESHAPEID</DT><DD><p>The symbol interface of the type of virtual table, for a user-defined type.</p>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_VIRTUALBASEPOINTEROFFSET</A><div class="classNewTip" ID="TI_GET_VIRTUALBASEPOINTEROFFSET"><DL><DT>TI_GET_VIRTUALBASEPOINTEROFFSET</DT><DD><p>The offset of the virtual base pointer.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_CLASSPARENTID</A><div class="classNewTip" ID="TI_GET_CLASSPARENTID"><DL><DT>TI_GET_CLASSPARENTID</DT><DD><p>The type index of the class parent.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_NESTED</A><div class="classNewTip" ID="TI_GET_NESTED"><DL><DT>TI_GET_NESTED</DT><DD><p>A value that indicates whether the type index is nested.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_SYMINDEX</A><div class="classNewTip" ID="TI_GET_SYMINDEX"><DL><DT>TI_GET_SYMINDEX</DT><DD><p>The symbol index for a type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_LEXICALPARENT</A><div class="classNewTip" ID="TI_GET_LEXICALPARENT"><DL><DT>TI_GET_LEXICALPARENT</DT><DD><p>The lexical parent of the type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_ADDRESS</A><div class="classNewTip" ID="TI_GET_ADDRESS"><DL><DT>TI_GET_ADDRESS</DT><DD><p>The index address.</p>
+<P>The data type is <b>ULONG64*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_THISADJUST</A><div class="classNewTip" ID="TI_GET_THISADJUST"><DL><DT>TI_GET_THISADJUST</DT><DD><p>The offset from the <B>this</B> pointer to its actual value.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_UDTKIND</A><div class="classNewTip" ID="TI_GET_UDTKIND"><DL><DT>TI_GET_UDTKIND</DT><DD><p>The UDT kind.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_IS_EQUIV_TO</A><div class="classNewTip" ID="TI_IS_EQUIV_TO"><DL><DT>TI_IS_EQUIV_TO</DT><DD><p>The equivalency of two types.</p>
+<P>The data type is <b>DWORD*</b>. The value is S_OK is the two types are equivalent, and S_FALSE otherwise.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_CALLING_CONVENTION</A><div class="classNewTip" ID="TI_GET_CALLING_CONVENTION"><DL><DT>TI_GET_CALLING_CONVENTION</DT><DD><p>The calling convention.</p>
+<P>The data type is <b>DWORD</b>. The following are the valid values:</P>
+<P></P>
+<dl>
+<dd>CV_CALL_NEAR_C          (0x00)</dd>
+<dd>CV_CALL_FAR_C           (0x01)</dd>
+<dd>CV_CALL_NEAR_PASCAL (0x02)</dd>
+<dd>CV_CALL_FAR_PASCAL      (0x03)</dd>
+<dd>CV_CALL_NEAR_FAST       (0x04)</dd>
+<dd>CV_CALL_FAR_FAST        (0x05)</dd>
+<dd>CV_CALL_SKIPPED         (0x06)</dd>
+<dd>CV_CALL_NEAR_STD        (0x07)</dd>
+<dd>CV_CALL_FAR_STD         (0x08)</dd>
+<dd>CV_CALL_NEAR_SYS        (0x09)</dd>
+<dd>CV_CALL_FAR_SYS         (0x0a)</dd>
+<dd>CV_CALL_THISCALL        (0x0b)</dd>
+<dd>CV_CALL_MIPSCALL        (0x0c)</dd>
+<dd>CV_CALL_GENERIC         (0x0d)</dd>
+<dd>CV_CALL_ALPHACALL       (0x0e)</dd>
+<dd>CV_CALL_PPCCALL         (0x0f)</dd>
+<dd>CV_CALL_SHCALL (0x10)</dd>
+<dd>CV_CALL_ARMCALL (0x11)</dd>
+<dd>CV_CALL_AM33CALL (0x12)</dd>
+<dd>CV_CALL_TRICALL (0x13)</dd>
+<dd>CV_CALL_SH5CALL (0x14)</dd>
+<dd>CV_CALL_M32RCALL (0x15)</dd>
+</dl>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_IS_CLOSE_EQUIV_TO</A><div class="classNewTip" ID="TI_IS_CLOSE_EQUIV_TO"><DL><DT>TI_IS_CLOSE_EQUIV_TO</DT><DD><p>The equivalency of two symbols. This is not guaranteed to be accurate.</p>
+<P>The data type is <b>DWORD*</b>. The value is S_OK is the two types are equivalent, and S_FALSE otherwise.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GTIEX_REQS_VALID</A><div class="classNewTip" ID="TI_GTIEX_REQS_VALID"><DL><DT>TI_GTIEX_REQS_VALID</DT><DD><p>The element where the valid request bitfield should be stored.</p>
+<P>The data type is <b>ULONG64*</b>.</P>
+<P>This value is only used with the <A HREF="symgettypeinfoex.htm"><b>SymGetTypeInfoEx</b></A> function.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_VIRTUALBASEOFFSET</A><div class="classNewTip" ID="TI_GET_VIRTUALBASEOFFSET"><DL><DT>TI_GET_VIRTUALBASEOFFSET</DT><DD><p>The offset in the virtual function table of a virtual function.</p>
+<P>The data type is <b>DWORD</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_VIRTUALBASEDISPINDEX</A><div class="classNewTip" ID="TI_GET_VIRTUALBASEDISPINDEX"><DL><DT>TI_GET_VIRTUALBASEDISPINDEX</DT><DD><p>The index into the virtual base displacement table.</p>
+<P>The data type is <b>DWORD</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_IS_REFERENCE</A><div class="classNewTip" ID="TI_GET_IS_REFERENCE"><DL><DT>TI_GET_IS_REFERENCE</DT><DD><p>Indicates whether a pointer type is a reference.</p>
+<P>The data type is <b>Boolean</b>.</P>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">TI_GET_INDIRECTVIRTUALBASECLASS</A><div class="classNewTip" ID="TI_GET_INDIRECTVIRTUALBASECLASS"><DL><DT>TI_GET_INDIRECTVIRTUALBASECLASS</DT><DD><p>TBD</p>
+</DD></DL></div>
+}IMAGEHLP_SYMBOL_TYPE_INFO;</PRE>
+<H4>Constants</H4>
+<DL>
+<DT><B>TI_GET_SYMTAG</B></DT>
+<DD><p>The symbol tag.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_SYMNAME</B></DT>
+<DD><p>The symbol name.</p>
+<P>The data type is <b>WCHAR**</b>. The caller must free the buffer.</P>
+</DD>
+<DT><B>TI_GET_LENGTH</B></DT>
+<DD><p>The length of the type.</p>
+<P>The data type is <b>ULONG64*</b>.</P>
+</DD>
+<DT><B>TI_GET_TYPE</B></DT>
+<DD><p>The type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_TYPEID</B></DT>
+<DD><p>The type index.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_BASETYPE</B></DT>
+<DD><p>The base type for the type index.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_ARRAYINDEXTYPEID</B></DT>
+<DD><p>The type index for index of an array type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_FINDCHILDREN</B></DT>
+<DD><p>The type index of all children.</p>
+<P>The data type  is a pointer to a 
+<A HREF="ti_findchildren_params_str.htm"><b>TI_FINDCHILDREN_PARAMS</b></A> structure. The <b>Count</b> member should be initialized with the number of children.</P>
+</DD>
+<DT><B>TI_GET_DATAKIND</B></DT>
+<DD><p>The data kind.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_ADDRESSOFFSET</B></DT>
+<DD><p>The address offset.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_OFFSET</B></DT>
+<DD><p>The offset of the type in the parent. Members can use this to get their offset in a structure.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_VALUE</B></DT>
+<DD><p>The value of a constant or enumeration value.</p>
+<P>The data type is <b>VARIANT*</b>.</P>
+</DD>
+<DT><B>TI_GET_COUNT</B></DT>
+<DD><p>The count of array elements.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_CHILDRENCOUNT</B></DT>
+<DD><p>The number of children.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_BITPOSITION</B></DT>
+<DD><p>The bit position of a bitfield.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_VIRTUALBASECLASS</B></DT>
+<DD><p>A value that indicates whether the base class is virtually inherited.</p>
+<P>The data type is <b>BOOL</b>.</P>
+</DD>
+<DT><B>TI_GET_VIRTUALTABLESHAPEID</B></DT>
+<DD><p>The symbol interface of the type of virtual table, for a user-defined type.</p>
+</DD>
+<DT><B>TI_GET_VIRTUALBASEPOINTEROFFSET</B></DT>
+<DD><p>The offset of the virtual base pointer.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_CLASSPARENTID</B></DT>
+<DD><p>The type index of the class parent.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_NESTED</B></DT>
+<DD><p>A value that indicates whether the type index is nested.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_SYMINDEX</B></DT>
+<DD><p>The symbol index for a type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_LEXICALPARENT</B></DT>
+<DD><p>The lexical parent of the type.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_ADDRESS</B></DT>
+<DD><p>The index address.</p>
+<P>The data type is <b>ULONG64*</b>.</P>
+</DD>
+<DT><B>TI_GET_THISADJUST</B></DT>
+<DD><p>The offset from the <B>this</B> pointer to its actual value.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_GET_UDTKIND</B></DT>
+<DD><p>The UDT kind.</p>
+<P>The data type is <b>DWORD*</b>.</P>
+</DD>
+<DT><B>TI_IS_EQUIV_TO</B></DT>
+<DD><p>The equivalency of two types.</p>
+<P>The data type is <b>DWORD*</b>. The value is S_OK is the two types are equivalent, and S_FALSE otherwise.</P>
+</DD>
+<DT><B>TI_GET_CALLING_CONVENTION</B></DT>
+<DD><p>The calling convention.</p>
+<P>The data type is <b>DWORD</b>. The following are the valid values:</P>
+<P></P>
+<dl>
+<dd>CV_CALL_NEAR_C          (0x00)</dd>
+<dd>CV_CALL_FAR_C           (0x01)</dd>
+<dd>CV_CALL_NEAR_PASCAL (0x02)</dd>
+<dd>CV_CALL_FAR_PASCAL      (0x03)</dd>
+<dd>CV_CALL_NEAR_FAST       (0x04)</dd>
+<dd>CV_CALL_FAR_FAST        (0x05)</dd>
+<dd>CV_CALL_SKIPPED         (0x06)</dd>
+<dd>CV_CALL_NEAR_STD        (0x07)</dd>
+<dd>CV_CALL_FAR_STD         (0x08)</dd>
+<dd>CV_CALL_NEAR_SYS        (0x09)</dd>
+<dd>CV_CALL_FAR_SYS         (0x0a)</dd>
+<dd>CV_CALL_THISCALL        (0x0b)</dd>
+<dd>CV_CALL_MIPSCALL        (0x0c)</dd>
+<dd>CV_CALL_GENERIC         (0x0d)</dd>
+<dd>CV_CALL_ALPHACALL       (0x0e)</dd>
+<dd>CV_CALL_PPCCALL         (0x0f)</dd>
+<dd>CV_CALL_SHCALL (0x10)</dd>
+<dd>CV_CALL_ARMCALL (0x11)</dd>
+<dd>CV_CALL_AM33CALL (0x12)</dd>
+<dd>CV_CALL_TRICALL (0x13)</dd>
+<dd>CV_CALL_SH5CALL (0x14)</dd>
+<dd>CV_CALL_M32RCALL (0x15)</dd>
+</dl>
+</DD>
+<DT><B>TI_IS_CLOSE_EQUIV_TO</B></DT>
+<DD><p>The equivalency of two symbols. This is not guaranteed to be accurate.</p>
+<P>The data type is <b>DWORD*</b>. The value is S_OK is the two types are equivalent, and S_FALSE otherwise.</P>
+</DD>
+<DT><B>TI_GTIEX_REQS_VALID</B></DT>
+<DD><p>The element where the valid request bitfield should be stored.</p>
+<P>The data type is <b>ULONG64*</b>.</P>
+<P>This value is only used with the <A HREF="symgettypeinfoex.htm"><b>SymGetTypeInfoEx</b></A> function.</P>
+</DD>
+<DT><B>TI_GET_VIRTUALBASEOFFSET</B></DT>
+<DD><p>The offset in the virtual function table of a virtual function.</p>
+<P>The data type is <b>DWORD</b>.</P>
+</DD>
+<DT><B>TI_GET_VIRTUALBASEDISPINDEX</B></DT>
+<DD><p>The index into the virtual base displacement table.</p>
+<P>The data type is <b>DWORD</b>.</P>
+</DD>
+<DT><B>TI_GET_IS_REFERENCE</B></DT>
+<DD><p>Indicates whether a pointer type is a reference.</p>
+<P>The data type is <b>Boolean</b>.</P>
+</DD>
+<DT><B>TI_GET_INDIRECTVIRTUALBASECLASS</B></DT>
+<DD><p>TBD</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="symgettypeinfo.htm"><b>SymGetTypeInfo</b></A><BR><A HREF="symgettypeinfoex.htm"><b>SymGetTypeInfoEx</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGEHLP_SYMBOL_TYPE_INFO%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

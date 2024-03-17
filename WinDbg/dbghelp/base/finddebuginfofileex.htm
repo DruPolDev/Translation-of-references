@@ -1,0 +1,110 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>FindDebugInfoFileEx Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_finddebuginfofileex">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.finddebuginfofileex"></A>FindDebugInfoFileEx Function</H1>
+<P><P>Locates the specified 
+<A HREF="symbol_files.htm">debug (.dbg) file</A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+HANDLE WINAPI FindDebugInfoFileEx(
+  __in          PCTSTR <I>FileName</I>,
+  __in          PCTSTR <I>SymbolPath</I>,
+  __out         PTSTR <I>DebugFilePath</I>,
+  __in          PFIND_DEBUG_FILE_CALLBACK <I>Callback</I>,
+  __in          PVOID <I>CallerData</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>FileName</I></DT>
+<DD>
+<p>The name of the .dbg file to locate. You can use a partial path.</p>
+</DD>
+<DT><I>SymbolPath</I></DT>
+<DD>
+<p>The path where symbol files are located. This can be multiple paths separated by semicolons. To retrieve the symbol path, use the 
+<A HREF="symgetsearchpath.htm"><b>SymGetSearchPath</b></A> function.</p>
+</DD>
+<DT><I>DebugFilePath</I></DT>
+<DD>
+<p>A pointer to a buffer that receives the full path of the .dbg file.</p>
+</DD>
+<DT><I>Callback</I></DT>
+<DD>
+<p>An application-defined callback function that verifies whether the correct file was found or the function should continue its search. For more information, see 
+<A HREF="finddebuginfofileproc.htm"><b>FindDebugInfoFileProc</b></A>. 
+
+
+</p>
+<P>This parameter may be NULL.</P>
+</DD>
+<DT><I>CallerData</I></DT>
+<DD>
+<p>Optional user-defined data to pass to the callback function.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is an open handle to the .dbg file.</P>
+<P>If the function fails, the return value is NULL. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>FindDebugInfoFileEx</b> function is used to locate a .dbg file. This function is provided so the search can be conducted in several different directories through a single function call. The <i>SymbolPath</i> parameter can contain multiple paths, with each separated by a semicolon (;). When multiple paths are specified, the function searches each specified directory for the file. When the file is located, the search stops. Thus, be sure to specify <i>SymbolPath</i> with the paths in the correct order.</p>
+<p>If the file name specified does not include a .dbg extension, 
+<b>FindDebugInfoFileEx</b> searches for the file in the following sequence:</p>
+<ol>
+<li><i>SymbolPath</i>\Symbols\<i>ext</i>\<i>filename</i>.dbg</li>
+<li><i>SymbolPath</i>\<i>ext</i>\<i>filename</i>.dbg</li>
+<li><i>SymbolPath</i>\<i>filename</i>.dbg</li>
+<li><i>FileNamePath</i>\<i>filename</i>.dbg</li>
+</ol>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<p>To call the Unicode version of this function, define DBGHELP_TRANSLATE_TCHAR.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>FindDebugInfoFileExW</B> (Unicode) and <B>FindDebugInfoFileEx</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="finddebuginfofileproc.htm"><b>FindDebugInfoFileProc</b></A><BR><A HREF="symgetsearchpath.htm"><b>SymGetSearchPath</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20FindDebugInfoFileEx%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

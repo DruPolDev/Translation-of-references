@@ -1,0 +1,77 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MODLOAD_DATA Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_modload_data_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.modload_data_str"></A>MODLOAD_DATA Structure</H1>
+<P><P>Contains module data.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MODLOAD_DATA {<br>  DWORD ssize;<br>  DWORD ssig;<br>  PVOID data;<br>  DWORD size;<br>  DWORD flags;
+} MODLOAD_DATA, <br> *PMODLOAD_DATA;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>ssize</B></DT>
+<DD><p>The size of this structure, in bytes.</p>
+</DD>
+<DT><B>ssig</B></DT>
+<DD><p>The type of data. This member can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>DBHHEADER_DEBUGDIRS<BR>0x1</p>
+</TD>
+<TD width="60%"><p>The <b>data</b> member is a buffer that contains an array of 
+<A HREF="image_debug_directory_str.htm"><b>IMAGE_DEBUG_DIRECTORY</b></A> structures.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>DBHHEADER_CVMISC<BR>0x2</p>
+</TD>
+<TD width="60%"><p>The <b>data</b> member is a buffer that contains an array of <A HREF="modload_cvmisc.htm"><b>MODLOAD_CVMISC</b></A> structures.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>data</B></DT>
+<DD><p>The data. The format of this data depends on the value of the <b>ssig</b> member.</p>
+</DD>
+<DT><B>size</B></DT>
+<DD><p>The size of the <b>data</b> buffer, in bytes.</p>
+</DD>
+<DT><B>flags</B></DT>
+<DD><p>This member is unused.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 6.0 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="image_debug_directory_str.htm"><b>IMAGE_DEBUG_DIRECTORY</b></A><BR><A HREF="modload_cvmisc.htm"><b>MODLOAD_CVMISC</b></A><BR><A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MODLOAD_DATA%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

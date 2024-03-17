@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>OpenTextFile method</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">OpenTextFile
+<font color="#004080">method</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font
+color="#800080">OpenTextFile</font></b> <b><font
+color="#0000ff">Proto</font></b> <b>lpszFileName<font
+color="#ff00ff">:</font><font color="#000080">LPSTR</font>,</b>
+<b>dwDesiredAcces<font color="#ff00ff">:</font><font
+color="#0000ff">DWord</font>,</b> <b>dwCreation<font
+color="#ff00ff">:</font><font color="#0000ff">DWord</font></b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Syntax</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b style="color: blue;">Invoke</b> <b><font color="#800080">OpenTextFile</font><font color="#ff00ff">,</font></b> <b>lpszFileName<font color="#ff00ff">,</font></b> <b>dwDesiredAcces<font color="#ff00ff">,</font></b>
+<b>dwCreation</b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Function</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Opens a file
+for reading and/or writing lines of text. The file name may be a
+full path.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Parameters</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><b><font face="Arial" size="2">lpszFileName</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Pointer to
+the effective address of a null-terminated string containing the
+file name to open.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">dwDesiredAcces</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Specifies
+the type of acces to the file. It can be any combination of the
+following values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="80"><font color="#800080" face="Arial" size="2"><b>ecRead</b></font></td>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="130"><font color="#000080" face="Arial" size="2"><b>GENERIC_READ</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">File is open for read access.</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="80"><font color="#800080" face="Arial" size="2"><b>ecWrite</b></font></td>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="130"><font color="#000080" face="Arial" size="2"><b>GENERIC_WRITE</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">File is open for write access.</font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2">dwCreation</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Specifies
+which action to take when the file exists or when not. It can be any
+combination of the following values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="140"><font color="#800080" face="Arial" size="2"><b>ecCreateNew</b></font></td>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="160"><font color="#000080" face="Arial" size="2"><b>CREATE_NEW</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">Creates a new file. If the file
+exists, the
+method fails.</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="140"><font color="#800080" face="Arial" size="2"><b>ecCreateAlways</b></font></td>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="160"><font color="#000080" face="Arial" size="2"><b>CREATE_ALWAYS</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">Creates a new file. If the file
+exists, the
+method overwrites it.</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="140"><font color="#800080" face="Arial" size="2"><b>ecOpenExisting</b></font></td>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="160"><font color="#000080" face="Arial" size="2"><b>OPEN_EXISTING</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">Opens the file only if it
+exists.</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="140"><font color="#800080" face="Arial" size="2"><b>ecOpenAlways</b></font></td>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="160"><font color="#000080" face="Arial" size="2"><b>OPEN_ALWAYS</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">Opens the file if it exists. If
+not, the method
+creates it.</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="140"><font color="#800080" face="Arial" size="2"><b>ecTruncateExisting</b></font></td>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="160"><font color="#000080" face="Arial" size="2"><b>TRUNCATE_EXISTING</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">Opens the file and truncates it
+to zero
+bytes.</font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2">Return
+value</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns an open
+handle to the
+specified file, or <b><font color="#000080">INVALID_HANDLE_VALUE</font></b>
+if the file could not be
+open.</font></font></p>
+</blockquote>
+<p><font face="Arial"><font size="2"><b><br>
+REMARKS</b>: With the open handle, you can call the
+</font></font><a href="easy3oit.htm"><b><font color="#800080" face="Arial" size="2">ReadTextLine</font></b></a><font face="Arial" size="2"> and/or </font><a href="easy5ip1.htm"><b><font color="#800080" face="Arial" size="2">WriteTextLine</font></b></a><font face="Arial" size="2"> methods to read and/or write
+lines of text. When you no longer need the file,
+close its handle by calling the <b><font color="#800000">CloseHandle</font></b>
+API function.</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:
+The <font color="#800080"><b>OpenTextFile</b></font>
+method expects <b>lpszFileName</b> to be a Unicode string
+if the application is running as Unicode,
+or an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call <font color="#800080"><b>OpenTextFileA</b></font>
+to open ANSI file names in
+Unicode applications, or <font color="#800080"><b>OpenTextFileW</b></font>
+to open Unicode file names in
+ANSI applications.<br><br></font></p>
+</body></html>

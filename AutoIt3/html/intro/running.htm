@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Запуск сценариев</title>
+  <meta charset=UTF-8"utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+</head>
+<body>
+  <h1><FONT color=#7b7e5f>Запуск сценариев </FONT> </h1>
+  <p>При запуске AutoIt вам будет предложено открыть 
+<STRONG>файл сценария</STRONG>.&nbsp;Файл сценария - это простой текстовый файл, 
+содержащий ключевые слова и функции,&nbsp;которые определяют, 
+что&nbsp;AutoIt&nbsp;должен делать. Файлы сценариев создаются в простом 
+текстовом редакторе, например,&nbsp;<STRONG>Notepad.exe</STRONG>,&nbsp;но есть 
+лучшая&nbsp;<A href="editors.htm"><FONT color=#ff00ff>альтернатива</FONT></A> - 
+специально модифицированная версия редактора&nbsp;SciTE.<br ></p>
+  <p>Хотя сценарии AutoIt3 представляют собой обычный текст, 
+они имеют расширение <STRONG>.au3</STRONG>,&nbsp;чтобы отличать их от текстовых 
+файлов. Если у вас установлен&nbsp;AutoIt,&nbsp;сценарий можно запустить, 
+двойным кликом мыши по нему. Кликнув правой кнопкой мыши <STRONG>.au3</STRONG> 
+файл, в открывшемся контекстном меню существуют различные варианты запуска, 
+редактирования или компиляции сценариев.</p>
+  <p>&nbsp;</p>
+  <p>Пример сценария. Обратите внимание, знак 
+"&nbsp;<STRONG>;</STRONG> " используется для комментирования учасков кода:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../keywords/include.htm"><span class="S11"><FONT color=#c695c6>#include</FONT></span></A><span class="S0"> </span><span class="S7"><FONT color=#6699cc>&lt;</FONT><FONT color=#99c794>MsgBoxConstants.au3</FONT><FONT color=#6699cc>&gt;</FONT></span><br ><br ><span class="S1"><FONT color=#a6acb9> 
+; Это мой первый сценарий</FONT>     </span><br ><A class=codeSnippetLink href="../functions/MsgBox.htm"><span class="S4"><FONT color=#6699cc>MsgBox</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S9"><FONT color=#d8dee9>$MB_SYSTEMMODAL</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Мой первый сценарий!</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"></span><span class="S7"><FONT color=#6699cc> "</FONT><FONT color=#99c794>Привет, мир!</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>   Более сложные сценарии могут включать в себя функции. Обычно они размещаются в конце сценария или после раздела описания глобальной переменной.</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../keywords/include.htm"><span class="S11"><FONT color=#c695c6>#include</FONT></span></A><span class="S0"> </span><span class="S7"><FONT color=#6699cc>&lt;</FONT><FONT color=#99c794>MsgBoxConstants.au3</FONT><FONT color=#6699cc>&gt;</FONT></span><br ><br ><A class=codeSnippetLink href="../functions/MsgBox.htm"><span class="S4"><FONT color=#6699cc>MsgBox</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S9"><FONT color=#d8dee9>$MB_SYSTEMMODAL</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Мой второй сценарий!</FONT><FONT color=#6699cc>"</FONT>  </span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794> Привет из основного скрипта!</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span><br ><br ><span class="S0"><FONT color=#d8dee9>Example_Func</FONT></span><span class="S8"><FONT color=#d8dee9>()</FONT></span><br ><br ><A class=codeSnippetLink href="../keywords/Func.htm"><span class="S5"><FONT color=#c695c6>Func</FONT></span></A><span class="S0"> <FONT color=#d8dee9>Example_Func</FONT> </span><span class="S8"><FONT color=#d8dee9>()</FONT></span><br ><span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><A class=codeSnippetLink href="../keywords/Func.htm"><span class="S5"><FONT color=#c695c6>Return</FONT></span></A><span class="S0"> </span><A class=codeSnippetLink href="../functions/MsgBox.htm"><span class="S4"><FONT color=#6699cc>MsgBox</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S9"><FONT color=#d8dee9>$MB_SYSTEMMODAL</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Мой второй сценарий!</FONT><FONT color=#6699cc>"</FONT>  </span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Привет из функции скрипта!</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span><br ><A class=codeSnippetLink href="../keywords/Func.htm"><span class="S5"><FONT color=#c695c6>EndFunc</FONT></span></A><span class="S0"> &nbsp;&nbsp;</span><span class="S1"><FONT color=#a6acb9>;==&gt;Example_Func</FONT></span></span>
+</p>
+  <h2><FONT color=#7b7e5f><A 
+name=CommandLine><FONT color=#7b7e5f>Параметры командной строки 
+</FONT></A>  &nbsp; 
+</FONT>  </h2>
+  <p>В исполняемый файл AutoIt есть возвожность передачи параметров командной строки. Передаваемые параметры можно определить с помощью константных переменных $CmdLine и $CmdLineRaw. При присвоении этим переменным&nbsp;новых значений,&nbsp;AutoIt вернет ошибку,
+  так как во время выполнения сценария изменить их нельзя. Обратите внимание, что обе переменные существуют независимо от того, передаются параметры командной строки или нет.<br ></p>
+  <p>В начале специальный массив $CmdLine инициализируется 
+параметрами командной строки, переданными сценарию&nbsp;AutoIt. Если вы 
+запускаете сценарий вместо исполняемого файла, то ScriptName.au3 будет 
+игнорироваться как параметр.<BR>
+  <br >
+  Если в качестве параметра, передается строка с 
+пробелами,&nbsp;ее необходимо заключить в "двойные кавычки".</p>
+<p class="codebox">
+<span><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>0</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><FONT color=#a6acb9><span class="S1"><FONT color=#a6acb9>     ; Общее количество 
+элементов массива.</FONT>         </span><br ></FONT><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>1</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9> ; Первый параметр.</FONT>   </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>2</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9> ; Второй параметр.</FONT>   </span><br ><FONT color=#d8dee9><span class="S8"><FONT color=#d8dee9>...</FONT></span><br ></FONT><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S0"><FONT color=#d8dee9>n-ый</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9>; n-ый параметр, например, 10 - если массив содержит 10 
+элементов.</FONT>           </span></span>
+</p>
+<br >
+     Итак, если вы запускается сценарий с помощью AutoIt3.exe:<br >
+<p class="codebox">
+<span><FONT color=#d8dee9><FONT color=#d8dee9><span class="S0"><FONT color=#d8dee9>AutoIt3</FONT></span><span class="S3"><FONT color=#d8dee9>.</FONT><FONT color=#d8dee9>e</FONT></span><span class="S0"><FONT color=#d8dee9>xe мой_сценарий</FONT></span><span class="S8"><FONT color=#d8dee9>.</FONT></span></FONT><span class="S14"><FONT color=#d8dee9>au3</FONT></span><span class="S0"><FONT color=#d8dee9> параметр1</FONT>  </span><span class="S7"><FONT color=#99c794>  "Это строковый 
+параметр"</FONT>    </span><span class="S0"> </span></FONT><span class="S3"><FONT color=#f9ae57>99</FONT></span></span>
+</p>
+<p class="codebox">
+<span><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>0</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9> ; содержит - 
+3.</FONT>    </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>1</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9>; содержит - параметр1, а не мой_сценарий.au3, поскольку он игнорируется при запуске нескомпилированного 
+сценария.</FONT>             </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>2</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9>  ; 
+содержит - Это строковый параметр.</FONT>       </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>3</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9>; содержит - 
+99.</FONT>   </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLineRaw</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9>; содержит - мой_сценарий.au3&nbsp;параметр1&nbsp;"Это строковый параметр" 99.</FONT>          </span></span>
+</p>
+<br >
+          Итак, если запускается скомпилированный сценарий:<br >
+<p class="codebox">
+<span><span class="S0"><FONT color=#d8dee9>myProg</FONT></span><span class="S8"><FONT color=#d8dee9>.</FONT></span><span class="S14"><FONT color=#d8dee9>exe</FONT></span><span class="S0"> <FONT color=#d8dee9>параметр1</FONT>  </span><span class="S7"><FONT color=#99c794>  "Это строковый 
+параметр"</FONT>    </span><span class="S0"> </span><span class="S3"><FONT color=#f9ae57>99</FONT></span></span>
+</p>
+<p class="codebox">
+<span><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>0</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9> ; содержит - 
+3.</FONT>    </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>1</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9> ; содержит - 
+параметр1.</FONT>   </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><FONT color=#f9ae57><span class="S3"><FONT color=#f9ae57>2</FONT></span></FONT><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9>  ; 
+содержит - Это строковый параметр.</FONT>       </span><br ><span class="S9"><FONT color=#d8dee9>$CmdLine</FONT></span><span class="S8"><FONT color=#d8dee9>[</FONT></span><span class="S3"><FONT color=#f9ae57>3</FONT></span><span class="S8"><FONT color=#d8dee9>]</FONT></span><span class="S0"> </span><span class="S1"><FONT color=#a6acb9>; содержит - 
+99.</FONT>   </span></span>
+</p>
+<br >
+
+  <h2><FONT color=#7b7e5f>Специальные параметры командной строки 
+AutoIt </FONT>    </h2>
+  <p>                        Интерпретатор AutoIt3.exe и скомпилированный сценарий AutoIt можно использовать для запуска
+  из командной строки. в любом случае параметр /ErrorStdOut&nbsp;позволяет перенаправлять фатальную ошибку в StdOut, который может быть перехвачен другим приложением, например, редактором SciTE. Параметр /ErrorStdOut&nbsp;можно использовать как&nbsp;с интерпретатором, так&nbsp;и&nbsp;со скомпилированным сценарием.</p>
+  <p><FONT color=#7b7e5f><strong>Запуск сценария с помощью интерпретатора:</strong></FONT></p>
+  <p><em>AutoIt3.exe [/ErrorStdOut] [/AutoIt3ExecuteScript] имя_файла [параметры ...]</em> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выполнение сценария AutoIt3 'имя_файла' с необязательными параметрами.</p>
+  <p>В самом простом случае: <em>AutoIt3.exe мой_сценарий.au3</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выполнение сценария мой_сценарий. au3 без параметров.</p>
+  <p><FONT color=#7b7e5f><strong>Запуск скомпилированного сценария</strong>:</FONT></p>
+  <p><EM>Compiled.exe [/ErrorStdOut] [параметры 
+...]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</EM>
+    Выполнение скомпилированного файла сценария, созданного с помощью Aut2Exe.</p>
+  <p><FONT color=#7b7e5f><strong>  Запуск одной строки кода</strong>:</FONT></p>
+  <p><em>AutoIt3.exe [/ErrorStdOut] 
+/AutoIt3ExecuteLine "командная 
+строка"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em>
+    Выполнение одной строки кода.<br >
+  <br >
+  Приведенная ниже команда выполняет единственную строку кода, выводящую сообщение "Привет, мир!". 
+При этом значок в системном трее отображатся не будет.&nbsp;</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../functions/Run.htm"><span class="S4"><FONT color=#6699cc>Run</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><A class=codeSnippetLink href="../macros.htm#@AutoItExe"><span class="S6"><FONT color=#6699cc>@AutoItExe</FONT></span></A><FONT color=#6699cc><span class="S0"> </span><span class="S8"><FONT color=#d17757>&amp;</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>'</FONT><FONT color=#99c794>/</FONT><FONT color=#99c794>AutoIt3ExecuteLine "MsgBox(4096, "Привет, мир!", 
+"Привет!")"</FONT><FONT color=#6699cc>'</FONT></span></FONT><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p><FONT color=#7b7e5f><strong>  Запуск сценария из другого сценария</strong>:</FONT></p>
+  <p><EM>Compiled.exe [/ErrorStdOut]&nbsp;/AutoIt3ExecuteLine 
+"командная 
+строка"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</EM>Выполнение 
+одной строки кода из скомпилированного исполняемого 
+файла&nbsp;&nbsp;AutoIt3<EM>, </EM>
+       как в предидущем примере.&nbsp;</p>
+  <p><EM>Compiled.exe 
+[/ErrorStdOut]&nbsp;/AutoIt3ExecuteScript&nbsp;файл 
+[параметры...]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</EM>
+      Выполнение другого сценария из скомпилированного исполняемого файла&nbsp;&nbsp;AutoIt3.&nbsp;</p>
+  <p>                                      Это
+  значит, что для запуска сценариев нет необходимости в AutoIt3.exe,&nbsp;при наличии хотя бы одного скомпилированного&nbsp;исполняемого&nbsp;сценария&nbsp;AutoIt3 (его заменит заглушка интерпретатора скомпилированного сценария).</p>
+  <h2><FONT color=#7b7e5f>Важное примечание </FONT> </h2>
+  <p> Исполняемый сценарий должен быть скомпилирован с 
+директивой <EM>#pragma compile(AutoItExecuteAllowed, True), </EM>потомй, что 
+настройка по умолчанию не разрешает использование параметров 
+<EM>/AutoItExecuteScript</EM>&nbsp;или <em>/AutoItExecuteLine</em>. Кроме того, поскольку заглушка интерпретатора 
+ищет необходимые стандартные <EM>#include</EM> &nbsp;файлы в 
+текущем каталоге,&nbsp;UDF&nbsp;функции и различные константы могут быть 
+недоступны, если&nbsp;AutiIt3&nbsp;не был установлен в системе. Поэтому 
+рекомендуется, любые сценарии, предназначенные для запуска таким образом, 
+скомпилировать в формат .a3x, а не оставлять в виде простых текстовых .au3 файлов.&nbsp;</p>
+  <p>       Важно правильное 
+использование одинарных и двойных кавычек в командной строке&nbsp;- даже для двойных одинарных кавычек.</p>
+</body>
+</html>

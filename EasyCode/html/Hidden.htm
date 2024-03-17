@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>Hidden property</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#004080" size="6">Hidden property</font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Header</b> objects.</font></p>
+
+<p><b><font face="Arial" size=2>Read/Write at design time<br></font></b></p>
+
+<p><font face="Arial" size="2">Specifies whether the control is intended to be hidden. It
+can be one of the following values:</font></p><blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size=2><b><font color="#000080">TRUE</font></b>&nbsp;&nbsp;&nbsp;&nbsp;The
+<b>Header</b> control is intended to be hidden.<br></font></font><font face="Arial"><font size=2><b><font
+color="#000080">FALSE</font></b>&nbsp;&nbsp;The <b>Header</b> control is not intended to be hidden
+(<b>default</b>).</font></p></blockquote>
+
+<p><font face="Arial" size=2><b><br>REMARKS:</b> This property DOES NOT hide the control. Instead, when
+you send the <font color="#000080"><b>HDM_LAYOUT</b></font> message to a <b>Header</b> control with the
+<b>Hidden</b> property set to <font color="#000080"><b>TRUE</b></font>, the control returns zero
+in the <b>cy</b> member of the <font color="#000080"><b>WINDOWPOS</b></font> structure. You would then hide the
+control by setting its height to zero. This can be useful when you want to use the control as an information
+container instead of a visual control.</b></p>
+
+</body>
+</html>

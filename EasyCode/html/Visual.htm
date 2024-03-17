@@ -1,0 +1,789 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Доступ к Windows функции "WinMain"</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font color="#0000a0" face="Arial" size="6">Визуальные проекты - мощный режим Easy Code</font></b></p>
+
+<hr><br>
+
+<p><font face="Arial" size="2"><IMG border=0 hspace=0
+ src="TypeVis.gif" width=361 height=439 ><br><br><br>Choosing the
+<b>Visual executable file </b>option automatically tells Easy
+Code to associate its visual library that is required for the
+visual functionality.</font></p>
+
+<p><font face="Arial" size="2">There are two visual linking modes,
+static or dynamic. You choose the link modes by specifying one of
+them in the <A href="Project.htm#Project1"><b>Project
+Properties</b></a>. The dynamic option will build your application
+with the required visual library needed as a separate file
+(ECDll32.dll for 32-bit projects, or ECDll64.dll for 64-bit projects)
+that must be distributed with the application. The static option
+(default) will build your executable with the required library
+(ECLib32.lib for 32-bit projects, or ECLib64.lib for 64-bit projects)
+internally.</font></p>
+
+<p><font face="Arial" size="2">The <b>Manifest</b> check box specifies
+whether the new comon controls, available in Windows XP and later
+systems, will be actived. For more information, please see the <A
+ href="Manifest.htm" ><b>Including a Manifest in the project</b></a>
+topic.</font></p>
+
+<p><br><b><font face="Arial" size="2">EASY CODE VISUAL RESOURCE OBJECTS</font></b></p>
+
+<p><font face="Arial" size="2">Easy Code visual mode object resources, come in two groups: <b>Windows</b> and
+<b>Controls</b>.<br></font></p>
+
+<p><b><font face="Arial" size="2">Windows</font></b></p>
+
+<p><font face="Arial" size="2">Windows are containers, that is, they may have child controls inside them. Easy
+Code manages three type of <b>window objects</b>:</font></p>
+
+<p style="MARGIN-LEFT: 20px"><font face="Arial" size="2"><b>Window</b>: Common windows used in small
+applications as main windows. A <b>Window</b> object may be modal if it is not the main window or an MDI child
+window.</font></p>
+
+<p style="MARGIN-LEFT: 20px"><font face="Arial" size="2"><b>DialogBox</b>: Mostly used as modal windows to
+choose/change options for the main window application which creates them. A <b>DialogBox</b> object may be
+modeless too and may be used as the main window of an application.</font></p>
+
+<p style="MARGIN-LEFT: 20px"><font face="Arial" size="2"><b>MDIWindow</b>: Used as the main frame window for
+MDI applications. These windows may have other MDI child windows inside them. An Easy Code visual project can
+only have one <b>MDIWindow</b> object, other words one framing window.<br><br></font></p>
+
+<p><b><font color="#000000" face="Arial" size="2">Controls</font></b></p>
+
+<p style="MARGIN-LEFT: 20px"><font face="Arial" size="2">Controls are little windows placed inside <b>Window</b>
+and  <b>DialogBox</b> objects. Also, they can be placed inside the three type of container controls: <b>Group</b>,
+<b>Picture</b> and <b>Rebar</b>. Easy Code manages several <b>control objects</b> (for a list of available controls see <A
+ href="CtrlObj.htm" ><b>Control objects</b></a>).<br></font></p>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: You do not need to worry about initializating Common Controls,
+"<b><font color="#800000">InitCommonControlsEx</font></b>" API function, as Easy Code initializes that
+internally depending on the <b>Common controls</b> option of the <A
+ href="Project.htm#project2" ><b>Project Properties</b></a>.</font></p>
+
+<p><br><b><font face="Arial" size="2"><br>OWNER WINDOW</font></b></p>
+
+<p><font face="Arial" size="2">The top window for any control object, even if it is a child of a container
+control (like <b>Group</b>, <b>Picture</b> or <b>Rebar</b>), is the <b>Window</b>, <b>MDIWindow</b> or <b>DialogBox</b> object
+which contains all of them. The main container window is called the "<b>Owner window</b>". When owner windows
+receive the <b><font color="#000080">WM_CREATE</font></b> message, all child controls will be created and
+available. If that owner window is an <b>MDIWindow</b> type object, the MDI style messenging client is already
+created and, if needed, you can get its handle by calling the <A href="easy1i44.htm"><b><fontcolor="#800080">GetMDIClient</font></B></A> Easy Code method (please see <A href="#mdiapplication"><b>MDI
+applications</b></a>).</FONT></p>
+
+<p><font face="Arial" size="2"><b>REMARKS</b>: At any time you can get the owner window for a control object by
+calling the <A href="easy9tbr.htm"><b><font color="#800080">GetOwnerWindow</font></b></a> Easy Code
+method.<br><br></font></p>
+
+<p><font face="Arial" size="2">The Easy Code visual libraries, <b>ECLib32.lib</b> or <b>ECLib64.lib</b> for
+static linking, and <b>ECDll32.dll</b> or <b>ECDll64.dll</b> for dynamic linking, are built in assembly
+language and manage the behavior of all of the objects built, including watching for tab stops, short cuts
+for menus, appearance, and text and colours for objects.</font></p>
+
+<p><br><b><font face="Arial" size="2"><br>WINDOW PROCEDURES</font></b></p>
+
+<p><font face="Arial" size="2">All objects in a project, windows and controls, have properties (please see
+<A href="Properties.htm"><b>Object properties</b></a>) which can modify their appearance and behavior. One of the
+most important property is <A href="easy6pwl.htm"><b>Name</b></a>, as it identifies the object to its owning
+window routine for <b>Window</b>, <b>MDIWindow</b> and <b>DialogBox</b> objects. Easy Code will
+initiate the required skeleton code routines/procedures for the resources as they are created. Inside those
+procedures you may intercept messages and write any the necessary code and feature. When compiling, Easy Code
+checks the corresponding window procedure for each <b>Window</b>, <b>MDWindow</b> and <b>DialogBox</b> object
+in the project and if any are missing or incorrectly named, an error is fired. All of them referrances
+<b>MUST</b> exist at compile time.</font></p>
+
+<p><font face="Arial" size="2">How does Easy Code know the correct name for each window procedure? It uses a
+naming convention that takes the object name plus the word "Procedure". Procedures for <b>Window</b>,
+<b>MDIWindow</b> or <b>DialogBox</b> objects, <b>MUST</b> have a case sensitive name which is formed by the
+name of the object (specified by its <A href="easy6pwl.htm"><b>Name</b></a> property) plus the word
+"<b>Procedure</b>". For example, for a window object named <b>wndMain</b> its window procedure name <b>MUST</b>
+be:</font></p>
+
+<p style="MARGIN-LEFT: 20px"><font face="Arial" size="2"><b>wndMainProcedure</b> (case
+sensitive)</font></p>
+
+<p><font face="Arial" size="2">Also, procedures for <b>Window</b>, <b>MDIWindow</b> or <b>DialogBox</b> objects
+<b>MUST</b> take the classic four parameters.<br><br>
+
+For 32-bit applications:</font></p>
+
+<p style="MARGIN-LEFT: 20px"><font face="Arial" size="2"><b>hWnd<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">DWORD</font><font color="#ff00ff">,</font> uMsg<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">DWORD</FONT><font color="#ff00ff">,</font> wParam<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">DWORD</FONT><font color="#ff00ff">,</font> lParam<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">DWORD</FONT></B></FONT></p>
+
+<p><font face="Arial" size="2">For 64-bit applications:</font></p>
+
+<p style="MARGIN-LEFT: 20px"><font face="Arial" size="2"><b>hWnd<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">QWORD</font><font color="#ff00ff">,</font> uMsg<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">QWORD</FONT><font color="#ff00ff">,</font> wParam<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">QWORD</FONT><font color="#ff00ff">,</font> lParam<font color="#ff00ff" size="3">:</font><fontcolor="#0000FF">QWORD</FONT></B></FONT></p>
+
+<p><font face="Arial" size="2">So, a <b>32-bit</b> window procedure for a window object named
+<b>wndMain</b> will look something like this:</font></p>
+
+<pre><b>wndMainProcedure <font color="#0000ff">Proc</font> hWnd<font color="#ff00ff">:</font><fontcolor="#0000FF">DWORD</FONT><font color="#ff00ff">,</font> uMsg<font color="#ff00ff">:</font><fontcolor="#0000FF">DWORD</FONT><font color="#ff00ff">,</font> wParam<font color="#ff00ff">:</font><fontcolor="#0000FF">DWORD</FONT><font color="#ff00ff">,</font> lParam<font color="#ff00ff">:</font><fontcolor="#0000FF">DWORD</FONT><br>	<font color="#008000">.If</font> uMsg <fontcolor="#FF00FF">==</FONT> <font color="#000080">WM_CREATE</font><br></b><b><fontcolor="#808080">		;......
+		;Initialization code goes here...
+		;······<br></FONT>		<fontcolor="#800080">Return</FONT> <font color="#000080">FALSE</font><br>	<fontcolor="#008000">.ElseIf</FONT> uMsg <font color="#ff00ff"> == </font><fontcolor="#000080">WM_CLOSE</FONT><br>		<font color="#0000ff">Invoke</font> <fontcolor="#800080">IsModal</FONT><font color="#ff00ff">,</font> <fontcolor="#000000">hWnd</FONT> <br>		<font color="#008000">.If</font> <fontcolor="#808000">Eax</FONT><br>			<font color="#0000ff">Invoke</font> <fontcolor="#800080">EndModal</FONT><font color="#ff00ff">,</font> <font color="#000000">hWnd</font><fontcolor="#FF00FF">,</FONT>  <font color="#000080">IDCANCEL</font><br>			<fontcolor="#800080">Return</FONT> <font color="#000080">TRUE</font><br>		<fontcolor="#008000">.EndIf</FONT><br>	</b><b><font color="#008000">.EndIf<br></font>	<fontcolor="#800080">Return</FONT> <font color="#000080">FALSE</font><br><fontcolor="#000000">wndMainProcedure</FONT> <font color="#0000ff">EndP</font><br></b></pre>
+
+<p><font face="Arial" size="2">While a <b>64-bit</b> window procedure for a window object named
+<b>wndMain</b> will look something like this:</font></p>
+
+<pre><b>wndMainProcedure <font color="#0000ff">Proc</font> hWnd<font color="#ff00ff">:</font><fontcolor="#0000FF">QWORD</FONT><font color="#ff00ff">,</font> uMsg<font color="#ff00ff">:</font><fontcolor="#0000FF">QWORD</FONT><font color="#ff00ff">,</font> wParam<font color="#ff00ff">:</font><fontcolor="#0000FF">QWORD</FONT><font color="#ff00ff">,</font> lParam<font color="#ff00ff">:</font><fontcolor="#0000FF">QWORD</FONT>
+	<font color="#ff0000">Mov</font> hWnd<font color="#ff00ff">,</font> <font color="#808000">Rcx</font>
+	<font color="#ff0000">Mov</font> uMsg<font color="#ff00ff">,</font> <font color="#808000">Rdx</font>
+	<font color="#ff0000">Mov</font> wParam<font color="#ff00ff">,</font> <font color="#808000">R8</font>
+	<font color="#ff0000">Mov</font> lParam<font color="#ff00ff">,</font> <font color="#808000">R9</font>
+
+	<font color="#008000">.If</font> uMsg <fontcolor="#FF00FF">==</FONT> <font color="#000080">WM_CREATE</font><br></b><b><fontcolor="#808080">		;......
+		;Initialization code goes here...
+		;······<br></FONT>		<fontcolor="#800080">Return</FONT> <font color="#000080">FALSE</font><br>	<fontcolor="#008000">.ElseIf</FONT> uMsg <font color="#ff00ff"> == </font><fontcolor="#000080">WM_CLOSE</FONT><br>		<font color="#0000ff">Invoke</font> <fontcolor="#800080">IsModal</FONT><font color="#ff00ff">,</font> <fontcolor="#000000">hWnd</FONT> <br>		<font color="#008000">.If</font> <fontcolor="#808000">Rax</FONT><br>			<font color="#0000ff">Invoke</font> <fontcolor="#800080">EndModal</FONT><font color="#ff00ff">,</font> <font color="#000000">hWnd</font><fontcolor="#FF00FF">,</FONT>  <font color="#000080">IDCANCEL</font><br>			<fontcolor="#800080">Return</FONT> <font color="#000080">TRUE</font><br>		<fontcolor="#008000">.EndIf</FONT><br>	</b><b><font color="#008000">.EndIf<br></font>	<fontcolor="#800080">Return</FONT> <font color="#000080">FALSE</font><br><fontcolor="#000000">wndMainProcedure</FONT> <font color="#0000ff">EndP</font><br></b></pre>
+
+<p><font size=2 face=Arial><b><font color=#800000>IMPORTANT</FONT></B>: Please note that all lines above are 
+written in MASM syntax and all lines below are written in MASM syntax for 32-bit 
+applications. Please take that into account in order to make the necessary 
+syntax conversion when programming with other assemblers or when programming 
+64-bit applications, where all parameters must be 8-byte values (<font color=#0000ff><b>QWORD</B></FONT>).</FONT></p>
+<p><font size=2 face=Arial>The above 
+is the minimal code required for a window object procedure, but it does nothing 
+else than creating and destroying the window (we will analyze the <A href="#wmclosemessage" ><b><font color=#000080>WM_CLOSE</FONT></B></A> message later on). <b><fontcolor="#800080">Return</FONT></B> 
+is an Easy Code macro, (see <A href="ECMacros.htm" ><b>Easy Code macros</B></A>), 
+which makes the return value quicker and clearer.</FONT></P>
+<p><font size=2 face=Arial>For each 
+message you want to process, add the corresponding code. For example, to process 
+the <b><font color=#000080>WM_SIZE</FONT></B> message add the following 
+code:</FONT></P><pre><pre><b>wndMainProcedure <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_CREATE</FONT><br></B><b><fontcolor="#808080">		;......<br>		;Initialization code goes here...
+		;······<br></FONT>		<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br>	<fontcolor="#008000">.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_SIZE<br></FONT></B><b><font color=#808080>		;......
+		;Code for WM_SIZE message goes here...
+		;······</FONT><br>	<fontcolor="#008000">.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <font color=#000080>WM_CLOSE</FONT>
+		<font color=#0000ff>Invoke</FONT> <font color=#800080>IsModal</FONT><fontcolor="#FF00FF">,</FONT> hWnd<br>		<font color=#008000>.If</FONT> <fontcolor="#808000">Eax</FONT><br>			<font color=#0000ff>Invoke</FONT> <fontcolor="#800080">EndModal</FONT><font color=#ff00ff>,</FONT> hWnd<font color=#ff00ff>,</FONT> <fontcolor="#000080">IDCANCEL</FONT><br>			<font color=#800080>Return</FONT> <fontcolor="#000080">TRUE</FONT><br>		<font color=#008000>.EndIf</FONT><br>	</B><b><fontcolor="#008000">.EndIf<br></FONT>	<font color=#800080>Return</FONT> <fontcolor="#000080">FALSE</FONT><br>wndMainProcedure <font color=#0000ff>EndP</FONT><br></B></PRE></PRE>
+<p><font size=2 face=Arial>As you can 
+see, the window procedure always returns <b><fontcolor="#000080">FALSE</FONT></B> 
+or <b><font color=#000080>TRUE</FONT></B> in order to work properly. When returning 
+<b><font color=#000080>TRUE</FONT></B> 
+(any other value than <b>0</B>), no further message 
+processing will be performed and a cycle is complete. When returning <b><font color=#000080>FALSE</FONT></B>, 
+it will mean that the default window procedure will be called. This is the 
+reason why the default return value, at the end of the procedure, is <b><font color=#000080>FALSE</FONT></B>. 
+All messages you do not process, are processed by the default window procedure, 
+which is part of the Windows API, in order to avoid undesirable results. So do 
+not change the default return value from <b><font color=#000080>FALSE</FONT></B>. Also, when you process all 
+your messages and you do not want further processing, return <b><fontcolor="#000080">TRUE</FONT></B>, 
+but just for the messages you have processed. This rule has the following 
+exceptions:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>The <b><font color=#000080>WM_NCCREATE</FONT></B> message ignores the return value and 
+always continues the creation of the window.</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>The <b><font color=#000080>WM_CREATE</FONT></B> message should return other value than 
+<b>-1</B> and like mentioned, <b><font color=#000080>TRUE</FONT></B> or <b><font color=#000080>FALSE</FONT></B> 
+are recommended in order to continue the creation of the window. If it returns 
+<b><font color=#000080>TRUE</FONT></B>, the focus is set to the first control 
+being able to get it (see the <A href="easy6ipe.htm" ><b>TabOrder</B></A> property). 
+Most of times, this is the more usual return value. If you set the focus to any 
+other control while processing this message (<b><fontcolor="#800000">SetFocus</FONT></B> API function), it should return <b><font color=#000080>FALSE</FONT></B> 
+so that the focus can be set to the specified control. Finally, a return value 
+of <b>-1</B> will destroy the window before being 
+shown.</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>The <b><font color=#000080>WM_DESTROY</FONT></B> and <b><font color=#000080>WM_NCDESTROY</FONT></B> messages are sent for 
+final clean up, but they ignore the return value and destroy the window 
+anyway.</FONT></P>
+<p><br><a name=newvisualproject></A><b><font face=Arial><br><font size=2>STARTING A NEW VISUAL PROJECT</FONT></FONT></B></P>
+<p><font size=2 face=Arial>When you 
+start a new visual project, a window with the name you specified is added. If 
+you do not change it, that will be the main or startup window. Any one of the 
+window in the project may be the startup window, that is, the window that will 
+appear first and which is the <b>main</B> window of the 
+application. The <A href="AppError.htm" ><b><font color=#800080>App</FONT></B></A> object will return the handle of the 
+main window through one of its members. At this point, you can build three type 
+of applications:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>A basic application with a main window (a <b>Window</B> object). Optionally, it may have other windows 
+(modal or modeless) like, for example, a configuration window.</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>An MDI application with a main MDI Window frame (an <b>MDIWindow</B> object) and as many MDI child windows as 
+needed. MDI Child windows are normal windows (<b>Window</B> 
+objects), but with its <A href="easy32sk.htm" ><b>MDIChild</B></A> property 
+set to <b><fontcolor="#000080">TRUE</FONT></B>. It may also have other windows (modal or 
+modeless) like, for example, a configuration window. This type of project could 
+be an Easy Code looking application and is how the <b>MDI</B> example is made.</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>A Dialog based application with a main window (a <b>DialogBox</B> object). Optionally, it can have other 
+windows (modal or modeless) like for example, a configuration window. In fact, 
+there is practically no difference to a basic application using a <b>Window</B> or a <b>DialogBox</B> 
+object.</FONT></P>
+<p><font size=2 face=Arial>If you want 
+to build a Dialog Box based application, add a <b>DialogBox</B> to project (<b>Project--&gt;Add Dialog box</B>) and then remove the window 
+created by default once selected (<b>Project--&gt;Remove 
+[WindowName]</B>). Then, remember to change the startup window to the just added 
+<b>DialogBox</B> window in the <A href="Project.htm#project1" ><b>Project 
+Properties</B></A>.</FONT></P>
+<p><br><a name=mdiapplication></A><b><font size=2 face=Arial><br>MDI 
+APPLICATIONS</FONT></FONT></B></P>
+<p><font size=2 face=Arial>An 
+MDIWindow object has really two windows, the <b>MDI 
+Frame</B> and the <b>MDI Client</B>. The entire client area 
+of an MDI window is the <b>MDI Client</B>, which contains 
+all MDI childs. As we saw before, Easy Code has a method for retrieving the MDI 
+client handle if necessary. Anyway, all messages are received through the MDI 
+Frame window procedure and the handle to the MDI frame is the only valid handle 
+for sending commands and any other operation. Even when creating MDI child 
+windows at run time, the handle passed as the parent window should be that 
+belonging to the <b>MDI frame</B> window, that is, the <b>MDIWindow</B> object.</FONT></P>
+<p><font size=2 face=Arial>When you 
+want to build an MDI application, add an MDI window to project (<b>Project-&gt;Add MDI window</B>). Easy Code will change the 
+main (startup) window to the new added MDI window. Then, you can start adding or 
+removing other windows as you need. Remember that for a <b>Window</B> object to be an MDI child window, its </FONT><A href="easy32sk.htm" ><b><font size=2 face=Arial>MDIChild</FONT></B></A><font size=2 face=Arial> property must be set to <b><fontcolor="#000080">TRUE</FONT></B>.</FONT></P>
+<p><font size=2 face=Arial><b>MDIWindow</B> objects do not accept any other child 
+controls than <b>Picture</B>, <b>ToolBar</B>, <b>StatusBar</B> and <b>Rebar</B> objects (those objects are inside the frame, not 
+the client), so you can add a <b>ToolBar</B> or a <b>StatusBar</B>. Also, a <b>Picture</B> 
+control with some other controls inside may be added, but usually, in that kind 
+of applications, MDI child windows have all needed controls and do all work. 
+When an MDI child window becomes active, its menu (if any) is set to the parent 
+(the MDI frame window which is an <b>MDIWindow</B> object). 
+If the active MDI child window has no menu, the MDI frame window keeps its own 
+menu (if it has one). Although this is the default and the most appropiate 
+behavior for MDI applications, you can override it for any MDI child window just 
+by intercepting its <b><fontcolor="#000080">WM_MDIACTIVATE</FONT></B> message and returning <b><font color=#000080>TRUE</FONT></B>. 
+Let's supose the <b>MDI child</B> window is named <b>wndMDIChild</B>, so its procedure name <b>MUST</B> be <b>wndMDIChildProcedure</B>. Just add the following code 
+(added code in bold font):</FONT></P><pre><pre>wndMDIChildProcedure <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_CREATE</FONT><br><fontcolor="#808080">		;......<br>		;Initialization code goes here...
+		;······<br></FONT>		<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br>	<b><fontcolor="#008000">.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_MDIACTIVATE<br></FONT><font color=#808080><fontcolor="#800080">		Return</FONT> <fontcolor="#000080">TRUE</FONT></B><br></FONT>	<font color=#008000>.ElseIf</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_CLOSE</FONT><br>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>IsModal</FONT><font color=#ff00ff>,</FONT> hWnd
+		<font color=#008000>.If</FONT> <font color=#808000>Eax</FONT><br>			<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>EndModal</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> <font color=#000080>IDCANCEL</FONT><br>			<fontcolor="#800080">Return</FONT> <font color=#000080>TRUE</FONT><br>		<fontcolor="#008000">.EndIf</FONT><br>	<font color=#008000>.EndIf<br></FONT>	<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br>wndMDIChildProcedure <fontcolor="#0000FF">EndP</FONT><br></PRE></PRE>
+<p><font size=2 face=Arial>These two 
+lines of code will avoid the menu default behavior for that MDI child window, 
+but its menu (if it has one) will never appear and so, you will not be able to 
+use it. Windows O.S. allows child windows (including MDI child ones) to have a 
+menu, but they can never display it, that is, make it visible.</FONT></P>
+<p><font size=2 face=Arial>On the 
+other hand, and in order to avoid some unexpected behavior from an MDI 
+application, take into account the following considerations:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>When an MDI frame window gets the menu of the active MDI 
+child, the window which receives commands from that menu is the MDI frame window 
+(<b>MDIWindow</B> object) not the MDI child which the menu 
+belongs to. These commands are sent through the <b><fontcolor="#000080">WM_COMMAND</FONT></B> message.</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>On the <b><font color=#000080>WM_COMMAND</FONT></B> message for the <b>MDIWindow</B> main window, always set the return default 
+value to <b><fontcolor="#000080">FALSE</FONT></B>. You may return <b><font color=#000080>TRUE</FONT></B> 
+when, for example, you processed a menu command, but if you always return <b><font color=#000080>TRUE</FONT></B> 
+for the <b><fontcolor="#000080">WM_COMMAND</FONT></B> message, unexpected behavior of the 
+MDI child windows may occur.</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>When processing the <b><fontcolor="#000080">WM_SIZE</FONT></B> message for an MDI child window, you 
+should <b>ALWAYS</B> return <b><fontcolor="#000080">FALSE</FONT></B>. 
+If you return <b><font color=#000080>TRUE</FONT></B>, you will not be able to restore that MDI 
+child window after maximizing it.</FONT></P>
+<p><font size=2 face=Arial>Try to 
+remember these precautions. Sometimes, when writing code, it is easy to change 
+the return value or forget any of the rules seen above. As a result, your MDI 
+application may not work properly or start behaving in a strange way.</FONT></P>
+<p><br><a name=addingchildcontrols></A><b><font size=2 face=Arial><br>ADDING CHILD 
+CONTROLS</FONT></B></P>
+<p><font size=2 face=Arial>Well, now 
+you have an empty window, that can be built without errors, but does nothing. 
+So, start designing your application by adding child controls to the window(s). 
+To add a control, click on the corresponding button in the tool box (the cursor 
+shape over the window object will change to a cross). Then click the mouse left 
+button on the window object, keep the left button down while dragging over until 
+the control object has the desired size and release the left mouse button. 
+Remember that <b>Group</B>, <b>Picture</B> and <b>Rebar</B> objects 
+are containers too, so you can drop other control objects into them.<br><br>Also, you can add a child control 
+just by double-clicking on its corresponding button in the tool box. In that 
+case, take into account that if the active object is a <b>Group</B>, a <b>Picture</B> or a <b>Rebar</B>, the added control will be a child of it. 
+Otherwise, the control will be a child of the window object.</FONT></P>
+<p><font size=2 face=Arial>Easy Code 
+also adds the corresponding window procedure for each control added to a window 
+object (or a <b>Group</B>, <b>Picture</B> or <b>Rebar</B> object). 
+In most cases, the <b><fontcolor="#000080">WM_COMMAND</FONT></B> and <b><font color=#000080>WM_NOTIFY</FONT></B> messages, received by 
+the owner window of the control, will be enough. If so, you can delete the 
+object procedures for those controls you do not need to process (procedures for 
+child controls do not have to exist necessarily). When Easy Code does not find 
+the corresponding procedure name for a control object, it simply ignores it and 
+then you do not receive messages for the referred object (except those sent to 
+the owner window by <b><fontcolor="#000080">WM_COMMAND</FONT></B>, <b><font color=#000080>WM_NOTIFY</FONT></B> and <b><fontcolor="#000080">WM_DRAWITEM</FONT></B>). On the other hand, when you do 
+want to process messages for any control object, its procedure have to exist and 
+its name must fit the following convention:</FONT></P>
+<p><font size=2 face=Arial>Procedures 
+for control objects (any of them) <b>MUST</B> have a case 
+sensitive name which is formed by the name of owner window plus its own object 
+<A href="easy6pwl.htm" ><b>name</B></A>.</FONT></P>
+<p><font size=2 face=Arial>For 
+example, for a <b>Static</B> control named <b>stcLabel</B> which is inside a window object named <b>wndMain</B>, its procedure name <b>MUST</B> be:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial><b>wndMainstcLabel</B> (name is case 
+sensitive)</FONT></P>
+<p><font size=2 face=Arial>Besides, 
+procedures for control objects <b>MUST</B> also have the 
+classic four parameters:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial><b>hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT></B></FONT></P>
+<p><font size=2 face=Arial>So, the 
+procedure for a <b>Static</B> control named <b>stcLabel</B> which is inside a window object named <b>wndMain</B> will look like this:</FONT></P><pre><strong>wndMainstcLabel <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br></STRONG><strong>	<font color=#800080>Return</FONT> <fontcolor="#000080">FALSE</FONT><br></STRONG><b>wndMainstcLabel <font color=#0000ff>EndP</FONT></B></PRE>
+<p><font size=2 face=Arial>This 
+control procedure name convention is common to any other control object you add, 
+and it is the same whether the control is placed directly inside the owner 
+window or inside any other container control (<b>Group</B>, 
+<b>Picture</B> or <b>Rebar</B>).</FONT></P>
+<p><font size=2 face=Arial>This is the 
+minimal code needed for any control object procedure. Anyway, it does nothing, 
+so if you are not going to process any specífic message for that control, you 
+can delete its whole procedure.</FONT></P>
+<p><font size=2 face=Arial>If the name 
+for a control object procedure does not exist or is not correct, Easy Code does 
+not generate any error but, you <b>WILL NOT RECEIVE</B> 
+other messages for that control than <b><fontcolor="#000080">WM_COMMAND</FONT></B> and <b><font color=#000080>WM_NOTIFY</FONT></B> (and also <b><font color=#000080>WM_DRAWITEM</FONT></B> if the control is owner draw) 
+through its owner window. On the other hand, as said for window objects, if you 
+process messages you should return <b><fontcolor="#000080">TRUE</FONT></B> for no further message processing, or <b><font color=#000080>FALSE</FONT></B> 
+for the default window procedure to be called (<b>NEVER</B> 
+change the default return to any other value than <b><font color=#000080>FALSE</FONT></B>). For any message to be 
+processed, add the corresponding code. For example, if you want to process the 
+<b><font color=#000080>WM_SETFOCUS</FONT></B> message for a control object named 
+<b>stcLabel</B> which is inside a window object named <b>wndMain</B>, write the following code:</FONT></P><pre><pre><strong>wndMainstcLabel <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <fontcolor="#000080">WM_SETFOCUS</FONT><br><font color=#808080>		;......
+		;Code for WM_SETFOCUS message goes here...
+		;······</FONT><br>		</STRONG><strong><fontcolor="#800080">Return</FONT> <font color=#000080>TRUE </FONT><font color=#808080>;(or FALSE, you decide)
+</FONT></STRONG><strong><font color=#008000>	.EndIf</FONT><br></STRONG><strong>	<fontcolor="#800080">Return</FONT><font color=#000000> </FONT><font color=#000080>FALSE</FONT>
+wndMainstcLabel <font color=#0000ff>EndP</FONT></STRONG></PRE></PRE>
+<p><font size=2 face=Arial>In this 
+example, the return value for the <b><fontcolor="#000080">WM_SETFOCUS</FONT></B> message is <b><font color=#000080>TRUE</FONT></B>. 
+If you are going to return <b><font color=#000080>FALSE</FONT></B>, just write no return sentence as the code 
+will return <b><fontcolor="#000080">FALSE</FONT></B> (default return value) when reaching the 
+end of the procedure:</FONT></P><pre><strong>wndMainstcLabel <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_SETFOCUS</FONT><br><font color=#808080>		;......
+		;Code for WM_SETFOCUS message goes here...
+		;······</FONT><br><fontcolor="#008000">	.EndIf</FONT><br></STRONG><strong>	<font color=#800080>Return</FONT><fontcolor="#000000"> </FONT><font color=#000080>FALSE</FONT><br>wndMainstcLabel <fontcolor="#0000FF">EndP</FONT></STRONG></PRE>
+<p><font size=2 face=Arial><br><b>REMARKS</B>: As said before, Easy 
+Code always writes the corresponding procedure for each control added to the 
+project. In most cases this procedure is not needed at all, as all the work can 
+be done just by processing the <b><font color=#000080>WM_COMMAND</FONT></B> and <b><fontcolor="#000080">WM_NOTIFY</FONT></B> messages sent to the owner window. So, 
+if you do not have to process any specific message for a control object, you can 
+delete its whole procedure (this saves some bytes in the final executable 
+file).</FONT></P>
+<p><br><a name=customizingcontrols></A><b><font size=2 face=Arial><br>CUSTOMIZING OBJECTS</FONT></B></P>
+<p><font size=2 face=Arial>When adding 
+<b>ToolBar</B>, <b>StatusBar</B>, <b>TabStrip</B>, <b>ImageList</B>, <b>Header</B> or <b>Rebar</B> objects, 
+you will be able to customize them by clicking on its <b>Custom</B> property (in the <b>Properties window</B>), which displays the corresponding 
+customizing window. For more information, see the following topics:</FONT></P>
+<blockquote style="MARGIN-RIGHT: 0px" dir=ltr>
+  <p><font size=2 face=Arial><A href="CustomTB.htm" ><b 
+  >Customizing ToolBar objects</B></A><br 
+  ><A href="CustomSB.htm" ><b>Customizing StatusBar 
+  objects</B></A><br><A href="CustomTS.htm" ><b 
+  >Customizing TabStrip objects</B></A><br 
+  ><A href="CustomIL.htm" ><b>Customizing ImageList 
+  objects</B></A><br><A href="CustomHR.htm" ><b 
+  >Customizing Header objects</B></A><br 
+  ><A href="CustomRB.htm" ><b>Customizing Rebar 
+  objects</B></A><br></FONT></P></BLOCKQUOTE>
+<p><br><a name=childcontrolids></A><b><font size=2 face=Arial><br>GETTING CHILD CONTROL 
+IDENTIFIERS</FONT></B></P>
+<p><font size=2 face=Arial>At run 
+time, all child controls you added in each window object are already created and 
+ready to use when receiving the <b><font color=#000080>WM_CREATE</FONT></B> message of the window they belong to, 
+that is, the <b>owner window</B> (no children yet in the <b><fontcolor="#000080">WM_NCCREATE</FONT></B> message). Each child control has an 
+identifier or <b>ID</B>, with its corresponding constant 
+name (upper case). To refer to any control using this constant, once again, you 
+should take into account a simple rule. The constant name is all <b>upper case</B> and is formed by '<b>IDC_</B>' plus the name of the owner window, plus '<b>_</B>', plus the control object name. For example, the <b>ID</B> constant name for a <b>Static</B> control named <b>stcLabel</B>, belonging to a window named <b>wndMain</B>, will be:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><b><font size=2 face=Arial>IDC_WNDMAIN_STCLABEL</FONT></B></P>
+<p><font size=2 face=Arial>In most 
+cases, the owner window and the parent of the control object are the same (i.e. 
+when you place a control object directly on the window object), but as we saw 
+before, there are three type of controls (<b>Group</B>, <b>Picture</B> and <b>Rebar</B>) which 
+are containers and may have child controls inside them. When that is the case, 
+it <b>DOES NOT AFFECT</B> the <b>ID</B> constant name! It continues being formed by <b>IDC_</B>, plus the owner window name (not its parent, if 
+any other), plus '<b>_</B>', plus its own name, what makes 
+your work easier not having to remember which is parent of which.</FONT></P>
+<p><font size=2 face=Arial>With these 
+constant names, it is really easy to refer to any control along the code. This 
+is accomplished by using the <A href="easy4f8t.htm" ><b><fontcolor="#800080">GetWindowItem</FONT></B></A> Easy Code method. This method 
+has two parameters, the handle to the owner window (or any other control object 
+being inside) and the constant name. For example, inside a window procedure 
+(which the referred control belongs to):</FONT></P><pre><strong>wndMainProcedure <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> </STRONG><strong><font color=#000080>WM_CREATE<br></FONT>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>GetWindowItem</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> </STRONG><strong><font color=#000000>IDC_WNDMAIN_STCLABEL<br></FONT>		<fontcolor="#808080">; Handle to the 'stcLabel' Static control in</FONT><br>		<fontcolor="#808080">; the Eax/Rax register. Do something with it</FONT><br><fontcolor="#800080">		Return</FONT> <font color=#000080>FALSE</FONT><br>	<fontcolor="#008000">.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_CLOSE</FONT><br>		<font color=#0000ff>Invoke</FONT> <fontcolor="#800080">IsModal</FONT><font color=#ff00ff>,</FONT> hWnd<br>		<fontcolor="#008000">.If</FONT> <font color=#808000>Eax</FONT><br>			<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>EndModal</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> <font color=#000080>IDCANCEL</FONT><br>			<fontcolor="#800080">Return</FONT> <font color=#000080>TRUE</FONT><br>		<fontcolor="#008000">.EndIf</FONT><br>	</STRONG><strong><font color=#008000>.EndIf<br></FONT>	<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br>wndMainProcedure <fontcolor="#0000FF">EndP</FONT><br></STRONG></PRE>
+<p><font size=2 face=Arial>After the 
+call to the <A href="easy4f8t.htm" ><b><fontcolor="#800080">GetWindowItem</FONT></B></A> method, the <b><font color=#808000>Eax/Rax</FONT></B> 
+register contains the handle to the referred control. If it is a child of any 
+container control (<b>Group</B>, <b>Picture</B> or <b>Rebar</B>) or 
+several of them (i.e. a control object which is a child of a <b>Group</B>, which is a child of a <b>Picture</B>, which is a child of another <b>Picture</B>, etc.), the first argument for the <A href="easy4f8t.htm" ><b><font color=#800080>GetWindowItem</FONT></B></A> method may be directly the 
+handle to the owner window or the handle to any other control object inside the 
+owner window. That makes very easy to refer to any control inside the window 
+procedure of another control (always, of course, belonging to the same owner 
+window). For example, supose we have another child control in the same window 
+(<b>wndMain</B>), which is an <b>Edit</B> object named <b>edtEdit</B>, 
+and inside its control procedure (which correct name <b>MUST</B> be <b>wndMainedtEdit</B>) we 
+want to do something with that <b>Static</B> control named 
+<b>stcLabel</B>:</FONT></P><pre><strong>wndMainedtEdit <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> </STRONG><strong><font color=#000080>WM_LBUTTONDOWN<br></FONT>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>GetWindowItem</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> </STRONG><strong><font color=#000000>IDC_WNDMAIN_STCLABEL<br></FONT>		<fontcolor="#808080">;</FONT><font color=#808080> Handle to the 'stcLabel' Static control in</FONT>
+		<font color=#808080>; the Eax/Rax register. Do something with it</FONT>
+<font color=#800080>		Return</FONT> <font color=#000080>TRUE</FONT><br>	</STRONG><strong><fontcolor="#008000">.EndIf<br></FONT>	<font color=#800080>Return</FONT> <font color=#000080>FALSE</FONT>
+wndMainedtEdit <font color=#0000ff>EndP</FONT><br></STRONG></PRE>
+<p><font size=2 face=Arial>As any of 
+the child controls inside the owner window is a valid handle for the first 
+argument of the <A href="easy4f8t.htm" ><b><font color=#800080>GetWindowItem</FONT></B></A> method, the <b>edtEdit</B> control handle will be quite right. When the 
+referred control belongs to another window, you can use the same method in the 
+same way. In that case, the first argument will be the handle to the other 
+window or any of its child controls (you must know some handle). When that other 
+window is the main window, you can easily get its handle from <A href="AppError.htm" ><b><font color=#800080>App</FONT></B></A>.<b>Main</B>. For 
+example, to get the handle to a control named <b>stcLabel</B> belonging to the <b>main</B> window from the window procedure of and <b>Edit</B> control named <b>edtEdit</B> 
+(belonging to the main window or any other window in the project):</FONT></P><pre><strong>wndMainedtEdit <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_LBUTTONDOWN</FONT><br>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>GetWindowItem</FONT><font color=#ff00ff>,</FONT> <fontcolor="#800080">App</FONT>.Main<font color=#ff00ff>,</FONT> IDC_WNDMAIN_STCLABEL<br>		<fontcolor="#808080">; Handle to the 'stcLabel' Static control in</FONT><br>		<fontcolor="#808080">; the Eax/Rax register. Do something with it</FONT><br><fontcolor="#800080">		Return</FONT> <font color=#000080>TRUE</FONT><br>	<fontcolor="#008000">.EndIf</FONT><br>	<font color=#800080>Return</FONT> <font color=#000080>FALSE</FONT>
+wndMainedtEdit <font color=#0000ff>EndP</FONT></STRONG></PRE>
+<p><font size=2 face=Arial><br><b>REMARKS</B>: You have to be careful 
+when passing the first parameter to the <A href="easy4f8t.htm" ><b><font color=#800080>GetWindowItem</FONT></B></A> method. Passing 
+a wrong handle (i.e. a handle to another window or to a child control belonging 
+to another window) will result in a wrong returned handle (the handle to a child 
+control from another window) or <b><fontcolor="#000080">NULL</FONT></B>.</FONT></P>
+<p><br><a name=testingwindow></A><br><b><font size=2 face=Arial>TESTING WINDOWS</FONT></B></P>
+<p><font size=2 face=Arial>After 
+adding some child controls and modifying their properties, you may want to test 
+the window. If so, click the main menu choose <b>Build-&gt;Test &lt;</B><i>WindowName</I><b>&gt;</B> or press 
+&lt;<b>Shift+F5</B>&gt;. The window being tested will be 
+the window object which is active, and it will be shown modally over the Easy 
+Code application. When testing a window no code is processed, but you can see 
+how it will look like at run time, viewing menus and <A href="ResEdit.htm" ><b>string 
+resources</B></A>, and navigating through child controls with the <b>&lt;Tab&gt;</B> key, in order to check the <A href="easy6ipe.htm" ><b>tab order</B></A>. To close a window which is being tested, 
+press the <b>&lt;Esc&gt;</B> key.</FONT></P>
+<p><br><a name=wmcommandwmnotify></A><br><b><font size=2 face=Arial>THE <fontcolor="#000080">WM_COMMAND</FONT>, <font color=#000080>WM_NOTIFY</FONT>, <font color=#000080>WM_DRAWITEM</FONT> MESSAGES</FONT></B></P>
+<p><font size=2 face=Arial>Control 
+objects send messages to their parent. As we saw above, a control object may be 
+a child of a window object or of another control which is a container (<b>Group</B>, <b>Picture</B> or <b>Rebar</B> objects), or even be nested inside several 
+container controls. In that case, which object receives the <b><font color=#000080>WM_COMMAND</FONT></B>, <b><font color=#000080>WM_NOTIFY</FONT></B> and <b><font color=#000080>WM_DRAWITEM</FONT></B> messages? In order to make quite 
+easy to write code quickly (not having to remember which is parent of which) 
+those messages are <b>ALWAYS</B> received by the <b>owner window</B>. So, your code should be placed there, in 
+the <b><font color=#000080>WM_COMMAND</FONT></B>, <b><font color=#000080>WM_NOTIFY</FONT></B> or <b><font color=#000080>WM_DRAWITEM</FONT></B> message of the owner window 
+procedure which the control belongs to.</FONT></P>
+<p><br><a name=creatingwindows></A><br><b><font size=2 face=Arial>CREATING WINDOW OBJECTS AT RUN 
+TIME</FONT></B></P>
+<p><font size=2 face=Arial>You can 
+design several window objects in your project. When your application starts, and 
+along all time is running, you may need to create dynamically other windows than 
+the main window in response to user demands. All other windows which were 
+designed at design time are inside the executable file ready to be used when 
+needed. To create them, use the <A href="easy78bp.htm" ><b><font color=#800080>Create</FONT></B></A> method. This method returns either 
+the handle to the new created window (if modeless) or the return value (if 
+modal) in the <b><fontcolor="#808000">Eax/Rax</FONT></B> register. It has the following 
+syntax:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial><b><font color=#0000ff>Invoke</FONT> <fontcolor="#800080">Create</FONT><font color=#ff00ff>,</FONT> lpszWindowName<font color=#ff00ff>,</FONT> hWndParentWindowHandle<font color=#ff00ff>,</FONT> lMode<font color=#ff00ff>,</FONT> lParam</B></FONT></P>
+<p><font size=2 face=Arial>The <b>lpszWindowName</B> parameter is a <b><fontcolor="#0000FF">DWORD</FONT></B> 
+value which must be a pointer to the effective address of a null-terminated 
+string containing the window object name (that specified by its <A href="easy6pwl.htm" ><b>Name</B></A> property, case sensitive).</FONT></P>
+<p><font size=2 face=Arial>The <b>hWndParentWindowHandle</B> parameter is a <b><fontcolor="#0000FF">DWORD</FONT></B> 
+value with the handle to the window being the parent. This value can be <b><font color=#000080>NULL</FONT></B> 
+(except for MDI child windows) if the created window is going to have no 
+parent.</FONT></P>
+<p><font size=2 face=Arial>The <b>lMode</B> parameter is a <b><font color=#0000ff>DWORD</FONT></B> value specifying how the 
+window is to be shown, modal or modeless.</FONT></P>
+<p><font size=2 face=Arial>The <b>lParam</B> parameter is the <b><font color=#0000ff>DWORD</FONT></B> value passed to a dialog box 
+in the <b>lParam</B> parameter of the <b><font color=#000080>WM_INITDIALOG</FONT></B> message. This value is only for <b>DialogBox</B> objects, modal or not, and it may be <b><font color=#000080>NULL</FONT></B> if 
+not needed.</FONT></P>
+<p><font size=2 face=Arial>Easy Code 
+has two constants for the <b>lMode</B> parameter, <b><fontcolor="#800080">ecModal</FONT></B> and <b><font color=#800080>ecModeless</FONT></B>. In fact, their values 
+are, respectively, <b>1</B> (<b><font color=#000080>TRUE</FONT></B>) and <b>0</B> (<b><fontcolor="#000080">FALSE</FONT></B>), so any other value than <b>0</B> will mean <b><fontcolor="#000080">TRUE</FONT></B>, 
+that is, a modal window. To avoid undesired errors, always use the <b><fontcolor="#800080">ecModal</FONT></B> and <b><font color=#800080>ecModeless</FONT></B> constants.</FONT></P>
+<p><font size=2 face=Arial>A <b>Window</B> (having its <A href="easy32sk.htm" ><b>MDIChild</B></A> property set to <b><font color=#000080>FALSE</FONT></B>) 
+and a <b>DialogBox</B> object may be modal or modeless, 
+depending on the third parameter of the <A href="easy78bp.htm" ><b><font color=#800080>Create</FONT></B></A> method, while a <b>Window</B> (having its <A href="easy32sk.htm" ><b>MDIChild</B></A> property set to <b><fontcolor="#000080">TRUE</FONT></B>) 
+and an <b>MDIWindow</B> object can only be modeless, so the 
+third and fourth parameters are ignored. In fact, the third parameter (<b>lMode</B>) is only valid for <b>Window</B> and <b>DialogBox</B> 
+objects, while the fourth parameter (<b>lParam</B>) is only 
+valid for <b>DialogBox</B> objects.</FONT></P>
+<p><font size=2 face=Arial>In MDI 
+applications, Easy Code has the <A href="easy1i44.htm" ><b><fontcolor="#800080">GetMDIClient</FONT></B></A> method for retrieving the 
+handle to the MDI client. Anyway, when creating MDI child windows, the handle 
+you should pass to the <A href="easy78bp.htm" ><b><fontcolor="#800080">Create</FONT></B></A> method as the parent window (second 
+parameter) is that belonging to the MDI frame window (the <b>MDIWindow</B> object), not that returned by the <A href="easy1i44.htm" ><b><fontcolor="#800080">GetMDIClient</FONT></B></A> method.</FONT></P>
+<p><font size=2 face=Arial>Well, now 
+let's supose we have a project with the following objects (object names are 
+shown in blue font):</FONT></P>
+<p><font size=2 face=Arial>A main <b>Window</B> object named <b><font color=#0000ff>wndMain</FONT></B> and a <b>DialogBox</B> object named <b><font color=#0000ff>dlgOptions</FONT></B>. Inside the main window 
+(<b><fontcolor="#0000FF">wndMain</FONT></B>), we have a <b>Button</B> object named <b><fontcolor="#0000FF">btnShow</FONT></B>. We like to show the <b>DialogBox</B> (<b><fontcolor="#0000FF">dlgOptions</FONT></B>) modally when cliking the <b>Button</B> control (<b><fontcolor="#0000FF">btnShow</FONT></B>), and the main window (<b><font color=#0000ff>wndMain</FONT></B>) to be the parent. In the <b>DialogBox</B> object (<b><font color=#0000ff>dlgOptions</FONT></B>), we have two <b>Button</B> objects named <b><font color=#0000ff>btnOK</FONT></B> and <b><fontcolor="#0000FF">btnCancel</FONT></B>, which both close the modal dialog box 
+(<b><fontcolor="#0000FF">btnOK</FONT></B> closes validating and <b><font color=#0000ff>btnCancel</FONT></B> closes cancelling).</FONT></P>
+<p><font size=2 face=Arial>The name 
+for the main window procedure must be <b>wndMainProcedure</B>.<br>The name of 
+the <b>DialogBox</B> object to be created is <b><font color=#0000ff>dlgOptions</FONT></B>.<br>The control 
+<b>ID</B> for the <b>Button</B> 
+control (<b><font color=#0000ff>btnShow</FONT></B>) must be <b>IDC_WNDMAIN_BTNSHOW</B> (because it belongs to <b><font color=#0000ff>wndMain</FONT></B> 
+object and its name is <b><font color=#0000ff>btnShow</FONT></B>).<br><br>The name of the window procedure for the dialog box must be 
+<b>dlgOptionsProcedure</B>.<br>The 
+control <b>ID</B> for the <b>Button</B> control (<b><fontcolor="#0000FF">btnOK</FONT></B>) 
+must be <b>IDC_DLGOPTIONS_BTNOK</B> (because it belongs to 
+<b><fontcolor="#0000FF">dlgOptions</FONT></B> object and its name is <b><font color=#0000ff>btnOK</FONT></B>).<br>The control <b>ID</B> for the <b>Button</B> control 
+(<b><font color=#0000ff>btnCancel</FONT></B>) must be <b>IDC_DLGOPTIONS_BTNCANCEL</B> (because it belongs to <b><font color=#0000ff>dlgOptions</FONT></B> object and its name is <b><font color=#0000ff>btnCancel</FONT></B>).<br><br>The owner window is the object which receives the <b><font color=#000080>WM_COMMAND</FONT></B> messages sent by any of its child 
+controls (in this example the <b><font color=#0000ff>btnShow</FONT></B> button click messages). So, inside the 
+<b><fontcolor="#000080">WM_COMMAND</FONT></B> message of the main window procedure 
+(<b>wndMainProcedure</B>), we'll write the following 
+code:</FONT></P><pre><strong>wndMainProcedure <font color=#0000ff>Proc</FONT> hWnd<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD</FONT><font color=#ff00ff>,</FONT> wParam<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD</FONT><font color=#ff00ff>,</FONT> lParam<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_CREATE<br></FONT>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>GetWindowItem</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> IDC_WNDMAIN_STCLABEL<br>		<fontcolor="#808080">; ....<br></FONT><fontcolor="#808080">		; Initaialization code goes here</FONT><br>		<fontcolor="#808080">; ....</FONT><br>		<font color=#800080>Return</FONT> <fontcolor="#000080">FALSE</FONT><br>	<font color=#008000>.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_COMMAND<br></FONT><font color=#800080>		LoWord</FONT> wParam
+		<font color=#008000>.If</FONT> <font color=#808000>Ax</FONT> <fontcolor="#FF00FF">==</FONT> IDC_WNDMAIN_BTNSHOW<br><font color=#800080>			HiWord</FONT> <fontcolor="#000000">wParam</FONT><br>			<font color=#008000>.If</FONT> <fontcolor="#808000">Ax</FONT> == <font color=#000080>BN_CLICKED</FONT><br>				<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>Create</FONT><font color=#ff00ff>,</FONT> <fontcolor="#800080">TextAddr</FONT><font color=#ff00ff>("dlgOptions"),</FONT> hWnd<fontcolor="#FF00FF">,</FONT> <font color=#800080>ecModal</FONT><font color=#ff00ff>,</FONT> <fontcolor="#000080">NULL</FONT><br>				<font color=#800080>Return</FONT> <fontcolor="#000080">TRUE</FONT><br>			<font color=#008000>.EndIf</FONT><br>		<fontcolor="#008000">.EndIf</FONT><br>	<font color=#008000>.ElseIf</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_CLOSE</FONT><br>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>IsModal</FONT><font color=#ff00ff>,</FONT> hWnd
+		<font color=#008000>.If</FONT> <font color=#808000>Eax</FONT><br>			<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>EndModal</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> <font color=#000080>IDCANCEL</FONT><br>			<fontcolor="#800080">Return</FONT> <font color=#000080>TRUE</FONT><br>		<fontcolor="#008000">.EndIf</FONT><br>	<font color=#008000>.EndIf</FONT><br>	<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br>wndMainProcedure <fontcolor="#0000FF">EndP</FONT></STRONG></PRE>
+<p><font size=2 face=Arial><br>while inside the <b><font color=#000080>WM_COMMAND</FONT></B> message of the dialog 
+box (<b>dlgOptionsProcedure</B>) we'll write the following 
+code:</FONT></P><pre><strong>dlgOptionsProcedure <font color=#0000ff>Proc</FONT> hDlg<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD</FONT><font color=#ff00ff>,</FONT> wParam<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD</FONT><font color=#ff00ff>,</FONT> lParam<fontcolor="#FF00FF">:</FONT><font color=#0000ff>DWORD<br></FONT><fontcolor="#008000">	.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_INITIDIALOG<br></FONT>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>GetWindowItem</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> <font color=#000000>IDC_WNDMAIN_STCLABEL<br></FONT><fontcolor="#808080">		; Here you have lParam set to the value passed<br></FONT><fontcolor="#808080">		; to the Create method as the fourth parameter</FONT><br><fontcolor="#800080"><font color=#000000><font color=#808080>		;......
+		; Initialization code goes here...
+		;······</FONT>
+</FONT>		Return</FONT> <font color=#000080>FALSE</FONT><br>	<fontcolor="#008000">.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_COMMAND<br></FONT><font color=#800080>		LoWord</FONT> <fontcolor="#000000">wParam</FONT><br>		<font color=#008000>.If</FONT> <fontcolor="#808000">Ax</FONT> <font color=#ff00ff>==</FONT> <font color=#000080><fontcolor="#000000">IDC_DLGOPTIONS_BTNOK</FONT><br></FONT><fontcolor="#800080">			HiWord</FONT> <font color=#000000>wParam</FONT>
+			<font color=#008000>.If</FONT> <font color=#808000>Ax</FONT> <fontcolor="#FF00FF">==</FONT> <font color=#000080><font color=#000080>BN_CLICKED</FONT><br></FONT><fontcolor="#800080">				<font color=#0000ff>Invoke</FONT><font color=#000000> <fontcolor="#800080">EndModal</FONT><font color=#ff00ff>,</FONT> hDlg<font color=#ff00ff>,</FONT> </FONT><fontcolor="#000080">IDOK</FONT><br>				Return</FONT> <font color=#000080>TRUE</FONT>
+			<font color=#008000>.EndIf</FONT><br>		<fontcolor="#008000">.ElseIf</FONT> <font color=#808000>Ax</FONT> <font color=#ff00ff>==</FONT> <fontcolor="#000080"><font color=#000000>IDC_DLGOPTIONS_BTNCANCEL</FONT><br></FONT><fontcolor="#800080">			HiWord</FONT> <font color=#000000>wParam</FONT>
+			<font color=#008000>.If</FONT> <font color=#808000>Ax</FONT> <fontcolor="#FF00FF">==</FONT> <font color=#000080><font color=#000080>BN_CLICKED</FONT><br></FONT><fontcolor="#800080">				<font color=#0000ff>Invoke</FONT><font color=#000000> <fontcolor="#800080">EndModal</FONT><font color=#ff00ff>,</FONT> hDlg<font color=#ff00ff>,</FONT> </FONT><fontcolor="#000080">IDCANCEL</FONT><br>				Return</FONT> <fontcolor="#000080">TRUE</FONT><br>			<font color=#008000>.EndIf</FONT><br>		<fontcolor="#008000">.EndIf</FONT><br>	<font color=#008000>.ElseIf</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_CLOSE</FONT><br>		<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>IsModal</FONT><font color=#ff00ff>,</FONT> hDlg
+		<font color=#008000>.If</FONT> <font color=#808000>Eax</FONT><br>			<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>EndModal</FONT><font color=#ff00ff>,</FONT> hDlg<fontcolor="#FF00FF">,</FONT> <font color=#000080>IDCANCEL</FONT><br>			<fontcolor="#800080">Return</FONT> <font color=#000080>TRUE</FONT><br>		<fontcolor="#008000">.EndIf</FONT><br>	<font color=#008000>.EndIf<br></FONT>	<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br>dlgOptionsProcedure <fontcolor="#0000FF">Endp</FONT></STRONG></PRE>
+<p><font size=2 face=Arial><b><font color=#800080>LoWord</FONT></B> 
+and <b><fontcolor="#800080">HiWord</FONT></B> are <A href="ECMacros.htm" ><b>Easy 
+Code macros</B></A> which return, respectively, the low word and high word 
+(16-bit values or <b><font color=#0000ff>Word</FONT></B>) of a 32-bit value (<b><font color=#0000ff>DWord</FONT></B>) 
+which is passed as an argument (in this example <b>wParam</B>). The 16-bit returned value is in the <b><font color=#808000>Eax/Rax</FONT></B> 
+register (in fact, the value is the <b><font color=#808000>Ax</FONT></B> register). <b><font color=#800080>TextAddr</FONT></B> is another Easy Code 
+macro which creates a local and temporary text string (in this example 
+containing the text <b><fontcolor="#FF00FF">"dlgOptions"</FONT></B>, which is the <A href="easy6pwl.htm" ><b>name</B></A> of the <b>DialogBox</B> 
+object). No final <b><font color=#000080>NULL</FONT></B> is needed for the string, as it is added 
+internally by <b><font color=#800080>TextAddr</FONT></B> macro. Finally, in the <b><fontcolor="#000080">WM_COMMAND</FONT></B> message of the owner window which 
+receives the button clicks from <b><font color=#0000ff>btnOK</FONT></B> and <b><font color=#0000ff>btnCancel</FONT></B> (the <b>DialogBox</B> object), we call another Easy Code method, <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A>, which closes (destroys) a modal 
+window and returns the specified value in the <b><font color=#808000>Eax/Rax</FONT></B> register (in the example 
+above <b><fontcolor="#000080">IDOK</FONT></B> or <b><font color=#000080>IDCANCEL</FONT></B>). The <A href="easy5418.htm" ><b><font color=#800080>EndModal</FONT></B></A> method has two parameters, the 
+handle to the window to be destroyed and the return value. This method returns 
+<b><font color=#000080>TRUE</FONT></B> 
+or <b><font color=#000080>FALSE</FONT></B>, in the <b><font color=#808000>Eax/Rax</FONT></B> register, depending on 
+whether the window was destroyed or not (i.e. if you call the method for a 
+window object which is not modal, it will do nothing and will return <b><font color=#000080>FALSE</FONT></B>), 
+and may be called from any part of the code. Once is called, the modal window 
+will be definitively destroyed. That is why we should return <b><fontcolor="#000080">TRUE</FONT></B> 
+after calling the <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A> method, so that there is no further 
+processing for the <A href="#wmclosemessage" ><b><font color=#000080>WM_CLOSE</FONT></B></A> message.</FONT></P>
+<p><font size=2 face=Arial>Another way 
+of closing a modal window with <b><fontcolor="#000080">IDCANCEL</FONT></B> as the return value, is sending a <A href="#wmclosemessage" ><b><fontcolor="#000080">WM_CLOSE</FONT></B></A> message. In the example above, the 
+code for the cancel button (<b><font color=#0000ff>btnCancel</FONT></B>) inside <b><font color=#000080>WM_COMMAND</FONT></B> message in dialog box 
+(<b><font color=#0000ff>dlgOptions</FONT></B>) procedure could be changed to the 
+following code (changed text in bold font):</FONT></P><pre><font color=#008000>	.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_COMMAND<br></FONT><font color=#800080>		LoWord</FONT> <fontcolor="#000000">wParam</FONT><br>		<font color=#008000>.If</FONT> <fontcolor="#808000">Ax</FONT> <font color=#ff00ff>==</FONT> <font color=#000080><fontcolor="#000000">IDC_DLGOPTIONS_BTNOK</FONT><br></FONT><fontcolor="#800080">			HiWord</FONT> <font color=#000000>wParam</FONT>
+			<font color=#008000>.If</FONT> <font color=#808000>Ax</FONT> == <fontcolor="#000080"><font color=#000080>BN_CLICKED</FONT><br></FONT><fontcolor="#800080">				<font color=#0000ff>Invoke</FONT><font color=#000000> <fontcolor="#800080">EndModal</FONT><font color=#ff00ff>,</FONT> hDlg<font color=#ff00ff>,</FONT> </FONT><fontcolor="#000080">IDOK</FONT><br>				Return</FONT> <font color=#000080>TRUE</FONT>
+			<font color=#008000>.EndIf</FONT><br>		<fontcolor="#008000">.ElseIf</FONT> <font color=#808000>Ax</FONT> <font color=#ff00ff>==</FONT> <fontcolor="#000080"><font color=#000000>IDC_DLGOPTIONS_BTNCANCEL</FONT><br></FONT><fontcolor="#800080">			HiWord</FONT> <font color=#000000>wParam</FONT>
+			<font color=#008000>.If</FONT> <font color=#808000>Ax</FONT> <fontcolor="#FF00FF">==</FONT> <font color=#000080><font color=#000080>BN_CLICKED</FONT><br></FONT><fontcolor="#800080"><b>				<font color=#0000ff>Invoke</FONT><fontcolor="#000000"> <font color=#800000>SendMessage</FONT><font color=#ff00ff>,</FONT> hDlg<fontcolor="#FF00FF">,</FONT> </FONT><font color=#000080>WM_CLOSE</FONT><font color=#000000><fontcolor="#FF00FF">,</FONT> 0<font color=#ff00ff>,</FONT> 0</FONT>
+</B>				Return</FONT> <font color=#000080>TRUE</FONT>
+			<font color=#008000>.EndIf</FONT><br>		<font color=#008000>.EndIf</FONT>
+	<font color=#008000>.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_CLOSE</FONT><br>		<font color=#0000ff>Invoke</FONT> <fontcolor="#800080">IsModal</FONT><font color=#ff00ff>,</FONT> hDlg<br>		<fontcolor="#008000">.If</FONT> <font color=#808000>Eax</FONT><br>			<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>EndModal</FONT><fontcolor="#FF00FF">,</FONT> hDlg<b><font color=#ff00ff>,</FONT></B> <fontcolor="#000080">IDCANCEL</FONT><br>			<font color=#800080>Return</FONT> <fontcolor="#000080">TRUE</FONT><br>		<font color=#008000>.EndIf</FONT><br>	<fontcolor="#008000">.EndIf</FONT></PRE>
+<p><font size=2 face=Arial>Note that 
+after sending the <b><font color=#000080>WM_CLOSE</FONT></B> message, you must return <b><font color=#000080>TRUE</FONT></B> 
+for no further processing of the <b><fontcolor="#000080">WM_COMMAND</FONT></B> message, as the window has already 
+been destroyed (it does not exist) and the application could crash if the 
+message continues being processed. Also, when processing the <b><font color=#000080>WM_CLOSE</FONT></B> message for a modal window, and <b>only</B> if the window is <b>modal</B>, you can remove some code:</FONT></P><pre><b><font color=#008000>	.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <fontcolor="#000080">WM_CLOSE<br></FONT></B><b><font color=#0000ff>		Invoke</FONT><fontcolor="#000000"> <font color=#800080>EndModal</FONT><font color=#ff00ff>,</FONT> hDlg<fontcolor="#FF00FF">,</FONT> </FONT><font color=#000080>IDCANCEL<br></FONT></B><b><fontcolor="#800080">		Return</FONT> <font color=#000080>TRUE</FONT></B><br><b>	<fontcolor="#008000">.EndIf</FONT></B><br><b>	<font color=#800080>Return</FONT> <fontcolor="#000080">FALSE</FONT></B></PRE>
+<p><font size=2 face=Arial>And that is 
+all you need to create a window oject at run time which was designed at design 
+time. Quite easy, isn't it?</FONT></P>
+<p><font face=Arial><font size=2><b>IMPORTANT</B>: The <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A> method only works for modal 
+windows. If you invoke it with a handle belonging to a non-modal window, the 
+method will return <b><font color=#000080>FALSE</FONT></B> and the window will not be destroyed. On 
+the other hand, after calling the <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A> method with a valid handle (a modal 
+window handle), the window is already destroyed, so you have to return <b><font color=#000080>TRUE</FONT></B> 
+for no further processing as the object does not exist. Otherwise, errors might 
+occur.</FONT></FONT></P>
+<p><br><a name=wmcreatemessage></A><br><b><font size=2 face=Arial>The <fontcolor="#000080">WM_CREATE</FONT> message</FONT></B></P>
+<p><font size=2 face=Arial>All child 
+controls you added to a window at design time are already created and available 
+when it receives the <b><font color=#000080>WM_CREATE</FONT></B> message (use their constant ID for any 
+operation). As said before, this message must return other value than <b>-1</B> in order to continue the creation of the window (a 
+return value <b><font color=#000080>FALSE</FONT></B> or <b><fontcolor="#000080">TRUE</FONT></B> 
+are quite right). If it returns <b><font color=#000080>TRUE</FONT></B>, the focus is set to the first control 
+being able to get it (see the </FONT><A href="easy6ipe.htm" ><font size=2 face=Arial><b>TabOrder</B></FONT></A><font size=2 face=Arial> property). Most of times, this is the more usual return 
+value. On the other hand, if you set the focus to any other control while 
+processing this message, (<b><font color=#800000>SetFocus</FONT></B> API function), it should return <b><fontcolor="#000080">FALSE</FONT></B> 
+so that the focus can be set to the specified control. Finally, a return value 
+of <b>-1</B> will destroy the window before being 
+shown.</FONT></P>
+<p><font size=2 face=Arial><b>REMARKS</B>: <A href="#dialogboxes" ><b>Dialog boxes</B></A> do not 
+receive the <b><font color=#000080>WM_CREATE</FONT></B> message. Instead, they receive the <b><fontcolor="#000080">WM_INITDIALOG</FONT></B> message with the <b>lParam</B> parameter set to the value which was passed to 
+the <A href="easy78bp.htm" ><b><font color=#800080>Create</FONT></B></A> method as the fourth parameter. This 
+parameter may be <b><font color=#000080>NULL</FONT></B> if not needed.</FONT></P>
+<p><br><a name=ecmaftercreatemessage></A><br><font size=2 face=Arial><b>The ECM_AFTERCREATE 
+message</B></FONT></P>
+<p><font size=2 face=Arial>Just after 
+creating a window, and before being shown, Easy Code sends the <b>ECM_AFTERCREATE</B> message to the window procedure. This 
+message can be useful to make some kind of initialization or change that could 
+not be performed during the <b><font color=#000080>WM_CREATE</FONT></B> message. At this time, the window and 
+all of its children are completely created and ready to be shown. The <b>ECM_AFTERCREATE</B> message is Easy Code exclusive, its 
+value is <b><font color=#000080>WM_USER</FONT> <font color=#ff00ff>+</FONT> <font color=#0080c0>1049</FONT></B> and its sintax is automatically corrected 
+to upper case by the IDE.<br><br><b>REMARKS</B>: The return value for this message specifies 
+whether the window has to be destroyed or not. If this value is <b>-1</B>, the window will be destoyed before being shown, 
+while any other value will make the process to be continued.</FONT></P>
+<p><br><a name=wmclosemessage></A><br><font size=2 face=Arial><b>The <font color=#000080>WM_CLOSE</FONT> message</B></FONT></P>
+<p><font size=2 face=Arial>A <b>Window</B> (non MDI child) and a <b>DialogBox</B> object may be modal or modeless. When 
+creating a modal window, its parent (if any) is disabled and has no control 
+until the modal window is closed. At this point, we expect a return value to 
+tell us whether the user validated or cancelled whatever inside the modal 
+window. This value (usually <b><font color=#000080>IDOK</FONT></B> or <b><fontcolor="#000080">IDCANCEL</FONT></B>) is returned in the <b><font color=#808000>Eax/Rax</FONT></B> 
+register when the <A href="easy78bp.htm" ><b><font color=#800080>Create</FONT></B></A> method returns, and it is the value 
+passed to the <A href="easy5418.htm" ><b><font color=#800080>EndModal</FONT></B></A> method when the modal window was 
+destroyed.</FONT></P>
+<p><font size=2 face=Arial>On the 
+other hand, when creating modeless (non modal) windows, the <A href="easy78bp.htm" ><b><font color=#800080>Create</FONT></B></A> method returns immediately with the 
+handle to the new created window in the <b><font color=#808000>Eax/Rax</FONT></B> register. If the window 
+could not be created for some reason, i.e. the name does not exist (remember 
+that <b>object names are case sensitive</B>), then the 
+returned value will be <b><font color=#000080>NULL</FONT></B>.</FONT></P>
+<p><font size=2 face=Arial>In both 
+cases, you can avoid the window to be destroyed by returning <b><fontcolor="#000080">TRUE</FONT></B> 
+in the <b><font color=#000080>WM_CLOSE</FONT></B> message (i.e. if you ask for 
+confirmation), while returning <b><font color=#000080>FALSE</FONT></B> will close (destroy) the window normally. 
+In modal windows, any confirmation must be asked before calling the <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A> method, as after calling it the 
+window is already destroyed. So, all code for avoiding to close and destroy a 
+window object should be placed in the <b><fontcolor="#000080">WM_CLOSE</FONT></B> message. For example, if you asked for 
+confirmation and the user answered no, just return <b><font color=#000080>TRUE</FONT></B>. For modal windows, also 
+return <b><fontcolor="#000080">TRUE</FONT></B> but <b>without</B> 
+calling the <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A> method.</FONT></P>
+<p><font size=2 face=Arial>When adding 
+<b>Window</B> and <b>DialogBox</B> 
+objects to a project, as they both may be modal windows or not, Easy Code adds 
+the necessary code in the <b><fontcolor="#000080">WM_CLOSE</FONT></B> message for that window to close 
+properly whether it is modal or not. This code (in bold font) is the 
+following:</FONT></P><pre><pre>wndMainProcedure <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> uMsg <b><fontcolor="#FF00FF">==</FONT></B> <font color=#000080>WM_CREATE</FONT><br><fontcolor="#808080">		;......
+		;Initialization code goes here...
+		;······<br></FONT>		<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br></PRE><pre><b>	<fontcolor="#008000">.ElseIf</FONT> uMsg <font color=#ff00ff>==</FONT> <font color=#000080>WM_CLOSE</FONT>
+		<font color=#0000ff>Invoke</FONT> <fontcolor="#800080">IsModal</FONT><font color=#ff00ff>,</FONT> hWnd<br>		<fontcolor="#008000">.If</FONT> <font color=#808000>Eax</FONT><br>			<fontcolor="#0000FF">Invoke</FONT> <font color=#800080>EndModal</FONT><font color=#ff00ff>,</FONT> hWnd<fontcolor="#FF00FF">,</FONT> <font color=#000080>IDCANCEL</FONT><br>			<fontcolor="#800080">Return</FONT> <font color=#000080>TRUE</FONT><br>		<fontcolor="#008000">.EndIf</FONT><br></B><font color=#000000>	</FONT><fontcolor="#000000"><span style="COLOR: rgb(0,128,0)">.EndIf</SPAN><br></FONT>	<fontcolor="#800080">Return</FONT> <font color=#000080>FALSE</FONT><br>wndMainProcedure <fontcolor="#0000FF">EndP</FONT><br></PRE></PRE>
+<p><font size=2 face=Arial>When 
+closing the window, another Easy Code method is called, <A href="easy233g.htm" ><b><font color=#800080>IsModal</FONT></B></A>, which returns <b><fontcolor="#000080">TRUE</FONT></B> 
+or <b><font color=#000080>FALSE</FONT></B> in the <b><fontcolor="#808000">Eax/Rax</FONT></B> register, depending on whether the 
+window object is a modal window or not. When it is modal, the <A href="easy5418.htm" ><b><font color=#800080>EndModal</FONT></B></A> method must be called in order to 
+close properly, while when it is modeless, the window closes normally by 
+returning <b><fontcolor="#000080">FALSE</FONT></B>.</FONT></P>
+<p><font size=2 face=Arial><b>REMARKS</B>: The <b><font color=#000080>WM_CLOSE</FONT></B> message is the last 
+chance to avoid the window to be destroyed. After that, you will receive the <b><fontcolor="#000080">WM_DESTROY</FONT></B> and <b><font color=#000080>WM_NCDESTROY</FONT></B> messages, but just 
+for cleaning up. At the time of these last two messages, there is nothing to do. 
+The window is being destroyed!</FONT></P>
+<p><font size=2 face=Arial><b>IMPORTANT</B>: Be careful! Returning always <b><fontcolor="#000080">TRUE</FONT></B> 
+for a <b><font color=#000080>WM_CLOSE</FONT></B> message, will mean that the window will 
+never be destroyed. If it is a modal window, and you do not call the <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A> method, your application will never 
+be able to exit in the right way.</FONT></P>
+<p><br><a name=dialogboxes></A><br><b><font size=2 face=Arial>DIALOG BOXES</FONT></B></P>
+<p><font size=2 face=Arial>Dialog 
+boxes are frequently used in Windows applications to display or require 
+information to or from the user. They can be modal or modeless and are created 
+from a template usually being in the program's resource script file. To 
+calculate the dimensions for a dialog box, Windows uses the average height and 
+width of the dialog's font. All child controls being inside a dialog box use the 
+same font than their parent (the dialog box), so they cannot have its own font 
+as in any other window. Using just a font for all objects, allows the dialog box 
+and all of its children to be always proportionally shown in different screen 
+resolutions and font sizes. When changing the </FONT><A href="easy301g.htm" ><font size=2 face=Arial><b>Font</B></FONT></A><font size=2 face=Arial> property for a dialog box at design time, it 
+and all its child controls are resized according to the new font size, while 
+changing its font at run time just changes the font, but no resizing is 
+performed.</FONT></P>
+<p><font size=2 face=Arial>Visual 
+projects have their own dialog box, the <b>DialogBox</B> 
+object, which offers some more features than the dialog box in classic projects. 
+All <b>DialogBox</B> objects needed by an application, 
+being designed in the visual environment (design time), can be created at run 
+time by calling the <A href="easy78bp.htm" ><font color=#800080><b>Create</B></FONT></A> method. Once created (both modal or 
+modeless), a <b>DialogBox</B> object does not receive a <b><font color=#000080>WM_CREATE</FONT></B> message, instead it receives a <b><font color=#000080>WM_INITDIALOG</FONT></B> message, previous to show the 
+window, where all necessary code can be written. When receiving this message, 
+the <b>lParam</B> parameter is that passed as the fourth 
+argument to the <A href="easy78bp.htm" ><font color=#800080><b>Create</B></FONT></A> method. This parameter can be any 
+value you need to pass to the DialogBox, i.e. the address of a data structure, 
+or it can be <b><font color=#000080>NULL</FONT></B> if not needed.</FONT></P>
+<p><font size=2 face=Arial>The return 
+value for a <b><font color=#000080>WM_INITDIALOG</FONT></B> message has a special meaning 
+(also applied in the <b><font color=#000080>WM_CREATE</FONT></B> message for <b>Window</B> objects). It is the following:</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>If it returns <b><font color=#000080>TRUE</FONT></B>, the focus is set to the first control 
+being able to get it (see the <A href="easy6ipe.htm" ><b>TabOrder</B></A> property). 
+Most of times, this is the usual return value.</FONT></P>
+<p style="MARGIN-LEFT: 20px"><font size=2 face=Arial>If you set the focus to any other control during this 
+message, by calling the <b><font color=#800000>SetFocus</FONT></B> API function, you should return <b><font color=#000080>FALSE</FONT></B> 
+so that the focus can be set to the specified control.</FONT></P>
+<p><font size=2 face=Arial>When 
+destroying a <b>modal</B> window (being a <b>DialogBox</B> or a <b>Window</B> 
+object), you should call the Easy Code <A href="easy5418.htm" ><b><fontcolor="#800080">EndModal</FONT></B></A> method. This is the right way to 
+destroy a modal window. <b>NEVER</B> call the <b><font color=#800000>DestroyWindow</FONT></B> API function if the window to be 
+destroyed is a modal window.</FONT></P>
+<p><br><a name=onidleproc></A><br><b><font size=2 face=Arial>PROCESSING IDLE TIME</FONT></B></P>
+<p><font size=2 face=Arial>When the 
+application has no messages to process, it is said to be <b>idle</B> and does nothing else than waiting for a new 
+message. You can take advantage of this <b>idle</B> time in 
+order to perform some background processing. To do so, just write the following 
+procedure:</FONT></P><pre><b>OnIdle <font color=#0000ff>Proc</FONT> lCount<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br></B><b>	<font color=#800080>Return</FONT> <fontcolor="#000080">FALSE</FONT><br></B><b>OnIdle <font color=#0000ff>EndP</FONT></B></PRE>
+<p><font size=2 face=Arial>The name 
+for this procedure <b>MUST</B> be <b>OnIdle</B> (case sensitive), it has to be in the <b>main</B> window and it will be called when there are no 
+messages to process. The <b>lCount</B> parameter is 
+incremented each time <b>OnIdle</B> is called and is reset 
+to <b>0</B> each time a new message is processed, so you 
+can know when a new <b>idle</B> cycle has started as <b>lCount</B> will be set to <b>0</B>. 
+You can call different <b>idle</B> routines based on this 
+count:</FONT></P><pre><b>OnIdle <font color=#0000ff>Proc</FONT> lCount<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><br>	<font color=#008000>.If</FONT> lCount <fontcolor="#FF00FF">==</FONT> <font color=#0080c0>0</FONT><br><fontcolor="#808080">		; Do some task</FONT><br>	<font color=#008000>.ElseIf</FONT> lCount <fontcolor="#FF00FF">==</FONT> <font color=#0080c0>1</FONT><br><font color=#808080>		; Do some other task</FONT><br>	<font color=#008000>.ElseIf</FONT> lCount <font color=#ff00ff>&gt;=</FONT> <font color=#0080c0>50</FONT><br>		<font color=#800080>Return</FONT> <font color=#000080>FALSE</FONT><br>	<font color=#008000>.EndIf</FONT></FONT>
+	<font color=#800080>Return</FONT> <font color=#000080>TRUE</FONT><br>OnIdle <fontcolor="#0000FF">EndP</FONT></B></PRE>
+<p><font size=2 face=Arial>This 
+procedure should return <font color=#000080><b>TRUE</B></FONT> in order to receive more idle processing 
+time. If it returns <font color=#000080><b>FALSE</B></FONT>, it will not be called during the current 
+cycle, that is, <b>OnIdle</B> will not be called until the 
+next idle cycle.<br><br>It is very 
+important to take into account the behavior of the <b>OnIdle</B> procedure in order to avoid overloadng the 
+processor. If this procedure always returns <fontcolor="#000080"><b>TRUE</B></FONT>, the processor will 
+be permanently overloaded, so it is a good practice to perform different small 
+tasks until <b>lCount</B> reaches a certain value (<b>50</B> in the example above).</FONT></P>
+<p><font size=2 face=Arial><br><b>REMARKS</B>: The <b>OnIdle</B> procedure is used to perform simple tasks in the 
+background. Lengthy tasks should be splitted into many small routines which 
+would be sequentally called by using the <b>lCount</B> 
+parameter.</FONT></P>
+<p><br><a name=controllingwinmain></A><br><b><font size=2 face=Arial>ACCESSING THE WINDOWS <font color=#0000ff>WinMain</FONT> FUNCTION (WHEN THE APPLICATION STARTS AND 
+ENDS)</FONT></B></P>
+<p><font size=2 face=Arial>You can 
+also have control when the application starts and/or when the application ends 
+(from the beginning and the end of the <b>WinMain</B> 
+function), just by adding, respectively, the <b>MainStart</B> and/or the <b>MainEnd</B> procedures (case sensitive) in the <font color=#0000ff><b>.Code</B></FONT> 
+section of the <b>Main</B> window (startup window) of the 
+application:</FONT></P><pre><b>MainStart <font color=#0000ff>Proc</FONT> hInstance<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> hPrevInst<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lpCmdLine<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> nCmdShow<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD<br></FONT></B><b><font color=#808080>	; Write your code here</FONT></B><br><b>	<fontcolor="#FF0000">Ret</FONT><br></B><b>MainStart <fontcolor="#0000FF">EndP</FONT></B><br>
+<b>MainEnd <font color=#0000ff>Proc</FONT> hInstance<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> hPrevInst<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lpCmdLine<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> nCmdShow<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD<br></FONT></B><b><font color=#808080>	; Write your code here</FONT></B><br><b>	<fontcolor="#FF0000">Ret</FONT><br></B><b>MainEnd <fontcolor="#0000FF">EndP</FONT></B></PRE>
+<p><font size=2 face=Arial>When the <b>WinMain</B> function begins, it calls the <b>MainStart</B> procedure (if existing) and when the <b>WinMain</B> function ends, it calls the <b>MainEnd</B> procedure (if existing). You should be very 
+careful with the code you write in those two procedures (specially the first 
+one) since you could make the application to crash. For both procedures, the 
+return value is irrelevant.</FONT></P>
+<p><br><a name=controllingmessageloop></A><br><b><font size=2 face=Arial>CONTROLLING THE APPLICATION MESSAGE 
+LOOP</FONT></B></P>
+<p><font size=2 face=Arial>In most 
+cases it is quite enough to process messages in object procedures. Anyway, if 
+you need more control and want to check messages before being processed, add the 
+following code in the <font color=#0000ff><b>.Code</B></FONT> section of the <b>main</B> window of the application.</FONT></P><pre><b>ProcessMessages <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD<br></FONT></B><b>	<font color=#800080>Return</FONT> <fontcolor="#000080">FALSE</FONT><br></B><b>ProcessMessages <font color=#0000ff>EndP</FONT></B></PRE>
+<p><font size=2 face=Arial>The name 
+for this procedure <b>MUST</B> be <b>ProcessMessages</B> (case sensitive) and it is directly 
+called from the application message loop before than any other API function. If 
+<b>ProcessMessages</B> exists, that is, if you write its 
+code, it <b>MUST</B> have the specified name and be in the 
+<b>main</B> window, so that Easy Code can call it at each 
+message.</FONT></P>
+<p><font size=2 face=Arial><b>ProcessMessages</B> allows you to check the destination 
+object (<b>hWnd</B>), the message (<b>uMsg</B>) and the two message parameters (<b>wParam</B> and <b>lParam</B>). If you 
+return <b><font color=#000080>TRUE</FONT></B> for a message, it will never be processed. 
+As you can see, this procedure gives you a full control over the application. 
+Supose you do not want the <b><fontcolor="#000080">WM_KEYDOWN</FONT></B> message to be processed for a <b>Static</B> object named <b>stcLabel</B>, belonging to the <b>main</B> window of the application (named <b>wndMain</B>). The <b>ID</B> constant 
+name for the <b>stcLabel</B> object will be <b>IDC_WNDMAIN_STCLABEL</B> (because it's inside <b>wndMain</B> and its name is <b>stcLabel</B>).</FONT></P>
+<p><font size=2 face=Arial>Just write 
+the following code:</FONT></P><pre><pre><b>ProcessMessages <font color=#0000ff>Proc</FONT> hWnd<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> uMsg<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> wParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD</FONT><font color=#ff00ff>,</FONT> lParam<font color=#ff00ff>:</FONT><fontcolor="#0000FF">DWORD<br></FONT>	<font color=#008000>.If</FONT> uMsg <fontcolor="#FF00FF">==</FONT> <font color=#000080>WM_KEYDOWN<br></FONT></B><b><fontcolor="#0000FF">		Invoke</FONT> <font color=#800080>GetWIndowItem</FONT><fontcolor="#FF00FF">,</FONT> <font color=#800080>App</FONT>.Main<fontcolor="#FF00FF">,</FONT> IDC_WNDMAIN_STCLABEL<br><fontcolor="#808080">		; Handle to 'stcLabel' in the Eax/Rax register<font color=#008000>
+		.If</FONT> <font color=#808000>Eax</FONT> <font color=#ff00ff>==</FONT> <fontcolor="#000000">hWnd</FONT></FONT></B><br><b><font color=#808080><fontcolor="#000000">			</FONT><font color=#800080>Return</FONT><fontcolor="#000000"> </FONT><font color=#000080>TRUE</FONT><br></FONT><b><font color=#000000><fontcolor="#008000">		.EndIf</FONT><br></FONT></B><font color=#000000>	</FONT><fontcolor="#000000"><font color=#008000>.EndIf</FONT><br></FONT>	<font color=#800080>Return</FONT> <fontcolor="#000080">FALSE</FONT><br>ProcessMessages <font color=#0000ff>EndP</FONT></B></PRE></PRE>
+<p><font size=2 face=Arial>In the 
+example above, we can easily retrieve the handle to <b>stcLabel</B> because it is inside the main window (<A href="AppError.htm" ><b><font color=#800080>App</FONT></B></A><b><fontcolor="#FF00FF">.</FONT>Main</B> 
+always stores the handle to the <b>main</B> window). 
+Otherwise, you should know the owner window for the control to be 
+checked.</FONT></P>
+<p><font size=2 face=Arial>In most 
+applications this procedure is not needed at all. As you decide which is the <b>main</B> window (where this procedure has to be in) and 
+whether you are going to use <b>ProcessMessages</B> or not, 
+Easy Code never adds it by default.</FONT></P>
+<p><font size=2 face=Arial><font color=#ff0000><b>IMPORTANT</B>: Be 
+very careful with this procedure and never change the default return value <b>FALSE</B>. As returning <b>TRUE</B> 
+means that the message is not processed (ignored), if the procedure always 
+returns <b>TRUE</B> (that is, any other value than <b>FALSE</B>), it will mean that no message will be processed 
+and your application will crash.</FONT></P>
+<p><br><a name=preservingregisters></A><br><b><font size=2 face=Arial>PRESERVING REGISTERS IN VISUAL 
+PROJECTS</FONT></B></P>
+<p><font size=2 face=Arial>When 
+working with visual projects, you can freely use <fontcolor="#9F9C2B"><b><font color=#808000>Ebx</FONT></B><font color=#000000>,</FONT> <b><fontcolor="#808000">Ecx</FONT></B><font color=#000000>,</FONT> <b><font color=#808000>Edx</FONT></B><fontcolor="#000000">,</FONT> <b><font color=#808000>Edi</FONT></B></FONT>, and <b><fontcolor="#808000">Esi</FONT></B> 
+(or <font color=#9f9c2b><b><fontcolor="#808000">Rbx</FONT></B><font color=#000000>,</FONT> <b><fontcolor="#808000">R10</FONT></B><font color=#000000>,</FONT> <b><fontcolor="#808000">R11</FONT></B><font color=#000000>,</FONT> <b><fontcolor="#808000">Rdi</FONT></B></FONT>, and <b><fontcolor="#808000">Rsi</FONT></B> 
+for 64-bit projects) registers along all procedures in the project without 
+preserving them (except for your own convenience when you need to preserve any), 
+as Easy Code takes care of them. On the other hand, when calling any <A href="ECMethod.htm" ><b>Easy Code method</B></A>, you can rely on none of those 
+registers will be changed.</FONT></P>
+<p><br><a name=objectpropertiesmethods></A><br><b><font size=2 face=Arial>OBJECTS - PROPERTIES AND 
+METHODS</FONT></B></P>
+<p><font size=2 face=Arial>Each 
+object, window or control, has <A href="Properties.htm" ><b>properties</B></A> which 
+modify its appearance and behavior. Modifiying those properties and moving and 
+sizing controls, you can easily design an application in the Easy Code 
+development environment. Along all the code, inside the procedures of any 
+object, you can modify properties and call methods. What you write there will be 
+executed at run time (when the application is running). To do so, Easy Code has 
+several methods to get/set useful information from/to objects and perform 
+several operations. You have to get familiar with all of those properties and 
+methods, and programming a big 32-bit Windows application in assembler will be 
+easy, quick and possible.</FONT></P>
+<p><A href="Properties.htm" ><font size=2 face=Arial><b>Object properties</B></FONT></A><br><A href="RWProps.htm" ><font size=2 face=Arial><b>Getting and setting 
+properties</B></FONT></A><br><A href="ECMethod.htm" ><font size=2 face=Arial><b>Easy Code 
+methods</B></FONT></A></P>
+<p><font size=2 face=Arial>To 
+illustrate everything said here, have a good look to the examples which come 
+with the Easy Code application (located in the <b>Examples</B> subfolder of the Easy Code directory). Almost 
+all of the example applications are visual projects, are entirely programmed 
+with Easy Code and use all programming style we saw in this chapter.<br><br><b>REMARKS</B>: In order to get into the 64-bit complex world, 
+have a look at the diferences between the same example projects for 32-bit and 
+64-bit.<br><br></FONT></P>
+
+</body>
+</html>

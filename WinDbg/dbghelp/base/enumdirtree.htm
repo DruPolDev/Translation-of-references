@@ -1,0 +1,105 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>EnumDirTree Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_enumdirtree">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.enumdirtree"></A>EnumDirTree Function</H1>
+<P><P>Enumerates all occurrences of the specified file in the specified directory tree.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL WINAPI EnumDirTree(
+  __in_opt      HANDLE <I>hProcess</I>,
+  __in          PCTSTR <I>RootPath</I>,
+  __in          PCTSTR <I>InputPathName</I>,
+  __out         LPTSTR <I>OutputPathBuffer</I>,
+  __in          PENUMDIRTREE_CALLBACK <I>Callback</I>,
+  __in          PVOID <I>CallbackData</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to a process. This handle must have been previously passed to the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function.</p>
+</DD>
+<DT><I>RootPath</I></DT>
+<DD>
+<p>The path where the function should begin searching for the file.</p>
+</DD>
+<DT><I>InputPathName</I></DT>
+<DD>
+<p>The name of the file to be found. You can specify a partial path.</p>
+</DD>
+<DT><I>OutputPathBuffer</I></DT>
+<DD>
+<p>A pointer to a buffer that receives the full path of the file. If the function fails or does not find a matching file, this buffer will still contain the last full path that was found. </p>
+<P>This parameter is optional and can be NULL.</P>
+</DD>
+<DT><I>Callback</I></DT>
+<DD>
+<p>An application-defined callback function, or NULL. For more information, see 
+<A HREF="enumdirtreeproc.htm"><b>EnumDirTreeProc</b></A>.</p>
+</DD>
+<DT><I>CallbackData</I></DT>
+<DD>
+<p>The user-defined data or NULL. This value is passed to the callback function.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE.</P>
+<P>If the function fails, the return value is FALSE. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The search can be canceled if you register a 
+<A HREF="symregistercallbackproc64.htm"><b>SymRegisterCallbackProc64</b></A> callback function. For every file operation, 
+<b>EnumDirTree</b> calls this callback function with CBA_DEFERRED_SYMBOL_LOAD_CANCEL. If the callback function returns TRUE, 
+<b>EnumDirTree</b> cancels the search.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<p>To call the Unicode version of this function, define DBGHELP_TRANSLATE_TCHAR.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 6.0 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>EnumDirTreeW</B> (Unicode) and <B>EnumDirTree</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="enumdirtreeproc.htm"><b>EnumDirTreeProc</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20EnumDirTree%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

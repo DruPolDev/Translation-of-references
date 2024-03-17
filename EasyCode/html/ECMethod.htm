@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Easy Code 2 methods</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Easy Code 2 Methods
+(Only Visual Project Type)</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Besides the
+methods for </font><a href="RWProps.htm"><font face="Arial" size="2">getting
+and setting properties</font></a><font face="Arial" size="2">, the Easy Code library (both static and dynamic)
+provides
+some other useful methods to get objects information at run time and to
+perform some operations. When calling any of
+these methods in 32-bit applications, you can rely on none of the
+registers will be changed,
+except <b><font color="#808000">Eax</font></b>.
+However,
+in 64-bit applications the <b><font color="#808000">Rax</font></b>,
+<b><font color="#808000">Rcx</font></b>,
+<b><font color="#808000">Rdx</font></b>,
+<b><font color="#808000">R8</font></b> and <b><font color="#808000">R9</font></b>
+registers may be changed,
+and they usually are, because of the 64-bit fastcall calling
+convention.</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:
+All methods
+returning a value, will return it in the <b><font color="#808000">Eax</font></b> register for
+32-bit applications,
+or in the <b><font color="#808000">Rax</font></b>
+register for
+64-bit applications. On the other hand, all parameters passed
+to any of those methods in 64-bit applications must be 8-byte
+values (<b><font color="#0000ff">QWORD</font></b>).</font></p>
+<p><font face="Arial" size="2"><b>WARNING</b>:
+All methods
+listed below use the <b>fastcall calling convention</b>
+for
+64-bit visual projects.</font></p>
+<p><a href="AddChar.htm"><b><font face="Arial" size="2">AddCharToString</font></b></a><br>
+<a href="AddChar.htm"><b><font face="Arial" size="2">AddCharToStringA</font></b></a><br>
+<a href="AddChar.htm"><b><font face="Arial" size="2">AddCharToStringW</font></b></a><br>
+<a href="easy6je5.htm"><b><font face="Arial" size="2">AddCollectionItem</font></b></a><br>
+<a href="easy6je5.htm"><b><font face="Arial" size="2">AddCollectionItemA</font></b></a><br>
+<a href="easy6je5.htm"><b><font face="Arial" size="2">AddCollectionItemW</font></b></a><br>
+<a href="easy4yzn.htm"><b><font face="Arial" size="2">CallDefaultProc</font></b></a><br>
+<a href="easy43c5.htm"><b><font face="Arial" size="2">Circle</font></b></a><br>
+<a href="easy78bp.htm"><b><font face="Arial" size="2">Create</font></b></a><br>
+<a href="easy8eum.htm"><b><font face="Arial" size="2">CreateCollection</font></b></a><br>
+<a href="easy8eum.htm"><b><font face="Arial" size="2">CreateCollectionA</font></b></a><br>
+<a href="easy8eum.htm"><b><font face="Arial" size="2">CreateCollectionW</font></b></a><br>
+<a href="easy6ss9.htm"><b><font face="Arial" size="2">DeleteRegistryKey</font></b></a><br>
+<a href="easy6ss9.htm"><b><font face="Arial" size="2">DeleteRegistryKeyA</font></b></a><br>
+<a href="easy6ss9.htm"><b><font face="Arial" size="2">DeleteRegistryKeyW</font></b></a><br>
+<a href="easy3545.htm"><b><font face="Arial" size="2">DeleteRegistryValue</font></b></a><br>
+<a href="easy3545.htm"><b><font face="Arial" size="2">DeleteRegistryValueA</font></b></a><br>
+<a href="easy3545.htm"><b><font face="Arial" size="2">DeleteRegistryValueW</font></b></a><br>
+<a href="easy2ipa.htm"><b><font face="Arial" size="2">DestroyCollection</font></b></a><br>
+<a href="easy6voz.htm"><b><font face="Arial" size="2">DoEvents</font></b></a><br>
+<a href="EmptyCol.htm"><b><font face="Arial" size="2">EmptyCollection</font></b></a><br>
+<a href="easy5418.htm"><b><font face="Arial" size="2">EndModal</font></b></a><br>
+<a href="easy90rq.htm"><b><font face="Arial" size="2">Eof</font></b></a><br>
+<a href="FileExists.htm"><b><font face="Arial" size="2">FileExists</font></b></a><br>
+<a href="FileExists.htm"><b><font face="Arial" size="2">FileExistsA</font></b></a><br>
+<a href="FileExists.htm"><b><font face="Arial" size="2">FileExistsW</font></b></a><br>
+<a href="FillMemory.htm"><b><font face="Arial" size="2">FillMemoryBlock</font></b></a><br>
+<a href="easy7mlu.htm"><b><font face="Arial" size="2">FindChar</font></b></a><br>
+<a href="easy7mlu.htm"><b><font face="Arial" size="2">FindCharA</font></b></a><br>
+<a href="easy7mlu.htm"><b><font face="Arial" size="2">FindCharW</font></b></a><br>
+<a href="easy3iuu.htm"><b><font face="Arial" size="2">FindCharRev</font></b></a><br>
+<a href="easy3iuu.htm"><b><font face="Arial" size="2">FindCharRevA</font></b></a><br>
+<a href="easy3iuu.htm"><b><font face="Arial" size="2">FindCharRevW</font></b></a><br>
+<a href="FindExactItem.htm"><b><font face="Arial" size="2">FindCollectionExactItem</font></b></a><br>
+<a href="FindExactItem.htm"><b><font face="Arial" size="2">FindCollectionExactItemA</font></b></a><br>
+<a href="FindExactItem.htm"><b><font face="Arial" size="2">FindCollectionExactItemW</font></b></a><br>
+<a href="easy9zjh.htm"><b><font face="Arial" size="2">FindCollectionItem</font></b></a><br>
+<a href="easy9zjh.htm"><b><font face="Arial" size="2">FindCollectionItemA</font></b></a><br>
+<a href="easy9zjh.htm"><b><font face="Arial" size="2">FindCollectionItemW</font></b></a><br>
+<a href="FindStr.htm"><b><font face="Arial" size="2">FindString</font></b></a><br>
+<a href="FindStr.htm"><b><font face="Arial" size="2">FindStringA</font></b></a><br>
+<a href="FindStr.htm"><b><font face="Arial" size="2">FindStringW</font></b></a><br>
+<a href="FltToStr.htm"><b><font face="Arial" size="2">FloatToString</font></b></a><br>
+<a href="FltToStr.htm"><b><font face="Arial" size="2">FloatToStringA</font></b></a><br>
+<a href="FltToStr.htm"><b><font face="Arial" size="2">FloatToStringW</font></b></a><br>
+<a href="GetAppVer.htm"><b><font face="Arial" size="2">GetAppVersion</font></b></a><br>
+<a href="GetAppVer.htm"><b><font face="Arial" size="2">GetAppVersionA</font></b></a><br>
+<a href="GetAppVer.htm"><b><font face="Arial" size="2">GetAppVersionW</font></b></a><br>
+<a href="easy2rzo.htm"><b><font face="Arial" size="2">GetChildRect</font></b></a><br>
+<a href="easy2zjo.htm"><b><font face="Arial" size="2">GetCollectionCount</font></b></a><br>
+<a href="easy9n71.htm"><b><font face="Arial" size="2">GetCollectionItem</font></b></a><br>
+<a href="easy9n71.htm"><b><font face="Arial" size="2">GetCollectionItemA</font></b></a><br>
+<a href="easy9n71.htm"><b><font face="Arial" size="2">GetCollectionItemW</font></b></a><br>
+<a href="easy0q94.htm"><b><font face="Arial" size="2">GetCollectionItemLength</font></b></a><br>
+<a href="GetCPUInfo.htm"><b><font face="Arial" size="2">GetCPUInfo</font></b></a><br>
+<a href="easy6vaw.htm"><b><font face="Arial" size="2">GetCurrentX</font></b></a><br>
+<a href="easy6vax.htm"><b><font face="Arial" size="2">GetCurrentY</font></b></a><br>
+<a href="GetLayout.htm"><b><font face="Arial" size="2">GetLayoutRTL</font></b></a><br>
+<a href="easy1i44.htm"><b><font face="Arial" size="2">GetMDIClient</font></b></a><br>
+<a href="easy9tbr.htm"><b><font face="Arial" size="2">GetOwnerWindow</font></b></a><br>
+<a href="easy41v1.htm"><b><font face="Arial" size="2">GetPlatform</font></b></a><br>
+<a href="easy41v1.htm"><b><font face="Arial" size="2">GetPlatformA</font></b></a><br>
+<a href="easy41v1.htm"><b><font face="Arial" size="2">GetPlatformW</font></b></a><br>
+<a href="easy51yd.htm"><b><font face="Arial" size="2">GetRegistryValue</font></b></a><br>
+<a href="easy51yd.htm"><b><font face="Arial" size="2">GetRegistryValueA</font></b></a><br>
+<a href="easy51yd.htm"><b><font face="Arial" size="2">GetRegistryValueW</font></b></a><br>
+<a href="GetRegWow64.htm"><b><font face="Arial" size="2">GetRegistryValueWow64</font></b></a><br>
+<a href="GetRegWow64.htm"><b><font face="Arial" size="2">GetRegistryValueWow64A</font></b></a><br>
+<a href="GetRegWow64.htm"><b><font face="Arial" size="2">GetRegistryValueWow64W</font></b></a><br>
+<a href="easy1yaw.htm"><b><font face="Arial" size="2">GetStringLength</font></b></a><br>
+<a href="easy1yaw.htm"><b><font face="Arial" size="2">GetStringLengthA</font></b></a><br>
+<a href="easy1yaw.htm"><b><font face="Arial" size="2">GetStringLengthW</font></b></a><br>
+<a href="GetTTHdl.htm"><b><font face="Arial" size="2">GetToolTipHandle</font></b></a><br>
+<a href="easy4f8t.htm"><b><font face="Arial" size="2">GetWindowItem</font></b></a><br>
+<a href="InsertItem.htm"><b><font face="Arial" size="2">InsertCollectionItem</font></b></a><br>
+<a href="InsertItem.htm"><b><font face="Arial" size="2">InsertCollectionItemA</font></b></a><br>
+<a href="InsertItem.htm"><b><font face="Arial" size="2">InsertCollectionItemW</font></b></a><br>
+<a href="Is64Bit.htm"><b><font face="Arial" size="2">Is64BitVersion</font></b></a><br>
+<a href="AppUnicode.htm"><b><font face="Arial" size="2">IsAppUnicode</font></b></a><br>
+<a href="easy233g.htm"><b><font face="Arial" size="2">IsModal</font></b></a><br>
+<a href="IsUserAdmin.htm"><b><font face="Arial" size="2">IsUserAdministrator</font></b></a><br>
+<a href="IsWow64.htm"><b><font face="Arial" size="2">IsWow64</font></b></a><br>
+<a href="easy8t0y.htm"><b><font face="Arial" size="2">Left</font></b></a><br>
+<a href="easy8t0y.htm"><b><font face="Arial" size="2">LeftA</font></b></a><br>
+<a href="easy8t0y.htm"><b><font face="Arial" size="2">LeftW</font></b></a><br>
+<a href="easy66p1.htm"><b><font face="Arial" size="2">Line</font></b></a><br>
+<a href="easy82el.htm"><b><font face="Arial" size="2">LTrim</font></b></a><br>
+<a href="easy82el.htm"><b><font face="Arial" size="2">LTrimA</font></b></a><br>
+<a href="easy82el.htm"><b><font face="Arial" size="2">LTrimW</font></b></a><br>
+<a href="MakeFullPath.htm"><b><font face="Arial" size="2">MakeFullPath</font></b></a><br>
+<a href="MakeFullPath.htm"><b><font face="Arial" size="2">MakeFullPathA</font></b></a><br>
+<a href="MakeFullPath.htm"><b><font face="Arial" size="2">MakeFullPathW</font></b></a><br>
+<a href="easy9pr8.htm"><b><font face="Arial" size="2">Mid</font></b></a><br>
+<a href="easy9pr8.htm"><b><font face="Arial" size="2">MidA</font></b></a><br>
+<a href="easy9pr8.htm"><b><font face="Arial" size="2">MidW</font></b></a><br>
+<a href="easy0vvp.htm"><b><font face="Arial" size="2">OpenTextFile</font></b></a><br>
+<a href="easy0vvp.htm"><b><font face="Arial" size="2">OpenTextFileA</font></b></a><br>
+<a href="easy0vvp.htm"><b><font face="Arial" size="2">OpenTextFileW</font></b></a><br>
+<a href="OutputBuf.htm"><b><font face="Arial" size="2">OutputBuffer</font></b></a><br>
+<a href="Output.htm"><b><font face="Arial" size="2">OutputString</font></b></a><br>
+<a href="Output.htm"><b><font face="Arial" size="2">OutputStringA</font></b></a><br>
+<a href="Output.htm"><b><font face="Arial" size="2">OutputStringW</font></b></a><br>
+<a href="easy4f78.htm"><b><font face="Arial" size="2">Print</font></b></a><br>
+<a href="easy4f78.htm"><b><font face="Arial" size="2">PrintA</font></b></a><br>
+<a href="easy4f78.htm"><b><font face="Arial" size="2">PrintW</font></b></a><br>
+<a href="easy3oit.htm"><b><font face="Arial" size="2">ReadTextLine</font></b></a><br>
+<a href="easy3oit.htm"><b><font face="Arial" size="2">ReadTextLineA</font></b></a><br>
+<a href="easy3oit.htm"><b><font face="Arial" size="2">ReadTextLineW</font></b></a><br>
+<a href="easy7lt4.htm"><b><font face="Arial" size="2">Refresh</font></b></a><br>
+<a href="easy7qct.htm"><b><font face="Arial" size="2">RemoveCollectionItem</font></b></a><br>
+<a href="easy6nle.htm"><b><font face="Arial" size="2">Right</font></b></a><br>
+<a href="easy6nle.htm"><b><font face="Arial" size="2">RightA</font></b></a><br>
+<a href="easy6nle.htm"><b><font face="Arial" size="2">RightW</font></b></a><br>
+<a href="easy5mp9.htm"><b><font face="Arial" size="2">RTrim</font></b></a><br>
+<a href="easy5mp9.htm"><b><font face="Arial" size="2">RTrimA</font></b></a><br>
+<a href="easy5mp9.htm"><b><font face="Arial" size="2">RTrimW</font></b></a><br>
+<a href="easy47w8.htm"><b><font face="Arial" size="2">SetCurrentX</font></b></a><br>
+<a href="easy47w9.htm"><b><font face="Arial" size="2">SetCurrentY</font></b></a><br>
+<a href="easy7v76.htm"><b><font face="Arial" size="2">SetDefaultCursor</font></b></a><br>
+<a href="SetLayout.htm"><b><font face="Arial" size="2">SetLayoutRTL</font></b></a><br>
+<a href="SetMarquee.htm"><b><font face="Arial" size="2">SetMarquee</font></b></a><br>
+<a href="easy6x7p.htm"><b><font face="Arial" size="2">SetRegistryValue</font></b></a><br>
+<a href="easy6x7p.htm"><b><font face="Arial" size="2">SetRegistryValueA</font></b></a><br>
+<a href="easy6x7p.htm"><b><font face="Arial" size="2">SetRegistryValueW</font></b></a><br>
+<a href="easy5x2q.htm"><b><font face="Arial" size="2">SetWaitCursor</font></b></a><br>
+<a href="easy4dif.htm"><b><font face="Arial" size="2">String</font></b></a><br>
+<a href="easy4dif.htm"><b><font face="Arial" size="2">StringA</font></b></a><br>
+<a href="easy4dif.htm"><b><font face="Arial" size="2">StringW</font></b></a><br>
+<a href="StrToFlt.htm"><b><font face="Arial" size="2">StringToFloat</font></b></a><br>
+<a href="StrToFlt.htm"><b><font face="Arial" size="2">StringToFloatA</font></b></a><br>
+<a href="StrToFlt.htm"><b><font face="Arial" size="2">StringToFloatW</font></b></a><br>
+<a href="easy1x2l.htm"><b><font face="Arial" size="2">Trim</font></b></a><br>
+<a href="easy1x2l.htm"><b><font face="Arial" size="2">TrimA</font></b></a><br>
+<a href="easy1x2l.htm"><b><font face="Arial" size="2">TrimW</font></b></a><br>
+<a href="easy4o6d.htm"><b><font face="Arial" size="2">Update</font></b></a><br>
+<a href="easy8rac.htm"><b><font face="Arial" size="2">Value</font></b></a><br>
+<a href="easy8rac.htm"><b><font face="Arial" size="2">ValueA</font></b></a><br>
+<a href="easy8rac.htm"><b><font face="Arial" size="2">ValueW</font></b></a><br>
+<a href="easy5ip1.htm"><b><font face="Arial" size="2">WriteTextLine</font></b></a><br>
+<a href="easy5ip1.htm"><b><font face="Arial" size="2">WriteTextLineA</font></b></a><br>
+<a href="easy5ip1.htm"><b><font face="Arial" size="2">WriteTextLineW<br>
+<br>
+</font></b></a></p>
+</body></html>

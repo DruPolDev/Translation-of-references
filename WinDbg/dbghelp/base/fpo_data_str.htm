@@ -1,0 +1,105 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>FPO_DATA Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_fpo_data_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.fpo_data_str"></A>FPO_DATA Structure</H1>
+<P><P>Represents the stack frame layout for a function on an x86 computer when frame pointer omission (FPO) optimization is used. The structure is used to locate the base of the call frame.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _FPO_DATA {<br>  DWORD ulOffStart;<br>  DWORD cbProcSize;<br>  DWORD cdwLocals;<br>  WORD cdwParams;<br>  WORD cbProlog  :8;<br>  WORD cbRegs  :3;<br>  WORD fHasSEH  :1;<br>  WORD fUseBP  :1;<br>  WORD reserved  :1;<br>  WORD cbFrame  :2;
+} FPO_DATA, <br> *PFPO_DATA;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>ulOffStart</B></DT>
+<DD><p>The offset of the first byte of the function code.</p>
+</DD>
+<DT><B>cbProcSize</B></DT>
+<DD><p>The number of bytes in the function.</p>
+</DD>
+<DT><B>cdwLocals</B></DT>
+<DD><p>The number of local variables.</p>
+</DD>
+<DT><B>cdwParams</B></DT>
+<DD><p>The size of the parameters, in <b>DWORD</b>s.</p>
+</DD>
+<DT><B>cbProlog</B></DT>
+<DD><p>The number of bytes in the function prolog code.</p>
+</DD>
+<DT><B>cbRegs</B></DT>
+<DD><p>The number of registers saved.</p>
+</DD>
+<DT><B>fHasSEH</B></DT>
+<DD><p>A variable that indicates whether the function uses structured exception handling.</p>
+</DD>
+<DT><B>fUseBP</B></DT>
+<DD><p>A variable that indicates whether the EBP register has been allocated.</p>
+</DD>
+<DT><B>reserved</B></DT>
+<DD><p>Reserved for future use.</p>
+</DD>
+<DT><B>cbFrame</B></DT>
+<DD><p>A variable that indicates the frame type.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Type</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>FRAME_FPO<BR>0</p>
+</TD>
+<TD width="60%"><p>FPO frame</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>FRAME_NONFPO<BR>3</p>
+</TD>
+<TD width="60%"><p>Non-FPO frame</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>FRAME_TRAP<BR>1</p>
+</TD>
+<TD width="60%"><p>Trap frame</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>FRAME_TSS<BR>2</p>
+</TD>
+<TD width="60%"><p>TSS frame</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Winnt.h; include Windows.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="functiontableaccessproc64.htm"><b>FunctionTableAccessProc64</b></A><BR><A HREF="stackframe64_str.htm"><b>STACKFRAME64</b></A><BR><A HREF="symfunctiontableaccess64.htm"><b>SymFunctionTableAccess64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20FPO_DATA%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

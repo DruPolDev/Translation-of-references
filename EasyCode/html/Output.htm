@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>OutputString method</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">OutputString
+<font color="#004080">method</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#800080">OutputString</font></b> <b><font color="#0000ff">Proto</font></b> <b>lpszString<font color="#ff00ff">:</font><font color="#000080">LPSTR</font>,</b>
+<b>bClear<font color="#ff00ff">:</font><font color="#000080">BOOL</font></b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Syntax</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b style="color: blue;">Invoke</b>
+<b><font color="#800080">OutputString</font><font color="#ff00ff">,</font></b>
+<b>lpszString<font color="#ff00ff">,</font></b>
+<b>bClear</b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Function</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Prints a
+null terminated
+text string in the output window of the Easy Code instance
+that launched the application calling the method.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Parameters</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><b><font face="Arial" size="2">lpszString</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Pointer to
+the effective address of the string to be printed.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">bClear</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Specifies
+whether
+the output window has to be cleared before printing the
+new string. It can be one of the following values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2"><b><font color="#000080">FALSE</font></b>&nbsp;&nbsp;&nbsp;&nbsp;The
+output window will not be cleared.<br>
+</font><font face="Arial"><font size="2"><b><font color="#000080">TRUE</font></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The
+output window will be cleared before printing the new text string.</font></font></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2">Return
+value</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2">None.</font></font></p>
+</blockquote>
+<p><font face="Arial"><font size="2"><br>
+If
+<b>lpszString</b> is <font color="#000080"><b>NULL</b></font>,
+or it is an empty string, the method does nothing. On the
+other hand, this method checks if the string pointed by
+<b>lpszString</b> ends with the end of line characters,
+&lt;<b>CR</b>&gt; (<b>C</b>arriage <b>R</b>eturn)
+and
+&lt;<b>LF</b>&gt; (<b>L</b>ine <b>F</b>eed).
+If not,
+the method sends both characters to the output window
+immediately after of printing the string pointed by
+<b>lpszString</b>.</font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><b>REMARKS</b>:
+The <font color="#800080"><b>OutputString</b></font>
+method expects <b>lpszString</b> to be a Unicode string
+if the application is running as Unicode,
+or an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a> method).
+You can call
+<font color="#800080"><b>OutputStringA</b></font>
+to print ANSI
+strings in Unicode applications, or <font color="#800080"><b>OutputStringW</b></font>
+to print Unicode strings in ANSI applications. The length
+of <b>lpszString</b> must not exceed 255 characters,
+otherwise it will be truncated.<br>
+</font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><b>IMPORTANT</b>: For this method to
+work,
+the calling application (that is, your project) must be launched from
+the Easy Code IDE with
+the "<b>Project =&gt; Run</b>" menu option (or its tool
+bar's <i>play</i>
+button) so that the text strings are sent to the output window (<b>Debug</b>
+tab) of the Easy Code instance which launched it, otherwise it will have no
+effect.
+Also take into account that the application using this method must have
+<b>Administrator</b> rights, so if your user has the
+mentioned rights
+just run Easy Code as an <b>Administrator</b>, or add a Manifest to the project
+calling this method (the default Manifest created by Easy Code will be
+enough). If your user does not have <b>Administrator</b> rights you will have
+to
+run Easy Code as an <b>Administrator</b>, but then you will be asked for the
+<b>Administrator</b> password.<br>
+<br>
+</font></font></p>
+</body></html>

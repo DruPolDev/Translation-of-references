@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>KeepSize property</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#004080" size="6">KeepSize property</font></b></p>
+<hr>
+
+<p dir="ltr" style="MARGIN-RIGHT: 0px"><font face="Arial" size=2>Available for <b>Window</b>
+objects.</font></p>
+
+<p dir="ltr" style="MARGIN-RIGHT: 0px"><b><font face="Arial" size="2">Read/Write at design time</font></b></p>
+
+<p><font face="Arial" size="2">Specifies whether a <b>Window</b> object and all of its children keeps their
+original size in different screen resolutions and/or screen font sizes (large or small). It can be one of the
+following values:</font></p>
+
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2"><b><font color="#000080">TRUE</font>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Window</b>
+and its children keep their original size.<br></font></font><font face="Arial"><font size="2"><b><font
+color="#000080">FALSE</font>&nbsp;&nbsp;</b><b>Window</b> and its children change their size according to
+screen fonts and/or resolution.</font></p></blockquote>
+
+<p><font face="Arial" size="2">Some applications (i.e. the <b>EC Player</b> project included with Easy Code)
+need to keep always the same size (its original size) at any screen resolution. This may be accomplished by
+setting this property to <b><font color="#000080">TRUE</font></b> and taking into account the following
+considerations:</font></p>
+
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial"><font size="2"><b>-</b> </font></font><a href="easy3h45.htm"><b><font face=Arial
+size=2>ScaleMode</font></b></a><font face="Arial" size="2"> property has to be set to <b>pixels</b>
+(<b>twips</b> will not work).<br></font><font face="Arial"><font size=2><b>-</b> All <b>Picture</b> objects
+inside the <b>Window</b> (if any), should also have its </font></font><a href="easy3h45.htm"><b><font
+face="Arial" size=2>ScaleMode</font></b></a><font face="Arial" size="2"> property set to
+<b>pixels</b>.<br></font><font face="Arial"><font size="2"><b>-</b> The <b>Window</b> object and all of its
+children should have a true type font, i.e. <b>Arial</b> (<b>MS Sans Serif</b> will not work), to keep the
+font size unchanged.</font></font></p></blockquote>
+
+<p><font face="Arial" size="2">When keeping its size, only the caption of the <b>Window</b> object vary for
+small or large fonts. So, if it has a caption (title bar), you have to take it into account (in the <b><font
+color="#000080">WM_CREATE</font></b> message) in order to adjust its client area.</font></p>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The original size of the object means its size at design time,
+which is saved when building the project. According to that, you have to design it and build it with the same
+screen font size and resolution. This property may be useful, for example, when skinning a
+window.<br><br></font></p>
+
+</body>
+</html>

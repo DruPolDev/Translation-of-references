@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Getting and setting properties</title>
+
+</head>
+
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Getting and setting properties (only
+visual project type)</font></b></p>
+<hr>
+<p><font face="Arial" size="2">At design time
+you can read and/or write properties from/to objects through the
+properties window. To get and set properties dinamically (at run time),
+the Easy Code library provides several
+methods with the same name of the property but begining with <b>Get</b>
+(for getting) and <b>Set</b> (for setting).
+All of these methods are colored as Easy Code reserved words in the
+text editor. For example, to access the </font><a href="easy0sqc.htm"><b><font face="Arial" size="2">Text</font></b></a><font face="Arial" size="2"> property of an object,
+the corresponding methods are </font><a href="easy7ib8.htm"><b><font color="#800080" face="Arial" size="2">GetText</font></b></a><font face="Arial" size="2"> and </font><a href="easy01kk.htm"><b><font color="#800080" face="Arial" size="2">SetText</font></b></a><font face="Arial" size="2">. Most properties, but not all,
+can be modified
+at run time. For <b>Get</b> properties methods, the value
+of the property is returned in the <b><font color="#808000">Eax/Rax</font></b>
+register, while for <b>Set</b> properties methods the <b><font color="#808000">Eax/Rax</font></b> register
+returns <b><font color="#000080">TRUE</font></b>
+if successful, or <b><font color="#000080">FALSE</font></b>
+if the object does not support the property. The available methods for
+getting and
+setting properties at run time are the following:</font></p>
+<p><font face="Arial" size="2"><b>WARNING</b>:
+All methods
+listed below use the <b>fastcall calling convention</b>
+for
+64-bit visual projects.</font></p>
+<p><a href="easy69m6.htm"><b><font face="Arial" size="2">GetAlign</font></b></a><br>
+<a href="easy3yzp.htm"><b><font face="Arial" size="2">GetAutoSize</font></b></a><br>
+<a href="easy8fjm.htm"><b><font face="Arial" size="2">GetBackColor</font></b></a><br>
+<a href="easy1bjg.htm"><b><font face="Arial" size="2">GetCancel</font></b></a><br>
+<a href="easy92hx.htm"><b><font face="Arial" size="2">GetCaseStyle</font></b></a><br>
+<a href="easy9f72.htm"><b><font face="Arial" size="2">GetCursorIcon</font></b></a><br>
+<a href="easy5tnp.htm"><b><font face="Arial" size="2">GetCursorShape</font></b></a><br>
+<a href="easy0v78.htm"><b><font face="Arial" size="2">GetDefault</font></b></a><br>
+<a href="easy7w37.htm"><b><font face="Arial" size="2">GetDrawFocus</font></b></a><br>
+<a href="easy7z39.htm"><b><font face="Arial" size="2">GetDrawingStyle</font></b></a><br>
+<a href="easy2pns.htm"><b><font face="Arial" size="2">GetDrawingWidth</font></b></a><br>
+<a href="easy0pt0.htm"><b><font face="Arial" size="2">GetEnabled</font></b></a><br>
+<a href="easy3fvp.htm"><b><font face="Arial" size="2">GetFlickerFree</font></b></a><br>
+<a href="easy9pmc.htm"><b><font face="Arial" size="2">GetFont</font></b></a><br>
+<a href="easy2ijo.htm"><b><font face="Arial" size="2">GetFontBold</font></b></a><br>
+<a href="easy79k3.htm"><b><font face="Arial" size="2">GetFontItalic</font></b></a><br>
+<a href="easy8plx.htm"><b><font face="Arial" size="2">GetFontName</font></b></a><br>
+<a href="easy8plx.htm"><b><font face="Arial" size="2">GetFontNameA</font></b></a><br>
+<a href="easy8plx.htm"><b><font face="Arial" size="2">GetFontNameW</font></b></a><br>
+<a href="easy7iw5.htm"><b><font face="Arial" size="2">GetFontSize</font></b></a><br>
+<a href="easy4m45.htm"><b><font face="Arial" size="2">GetFontStrikethru</font></b></a><br>
+<a href="easy79lx.htm"><b><font face="Arial" size="2">GetFontUnderline</font></b></a><br>
+<a href="easy7vzm.htm"><b><font face="Arial" size="2">GetForeColor</font></b></a><br>
+<a href="easy20z8.htm"><b><font face="Arial" size="2">GetHeight</font></b></a><br>
+<a href="easy4y07.htm"><b><font face="Arial" size="2">GetIconBig</font></b></a><br>
+<a href="easy8964.htm"><b><font face="Arial" size="2">GetIconSmall</font></b></a><br>
+<a href="GetLayout.htm"><b><font face="Arial" size="2">GetLayoutRTL</font></b></a><br>
+<a href="easy2j90.htm"><b><font face="Arial" size="2">GetLeft</font></b></a><br>
+<a href="easy1crs.htm"><b><font face="Arial" size="2">GetMaxLength</font></b></a><br>
+<a href="easy0zhh.htm"><b><font face="Arial" size="2">GetMaxValue</font></b></a><br>
+<a href="easy86lg.htm"><b><font face="Arial" size="2">GetMDIChild</font></b></a><br>
+<a href="easy5vdx.htm"><b><font face="Arial" size="2">GetMinValue</font></b></a><br>
+<a href="easy1ysl.htm"><b><font face="Arial" size="2">GetMultLine</font></b></a><br>
+<a href="easy3fhh.htm"><b><font face="Arial" size="2">GetName</font></b></a><br>
+<a href="easy3fhh.htm"><b><font face="Arial" size="2">GetNameA</font></b></a><br>
+<a href="easy3fhh.htm"><b><font face="Arial" size="2">GetNameW</font></b></a><br>
+<a href="easy8wqg.htm"><b><font face="Arial" size="2">GetNoPrefix</font></b></a><br>
+<a href="easy13dx.htm"><b><font face="Arial" size="2">GetPageSize</font></b></a><br>
+<a href="easy6j76.htm"><b><font face="Arial" size="2">GetPasswordChar</font></b></a><br>
+<a href="easy7fqd.htm"><b><font face="Arial" size="2">GetPicture</font></b></a><br>
+<a href="easy3t7y.htm"><b><font face="Arial" size="2">GetPicturePosition</font></b></a><br>
+<a href="easy1bw4.htm"><b><font face="Arial" size="2">GetRightToLeft</font></b></a><br>
+<a href="easy08h1.htm"><b><font face="Arial" size="2">GetScaleMode</font></b></a><br>
+<a href="easy431v.htm"><b><font face="Arial" size="2">GetScrollBars</font></b></a><br>
+<a href="easy1dut.htm"><b><font face="Arial" size="2">GetShowMode</font></b></a><br>
+<a href="easy1qqw.htm"><b><font face="Arial" size="2">GetStretch</font></b></a><br>
+<a href="easy1mia.htm"><b><font face="Arial" size="2">GetTabOrder</font></b></a><br>
+<a href="easy7j8w.htm"><b><font face="Arial" size="2">GetTabStop</font></b></a><br>
+<a href="easy7ib8.htm"><b><font face="Arial" size="2">GetText</font></b></a><br>
+<a href="easy7ib8.htm"><b><font face="Arial" size="2">GetTextA</font></b></a><br>
+<a href="easy7ib8.htm"><b><font face="Arial" size="2">GetTextW</font></b></a><br>
+<a href="easy23g4.htm"><b><font face="Arial" size="2">GetTextAlignment</font></b></a><br>
+<a href="easy34to.htm"><b><font face="Arial" size="2">GetTimerInterval</font></b></a><br>
+<a href="easy4i7k.htm"><b><font face="Arial" size="2">GetTop</font></b></a><br>
+<a href="easy9945.htm"><b><font face="Arial" size="2">GetType</font></b></a><br>
+<a href="easy67tx.htm"><b><font face="Arial" size="2">GetValue</font></b></a><br>
+<a href="easy8q5h.htm"><b><font face="Arial" size="2">GetVisible</font></b></a><br>
+<a href="easy6o4z.htm"><b><font face="Arial" size="2">GetVisibleRows</font></b></a><br>
+<a href="easy0220.htm"><b><font face="Arial" size="2">GetWidth</font></b></a><br>
+<br>
+<a href="easy8i7i.htm"><b><font face="Arial" size="2">SetAlign</font></b></a><br>
+<a href="easy1bl1.htm"><b><font face="Arial" size="2">SetAutoSize</font></b></a><br>
+<a href="easy8tgy.htm"><b><font face="Arial" size="2">SetBackColor</font></b></a><br>
+<a href="easy46ge.htm"><b><font face="Arial" size="2">SetCursorIcon</font></b></a><br>
+<a href="easy0a91.htm"><b><font face="Arial" size="2">SetCursorShape</font></b></a><br>
+<a href="easy0igk.htm"><b><font face="Arial" size="2">SetDefault</font></b></a><br>
+<a href="easy8a0j.htm"><b><font face="Arial" size="2">SetDrawFocus</font></b></a><br>
+<a href="easy3h0l.htm"><b><font face="Arial" size="2">SetDrawingStyle</font></b></a><br>
+<a href="easy87l4.htm"><b><font face="Arial" size="2">SetDrawingWidth</font></b></a><br>
+<a href="easy0d2c.htm"><b><font face="Arial" size="2">SetEnabled</font></b></a><br>
+<a href="easy7wh1.htm"><b><font face="Arial" size="2">SetFlickerFree</font></b></a><br>
+<a href="easy9v50.htm"><b><font face="Arial" size="2">SetFontBold</font></b></a><br>
+<a href="easy20tf.htm"><b><font face="Arial" size="2">SetFontItalic</font></b></a><br>
+<a href="easy6279.htm"><b><font face="Arial" size="2">SetFontName</font></b></a><br>
+<a href="easy6279.htm"><b><font face="Arial" size="2">SetFontNameA</font></b></a><br>
+<a href="easy6279.htm"><b><font face="Arial" size="2">SetFontNameW</font></b></a><br>
+<a href="easy4vhh.htm"><b><font face="Arial" size="2">SetFontSize</font></b></a><br>
+<a href="easy46ph.htm"><b><font face="Arial" size="2">SetFontStrikethru</font></b></a><br>
+<a href="easy94v9.htm"><b><font face="Arial" size="2">SetFontUnderline</font></b></a><br>
+<a href="easy89wy.htm"><b><font face="Arial" size="2">SetForeColor</font></b></a><br>
+<a href="easy5awk.htm"><b><font face="Arial" size="2">SetHeight</font></b></a><br>
+<a href="easy4l9j.htm"><b><font face="Arial" size="2">SetIconBig</font></b></a><br>
+<a href="easy8n3g.htm"><b><font face="Arial" size="2">SetIconSmall</font></b></a><br>
+<a href="SetLayout.htm"><b><font face="Arial" size="2">SetLayoutRTL</font></b></a><br>
+<a href="easy52ic.htm"><b><font face="Arial" size="2">SetLeft</font></b></a><br>
+<a href="SetMarquee.htm"><b><font face="Arial" size="2">SetMarquee</font></b></a><br>
+<a href="easy1qp4.htm"><b><font face="Arial" size="2">SetMaxLength</font></b></a><br>
+<a href="easy8c2t.htm"><b><font face="Arial" size="2">SetMaxValue</font></b></a><br>
+<a href="easy37z9.htm"><b><font face="Arial" size="2">SetMinValue</font></b></a><br>
+<a href="easy8fz9.htm"><b><font face="Arial" size="2">SetPageSize</font></b></a><br>
+<a href="easy214i.htm"><b><font face="Arial" size="2">SetPasswordChar</font></b></a><br>
+<a href="easy72zp.htm"><b><font face="Arial" size="2">SetPicture</font></b></a><br>
+<a href="easy6f5a.htm"><b><font face="Arial" size="2">SetPicturePosition</font></b></a><br>
+<a href="easy5shg.htm"><b><font face="Arial" size="2">SetRightToLeft</font></b></a><br>
+<a href="easy8ub7.htm"><b><font face="Arial" size="2">SetScrollBars</font></b></a><br>
+<a href="easy8qg5.htm"><b><font face="Arial" size="2">SetShowMode</font></b></a><br>
+<a href="easy76i8.htm"><b><font face="Arial" size="2">SetTabStop</font></b></a><br>
+<a href="easy01kk.htm"><b><font face="Arial" size="2">SetText</font></b></a><br>
+<a href="easy01kk.htm"><b><font face="Arial" size="2">SetTextA</font></b></a><br>
+<a href="easy01kk.htm"><b><font face="Arial" size="2">SetTextW</font></b></a><br>
+<a href="easy5030.htm"><b><font face="Arial" size="2">SetTimerInterval</font></b></a><br>
+<a href="easy2o4w.htm"><b><font face="Arial" size="2">SetTop</font></b></a><br>
+<a href="easy8gf9.htm"><b><font face="Arial" size="2">SetValue</font></b></a><br>
+<a href="easy8det.htm"><b><font face="Arial" size="2">SetVisible</font></b></a><br>
+<a href="easy14qb.htm"><b><font face="Arial" size="2">SetVisibleRows</font></b></a><br>
+<a href="easy2anc.htm"><b><font face="Arial" size="2">SetWidth</font></b></a><br>
+<br>
+</p>
+</body></html>

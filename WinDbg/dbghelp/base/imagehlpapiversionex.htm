@@ -1,0 +1,73 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>ImagehlpApiVersionEx Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_imagehlpapiversionex">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagehlpapiversionex"></A>ImagehlpApiVersionEx Function</H1>
+<P><P>Modifies the version information of the library used by the application.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+LPAPI_VERSION WINAPI ImagehlpApiVersionEx(
+  __in          LPAPI_VERSION <I>AppVersion</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>AppVersion</I></DT>
+<DD>
+<p>A pointer to an 
+<A HREF="api_version_str.htm"><b>API_VERSION</b></A> structure that contains valid version information for your application.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<p>
+						The return value is a pointer to an 
+<b>API_VERSION</b> structure.
+					</p>
+<H4>Remarks</H4>
+<p>Use the 
+<b>ImagehlpApiVersionEx</b> function to indicate the version of the library with which the application was built. The library uses this information to ensure compatibility. For example, consider walking through kernel-mode callback stack frames (starting with Windows NT 4.0, User and GDI exist in kernel mode). If you call 
+<b>ImagehlpApiVersionEx</b> to set the <b>Revision</b> member to version 4 or later, the 
+<A HREF="stackwalk64.htm"><b>StackWalk64</b></A> function will continue through a callback stack frame. Otherwise, if you set <b>Revision</b> to a version earlier than 4, 
+<b>StackWalk64</b> will stop at the kernel transition.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="api_version_str.htm"><b>API_VERSION</b></A><BR><A HREF="imagehlpapiversion.htm"><b>ImagehlpApiVersion</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20ImagehlpApiVersionEx%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

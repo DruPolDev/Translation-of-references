@@ -1,0 +1,66 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGE_FUNCTION_ENTRY Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_image_function_entry_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.image_function_entry_str"></A>IMAGE_FUNCTION_ENTRY Structure</H1>
+<P><P>Represents an entry in the function table.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGE_FUNCTION_ENTRY {<br>  DWORD StartingAddress;<br>  DWORD EndingAddress;<br>  DWORD EndOfPrologue;
+} IMAGE_FUNCTION_ENTRY, <br> *PIMAGE_FUNCTION_ENTRY;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>StartingAddress</B></DT>
+<DD><p>The image address of the start of the function.</p>
+</DD>
+<DT><B>EndingAddress</B></DT>
+<DD><p>The image address of the end of the function.</p>
+</DD>
+<DT><B>EndOfPrologue</B></DT>
+<DD><p>The image address of the end of the prologue code.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>The following definition exists for 64-bit support.</p>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve" class="syntax">typedef struct _IMAGE_FUNCTION_ENTRY64 {
+    ULONGLONG   StartingAddress;
+    ULONGLONG   EndingAddress;
+    union {
+        ULONGLONG   EndOfPrologue;
+        ULONGLONG   UnwindInfoAddress;
+    };
+} IMAGE_FUNCTION_ENTRY64, *PIMAGE_FUNCTION_ENTRY64;</PRE></DIV>
+</DIV>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, Windows 2000 Professional, Windows NT Workstation 4.0, Windows Me, Windows 98, or Windows 95.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, Windows 2000 Server, or Windows NT Server 4.0.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Winnt.h; include Windows.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_structures.htm">ImageHlp Structures</A><BR><A HREF="stackframe64_str.htm"><b>STACKFRAME64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGE_FUNCTION_ENTRY%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

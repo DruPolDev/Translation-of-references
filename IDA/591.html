@@ -1,0 +1,23 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><title>Окно селекторов</title>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY><a name="IDH_591"></a>
+<table width="100%"><tr valign="top"><td><h2>Окно селекторов</h2></td>
+<td width="64"><IMG src="ida55.bmp"></td></tr></table>
+<pre>
+ Action    name: ShowSelectors
+ </pre>
+This command opens the selector window. Here you can change
+the "selector to base" mapping. The selector table is used
+to look up the selector values when <A href="508.html">calculating</a> the addresses that
+are visible in the disassembly listing.
+<p>
+You can use <A href="427.html">list viewer</a> commands in this window:
+<pre>
+        - jump to the paragraph pointed by the selector
+        - add a new selector
+        - delete selector (if it is not used by any segment)
+        - change selector value (this leads to reanalysis of all program)
+</pre>
+See also <A href="1356.html">View|Open subviews</a> submenu.</BODY></HTML>

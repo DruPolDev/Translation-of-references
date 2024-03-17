@@ -1,0 +1,178 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>StackWalk64 Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_stackwalk64">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.stackwalk64"></A>StackWalk64 Function</H1>
+<P><P>Obtains a stack trace.</P>
+<P>This function supersedes the <A><b>StackWalk</b></A> function. For more information, see 
+<A HREF="updated_platform_support.htm">Updated Platform Support</A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL WINAPI StackWalk64(
+  __in          DWORD <I>MachineType</I>,
+  __in          HANDLE <I>hProcess</I>,
+  __in          HANDLE <I>hThread</I>,
+  __in_out      LPSTACKFRAME64 <I>StackFrame</I>,
+  __in_out      PVOID <I>ContextRecord</I>,
+  __in          PREAD_PROCESS_MEMORY_ROUTINE64 <I>ReadMemoryRoutine</I>,
+  __in          PFUNCTION_TABLE_ACCESS_ROUTINE64 <I>FunctionTableAccessRoutine</I>,
+  __in          PGET_MODULE_BASE_ROUTINE64 <I>GetModuleBaseRoutine</I>,
+  __in          PTRANSLATE_ADDRESS_ROUTINE64 <I>TranslateAddress</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>MachineType</I></DT>
+<DD>
+<p>The architecture type of the computer for which the stack trace is generated. This parameter can be one of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_I386<BR>0x014c</p>
+</TD>
+<TD width="60%"><p>Intel x86</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_IA64<BR>0x0200</p>
+</TD>
+<TD width="60%"><p>Intel Itanium Processor Family (IPF)</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_AMD64<BR>0x8664</p>
+</TD>
+<TD width="60%"><p>x64 (AMD64 or EM64T)</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to the process for which the stack trace is generated. If the caller supplies a valid callback pointer for the <i>ReadMemoryRoutine</i> parameter, then this value does not have to be a valid process handle. It can be a token that is unique and consistently the same for all calls to the 
+<b>StackWalk64</b> function. If the symbol handler is used with 
+<b>StackWalk64</b>, use the same process handles for the calls to each function.</p>
+</DD>
+<DT><I>hThread</I></DT>
+<DD>
+<p>A handle to the thread for which the stack trace is generated. If the caller supplies a valid callback pointer for the <i>ReadMemoryRoutine</i> parameter, then this value does not have to be a valid thread handle. It can be a token that is unique and consistently the same for all calls to the 
+<b>StackWalk64</b> function.</p>
+</DD>
+<DT><I>StackFrame</I></DT>
+<DD>
+<p>A pointer to a 
+<A HREF="stackframe64_str.htm"><b>STACKFRAME64</b></A> structure. This structure receives information for the next frame, if the function call succeeds.</p>
+</DD>
+<DT><I>ContextRecord</I></DT>
+<DD>
+<p>A pointer to a 
+<b>CONTEXT</b> structure. This parameter is required only when the <i>MachineType</i> parameter is not IMAGE_FILE_MACHINE_I386. However, it is recommended that this parameter contain a valid context record. This allows 
+<b>StackWalk64</b> to handle a greater variety of situations. 
+
+
+</p>
+<P>This context may be modified, so do not pass a context record that should not be modified.</P>
+</DD>
+<DT><I>ReadMemoryRoutine</I></DT>
+<DD>
+<p>A callback routine that provides memory read services. When the 
+<b>StackWalk64</b> function needs to read memory from the process's address space, the 
+<A HREF="readprocessmemoryproc64.htm"><b>ReadProcessMemoryProc64</b></A> callback is used. 
+
+
+</p>
+<P>If this parameter is NULL, then the function uses a default routine. In this case, the <i>hProcess</i> parameter must be a valid process handle.</P>
+<P>If this parameter is not NULL, the application should implement and register a symbol handler callback function that handles CBA_READ_MEMORY.</P>
+</DD>
+<DT><I>FunctionTableAccessRoutine</I></DT>
+<DD>
+<p>A callback routine that provides access to the run-time function table for the process. This parameter is required because the 
+<A><b>StackWalk64</b></A> function does not have access to the process's run-time function table. For more information, see 
+<A HREF="functiontableaccessproc64.htm"><b>FunctionTableAccessProc64</b></A>. 
+
+
+</p>
+<P>The symbol handler provides functions that load and access the run-time table. If these functions are used, then 
+<A HREF="symfunctiontableaccess64.htm"><b>SymFunctionTableAccess64</b></A> can be passed as a valid parameter.</P>
+</DD>
+<DT><I>GetModuleBaseRoutine</I></DT>
+<DD>
+<p>A callback routine that provides a module base for any given virtual address. This parameter is required. For more information, see 
+<A HREF="getmodulebaseproc64.htm"><b>GetModuleBaseProc64</b></A>. 
+
+
+</p>
+<P>The symbol handler provides functions that load and maintain module information. If these functions are used, then 
+<A HREF="symgetmodulebase64.htm"><b>SymGetModuleBase64</b></A> can be passed as a valid parameter.</P>
+</DD>
+<DT><I>TranslateAddress</I></DT>
+<DD>
+<p>A callback routine that provides address translation for 16-bit addresses. For more information, see 
+<A HREF="translateaddressproc64.htm"><b>TranslateAddressProc64</b></A>. 
+
+
+</p>
+<P>Most callers of 
+<A><b>StackWalk64</b></A> can safely pass NULL for this parameter.</P>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE.</P>
+<P>If the function fails, the return value is FALSE. Note that 
+<A><b>StackWalk64</b></A> generally does not set the last error code.</P>
+<H4>Remarks</H4>
+<p>The 
+<A><b>StackWalk64</b></A> function provides a portable method for obtaining a stack trace. Using the 
+<A><b>StackWalk64</b></A> function is recommended over writing your own function because of all the complexities associated with stack walking on platforms. In addition, there are compiler options that cause the stack to appear differently, depending on how the module is compiled. By using this function, your application has a portable stack trace that continues to work as the compiler and operating system change.</p>
+<p>The first call to this function will fail if the <b>AddrPC</b>,  <b>AddrFrame</b>, and <b>AddrStack</b> members of the 
+<b>STACKFRAME64</b> structure passed in the <i>StackFrame</i> parameter are not initialized.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><b>CONTEXT</b><BR><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="functiontableaccessproc64.htm"><b>FunctionTableAccessProc64</b></A><BR><A HREF="getmodulebaseproc64.htm"><b>GetModuleBaseProc64</b></A><BR><A HREF="readprocessmemoryproc64.htm"><b>ReadProcessMemoryProc64</b></A><BR><A HREF="stackframe64_str.htm"><b>STACKFRAME64</b></A><BR><A HREF="translateaddressproc64.htm"><b>TranslateAddressProc64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20StackWalk64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

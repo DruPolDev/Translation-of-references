@@ -1,0 +1,54 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_HANDLE_OPERATION_LIST Structure</TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_handle_operation_list"></A>MINIDUMP_HANDLE_OPERATION_LIST Structure</H1>
+<P><P>Contains a list of handle operations.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_HANDLE_OPERATION_LIST {<br>  ULONG32 SizeOfHeader;<br>  ULONG32 SizeOfEntry;<br>  ULONG32 NumberOfEntries;<br>  ULONG32 Reserved;
+} MINIDUMP_HANDLE_OPERATION_LIST, <br> *PMINIDUMP_HANDLE_OPERATION_LIST;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>SizeOfHeader</B></DT>
+<DD><p>The size of the header data for the stream, in bytes. This is generally <CODE>sizeof(MINIDUMP_HANDLE_OPERATION_LIST)</CODE>.</p>
+</DD>
+<DT><B>SizeOfEntry</B></DT>
+<DD><p>The size of each entry following the header, in bytes. This is generally <CODE>sizeof(AVRF_HANDLE_OPERATION)</CODE>.</p>
+</DD>
+<DT><B>NumberOfEntries</B></DT>
+<DD><p>The number of entries in the stream.  These are generally <A><b>AVRF_HANDLE_OPERATION</b></A> structures. The entries follow the header.</p>
+</DD>
+<DT><B>Reserved</B></DT>
+<DD><p>This member is reserved for future use.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>For a definition of the <A><b>AVRF_HANDLE_OPERATION</b></A> structure, see the Avrfsdk.h header file.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 6.5 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_stream_type.htm"><b>MINIDUMP_STREAM_TYPE</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_HANDLE_OPERATION_LIST%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

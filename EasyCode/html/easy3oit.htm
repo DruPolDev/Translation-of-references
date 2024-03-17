@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>ReadTextLine method</title>
+
+</head>
+
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">ReadTextLine
+<font color="#004080">method</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#800080">ReadTextLine</font></b>
+<b><font color="#0000ff">Proto</font></b>
+<b>hHandle<font color="#ff00ff">:</font><font color="#000080">HANDLE</font><font color="#ff00ff">,</font></b>
+<b>lpszBuffer<font color="#ff00ff">:</font><font color="#000080">LPSTR</font></b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Syntax</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#0000ff">Invoke</font></b> <b><font color="#800080">ReadTextLine</font><font color="#ff00ff">,</font></b> <b>hHandle<font color="#ff00ff">,</font></b> <b>lpszBuffer</b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Function</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Reads a line
+of text
+from an open file.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Parameters</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><b><font face="Arial" size="2">hHandle</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Open
+handle to a text
+file (returned by the </font><a href="easy0vvp.htm"><font face="Arial" size="2"><b><font color="#800080">OpenTextFile</font></b></font></a><font face="Arial" size="2">
+method).</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">lpszFileName</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Pointer to
+the effective
+address of a buffer to receive the text
+line. It can be <font color="#000080"><b>NULL</b></font>
+for getting the line
+length (in bytes).</font></p>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2">Return
+values</font>
+</b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2">If
+the file could not be read, <b><font color="#808000">Eax/Rax</font></b>
+returns <b>-1</b>.</font></font></p>
+</blockquote>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2">If
+<b>lpszBuffer</b>
+is the effective address of a buffer, <b><font color="#808000">Eax/Rax</font></b>
+returns <b><font color="#000080">TRUE</font></b>
+if the
+line has been read, or <b><font color="#000080">FALSE</font></b>
+if the <b>E</b>nd <b>O</b>f <b>F</b>ile
+(<b>EOF</b>)
+has been reached.</font></font></p>
+</blockquote>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2">If
+<b>lpszBuffer</b>
+is <font color="#000080"><b>NULL</b></font>,
+<b><font color="#808000">Eax/Rax</font></b>
+returns the lenght of the line (in bytes)
+including the null-terminating character, or <b><font color="#000080">FALSE</font></b>
+if the <b>E</b>nd <b>O</b>f <b>F</b>ile
+(<b>EOF</b>)
+has been reached.</font></font></p>
+</blockquote>
+<p><font face="Arial"><font size="2"><b><br>
+REMARKS</b>: Characters &lt;<b>CR</b>&gt;
+and
+&lt;<b>LF</b>&gt;
+(<b>C</b>arriage
+<b>R</b>eturn
+and <b>L</b>ine
+<b>F</b>eed)
+determine the
+end of a line. This method reads characters until it finds any of the
+following character
+combinations:</font></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">&lt;<b>CR</b>&gt;
+<b>+</b>
+&lt;<b>LF</b>&gt;<br>
+</font><font face="Arial" size="2">&lt;<b>LF</b>&gt;
+<b>+</b>
+&lt;<b>CR</b>&gt;<br>
+</font><font face="Arial" size="2">&lt;<b>CR</b>&gt;
+not followed by &lt;<b>LF</b>&gt;<br>
+</font><font face="Arial" size="2">&lt;<b>LF</b>&gt;
+not followed by &lt;<b>CR</b>&gt;</font></p>
+</blockquote>
+<p><font face="Arial" size="2">The &lt;<b>CR</b>&gt;
+and/or &lt;<b>LF</b>&gt;
+characters specify the end of a
+line, but they are not placed in the buffer
+pointed by <b>lpszBuffer</b>.<br>
+<br>
+</font></p>
+<p><font face="Arial"><font size="2"><b>REMARKS</b>:
+The <font color="#800080"><b>ReadTextLine</b></font>
+method reads a Unicode text line if the application is running as
+Unicode,
+or an ANSI text line if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call
+<font color="#800080"><b>ReadTextLineA</b></font>
+to read ANSI text lines
+in Unicode applications, or <font color="#800080"><b>ReadTextLineW</b></font>
+to read Unicode text lines in ANSI applications.<br>
+<br>
+When reading Unicode
+files,
+remember that the two first bytes in the file (a word) are not a
+Unicode character,
+but a code identifying the type of Unicode format (<b>0FFFEH</b>
+= little endian,
+<b>0FEFFH</b> = big endian).</font></font></p>
+<p><font face="Arial"><font size="2"><br>
+<b>IMPORTANT</b>:
+You must ensure the buffer pointed by
+<b>lpszBuffer</b>
+is large enough to receive the line to be read. Call this method with <b>lpszBuffer</b>
+set to <b><font color="#000080">NULL</font></b>
+if you want to know how many bytes are needed to contain
+the next line to be read.<br>
+<br>
+</font></font></p>
+</body></html>

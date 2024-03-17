@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>Customizing ToolBar objects</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#004080" size="6">Customizing ToolBar objects</font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">When customizing a <b>ToolBar</b> object, you will see the following
+window:<br><br></font></p>
+
+<p><font face="Arial" size="2"><img style="border: 0px solid ; width: 384px; height: 394px;" alt=""
+src="CustomTB.gif" hspace="0"><br><br></font></p>
+
+<p><font face="Arial" size="2">You have the possibility to add a bitmap resource so that its images might be
+associated to tool bar buttons. If so, the bitmap file must be an existing resource in the <b>Image Table</b>
+of the Resource Editor. All bitmap resources being there will be available in the tool bar customizing window. After
+adding a bitmap resource for a tool bar, Easy Code calculates the number of images by dividing the whole bitmap
+file width by the image width (16 pixels by default). If you change the image or button sizes, you will have to
+specify the number of images and the image and button sizes for the tool bar buttons to display their image
+properly. When referring to button or image indexes, take into account that they are one-based (both, first button
+and first image are number <b>1</b>). Images associated to buttons with a <b>Separator</b> style have no effect,
+as they are never displayed (their image index should be <b>0</b>).</font></p>
+
+<p><font face="Arial" size="2"><b>REMARKS</b>: The index number for each button in a tool bar is also its
+<b>ID</b>entifier. At run time, this <b>ID</b>entifier is the one sent to the tool bar "owner window" when
+a button is clicked, through the <b><font color="#000080">WM_COMMAND</font></b> message (see the <b>MDI</b>
+example coming with Easy Code).<br></font></p>
+
+</body>
+</html>

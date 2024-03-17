@@ -1,0 +1,60 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>FunctionTableAccessProc64 Callback Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_functiontableaccessproc64">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.functiontableaccessproc64"></A>FunctionTableAccessProc64 Callback Function</H1>
+<P><P>An application-defined callback function used with the 
+<A HREF="stackwalk64.htm"><b>StackWalk64</b></A> function. It provides access to the run-time function table for the process.</P>
+<P>The <b>PFUNCTION_TABLE_ACCESS_ROUTINE64</b> type defines a pointer to this callback function. 
+<b>FunctionTableAccessProc64</b> is a placeholder for the application-defined function name.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+PVOID CALLBACK FunctionTableAccessProc64(
+  [in]                 HANDLE <I>hProcess</I>,
+  [in]                 DWORD64 <I>AddrBase</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to the process for which the stack trace is generated.</p>
+</DD>
+<DT><I>AddrBase</I></DT>
+<DD>
+<p>The address of the instruction to be located.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>The function returns a pointer to the run-time function table. On an x86 computer, this is a pointer to an 
+<A HREF="fpo_data_str.htm"><b>FPO_DATA</b></A> structure. On an Alpha computer, this is a pointer to an 
+<A HREF="image_function_entry_str.htm"><b>IMAGE_FUNCTION_ENTRY</b></A> structure.</P>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="fpo_data_str.htm"><b>FPO_DATA</b></A><BR><A HREF="image_function_entry_str.htm"><b>IMAGE_FUNCTION_ENTRY</b></A><BR><A HREF="stackwalk64.htm"><b>StackWalk64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20FunctionTableAccessProc64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

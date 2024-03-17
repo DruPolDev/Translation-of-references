@@ -1,0 +1,118 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_THREAD_INFO Structure</TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_thread_info_str"></A>MINIDUMP_THREAD_INFO Structure</H1>
+<P><P>Contains thread state information.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_THREAD_INFO {<br>  ULONG32 ThreadId;<br>  ULONG32 DumpFlags;<br>  ULONG32 DumpError;<br>  ULONG32 ExitStatus;<br>  ULONG64 CreateTime;<br>  ULONG64 ExitTime;<br>  ULONG64 KernelTime;<br>  ULONG64 UserTime;<br>  ULONG64 StartAddress;<br>  ULONG64 Affinity;
+} MINIDUMP_THREAD_INFO, <br> *PMINIDUMP_THREAD_INFO;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>ThreadId</B></DT>
+<DD><p>The identifier of the thread.</p>
+</DD>
+<DT><B>DumpFlags</B></DT>
+<DD><p>The flags that indicate the thread state. This member can be 0 or one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>MINIDUMP_THREAD_INFO_ERROR_THREAD<BR>0x00000001</p>
+</TD>
+<TD width="60%"><p>A placeholder thread due to an error accessing the thread. No thread information exists beyond the thread identifier.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>MINIDUMP_THREAD_INFO_EXITED_THREAD<BR>0x00000004</p>
+</TD>
+<TD width="60%"><p>The thread has exited (not running any code) at the time of the dump.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>MINIDUMP_THREAD_INFO_INVALID_CONTEXT<BR>0x00000010</p>
+</TD>
+<TD width="60%"><p>Thread context could not be retrieved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>MINIDUMP_THREAD_INFO_INVALID_INFO<BR>0x00000008</p>
+</TD>
+<TD width="60%"><p>Thread information could not be retrieved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>MINIDUMP_THREAD_INFO_INVALID_TEB<BR>0x00000020</p>
+</TD>
+<TD width="60%"><p>TEB information could not be retrieved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>MINIDUMP_THREAD_INFO_WRITING_THREAD<BR>0x00000002</p>
+</TD>
+<TD width="60%"><p>This is the thread that called <A><b>MiniDumpWriteDump</b></A>.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>DumpError</B></DT>
+<DD><p>An <b>HRESULT</b> value that indicates the dump status.</p>
+</DD>
+<DT><B>ExitStatus</B></DT>
+<DD><p>The thread termination status code.</p>
+</DD>
+<DT><B>CreateTime</B></DT>
+<DD><p>The time when the thread was created, in 100-nanosecond intervals since January 1, 1601 (UTC).</p>
+</DD>
+<DT><B>ExitTime</B></DT>
+<DD><p>The time when the thread exited, in 100-nanosecond intervals since January 1, 1601 (UTC).</p>
+</DD>
+<DT><B>KernelTime</B></DT>
+<DD><p>The time executed in kernel mode, in 100-nanosecond intervals.</p>
+</DD>
+<DT><B>UserTime</B></DT>
+<DD><p>The time executed in user mode, in 100-nanosecond intervals.</p>
+</DD>
+<DT><B>StartAddress</B></DT>
+<DD><p>The starting address of the thread.</p>
+</DD>
+<DT><B>Affinity</B></DT>
+<DD><p>The processor affinity mask.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 6.3 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_thread_info_list_str.htm"><b>MINIDUMP_THREAD_INFO_LIST</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_THREAD_INFO%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

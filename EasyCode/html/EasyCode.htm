@@ -1,0 +1,983 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Easy Code 2.2</title>
+
+</head>
+<body style="COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,255)"    >
+<h1><font color="#0000a0" face="Arial"> Easy
+Code -
+визуальный ассемблер</font></h1>
+<h1><font color="#0000a0" face="Arial" size="5">Интегрированная среда разработки визуального 
+ассемблера<BR>
+<br>
+Доступны 
+32-
+и 64 - битные реализации</font></h1>
+<h1><font color="#800000" face="Arial" size="5">Версияe 2.2 (ревизия 44)<BR>
+  <br>
+</font>
+<hr></h1>
+<p><font color="#800000" face="Arial" size="3"><b>
+         
+  Версии 2.00.0.0012 и выше также включают 64-разрядную реализацию Easy Code.
+Для запуска в 64-битной системе Windows, используйте файл "EasyCode64.exe"
+(расположенный в каталоге "\EasyCode\Bin"). Обе
+версии, 32- и 64-битные ("EasyCode.exe" и "EasyCode64.exe"), используют
+одни и те же файлы, поэтому, можно работать с любым из них, без
+каких-либо изменений.</b></font></p>
+<p><font color="#008000" face="Arial" size="3"><b>
+ 
+    Easy Code - это демонстрация того, что
+с помощью данной среды разработки, можно создавать большие и сложные приложения на
+языке ассемблера. Другими словами, Easy Code - это проект на языке ассемблера
+данной визуальной среды разработки.</b></font></p>
+<p><font color="#0000a0" face="Arial" size="3"><b>Если при чтении этого файла справки у 
+вас возникнут какие-либо сомнения, для лучшего понимания, пожалуйста, обратитесь 
+к примерам кода, включенных в поставляемый пакет EasyCod ("\EasyCode\Examples"), которые специально предназначенны для изучения</b>.
+</font></p>
+<p><br>
+<font color="#a00000" face="Arial" size="3"><STRONG>АКТУАЛЬНАЯ ИНФОРМАЦИЯ ДЛЯ ПОЛЬЗОВАТЕЛЕЙ 
+WINDOWS XP, VISTA И SERVER 2003: с октября 2020 года </STRONG>
+           
+<A href="https://www.easycode.cat"><STRONG>https://www.easycode.cat</STRONG>
+</A>&nbsp;<STRONG>- это 
+защищенный веб-сайт ("https"), а старые операционные системы Windows XP, Vista и 
+Server 2003 не поддерживают протоколы TLS 1.1/1.2. Вероятно, в&nbsp;результате 
+этого, Easy Code&nbsp;на этих системах не сможет получить доступ к своим сетевым 
+ресурсам, поэтому команда меню "Check for Updates" не будет 
+работать.&nbsp;Известных обновлений </STRONG><STRONG> Microsoft, устраняющих 
+эту проблему, нет</STRONG><STRONG>.</STRONG><br>
+</font></p>
+<p><b><font face="Arial">ВВЕДЕНИЕ </font></b></p>
+<p><font face="Arial" size="2">Easy Code 2 
+-&nbsp;это эволюция первой версии (полностью совместимой), специально 
+разработанная для создания 64-битных приложений&nbsp;Windows&nbsp;и поддержкой 
+ASMC, FASM, GOASM, JWASM, MASM, POASM, UASM и SOLASM ассемблеров, 32- и 
+64-битных версий. SOLASM (The Solar Assembler) поддерживается версиями 
+<STRONG>2.02.0.0003</STRONG>&nbsp;и выше (для дополнительной информации
+смотрите
+раздел <A href="SolarAsm.htm"><b>The Solar Assembler</b></A>
+).</font></p>
+<p><font face="Arial" size="2">  
+       Для работы
+Easy Code 2 требуется операционная система&nbsp;Windows XP и выше, на
+более ранних системах программа не работает.
+Windows XP, Vista, 7 и 8 - основные рабочие системы для&nbsp;данной IDE,
+но Easy Code 2 отлично работает и на более поздних
+системах (Windows 8.1, 10, 11).</font></p>
+<p><font face="Arial" size="2"><b><font color="#800000">ВАЖНО</font></b>: 
+для поддержки всех языков, Easy Code 2 <STRONG>ВСЕГДА</STRONG>  
+
+ работает в режиме Unicode. However, since some
+assemblers only accept ANSI text, the text of all windows
+and/or modules might be sent to the compiler converted to
+ANSI or not, depending on the <b>Text encoding</b> option
+in the <A href="Settings.htm#configtab"><b>Settings</b></A>
+section.
+This format allows to make Unicode applications in a quick
+and easy way (please see the <A href="Unicode.htm"><b>ANSI
+/
+Unicode applications</b></A> topic). In both modes, ANSI or
+Unicode, the <A href="ECEditor.htm"><b>code
+editor</b></A> and all names and files related to projects
+(names and files for projects, resources, windows and controls)
+<b>are always saved as UNICODE text</b>. For that reason,
+projects
+made with version 1 need to be converted to version 2 format and,
+once converted, they cannot be loaded with version 1. That is why
+EC asks for confirmation before the conversion.<br>
+</font></p>
+<p><br>
+<b><font face="Arial">ОСОБАЯ БЛАГОДАРНОСТЬ</font></b></p>
+<p><strong>
+<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">Héctor
+A. Medina</font></b></td>
+<td><font face="Arial" size="2">Without
+his excellent and
+big help, Easy Code 2 would not have been possible.</font></td>
+</tr>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">Brandon
+B. Stewart</font></b></td>
+<td><font face="Arial" size="2">For
+testing/evaluating Easy Code 2 in-depth, reporting some bugs, and
+making some corrections in the English language file.</font></td>
+</tr>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">Steve
+Hutchinson</font></b></td>
+<td><font face="Arial" size="2">For
+testing/evaluating Easy Code 2.</font></td>
+</tr>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">Wayne
+Radburn</font></b></td>
+<td><font face="Arial" size="2">For
+testing/evaluating Easy Code 2 and making
+some corrections in the English help file.</font></td>
+</tr>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">Jason
+Jiang</font></b></td>
+<td><font face="Arial" size="2">For
+translating the language file to Chinese (both,
+traditional and simplified).</font></td>
+</tr>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">C0dr4cK</font></b></td>
+<td><font face="Arial" size="2">For
+translating the language file to Turkish.</font></td>
+</tr>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">MFM
+Dawdeh</font></b></td>
+<td><font face="Arial" size="2">For
+translating the language file to Arabic.</font></td>
+</tr>
+<tr>
+<td valign="top" width="135" v=""><b><font color="#0000a0" face="Arial" size="2">Pavlů
+Zdeněk</font></b></td>
+<td><font face="Arial" size="2">For
+translating the language and help files to Czech.</font></td>
+</tr>
+</tbody>
+</table>
+</strong></p>
+<p><br>
+<font color="#a00000" face="Arial" size="3"><b>ВНИМАНИЕ:
+Due to
+ASMC multiple updates, the examples included in Easy Code for
+this compiler have been tested and work fine with ASMC version
+2.34.37.</b>
+</font></p>
+<p><b><font face="Arial">НЕКОТОРЫЕ ВАЖНЫЕ ИЗМЕНЕНИЯ</font></b></p>
+<p><font face="Arial" size="2">There are some
+important
+changes in the 64-bit Masm compiler (<b>ml64.exe</b>) that
+must be taken into account:
+</font></p>
+<ul>
+<font face="Arial" size="2">1 - It does not
+include the high level instructions <font color="#006000"><b>.If</b>
+<b>.ElseIf</b> <b>.Else</b> <b>.EndIf</b>
+<b>.While</b> <b>.EndW</b> <b>.Break</b>
+<b>.Repeat</b>
+<b>.Until</b></font><br>
+2 - It does not include the <font color="#0000ff"><b>Invoke</b></font>
+directive<br>
+3 - It does not include the <font color="#ff0000"><b>Retn</b></font>
+instruction (<b>AsmC</b>, <b>JWasm</b>, <b>PoAsm</b>
+and <b>UAsm</b> do,
+but they <b>DO NOT</b> keep the stack aligned)</font>
+</ul>
+<font face="Arial" size="2">In order to solve the
+second point, my good friend <b>Héctor
+A. Medina</b> has developed the equivalent <font color="#800080"><b>ECInvoke</b></font>
+directive for 64-bit
+Masm projects. <font color="#800080"><b>ECInvoke</b></font>
+is a little piece of art, it is EC built-in, and
+works perfectly well. No register is overwrriten and it takes
+care for the <b><font color="#606000">Rsp</font></b>
+register
+to be always 16-byte aligned, avoiding
+unpleasant crashes. Although <font color="#800080"><b>ECInvoke</b></font>
+is also available for 64-bit
+AsmC, JWasm, UAsm and PoAsm assemblers, it is better to keep using
+their
+own <font color="#0000ff"><b>Invoke</b></font>
+when possible. For more
+information, please see <A href="ECInvoke.htm"><b>Using
+ECInvoke</b></A>.<br>
+<br>
+The third point does not allow you to make a near call inside
+a <b>64-bit Masm</b> procedure as it could be done in
+32-bit programming (<font color="#ff0000"><b>Call</b></font>
+/ <font color="#ff0000"><b>Retn</b></font>).
+To solve this, once again <b>Héctor A. Medina</b>
+has developed
+four Easy Code
+built-in pseudo-opcodes, <font color="#800080"><b>CallR</b></font>
+/ <font color="#800080"><b>RetR</b></font>
+and
+<font color="#800080"><b>CallRA</b></font>
+/
+<font color="#800080"><b>RetRA</b></font>,
+which work like <font color="#ff0000"><b>Call</b></font>
+/
+<font color="#ff0000"><b>Retn</b></font>.
+<font color="#800080"><b>CallRA</b></font>
+/
+<font color="#800080"><b>RetRA</b></font>
+keep the stack
+aligned, while <font color="#800080"><b>CallR</b></font>
+/
+<font color="#800080"><b>RetR</b></font>
+<b>DO NOT</b>.
+For more information,
+please see the <A href="CallR.htm"><b>CallR /
+RetR / CallRA / RetRA</b></A> topic.<br>
+<br>
+GoAsm <A href="Unicode.htm">Unicode</A> projects
+behave slightly different
+than they did in Easy Code 1, that is, they work like Masm <A href="Unicode.htm">Unicode</A> projects. If they have
+the
+<b>This project will run in Unicode mode (Windows NT or later)</b>
+option checked, in the <A href="Project.htm#project2"><b>Project
+Properties</b></A>, they will dynamically switch to ANSI
+when running
+on Windows 95/98/ME. For more information, please see the <A href="Unicode.htm"><b>ANSI / Unicode applications</b></A>
+topic.<a name="macrochanges"><br>
+<br>
+Easy Code 1 called the </a><font color="#800080"><A href="easy7mlu.htm"><b>FindChar</b></A></font>
+and <font color="#800080"><A href="easy3iuu.htm"><b>FindCharRev</b></A></font>
+methods with a <font color="#000080"><b>CHAR</b></font>
+(<font color="#0000ff"><b>Byte</b></font>)
+for ANSI projects and <font color="#000080"><b>WCHAR</b></font>
+(<font color="#0000ff"><b>Word</b></font>)
+for Unicode
+projects as the second parameter. Now they both must be called
+with a <font color="#0000ff"><b>DWord</b></font>
+parameter for 32-bit projects
+and a <font color="#0000ff"><b>QWord</b></font>
+parameter for 64-bit projects.
+<b>You should take that into account</b>, specially when
+converting projects
+from Easy Code 1, because passing a wrong type as the second parameter
+will make
+the method to have a wrong return address and the calling application
+will
+probably chrash.<br>
+<br>
+The <font color="#800080"><A href="ECMacros.htm#Text"><b>Text</b></A></font>
+and <font color="#800080"><A href="ECMacros.htm#TextAddr"><b>TextAddr</b></A></font>
+macros always
+returned ANSI text in Easy Code 1. Now, like <font color="#800080"><A href="ECMacros.htm#TextStr"><b>TextStr</b></A></font>,
+they return ANSI
+or Unicode text depending on whether the <b>This project
+will run in Unicode mode</b> option, in the <A href="Project.htm#project2"><b>Project Properties</b></A>,
+is
+checked or not. You should use these two macros as they
+work now for new projects created with Easy Code 2, but
+if you imported an Easy Code 1 project
+and that change can seriously affect its behaviour, just check
+the <b>Enable compatibility with Easy Code 1.x macros</b>
+option, in the <A href="Project.htm#project1"><b>Project
+Properties</b></A>,
+and the <font color="#800080"><A href="ECMacros.htm#Text"><b>Text</b></A></font>
+and <font color="#800080"><A href="ECMacros.htm#TextAddr"><b>TextAddr</b></A></font>
+macros will
+behave as they did in Easy Code 1. If the imported
+project was not Unicode, or it did not use any of these
+two macros, this option has no effect and it is better to
+leave it unchecked.
+<br>
+<br>
+<b>REMARKS</b>:The <b>Enable compatibility
+with Easy Code 1.x macros</b> option is only available
+for 32-bit MASM projects in order to make <font color="#800080"><A href="ECMacros.htm#Text"><b>Text</b></A></font>
+and <font color="#800080"><A href="ECMacros.htm#TextAddr"><b>TextAddr</b></A></font>
+to work like they did in Easy Code 1. This option
+only makes sense for 32-bit MASM Unicode projects
+imported from versions previous to Easy Code 2.0.
+New projects created with Easy Code 2 should ignore
+this option and leave it unchecked.</font>
+<p></p>
+<p><br>
+<b><font face="Arial" size="3"> 
+О WINDOWS 8.1 / 10 / 11</font></b></p>
+<p><font face="Arial" size="2">When you copy
+files or install
+programs to most folders in the system drive <b>C:</b>
+under
+these two versions of Windows and you restart your machine,
+Windows will change the permissions on these folders to where
+the user cannot normally write to them. For instance, after you
+unzip the EC program if you copy the <b>EasyCode</b>
+folder to
+<b>C:\EasyCode</b> and then restart your machine, Windows
+8.1/10/11
+changes the write permissions on this folder as well as all
+subfolders and files within. This is just part of the enhanced
+security measures for these two operating systems, however, poses
+an obstacle for programs writing data to configuration files and
+other types of document files. According to this, it is highly
+recommended that you have at least two drives (or one drive with
+two partitions) and use the second drive (<b>D:</b>, <b>F:</b>,
+<b>G:</b>, or any other letter you assigned to it) to copy
+the
+<b>EasyCode</b> folder. On the other hand, the folder where
+you
+save your projects <b>SHOULD NOT BE</b> in drive <b>C:</b>
+either.<br>
+<br>
+However, if you still want to use drive <b>C:</b>, or you
+do not have any other drive, you can set the
+“EasyCode.exe”
+properties to “Run As Administrator”, or move the
+"EasyCode" folder
+to
+“C:\Users\&lt;YourUserName&gt;\AppData\EasyCode”,
+where all
+applications have write permissions, and modify the configuration
+files according to the new path.<br>
+<br>
+On the other hand,
+setting the 128-bit encryption in your group policy may cause
+some 64-bit executables not to be able to run and Easy Code to
+be closed. If you are having problems running the 64-bit executables
+related to building projects (compiler, linker and resource and
+library compilers for all used assemblers), set the properties for
+all the affected executables to run as administrator. Please read the
+<b>FAQSAndTips.txt</b> file in the <b>EasyCode</b>
+folder.</font></p>
+<p></p>
+<p><br>
+<b><font face="Arial">THE SLIDER CONTROL</font></b></p>
+<p><font face="Arial" size="2">Sometimes it
+is necessary
+to set negative values to the range and/or position of a
+<b>Slider</b> control (also called <b>Trackbar</b>).
+Since
+the Easy Code Properties Window does not accept negative
+values, you will have to use the <b>"TBM_..."</b> messages
+inside the code in order to set them. Please see the related
+information at <A href="https://docs.microsoft.com/ca-es/windows/win32/controls/trackbar-control-reference"><b>MSDN</b></A>.</font></p>
+<p><font face="Arial" size="2"><br>
+<b><font face="Arial" size="3">ПОДДЕРЖИВАЕМЫЕ
+АССЕМБЛЕРЫ</font></b></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2">This section
+is a little guide for you
+to know the tools needed for each supported assembler. Of course
+you do not need to have all of them if you do not want to, but
+at least you should have the tools for the assembler(s) you
+want to to work with. All paths shown below are referred to
+the root of drive <b>C:\</b> for simplicity, but you
+should
+use any other drive or path, even a pendrive (I have all those
+tools in the root of drive G:\). <b>As said before, using the
+system drive C: IS NOT recommended, specially on Window 8.1,
+Windows 10 and Windows 11, because of the permissions restriction.</b>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>ASMC</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\ASMC</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(download
+the <A href="https://github.com/nidud/asmc"><b>AsmC
+</b></A>package)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>FASM</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\FASM</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(download
+the <a href="http://flatassembler.net/download.php"><b>Flat
+assembler for Windows</b></a>)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>GOASM</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\GOASM</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(download
+the <a href="http://www.godevtool.com/ECGo.zip"><b>ECGo.zip</b></a>
+package)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>JWASM</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\JWASM</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(download the <A href="https://easycode.cat/English/Download/JWasm.zip"><b>JWasm.zip</b></A>
+package)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>UASM</strong>&nbsp;&nbsp;&nbsp;&nbsp;(<b>JWASM</b>
+folder is recommended)</font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\JWASM</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(32-bit/64-bit versions available <a href="http://www.terraspace.co.uk/uasm.html"><b>here</b></a>)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>MASM32</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\MASM32</b>&nbsp;&nbsp;&nbsp;&nbsp;(download
+the <a href="http://www.masm32.com/"><b>MASM32
+SDK</b></a> version 10 or later)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>MASM64</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\MASM64</b>&nbsp;&nbsp;&nbsp;&nbsp;(available
+with <A href="https://visualstudio.microsoft.com/downloads/"><b>Microsoft
+Visual Studio</b></A>)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>POASM</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\POASM</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(download
+<a href="http://www.smorgasbordet.com/pellesc/"><b>PellesC
+32-bit</b></a>)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>POASM64</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\POASM64</b>&nbsp;&nbsp;&nbsp;(download
+<a href="http://www.smorgasbordet.com/pellesc/"><b>PellesC
+64-bit</b></a>)</font></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p dir="ltr"><font face="Arial" size="2"><br>
+<strong>SOLASM</strong></font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p dir="ltr"><font face="Arial" size="2"><b>C:\SOLASM</b>&nbsp;&nbsp;&nbsp;(download
+<a href="http://www.oby.ro/sol_asm/sol_asm_download_bin.htm"><b>Solar
+assembler
+bynary</b></a>)</font></p>
+</blockquote>
+</blockquote>
+<br>
+</font></font>
+<P></P>
+<p><font face="Arial" size="2"><font face="Arial" size="2">
+<a name="ImportantRemarks"></a><br>
+<b><font color="#800000">IMPORTANT REMARKS</font></b>
+</font></font></p>
+<blockquote><font face="Arial" size="2"><font face="Arial" size="2">After
+unzipping
+the asmc package the <b>asmc-master</b> folder
+will
+have been created. Please rename it to <b>AsmC</b> and
+take
+into account that the <b>bin</b> subfolder is the only one
+needed for Easy Code, so you can delete all other subfolders
+if you like.<br>
+<br>
+<font color="#800000"><b>IMPORTANT: When the check
+box "This
+project will run in Unicode mode" of the <A href="Project.htm#project2"><b>Project Properties</b></A>
+is
+ticked, the Asmc "/Zne" command line option DOES NOT WORK with
+Easy Code.</b></font><br>
+<br>
+After unzipping
+the ECGo.zip package the <b>GoAsm</b> folder will
+have been created.
+Please immediately download the
+<A href="https://1drv.ms/u/s%21AtgCy-XywfO-hswt7RlbeWTxBgjjww"><b>GoAsm
+Headers</b></A>, unzip it and place all files in the <b>Include</b>
+subfolder
+(inside the <b>GoAsm</b> folder created by
+unzipping the ECGo.zip package).
+Otherwise,
+Easy Code will not be able to build GoAsm projects.<br>
+<br>
+After downloading and installing the Microsoft
+Visual Studio, create a folder named <b>MASM64</b> and
+copy all necessary files related to the 64-bit MASM assembler
+(<b>ml64.exe</b>, <b>link.exe</b>, <b>lib.exe</b>,
+<b>rc.exe</b> and their dependencies).<br>
+<br>
+After downloading and installing PellesC 32-bit in a 32-bit
+system, create a new folder named <b>POASM</b> and copy
+all
+the content from the <b>C:\Program Files\PellesC\Bin</b>
+folder to it.<br>
+<br>
+After downloading and installing PellesC
+64-bit in a 64-bit system, create a new folder named
+<b>POASM64</b> and copy all the content from the <b>C:\Program
+Files\PellesC\Bin</b> folder to it.<br>
+<br>
+After downloading
+<b>UASM</b> (both, 32-bit/64-bit
+versions), I would recommend to place them in the <b>JWASM</b>
+folder since there are other needed resources in there, like
+<b>jwlink.exe</b>, but of course you can create a
+specific folder
+for <b>UASM</b> if you like. On the other hand, Easy Code
+<b>2.01.0.0002</b> and later versions also include
+specific
+configuration files for <b>UASM</b>, both 32-bit and
+64-bit, so if you place <b>uasm32.exe</b> and <b>uasm64.exe</b>
+in
+the <b>JWASM</b> folder, your <b>UASM</b>
+configuration files can
+be a copy of the <b>JWASM</b> ones, just by replacing <b>jwasm.exe</b>
+with <b>uasm32.exe</b> (in <b>UAsm.cfg</b>)
+or <b>uasm64.exe</b> (in
+<b>UAsm64.cfg</b>).<br>
+<br>
+For 32-bit
+applications, GOASM uses the Go tools and the
+GoAsm Headers, all of them in the <b>GoAsm</b> folder
+created
+with ECGo.zip. ASMC, JWASM, UASM, MASM and POASM use the <b>include</b>
+and <b>library</b> files from MASM32 (<b>C:\MASM32</b>)
+and
+FASM and uses their own <b>include</b> and <b>equate</b>
+files
+(<b>C:\FASM\INCLUDE</b>) plus some <b>include</b>
+files from
+the <b>\EasyCode\Include\Fasm</b> folder, specially
+programmed
+for FASM. Besides, FASM needs the MASM32 SDK to be
+installed in order to be able to build 32-bit visual
+projects (the MASM32 SDK ".lib" files are
+required). For 64-bit visual projects FASM uses the <b>include</b>
+and <b>library</b> files located at the <b>\EasyCode\Include\Fasm\Visual</b>
+and <b>\EasyCode\Lib\x64</b> folders respectively.<br>
+<br>
+For 32-bit and 64-bit applications, <b>SOLASM</b> uses a
+set of
+include files specifically programmed for it and located at the
+<b>\EasyCode\Include\SolAsm</b>
+folder. Besides, SOLASM also needs the MASM32 SDK to be installed but
+ONLY if you want to build 32-bit visual projects (the MASM32 SDK ".lib"
+files
+are required). For 64-bit visual projects SOLASM uses the <b>include</b>
+and <b>library</b> files located at the <b>\EasyCode\Include\SolAsm\Visual</b>
+and <b>\EasyCode\Lib\x64</b> folders respectively.<br>
+<br>
+<font color="#800000"><b>REMARKS:</b></font>
+The 64-bit <b>".obj"</b> files
+built by the <b>SOLASM</b> compiler with the <b>"/dbg"</b>
+option may fire errors with latest versions of the Microsoft
+<b>"link.exe"</b> if the <b>"/debug"</b>
+option is specified
+in its command line (this issue has already been reported to
+the SOLASM author). So, if that happens with some version of
+<b>link.exe</b>, and everything is well configured in the
+<b>"SolAsm64.cfg"</b> file, just keep unchecked the <b>"Add
+symbolic information"</b> option of the <A href="Project.htm#project1"><b>Project Properties</b></A>
+(or avoid the <b>"/debug"</b> option in the <b>link.exe</b>
+command line) in order to solve the problem.<br>
+<br>
+For 64-bit
+applications <b>GOASM</b> uses the same files that it uses
+for 32-bit
+(GoAsm Headers), while <b>ASMC</b>, <b>JWASM</b>,
+<b>UASM</b>, <b>MASM</b>
+and <b>POASM</b> use the <b>include</b> and <b>library</b>
+files
+located at the
+<b>\EasyCode\Include\Masm\x64</b> and <b>\EasyCode\Lib\x64</b>
+folders,
+specially programmed for 64-bit applications.<br>
+<br>
+Easy Code is distributed with some configuration
+files, one for each supported assembler. Those files
+(located at the <b>EasyCode\Config</b> folder) have
+the extension "ori" and are a reference for the
+corresponding assembler to be configured properly.
+However, each assembler needs a configuration file
+with a "cfg" extension in order to work,
+but when you download Easy Code 2 there is no ".cfg"
+file. All those ".cfg" files will be created when Easy
+Code starts for the first time and they will be located
+at the <b>EasyCode\Config</b>
+folder. For more information, please see the <A href="Settings.htm"><b>Settings</b></A>
+section.<br>
+<br>
+If your current version of
+Easy Code 2 is previous to <b>2.00.0.0007</b> (December 2,
+2015),
+please follow the instructions of the <b>Fasm.txt</b>
+file, in
+the <b>EasyCode</b> folder.<br>
+<br>
+<b>FASM</b> and <b>SOLASM</b> do not have
+their own linker
+and visual projects need the Easy Code visual library to be
+linked. So, for Easy Code to be able to build visual projects
+with FASM and SOLASM, the Microsoft linker, <b>link.exe</b>,
+is used instead (ONLY for FASM and SOLASM visual projects). If
+you want to build visual projects with FASM and SOLASM (all
+examples are visual projects), you have to download and install
+the <b>MASM32 SDK</b> (for 32-bit visual projects) and
+<b>MASM64</b> (for 64-bit visual projects).<br>
+<br>
+According to the documentation, <b>jwlink.exe</b>
+(JWasm) and <b>linkw.exe</b> (AsmC) seem not to be able to
+build WINNT drivers (*.sys), so the Microsoft linker,
+<b>link.exe</b>, is used instead (ONLY for JWasm /
+UASM / AsmC driver projects).<br>
+<br>
+The <b>wrc.exe</b> resource compiler
+coming
+with JWasm may not work fine for some projects (i.e. 64-bit
+drivers linked with <b>link.exe</b>). If so, try to add
+the
+<b><font color="#0000ff">-zm</font></b>
+switch to its
+command line, or just use the Microsoft <b>rc.exe</b>
+resource compiler (recommended).<br>
+<br>
+The <b>dzrc.exe</b> and
+<b>iddc.exe</b> resource compilers coming with AsmC seem
+not
+to be able to build the resource file <b>.res</b> needed
+for
+Easy Code, so the Microsoft <b>rc.exe</b> compiler is used
+instead. This resource compiler is the one specified in the AsmC
+default configuration files (<b>AsmC.ori</b> and <b>AsmC64.ori</b>).<br>
+<br>
+<font face="Arial" size="2"><b><font color="#800000">WARNING</font></b>:
+The <b>MASM32 SDK</b> currently available (<b>masm32v11r</b>)
+has
+some errors in the <b>kernel32</b> and
+<b>kernel32p</b> files which make the linker (<b>link.exe</b>)
+to fail. To solve this problem, please download <A href="https://easycode.cat/English/Download/kernel32.zip"><b>this
+file</b></A> and follow the instructions in the <b>Readme.txt</b>
+file.</font></font>
+</font>
+<p></p>
+<p></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><br>
+</font></font></p>
+</blockquote>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><b><font face="Arial" size="3">SETTINGS</font></b></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">This is the
+most important part
+of the initial set up in order to avoid problems and make Easy
+Code to work fine for all supported assemblers. Setting the
+right paths and command line options for each assembler,
+linker and resource and library compilers, takes some time and
+requires to be careful.<br>
+<br>
+Now please run the
+<b>EasyCode.exe</b> file (located in the <b>EasyCode\Bin</b>
+folder),
+or use the icon on the desktop if you chose to create one during the
+setup process. Then go to the <b>Tools--&gt;Settings</b>
+menu and
+click <A href="Settings.htm#"><font face="Arial" size="2"><b>this link</b></font></A>
+in order to start the
+Easy Code configuration.<br>
+<br>
+</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><b><font face="Arial" size="3"><br>
+64-BIT
+PROGRAMMING</font></b></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">Easy Code is
+distributed with
+some include and library files (located at
+<b>\EasyCode\Include\Masm\x64</b> and
+<b>\EasyCode\Lib\x64</b> folders, respectively) specially
+made for programming 64-bit ASMC, JWASM, UASM, MASM and POASM
+applications (FASM and GOASM use other files). Those files
+are enough for building most applications, however some more
+especific applications might need other include and library
+files. If so, <b>I will appreciate your contribution</b>.
+Please write the necessary include file, send it to me and
+I will generate the corresponding library file so that they
+both can be distributed in next versions of Easy Code. That
+way we can all improve the Easy Code capabilities. Thank
+you very much.<br>
+<br>
+Programming 64-bit applications
+is not an easy task and requires to know how 64-bit
+Windows operating systems work. In order to have a very
+basic idea, please see the <A href="64BitApps.htm"><b>Programming
+64-bit applications</b></A>
+topic.</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><br>
+<b><font face="Arial" size="3"><br>
+WRITING CODE WITH EASY CODE</font></b></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2">For Easy Code
+to be able to manage
+procedures, constants and variables properly, and so avoidng erros
+when building projects, please take into account the
+considerations explained in <A href="Writing.htm"><b>this
+link</b></A>.</font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><a name="startingeasycode"></a><br>
+</font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><b><font face="Arial">STARTING
+EASY CODE</font></b></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">If you run
+Easy Code
+with no project name in its command line,
+it will prompt you with a dialog box of choices to
+creating a new project. A parameter command line
+without an extension of ".ecp", ".ecw", ".ecr" or
+".asm" is also considered void and you will also be prompted to
+create a new project. Here is an example of the dialog box for new
+projects:</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><IMG border=0 hspace=0 src="TypeVis.gif" width=361 height=439></font></font></font></p>
+<p></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font size="2"><font face="Arial">Eight
+options are available for the type of the code
+project:</font></font></font></font></p>
+<div style="MARGIN-LEFT: 20px"><font face="Arial" size="2"><font face="Arial" size="2"><b><font face="Arial" size="2">Visual
+executable
+file (exe)</font></b><br>
+<b><font face="Arial" size="2">Classic
+executable
+file
+(exe)</font></b><font face="Arial" size="2"><br>
+<b>Classic Dynamic Link
+Library (dll)<br>
+Classic Static Library
+(lib)<br>
+Classic console application
+(exe)<br>
+Classic COFF object file
+(obj)<br>
+Classic NT driver
+(sys)<br>
+Classic NT service (exe)
+</b></font></font></font></div>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">Easy Code has
+two main
+modes, "Visual Project" mode and "Classic Project"
+mode. The classic project mode is the traditional
+build all levels, where the coder is
+expected to construct the whole project and the
+resulting code will be manually configured to work
+when compiled and linked as in most other IDE's.
+The visual project mode is where Easy Code becomes
+in a realm of its own. Visual mode allows
+you to create windows resources on the fly,
+then code that resource as a function and later tie the resources
+together to form a quick and easy powerful
+application.</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">The
+<b>Classic
+COFF object file</b> project type is
+useful for generating an object file,
+from one or more modules, which can then be linked to other projects.
+This
+option avoids having to build static libraries (.lib) if you do not
+like
+to, and it just generates a <b>.obj</b>
+file (in COFF format) even if there are several
+modules in the project. The generated object file
+will have the name of the project plus the <b>.obj</b>
+extension.</font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">On creating a
+new
+project, you must specify what coding mode you require. "Dynamic
+Link Libraries", "Static Libraries", "console applications", "object
+files", "drivers" and "services" are naturally considered classic
+project types. When you choose an "Executable" type project, you have
+the option of the project either in traditional IDE coding mode
+(classic) or Easy Code's visual mode.</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">If you wish to
+use <strong>Windows
+Common controls</strong> and/or the <b>RichEdit</b>
+control, mark the corresponding check box and their <b>.inc</b>
+and <b>.lib</b>
+files will be added to the project by
+Easy Code (only for Common controls). On the other hand,
+checking/unchecking those boxes will cause the
+corresponding buttons to be shown/hidden in the tool
+box.<br>
+<br>
+The <b>Manifest</b>
+check box (only
+available for <b>Visual
+Executable file</b>, <b>Classic
+Executable file</b> and <b>Classic
+dynamic link library</b> projects)
+specifies whether
+a manifest file has to be created and included so that the new
+common controls can be used in Windows XP and later systems
+(see <A href="XPThemes.htm">Enabling XP themes</A>).
+If this
+option is checked when creating the project, the name of the
+manifest file will be shown inside the <b>"Manifest"</b>
+node
+of the Project Explorer, so that it can be edited in the Easy
+Code environment. Please read the <A href="Manifest.htm">Including
+a Manifest in the project</A> topic
+carefully.<br>
+<br>
+The <A href="ECMacros.htm"><b>Easy Code macros</b></A>
+check box, in the <A href="Project.htm#project2"><b>Project
+Properties</b></A>, specifies whether the
+macros coming with Easy Code (in <b>Macros</b>
+subfolder) have to be included in the project or
+not.</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><br>
+</font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><b><font face="Arial">ADDING
+FILES TO
+PROJECTS</font></b></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">It is
+recommended not to
+use the <b>Include</b>, <b>#Include</b>, <b>IncludeLib</b>
+or <b>#DynamicLinkFile</b> directives in the source code
+for
+adding files to projects.
+Instead, all files needed for a project should be added
+using the corresponding options in the <b>Project</b>
+menu.
+Other files, include (*.inc), header (*.h) or library (*.lib),
+not being any of the default files used by the assembler or
+linker, should be copied to the project folder and then added
+by using the <b>Project--&gt;Add files</b> menu option.</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><br>
+</font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><b><font face="Arial">SUB-TOPICS</font></b></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><A href="Settings.htm"><font face="Arial" size="2">Configuring
+Easy
+Code</font></A><br>
+<A href="Writing.htm"><font face="Arial" size="2">Writing
+code
+properly<br>
+</font></A><A href="Service.htm"><font face="Arial" size="2">Building
+NT services</font></A><br>
+<A href="Drivers.htm"><font face="Arial" size="2">Building
+NT drivers</font></A><br>
+<A href="IniFiles.htm"><font face="Arial" size="2">Specific
+settings files (INI files)</font></A></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><A href="Visual.htm"><font face="Arial" size="2">Visual
+Projects
+(Easy
+Code Power Mode)</font></A><br>
+<A href="Classic.htm"><font face="Arial" size="2">Classic
+Projects
+(Classical IDE Style)</font></A><br>
+<A href="Project.htm"><font face="Arial" size="2">Project
+Properties</font></A></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="PicWin.htm">The
+PicWindow control</A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="UnicodeApps.htm">Programming
+Unicode applications</A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="SolarAsm.htm">The
+Solar Assembler</A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="Snippets.htm">Easy
+Code
+Snippets</A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="OptionWin64.htm">Configuring
+Option win64:<b>n</b></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="ErrHand.htm">Handling
+exceptions (Only Visual Project Type)</A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="Settings.htm#helptab">Configuring
+other help files</A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="Visual.htm#controllingwinmain"><font face="Arial" size="2">Accessing to the Windows
+'WinMain' function (Only
+Visual Project Type)</font></A></font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="ThreadObj.htm"><font face="Arial" size="2">Thread
+object (Only Visual Project Type)</font></A></font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="AddTTip.htm"><font face="Arial" size="2">Adding
+tooltips
+to visual projects</font></A></font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="Multilang.htm">Multilanguage
+support</A><br>
+<A href="Language.htm">Language
+files
+(how to make them)</A><br>
+<br>
+<A href="Unicode.htm">ANSI
+/
+Unicode applications (Only Visual Project Type)</A></font><font face="Arial" size="2"><br>
+<A href="Manifest.htm">Including
+a Manifest
+in the project (Only Exe Project Type)</A></font><font face="Arial" size="2"><br>
+<A href="XPThemes.htm">Enabling
+XP themes (All Project Type)</A></font>
+<font face="Arial" size="2"><br>
+<A href="OwnerDraw.htm">OwnerDraw
+property (Only Visual Project Type)</A></font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="Condition.htm"><font face="Arial" size="2">Conditional
+assembly
+(All Project Type)</font></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="Visual.htm#onidleproc"><font face="Arial" size="2">Processing
+idle time
+(Only Visual Project Type)</font></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="CtrlObj.htm"><font face="Arial" size="2">Control
+objects</font></A><br>
+<A href="Properties.htm"><font face="Arial" size="2">Object Properties
+(Only Visual Project Type)</font></A><br>
+<A href="RWProps.htm"><font face="Arial" size="2">Getting
+and Setting
+properties (Only Visual Project Type)</font></A><br>
+<A href="Visual.htm#customizingcontrols"><font face="Arial" size="2">Customizing
+objects (Only Visual Project Type)</font></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="ResEdit.htm"><font face="Arial" size="2">Resources
+-
+Resource
+Editor (All Project
+Type)</font></A><br>
+<A href="ImportRC.htm"><font face="Arial" size="2">Importing resource
+files
+(All Project
+Type)</font></A><br>
+<A href="AppIcon.htm"><font face="Arial" size="2">Application
+icon (All
+Project
+Type)</font></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="ECEditor.htm"><font face="Arial" size="2">Easy
+Code Editor</font></A><br>
+<A href="MenuEdit.htm"><font face="Arial" size="2">Menu Editor (All
+Project
+Type)</font></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="AppError.htm"><font face="Arial" size="2">App
+Object
+(Only Visual Project Type)</font></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="ECMacros.htm"><font face="Arial" size="2">Easy
+Code
+Macros (All
+Project Type)</font></A><br>
+</font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><A href="ECMethod.htm"><font face="Arial" size="2">Easy
+Code
+Methods (Only Visual Project Type)</font></A><br>
+<A href="ECConst.htm"><font face="Arial" size="2">Easy
+Code
+Constants (Only Visual Project Type)</font></A></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><br>
+<font size="2"><font face="Arial">Easy
+Code is absolutely free. Enjoy it and make good your skills and
+assemble
+great applications. Please report any bugs and issues you find
+with this IDE. When reporting IDE problems try to
+explain the way they appeared or happened so that repair can be
+done at the best possible delay. I will be glad to
+reply personally to bug reports using email.</font></font></font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><a name="technicalsupport"></a><br>
+</font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><b><font face="Arial" size="3">TECHNICAL
+SUPPORT</font></b></font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font size="2"><font face="Arial">For
+any request, technical support or bug report, please contact to one of
+the
+following email addresses. Thank you.</font></font></font></font></font></font></p>
+<p align="center"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font size="2"><A href="mailto:assembly@easycode.cat"><font face="Arial"><b>assembly@easycode.cat</b></font></A><font face="Arial"><br>
+<A href="mailto:rsala@easycode.cat"><font face="Arial" size="2"><b>rsala@easycode.cat</b></font></A><br>
+</font></font></font></font></font></font></p>
+<p align="center"></p>
+<p align="center"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font size="2"><A href="https://www.easycode.cat/English"><font face="Arial" size="2"><strong>https://www.easycode.cat</strong></font></A><br>
+<br>
+<font face="Arial"><font size="2">Copyright
+© 2004-2023 Ramon Sala / Héctor A. Medina<br>
+<br>
+The Easy Code 32-bit application has been developed
+using the <a href="http://www.masm32.com"><b>MASM32
+SDK</b></a> v11 (Microsoft 32-bit Macro
+Assembler)</font></font><br>
+The Easy Code 64-bit application was developed
+using the <A href="https://easycode.cat/English/Download/JWasm.zip"><b>JWASM</b></A>
+compiler. Versions <b>2.01.0.0001</b> and later have been
+developed
+using the <a href="http://www.terraspace.co.uk/uasm.html"><b>UASM64</b></a>
+compiler.</font></font><br>
+<br>
+</font></font></font></p>
+</body></html>

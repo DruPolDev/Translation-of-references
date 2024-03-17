@@ -1,0 +1,35 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Unloading a Symbol Module </TITLE><META NAME="MS-HAID" CONTENT="_win32_unloading_a_symbol_module">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.unloading_a_symbol_module"></A>Unloading a Symbol Module</H1>
+<P>The following code unloads a symbol module referred to by the BaseOfDll module address using 
+<A HREF="symunloadmodule64.htm"><b>SymUnloadModule64</b></A>.</P>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve">if (SymUnloadModule64(hProcess, BaseOfDll)
+{
+    // SymUnloadModule64 returned success
+}
+else
+{
+    // SymUnloadModule64 failed
+    error = GetLastError();
+    printf("SymUnloadModule64 returned error : %d\n", error);
+}</PRE></DIV>
+</DIV>
+<H4>See Also</H4>
+<P><A HREF="loading_a_symbol_module.htm">Loading a Symbol Module</A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Unloading a Symbol Module%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

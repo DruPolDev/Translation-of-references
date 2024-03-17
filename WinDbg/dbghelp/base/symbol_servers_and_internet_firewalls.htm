@@ -1,0 +1,31 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Symbol Servers and Internet Firewalls </TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbol_servers_and_internet_firewalls"></A>Symbol Servers and Internet Firewalls</H1>
+<p>Some systems use Internet firewalls or proxy servers that require authentication for all Internet traffic.  Early versions of the symbol server could not access symbols from the Internet unless the system used   a firewall client that handled the authentication transparently.</p>
+<P>Starting with Dbghelp 6.1, the symbol server  supports proxy servers that require such authentication.  Symbol server uses whatever server is configured as the default in the computer's LAN settings.  To find this, open the<b>Internet Options</b> item in  Control Panel, click the <b>Connections</b> tab and click <b>LAN Settings</b>.  This can also be done from Internet Explorer by clicking <b>Internet Options</b> on the <b>Tools</b> menu.  Symbol server has been tested on many brands of proxy servers using both basic and challenge-response methods of authentication.  </P>
+<P>To define a specific proxy server for symbol server to use, set the _NT_SYMBOL_PROXY environment variable to the name (or IP address) of the proxy server, followed by the port number.  Separate the two values with a colon. For example:</P>
+<P><b>set _NT_SYMBOL_PROXY=</b><i>myproxyserver</i><b>:80</b></P>
+<P>When using the Windbg debugger, configure your symbol path to point to the symbol store that you want to use.  The one difference is that the system will display a dialog box in which you need to enter your user ID and password to pass to the proxy server.  If you enter incorrect information, the dialog box will be redisplayed.  If you click the <b>Cancel</b> button, the dialog box is dismissed and the symbol server will be disabled for use through the Internet.</P>
+<P>When using the latest versions of Cdb.exe or Ntsd.exe, this functionality is turned off by default.  However you can enable or disable this functionality using the !sym extension command as follows:  <P></P>
+<ul>
+<li>To turn on prompting for user ID and password: <b>!sym prompts</b>.</li>
+<li>To turn off prompting for user ID and password: <b>!sym prompts off</b>.</li>
+</ul>
+</P>
+<P>If you turn on prompting, you will need to reload symbols with the .reload  command.</P>
+<P>The DbgHelp API has been expanded to support these changes. The <A HREF="symbolserversetoptions.htm"><b>SymbolServerSetOptions</b></A> function supports the  SSRVOPT_PROXY option.  If the data parameter is NULL, the default proxy defined in <b>Internet Options</b> is used.  Otherwise a zero-terminated string is passed specifying the name and port number of the proxy server.  The name and port are separated by a colon as follows: <i>myproxyserver</i>:80. The <A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function supports the SYMOPT_NO_PROMPTS option. This turns off all prompting for validation from the symbol server.  </P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Symbol Servers and Internet Firewalls%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

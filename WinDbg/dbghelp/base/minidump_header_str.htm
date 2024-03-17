@@ -1,0 +1,67 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_HEADER Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_header_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_header_str"></A>MINIDUMP_HEADER Structure</H1>
+<P><P>Contains header information for the minidump file.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_HEADER {<br>  ULONG32 Signature;<br>  ULONG32 Version;<br>  ULONG32 NumberOfStreams;<br>  RVA StreamDirectoryRva;<br>  ULONG32 CheckSum;<br>  union {<br>    ULONG32 Reserved;<br>    ULONG32 TimeDateStamp;<br>  };<br>  ULONG64 Flags;
+} MINIDUMP_HEADER, <br> *PMINIDUMP_HEADER;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>Signature</B></DT>
+<DD><p>The signature. Set this member to MINIDUMP_SIGNATURE.</p>
+</DD>
+<DT><B>Version</B></DT>
+<DD><p>The version of the minidump format. The low-order word is MINIDUMP_VERSION. The high-order word is an internal value that is implementation specific.</p>
+</DD>
+<DT><B>NumberOfStreams</B></DT>
+<DD><p>The number of streams in the minidump directory.</p>
+</DD>
+<DT><B>StreamDirectoryRva</B></DT>
+<DD><p>The base RVA of the minidump directory. The directory is an array of 
+<A HREF="minidump_directory_str.htm"><b>MINIDUMP_DIRECTORY</b></A> structures.</p>
+</DD>
+<DT><B>CheckSum</B></DT>
+<DD><p>The checksum for the minidump file. This member can be zero.</p>
+</DD>
+<DT><B>Reserved</B></DT>
+<DD><p>This member is reserved.</p>
+</DD>
+<DT><B>TimeDateStamp</B></DT>
+<DD><p>Time and date, in <b>time_t</b> format.</p>
+</DD>
+<DT><B>Flags</B></DT>
+<DD><p>One or more values from the 
+<A HREF="minidump_type.htm"><b>MINIDUMP_TYPE</b></A> enumeration type.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_directory_str.htm"><b>MINIDUMP_DIRECTORY</b></A><BR><A HREF="minidump_type.htm"><b>MINIDUMP_TYPE</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_HEADER%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

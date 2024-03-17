@@ -1,0 +1,19 @@
+[OPTIONS]
+TITLE=Intel Opcodes And Mnemonics
+CONTENTS=IntelHexOpcodesAndMnemonics
+LCID=0x419 0x0 0x0
+CNT=Intel.Hex.Opcodes.And.Mnemonics.cnt
+DEFFONT=MS Sans Serif,9,204
+INDEX_SEPARATORS=","
+COMPRESS=12
+
+[WINDOWS]
+main="Intel Opcodes And Mnemonics",,4294938113,(228,226,197),(214,217,157)
+opcodes="",(653,102,360,600),,(255,255,226),(192,192,192),1
+
+[CONFIG]
+BrowseButtons()
+
+[FILES]
+Intel_Hex_Opcodes.rtf
+

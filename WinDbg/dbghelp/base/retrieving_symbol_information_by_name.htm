@@ -1,0 +1,76 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Retrieving Symbol Information by Name </TITLE><META NAME="MS-HAID" CONTENT="_win32_retrieving_symbol_information_by_name">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.retrieving_symbol_information_by_name"></A>Retrieving Symbol Information by Name</H1>
+<P>The following code demonstrates how to call the 
+<A HREF="symfromname.htm"><b>SymFromName</b></A> function. This function fills in a 
+<A HREF="symbol_info_str.htm"><b>SYMBOL_INFO</b></A> structure. Because the name is variable in length, you must supply a buffer that is large enough to hold the name stored at the end of the 
+<b>SYMBOL_INFO</b> structure. Also, the <b>MaxNameLen</b> member must be set to the number of bytes reserved for the name. In this example, szSymbolName is a buffer that stores the name of the requested symbol. The example assumes you have initialized the symbol handler using the code in <A HREF="initializing_the_symbol_handler.htm">Initializing the Symbol Handler</A>.</P>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve">BYTE szSymbolName[MAX_SYM_NAME];
+ULONG64 buffer[(sizeof(SYMBOL_INFO) +
+    MAX_SYM_NAME*sizeof(TCHAR) +
+    sizeof(ULONG64) - 1) /
+    sizeof(ULONG64)];
+PSYMBOL_INFO pSymbol = (PSYMBOL_INFO)buffer;
+
+StringCchCopy(szSymbolName, MAX_SYM_NAME, TEXT("WinMain"));
+pSymbol-&gt;SizeOfStruct = sizeof(SYMBOL_INFO);
+pSymbol-&gt;MaxNameLen = MAX_SYM_NAME;
+
+if (SymFromName(hProcess, szSymbolName, pSymbol))
+{
+    // SymFromName returned success
+}
+else
+{
+    // SymFromName failed
+    error = GetLastError();
+    printf("SymFromName returned error : %d\n", error);
+}</PRE></DIV>
+</DIV>
+<P>If an application has a module or source file name as well as line number information, it can use 
+<A HREF="symgetlinefromname64.htm"><b>SymGetLineFromName64</b></A> to retrieve a virtual code address. This function requires a pointer to an 
+<A HREF="imagehlp_line64_str.htm"><b>IMAGEHLP_LINE64</b></A> structure to receive the virtual code address. Note that the symbol handler can retrieve line number information only when SYMOPT_LOAD_LINES option is set using the 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function. This option must be set before loading the module. The szModuleName parameter contains the source module name; it is optional and can be NULL. The szFileName parameter should contain the source file name, and dwLineNumber parameter should contain the line number for which the virtual address will be retrieved.</P>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve">BYTE   szModuleName[MAX_PATH];
+BYTE   szFileName[MAX_PATH];
+DWORD  dwLineNumber;
+LONG   lDisplacement;
+IMAGEHLP_LINE64 line;
+
+SymSetOptions(SYMOPT_LOAD_LINES);
+
+line.SizeOfStruct = sizeof(IMAGEHLP_LINE64);
+StringCchCopy(szModuleName, MAX_PATH, TEXT("MyApp"));
+StringCchCopy(szFileName, MAX_PATH, TEXT("main.c"));
+dwLineNumber = 248;
+
+if (SymGetLineFromName64(hProcess, szModuleName, szFileName,
+    dwLineNumber, &amp;lDisplacement, &amp;line))
+{
+    // SymGetLineFromName64 returned success
+}
+else
+{
+    // SymGetLineFromName64 failed
+    error = GetLastError();
+    printf("SymGetLineFromName64 returned error : %d\n", error);
+}</PRE></DIV>
+</DIV><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Retrieving Symbol Information by Name%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

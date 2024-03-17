@@ -1,0 +1,29 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><title>Load debug information file</title>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY><a name="IDH_435"></a>
+<table width="100%"><tr valign="top"><td><h2>Load debug information file (Загрузить файл с отладочной информацией)</h2></td>
+<td width="64"><IMG src="ida55.png"></td></tr></table>
+<pre> Действие    имя: <STRONG>LoadDbgFile</STRONG>
+      
+ </pre>Данная команда позволяет загрузить DBG файл.
+<p>
+          
+ Если дизассемблируемая программа дополнительно имеет DBG файл, эта команда может использоваться для загрузки
+информации из DBG файла в базу данных. IDA автоматически загружает DBG
+файлы, расположенные в одном каталоге с&nbsp;входным файлом.
+<p>
+TВстроенный загрузчик отладочной информации не 
+поддерживает 
+NB10 и PDB форматы 
+файлов.&nbsp;&nbsp;he built-in debug information loader cannot load NB10 format files and PDB files.
+To load those files, please use a special plugin PDB.DLL which can be run manually
+using Edit-&gt;Plugins submenu. This plugin uses MS Windows DLLs to load the
+debug information and therefore has the following limitations:
+<pre>
+        - it works only under MS Windows
+        - it will load only PDBs compatible with the currently
+          installed IMAGEHLP.DLL
+</pre>
+See also <A href="430.html">Load... submenu</A> commands.</BODY></HTML>

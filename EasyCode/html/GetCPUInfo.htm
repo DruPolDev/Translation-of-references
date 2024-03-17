@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>GetCPUInfo method</title>
+
+</head>
+
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">GetCPUInfo
+<font color="#004080">method</font></font></b></p>
+<p><b><font face="Arial">Programmed by
+Héctor A. Medina</font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#800080">GetCPUInfo</font></b> <b><font color="#0000ff">Proto</font></b> <b>lpCPUInfo<font color="#ff00ff">:</font><font color="#0000ff">DWord</font></b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Syntax</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><font color="#0000ff"><strong>Invoke</strong></font>
+<b><font color="#800080">GetCPUInfo</font><font color="#ff00ff">,</font></b> <b>lpCPUInfo</b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Function</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Executes the
+<b><font color="#ff0000">CPUID</font></b>
+instruction
+(not available in all processors) and returns information about the CPU.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Parameters</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><b><font face="Arial" size="2">lpCPUInfo</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Address of
+a <b><font color="#800080">CPUINFO</font></b>
+structure (Easy Code defined).</font> </p>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2"><br>
+Return value</font> </b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b> returns <b><font color="#000080">TRUE</font></b> if sucessful, or
+<b><font color="#000080">FALSE</font></b>
+if not.</font></p>
+</blockquote>
+<p><font face="Arial" size="2"><br>
+If successful, the <b><font color="#800080">CPUINFO</font></b>
+structure
+will have been filled with various CPU information. This structure is
+defined as follows:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Courier New" size="2"><b><font color="#800080">CPUINFO</font> <font color="#0000ff">Struct</font><br>
+</b></font><font face="Courier New" size="2"><b>&nbsp;&nbsp;&nbsp;
+Description&nbsp;&nbsp;&nbsp;<font color="#0000ff">Byte&nbsp;&nbsp;</font><font color="#0080c0">32</font> <span style="color: blue;">Dup</span><font color="#ff00ff">(</font><font color="#0080c0">0</font><font color="#ff00ff">)</font>
+<font color="#808080">; CPU description ('GenuineIntel',
+'AuthenticAMD',
+etc.)</font><br>
+&nbsp;&nbsp;&nbsp; Stepping
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">DWord</span>&nbsp;<font color="#0080c0">0</font> &nbsp; &nbsp;
+&nbsp; &nbsp; <font color="#808080">; Stepping ID</font></b></font><font face="Courier New" size="2"><b><br>
+&nbsp;&nbsp;&nbsp; Family
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">DWord</span>&nbsp;<font color="#0080c0">0</font> &nbsp; &nbsp;
+&nbsp; &nbsp; <font color="#808080">;
+Family (3 = 386, 4 = 486, 5 = Pentium, 6 = Pentium Pro)</font></b><br>
+<font face="Courier New" size="2"><b>&nbsp;&nbsp;&nbsp;
+Model &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">DWord</span>&nbsp;<font color="#0080c0">0</font> &nbsp; &nbsp;
+&nbsp; &nbsp; <font color="#808080">;
+Model</font><br>
+&nbsp;&nbsp;&nbsp; CPUType
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">DWord</span>&nbsp;<font color="#0080c0">0</font> &nbsp; &nbsp;
+&nbsp; &nbsp; <font color="#808080">;
+Reserved</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ModelID
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue;">DWord</span>&nbsp;<font color="#0080c0">0</font> &nbsp; &nbsp;
+&nbsp; &nbsp; <font color="#808080">; See
+'REMARKS'</font><br>
+&nbsp;&nbsp;&nbsp; FeaturesID &nbsp;&nbsp;&nbsp;<span style="color: blue;">DWord</span>&nbsp;<font color="#0080c0">0</font> &nbsp; &nbsp;
+&nbsp; &nbsp; </b></font><font face="Courier New" size="2"><b><font color="#808080">; See 'REMARKS'</font><br>
+&nbsp;&nbsp;&nbsp; ExFeaturesID&nbsp; <span style="color: blue;">DWord</span>&nbsp;<font color="#0080c0">0</font> &nbsp; &nbsp;
+&nbsp; &nbsp; </b></font><font face="Courier New" size="2"><b><font color="#808080">; See 'REMARKS'</font></b></font><br>
+<font face="Courier New" size="2"><b><font color="#800080">CPUINFO</font> <font color="#0000ff">EndS</font><br>
+</b></font></font></p>
+</blockquote>
+<p><font face="Arial" size="2"><br>
+<b>REMARKS</b>: The <b><font color="#ff0000">CPUID</font></b>
+instruction
+sets the <b><font color="#808000">Eax</font></b>,
+<b><font color="#808000">Ecx</font></b>
+and <b><font color="#808000">Edx</font></b>
+registers with
+various information about the CPU. Although some of the information in
+the <b><font color="#808000">Eax</font>
+</b>register is already detailed in the <b>Stepping</b>,
+<b>Family</b>, <b>Model</b> and <b>CPUType</b>
+members
+of the structure, the whole value is also stored in the <b>ModelID</b>
+member. On the other hand, the
+<b>FeaturesID</b> member stores the value set by <b><font color="#ff0000">CPUID</font></b> in the <b><font color="#808000">Edx</font></b>
+register, while the <b>ExFeaturesID</b> member stores the
+value
+set by <b><font color="#ff0000">CPUID</font></b>
+in the <b><font color="#808000">Ecx</font></b>
+register (remember that <b><font color="#808000">Ecx</font></b>
+and <b><font color="#808000">Edx</font></b>
+are saved by the <b><font color="#800080">GetCPUInfo</font></b>
+method). These
+values refer to compability flags and have the following
+meaning:<br>
+<br>
+<b>FeaturesID:</b><br>
+</font></p>
+<div style="margin-left: 20px;">
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>0</b></font></td>
+<td><font face="Arial" size="2">FPU on
+Chip</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>1</b></font></td>
+<td><font face="Arial" size="2">Virtual
+Mode Extention present</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>2</b></font></td>
+<td><font face="Arial" size="2">Debbuging
+Extentions</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>3</b></font></td>
+<td><font face="Arial" size="2">CPU
+support 4MB size pages</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>4</b></font></td>
+<td><font face="Arial" size="2">TSC
+present (See RDTSC command)</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>5</b></font></td>
+<td><font face="Arial" size="2">CPU
+have Pentium Compatible MSRs</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>6</b></font></td>
+<td><font face="Arial" size="2">Physical
+Address Extension (Intel), Support PTE
+(Cyrix)</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>7</b></font></td>
+<td><font face="Arial" size="2">Machine
+Check exception</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>8</b></font></td>
+<td><font face="Arial" size="2">Support
+CMPXCHG8B instruction</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>9</b></font></td>
+<td><font face="Arial" size="2">Local
+APIC on Chip (Intel), Page Global Extension
+(K5)</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>10</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>11</b></font></td>
+<td><font face="Arial" size="2">Fast
+System Call feature (Pentium Pro)</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>12</b></font></td>
+<td><font face="Arial" size="2">CPU
+support Memory Type Range Register (MTRR)</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>13</b></font></td>
+<td><font face="Arial" size="2">Page
+Global Feature support</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>14</b></font></td>
+<td><font face="Arial" size="2">Machine
+Check Architecture</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>15</b></font></td>
+<td><font face="Arial" size="2">CPU
+support CMOV instruction</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>16</b></font></td>
+<td><font face="Arial" size="2">Page
+Attribute Table</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>17</b></font></td>
+<td><font face="Arial" size="2">CPU
+support 4MB Pages for access memory higher
+that 2GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>18</b></font></td>
+<td><font face="Arial" size="2">CPU
+Support Processor Serial Number</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>19-22</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>23</b></font></td>
+<td><font face="Arial" size="2">CPU
+support IA MMX</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>24</b></font></td>
+<td><font face="Arial" size="2">CPU
+Support Fast Save/Restore (IA MMX-2)</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>25</b></font></td>
+<td><font face="Arial" size="2">Streaming
+SIMD Extension (IA MMX-2)</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>26-31</b></font></td>
+<td><font face="Arial" size="2">Reserved
+and set to 0s now</font></td>
+</tr>
+</tbody>
+</table>
+<font face="Courier New" size="2"><br>
+</font></p>
+</div>
+<p><font face="Arial" size="2">
+<b>ExFeaturesID:</b><br>
+</font></p>
+<div style="margin-left: 20px;">
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>0</b></font></td>
+<td><font face="Arial" size="2">SSE3 -
+SSE3 Extensions</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>1-2</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>3</b></font></td>
+<td><font face="Arial" size="2">MONITOR
+- MONITOR/MWAIT</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>4</b></font></td>
+<td><font face="Arial" size="2">DS-CPL
+- CPL Qualified Debug Store</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>5</b></font></td>
+<td><font face="Arial" size="2">VMX -
+Virtual Machine Technology</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>6</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>7</b></font></td>
+<td><font face="Arial" size="2">EST -
+Enhanced Intel SpeedStep® Technology</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>8</b></font></td>
+<td><font face="Arial" size="2">TM2 -
+Thermal Monitor 2</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>9</b></font></td>
+<td><font face="Arial" size="2">SSSE3 -
+SSSE3 Extensions</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>10</b></font></td>
+<td><font face="Arial" size="2">CNXT-ID
+- L1 Context ID</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>11-12</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>13</b></font></td>
+<td><font face="Arial" size="2">CMPXCHG16B</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>14</b></font></td>
+<td><font face="Arial" size="2">xTPR
+Update Control</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>15</b></font></td>
+<td><font face="Arial" size="2">PDCM — Perf/Debug Capability MSR</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>16-18</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>19</b></font></td>
+<td><font face="Arial" size="2">SSE4.1</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>20</b></font></td>
+<td><font face="Arial" size="2">SSE4.2</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>21</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>22</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>23</b></font></td>
+<td><font face="Arial" size="2">POPCNT</font></td>
+</tr>
+<tr>
+<td valign="top" width="70"><font face="Arial" size="2">Bit <b>24-31</b></font></td>
+<td><font face="Arial" size="2">Reserved</font></td>
+</tr>
+</tbody>
+</table>
+<font face="Courier New" size="2"><br>
+</font></p>
+</div>
+</body></html>

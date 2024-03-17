@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>GetText method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">GetText
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Window</b>, <b>MDIWindow</b>, <b>DialogBox</b>, <b>Static</b>,
+<b>Edit</b>, <b>Group</b>, <b>Button</b>, <b>Check</b>, and <b>Radio</b> objects.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">GetText</font></b> <b><font
+color="#0000FF">Proto</font></b> <b>hWnd<font color="#FF00FF">:</font><font color="#000080">HWND</font><font
+color="#FF00FF">,</font></b> <b>lpszBuffer<font color="#FF00FF">:</font><font
+color="#000080">LPSTR</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font></b> <b><font
+color="#800080">GetText</font><font color="#FF00FF">,</font></b> <b>hWnd<font color="#FF00FF">,</font>
+lpszBuffer</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Gets the <b><a href="easy0sqc.htm">Text</a></b> property for an
+object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>lpszBuffer</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">Pointer to a buffer to receive the text for the
+object.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b><font color=#808000>Eax/Rax</font></b> returns the length, in characters, for
+the text of the object.</font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>NOTE</b>: For <b>Window</b>, <b>MDIWindow</b> and
+<b>DialogBox</b> objects this method copies the text of its caption (title bar) to the specified buffer, while
+for control objects it copies the text shown in the client area of the control. The buffer pointed by
+<b>lpszBuffer</b> must be large enough to contain the text of the object (max. 256
+characters).</font></font></p>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The <font color="#800080"><b>GetText</b></font>
+method fills <b>lpszBuffer</b> with a Unicode string if the application is running as Unicode,
+or with an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call <font color="#800080"><b>GetTextA</b></font> to get the ANSI text in Unicode
+applications, or <font color="#800080"><b>GetTextW</b></font> to get the Unicode text in ANSI
+applications.<br><br></font></p>
+
+</body>
+</html>

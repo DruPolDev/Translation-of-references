@@ -1,0 +1,64 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGEHLP_LINE64 Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_imagehlp_line64_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagehlp_line64_str"></A>IMAGEHLP_LINE64 Structure</H1>
+<P><P>Represents a source file line.</P>
+<P>This structure supersedes the <A><b>IMAGEHLP_LINE</b></A> structure. For more information, see 
+<A HREF="updated_platform_support.htm">Updated Platform Support</A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGEHLP_LINE64 {<br>  DWORD SizeOfStruct;<br>  PVOID Key;<br>  DWORD LineNumber;<br>  PTSTR FileName;<br>  DWORD64 Address;
+} IMAGEHLP_LINE64, <br> *PIMAGEHLP_LINE64;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>SizeOfStruct</B></DT>
+<DD><p>The size of the structure, in bytes. The caller must set this member to <CODE>sizeof(IMAGEHLP_LINE64)</CODE>.</p>
+</DD>
+<DT><B>Key</B></DT>
+<DD><p>This member is reserved for use by the operating system.</p>
+</DD>
+<DT><B>LineNumber</B></DT>
+<DD><p>The line number in the file.</p>
+</DD>
+<DT><B>FileName</B></DT>
+<DD><p>The name of the file, including the full path.</p>
+</DD>
+<DT><B>Address</B></DT>
+<DD><p>The address of the first instruction in the line.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>IMAGEHLP_LINEW64</B> (Unicode) and <B>IMAGEHLP_LINE64</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="symgetlinefromaddr64.htm"><b>SymGetLineFromAddr64</b></A><BR><A HREF="symgetlinefromname64.htm"><b>SymGetLineFromName64</b></A><BR><A HREF="symgetlinenext64.htm"><b>SymGetLineNext64</b></A><BR><A HREF="symgetlineprev64.htm"><b>SymGetLinePrev64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGEHLP_LINE64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>Compiling and building projects</title>
+
+</head>
+
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+
+<p><b><font color="#004080" face="Arial" size="6">Compiling and building
+projects</font></b></p>
+
+<hr>
+
+<p><b><font face="Arial" size="2">Writing code</font></b></p>
+
+<p><font face="Arial" size="2">When you write code in a <b>Module</b>, or in the editor of a window object for
+visual projects, all variables, structures, macros and procedure names are stored in the Properties window. They
+are divided in two groups:</font></p>
+
+<blockquote>
+<p><b><font face="Arial" size="2">Macros and Procedures<br>Structures and Variables</font></b></p>
+</blockquote>
+
+<p><font face="Arial" size="2">The combo box located over the Properties window, allows you to change from a group
+to another. To go </font><font face="Arial" size="2">to the code related to </font><font face="Arial" size="2">a
+<b style="color: rgb(51, 51, 255);">Proc</b>edure, <b><font color="#0000ff">Struct</font></b>ure, <b><font
+color="#0000ff">Macro</font></b> or <b>Variable</b>, just click on its name inside the Properties window. If some
+<b><font color="#0000ff">Proc</font></b>, <b><font color="#0000ff">Macro</font></b>, <b><font
+color="#0000ff">Struct</font></b>, etc., has been added or deleted, and its name is still in the Properties window
+(or it is missing), press the &lt;<b>F10</b>&gt; key, or use the <b>Tools</b>--&gt;<b>Refresh</b> &lt;window name&gt;
+menu, while the focus is in the code editor, and the entire Properties window will be updated.</font></p>
+
+<p><font face="Arial" size="2">In visual projects the Properties window contains all mentioned names when the code
+editor of an object is visible or when a <b>Module</b> is the active object (it is always visible for classic projects
+as they only have modules). When an object is active and its code editor is not visible, the Properties window of the
+object is displayed instead. Then, the combo box located over the Properties window&nbsp;lets you change among child
+controls inside the window object.</font></p>
+
+<p><font face="Arial" size="2">All files needed for building a project, including those necessary files for Windows
+applications (<b>Windows.inc</b>, <b>kernel32.lib</b>, <b>user32.lib</b>, etc.), should be added to project through
+the Easy Code interface (better than including them in the code) using the following menus:</font></p>
+
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td v="" valign="top" width="250"><font face="Arial" size="2">Include files (*.inc;*.h)</font></td>
+<td><font face="Arial" size="2">Use <strong>Project--&gt;Add Include files (*.inc;.h)</strong> menu</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="250"><font face="Arial" size="2">Library files (*.lib)</font></td>
+<td><font face="Arial" size="2">Use <strong>Project--&gt;Add Library files (*.lib)</strong> menu</font></td>
+</tr>
+<tr>
+<td valign="top" width="250"><font face="Arial" size="2">Compiled resource file (*.res)</font></td>
+<td><font size="2"><font face="Arial">Use <font color="#000000"><b>Project--&gt;Add external resources (*.res)</b>
+menu</font></font></font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="250"><font face="Arial" size="2">Definition file (*.def)</font></td>
+<td><font face="Arial" size="2">Use <strong>Project--&gt;Add Definition file (*.def)</strong> menu</font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+
+<p><b><font face="Arial" size="2"><br>Using Rich Edit and Common controls</font></b></p>
+
+<p><font face="Arial" size="2">Checking/unchecking these two options in the </font> <a href="Project.htm#project2"><font
+face="Arial" size="2">Project Properties</font></a><font face="Arial" size="2"> will cause the corresponding buttons
+to be shown/hidden in the tool box.</font></p>
+
+<p><font face="Arial" size="2">Only when working with <b>visual projects</b>, checking any of these options will make
+Easy Code to add and initialize the corresponding controls.</font></p>
+
+<p><font face="Arial" size="2"><b><br>REMARKS:</b> In classic projects, the <b>Comon controls</b> and <b>RichEdit</b>
+options, in the </font><a href="Project.htm#project2"><font face="Arial" size="2">Project Properties</font></a><font
+face="Arial" size="2">, just add or remove the buttons in the tool box. If you have to use any of them, you must
+include the corresponding <b>inc</b> and <b>lib</b> files.</font></p>
+
+<p><br><b><font face="Arial" size="2">Compiling and building projects</font></b></p>
+
+<p style="margin-right: 0px;" dir="ltr"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;Inside the menu
+<b>Build</b> you will find the following submenus:</font></p>
+
+<p><font face="Arial" size="2"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font><font face="Arial"><font
+size="2"><strong>Compile</strong> <b>&lt;</b><i>Module name</i><b>&gt; </b>(<b>Ctrl+F7</b>)</font></font></p>
+
+<blockquote style="margin-right: 0px;" dir="ltr">
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Compiles&nbsp; the active window or module.</font></p>
+</blockquote>
+</blockquote>
+
+<p><font face="Arial"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-weight:
+bold;">B</span>uild</strong> <b>&lt;</b><i>Project name</i><b>&gt;.&lt;</b><i>extension</i><b>&gt;
+</b>(<b>F7</b>)</font></font></p>
+
+<blockquote style="margin-right: 0px;" dir="ltr">
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Compiles the windows or modules that have been modified and builds the project.</font></p>
+</blockquote>
+</blockquote>
+
+<p><font face="Arial" size="2"><b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rebuild</b> <b>all</b></font></p>
+
+<blockquote style="margin-right: 0px;" dir="ltr">
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Compiles all windows and modules (modified or not) and rebuilds the whole
+project.</font></p>
+</blockquote>
+</blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test</b>
+<b>&lt;</b><i>window name</i><b>&gt;&nbsp;</b>(<b>Shift+F5</b>)&nbsp;&nbsp;(<b>Only available for visual
+projects</b>)</font></font></p>
+
+<blockquote style="margin-right: 0px;" dir="ltr">
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Allows you to test the active window in order to see its final appearance. No code
+is processed when testing a window, but you can check menus and </font><a href="ResEdit.htm"><font face="Arial"
+size="2">string resources</font></a><font face="Arial" size="2"> and navigate through child controls checking its
+tab order. This option is only available for visual projects.</font></p>
+</blockquote>
+</blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debug</b>
+<b>&lt;</b><i>Project name</i><b>&gt;.exe&nbsp;</b>(<b>F5</b>)&nbsp; (<b>Only available for executable
+files</b>)</font></font></p>
+
+<blockquote style="margin-right: 0px;" dir="ltr">
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Allows you to run a debugger with the built executable file (if any). When it was
+built in <b>Debug</b> mode, the executable file debugged is that located in the <b>Debug</b> directory. If not,
+the executable file debugged is that located in the <b>Release</b> directory. This option just loads the debbuger
+(its path has to be specified in menu <b>Tools-&gt;Settings</b>), but has no control over it.</font></p>
+</blockquote>
+</blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</b>
+<b>&lt;</b><i>Project name</i><b>&gt;.exe&nbsp;</b>(<b>Ctrl+F5</b>)&nbsp; (<b>Only available for executable
+files</b>)</font></font></p>
+
+<blockquote style="margin-right: 0px;" dir="ltr">
+<blockquote style="margin-right: 0px;" dir="ltr">
+
+<p><font face="Arial" size="2">Allows you to run the built executable file (if any). When it was built in <b>Debug</b>
+mode, the executable file started is that located in the <b>Debug</b> directory. If not, the executable file started
+is that located in the <b>Release</b> directory</font><br></p>
+</blockquote>
+</blockquote>
+
+<p><font face="Arial" size="2"><br>In the bottom part of the IDE you can see the output window (if it is hidden, it is
+shown when compiling and or linking)&nbsp;</font><font face="Arial" size="2">which can be </font><font face="Arial"
+size="2"> shown/hidden by pressing the &lt;<b>F8</b>&gt; key. This window shows all errors returned by the compiler
+(ml.exe)&nbsp;</font><font face="Arial" size="2">and</font><font face="Arial" size="2"> the linker (link.exe). By
+double clicking on an error line of the output window, you will </font><font face="Arial" size="2">directly
+</font><font face="Arial" size="2">go to the afected line in the code.</font></p>
+<br>
+</body>
+</html>

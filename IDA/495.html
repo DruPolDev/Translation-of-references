@@ -1,0 +1,19 @@
+<a name="IDH_495"></a>
+<title>Edit a structure</title>
+<table width="100%"><tr valign="top"><td><h2>Edit a structure</h2></td>
+<td width="64"><img src="ida55.bmp"/></td></tr></table>
+<pre>
+ Action    name: EditStruct
+ </pre>
+This command allows the user to change the structure alignment
+<p>
+Structure alignment is used to calculate the number of padding bytes at the end of the
+structure. For example, if alignment is 4 and the last field is a byte at offset 11h,
+IDA will add 3 bytes of padding so that the struct size is 14h (multiple of 4).
+<p>
+The alignment must be a power of 2.
+<p>
+This command is available in the Structures <a href="593.html">window</a>.
+<p>
+See also <a href="490.html">Edit|Structs</a> submenu.
+         <a href="423.html">How to Enter a Number</a>.

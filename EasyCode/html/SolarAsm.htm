@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Solar Assembler</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080"><font face="Arial" size="6">The Solar
+Assembler</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2">The Solar
+Assembler (<b>SolAsm</b> as a friendly name) is a
+multipass,
+high level, macro assembler that can compile 16/32/64 bits code and
+runs on Windows, Linux, MacOS and Solar_OS. The Solar Assembler is
+programmed by <a href="mailto:bogdanontanu@yahoo.com"><b>Bogdan
+Valentin Ontanu</b></a> and it is still under development,
+so it is not complete. Please carefully read the <a href="http://www.oby.ro/sol_asm/docs/sol_asm_manual.htm"><b>Solar
+Assembler manual</b></a> and the <font color="#a00000"><b>REMARKS</b></font>
+section at the end of this
+page in order to get familiar with its syntax and avoid annoying
+errors at compile time.<br>
+<br>
+Easy Code versions
+<b>2.02.0.0003</b> and later also support the <b>SolAsm</b>
+assembler, however you must take into account that some projects
+cannot currently be built with SolAsm because it is under development,
+so up to version <b>0.36.76</b> (included) the following
+projects
+can <b>NOT</b> be built:
+<blockquote><font color="#c00000"><b>NT
+Drivers
+32-bit and 64-bit</b></font><br>
+<font color="#c00000"><b>Static libraries 32-bit
+and 64-bit</b></font></blockquote>
+</font></p>
+<p><font face="Arial" size="2">
+In order to maintain the same basic folder
+structure of the other supported assemblers, I
+suggest to create a folder named <b>SolAsm</b> in the root
+of one of your hard drives (any other than the system drive
+<b>C:</b>, if possible). Then create one subfolder named
+<b>Bin</b> and another one named <b>Help</b>
+inside the
+<b>SolAsm</b> folder you just created (these are the two
+needed
+subfolders but you can create more subfolders if you like):<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>SolAsm</b>
+<blockquote><b>Bin</b></blockquote>
+<blockquote><b>Help</b></blockquote>
+Now download the latest version of the Solar Assembler Binary
+<a href="http://www.oby.ro/sol_asm/sol_asm_download_bin.htm"><b>here</b></a>
+and once unzipped locate the <b>sol_asm2.exe</b> file and
+copy it
+to the <b>\SolAsm\Bin</b> subfolder just created. Then
+download the <a href="http://www.oby.ro/sol_asm/docs/sol_asm_manual.htm"><b>sol_asm_manual.htm</b></a>
+page and copy it to the <b>\SolAsm\Help</b> subfolder juts
+created:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>SolAsm</b>
+<blockquote><b>Bin</b>
+<blockquote><font color="#0000a0"><b>sol_asm2.exe</b></font></blockquote>
+<b>Help</b>
+<blockquote><font color="#0000a0"><b>Solar
+Assembler Manual.htm</b></font>
+</blockquote>
+</blockquote>
+<br>
+Since Easy Code (for 64-bit projects) and the MASM32 SDK
+(for 32-bit projects) provide the necessary <b>inc</b>lude
+and <b>lib</b>rary files, you do not need anything else.
+Take
+into account that the <b>MASM32 SDK is only needed</b> if
+you
+plan to build <b>32-bit visual projects</b>, otherwise
+you do not need to install it.<br>
+<br>
+After downloading the latest version of Easy Code, run it,
+go to the <b>Tools--&gt;Settings</b> menu, click the <b>Configurations</b>
+tab, select the <b>SolAsm</b> item in the
+<b>Configuration</b> combo box and carefully follow the
+instructions of the <a href="Settings.htm#configtab"><b>Settings
+menu - Configuring Easy Code</b></a> topic. Then repeat the
+same steps
+but selecting the <b>SolAsm64</b> item in the <b>Configuration</b>
+combo box. Please see also the comments related to SOLASM in <a href="EasyCode.htm#ImportantRemarks"><b>IMPORTANT
+REMARKS</b></a>.<br>
+<br>
+<font color="#a00000"><b>REMARK:</b></font>
+Everything will work fine if all settings are well configured,
+so please take your time to carefully read the <a href="Settings.htm#configtab"><b>Configurations</b></a>
+tab,
+in order to avoid further problems.<br>
+<br>
+</font></p>
+<p><font face="Arial" size="2">The SolAsm is
+a good assembler
+but, as said before, it is under development, so for more
+information or for reporting errors <b>fired by SolAsm</b>,
+that is,
+<b>not related to Easy Code</b>, please contact the author <a href="mailto:bogdanontanu@yahoo.com"><b>Bogdan
+Valentin Ontanu</b></a>.<br>
+<br>
+Those projects that SolAsm cannot build itself (NT drivers
+32-bit/64-bit
+and static libraries 32-bit/64-bit), could be manually built by
+compiling the code with SolAsm and using an external linker for
+drivers, and a library compiler for static libraries, but you need to
+know how to do that. On the other hand, the capability of SolAsm for
+building NT drivers in the future will be determined by the author.<br>
+<br>
+The <b>SolAsm</b> has its own resource compiler,
+but at the
+time of this writing it can only create the following resources:<br>
+<blockquote> - Dialog boxes<br>
+- Controls<br>
+- Menus<br>
+</blockquote>
+<font color="#a00000"><b>REMARK:</b></font>
+This applies to all project
+type <b>except</b> to visual projects, which have all
+resources available
+because they use an external resource compiler (usually the Microsoft
+<b>rc.exe</b>). On the other hand, dialog boxes do not
+accept, neither
+<b>CLASS</b> (class name), nor <b>FONT</b>
+(font parameters), nor
+<b>EXSTYLE</b> (extended styles) keywords.<br>
+</font></p>
+<p><font face="Arial" size="2">The SolAsm
+resources can be
+manually added by following the syntax specified in the SolAsm
+manual (<b>Chapter 8. Internal Resource compiler</b>), but
+they
+can also be added in a more comfortable and easy way in the <a href="ResEdit.htm"><b>Resource Editor</b></a>
+(recommended). That way Easy Code will create a resource
+file with <b>"rc"</b> extension in the project folder and
+it will
+take care of all work. Please see the <b>Classic</b>
+example
+located at the <b>\EasyCode\Examples\SolAsm\x86\Classic</b>
+(or
+<b>\EasyCode\Examples\SolAsm\x64\Classic</b>) folder. In
+this
+example you will see how to create and set a menu
+and show up a dialog box. Besides, you will also see how a font
+resource must be manually created because, as said before, the
+<b>FONT</b> keyword for dialog boxes is not accepted by the
+SolAsm
+resource compiler.<br>
+<br>
+<font color="#a00000"><b>WARNING:</b></font>
+Menu resources must be loaded with
+the <font color="#800000"><b>LoadMenuIndirect</b></font>
+API function,
+while dialog box resources must be loaded with the <font color="#800000"><b>DialogBoxIndirectParam</b></font>
+API function (please see the <b>Classic</b> example).<br>
+</font></p>
+<p><font face="Arial" size="2"><br>
+<font color="#a00000"><b>REMARKS:</b></font>
+As said
+before the Solar Assembler is under development,
+so it has some issues to be fixed (be carefull with spaces):
+<blockquote><b>MAX_PATH + 1</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#a00000"><b>WRONG</b></font>, it
+fires an error<br>
+<b>MAX_PATH+1</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#006000"><b>GOOD</b></font>,
+&nbsp;&nbsp;&nbsp;no error is
+fired<br>
+</blockquote>
+When intializing structures:<br>
+<blockquote><b>{10 0 40 20 60}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#a00000"><b>WRONG</b></font>, it
+fires an error<br>
+<b>{ 10
+0 40 20 60 }</b>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#006000"><b>GOOD</b></font>,
+&nbsp;&nbsp;&nbsp;no error is fired
+</blockquote>
+Another issue affecting mainly to visual projects is that the <font color="#0000a0"><b>extern</b></font>
+directive <font color="#a00000"><b>DOES NOT work</b></font>
+for extern
+variables (<font color="#006000"><b>it DOES work</b></font>
+for extern procedures). That means that you cannot reference
+a variable in a window or module if the referenced variable
+is in another module.<br>
+<br>
+<font color="#a00000"><b>REMARKS:</b></font>
+Since the <font color="#006000"><b>#ifndef</b></font>
+directive
+not always works fine, especially with structures, from Easy Code
+version <b>2.02.0.0011</b> some constants and almost all
+structures
+have
+been moved to the <b>windows.inc</b> file.<br>
+<br>
+<font color="#a00000"><b>IMPORTANT:</b></font>
+The SolAsm author is aware of all those issues and he is going to
+fix them as soon as possible. Until they are not fixed, it is highly
+recommended to <font color="#a00000"><b>disable</b></font>
+the <b>Beautify Syntax</b>
+option (in the <b>Tools</b> menu, <b>Syntax</b>
+tab) when working with
+SolAsm projects for the beautifier not to add/remove spaces that the
+Solar Assembler does not accept and fires compilation errors.<br>
+<br>
+</font></p>
+</body></html>

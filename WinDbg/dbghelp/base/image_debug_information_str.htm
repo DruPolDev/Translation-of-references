@@ -1,0 +1,288 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGE_DEBUG_INFORMATION Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_image_debug_information_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.image_debug_information_str"></A>IMAGE_DEBUG_INFORMATION Structure</H1>
+<P><P>Contains debugging information.</P>
+<P CLASS="note"><B>Note</B>  This structure is used by the 
+<A HREF="mapdebuginformation.htm"><b>MapDebugInformation</b></A> and 
+<A HREF="unmapdebuginformation.htm"><b>UnmapDebugInformation</b></A> functions, which are provided only for backward compatibility.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGE_DEBUG_INFORMATION {<br>  LIST_ENTRY List;<br>  DWORD Size;<br>  PVOID MappedBase;<br>  USHORT Machine;<br>  USHORT Characteristics;<br>  DWORD CheckSum;<br>  DWORD ImageBase;<br>  DWORD SizeOfImage;<br>  DWORD NumberOfSections;<br>  PIMAGE_SECTION_HEADER Sections;<br>  DWORD ExportedNamesSize;<br>  PSTR ExportedNames;<br>  DWORD NumberOfFunctionTableEntries;<br>  PIMAGE_FUNCTION_ENTRY FunctionTableEntries;<br>  DWORD LowestFunctionStartingAddress;<br>  DWORD HighestFunctionEndingAddress;<br>  DWORD NumberOfFpoTableEntries;<br>  PFPO_DATA FpoTableEntries;<br>  DWORD SizeOfCoffSymbols;<br>  PIMAGE_COFF_SYMBOLS_HEADER CoffSymbols;<br>  DWORD SizeOfCodeViewSymbols;<br>  PVOID CodeViewSymbols;<br>  PSTR ImageFilePath;<br>  PSTR ImageFileName;<br>  PSTR ReservedDebugFilePath;<br>  DWORD ReservedTimeDateStamp;<br>  BOOL ReservedRomImage;<br>  PIMAGE_DEBUG_DIRECTORY ReservedDebugDirectory;<br>  DWORD ReservedNumberOfDebugDirectories;<br>  DWORD ReservedOriginalFunctionTableBaseAddress;<br>  DWORD Reserved[2];
+} IMAGE_DEBUG_INFORMATION, <br> *PIMAGE_DEBUG_INFORMATION;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>List</B></DT>
+<DD><p>A linked list of <A><b>LIST_ENTRY</b></A> structures.</p>
+</DD>
+<DT><B>Size</B></DT>
+<DD><p>The size of the memory allocated for the 
+<b>IMAGE_DEBUG_INFORMATION</b> structure and all debugging information, in bytes.</p>
+</DD>
+<DT><B>MappedBase</B></DT>
+<DD><p>The base address of the image.</p>
+</DD>
+<DT><B>Machine</B></DT>
+<DD><p>The computer type. This member can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_I386<BR>0x014c</p>
+</TD>
+<TD width="60%"><p>Intel (32-bit)</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_IA64<BR>0x0200</p>
+</TD>
+<TD width="60%"><p>Intel Itanium Processor Family (IPF)</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_MACHINE_AMD64<BR>0x8664</p>
+</TD>
+<TD width="60%"><p>x64 (AMD64 or EM64T)</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>Characteristics</B></DT>
+<DD><p>The characteristics of the image. This member can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_RELOCS_STRIPPED<BR>0x0001</p>
+</TD>
+<TD width="60%"><p>Relocation information is stripped from the file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_EXECUTABLE_IMAGE<BR>0x0002</p>
+</TD>
+<TD width="60%"><p>The file is executable (there are no unresolved external references).</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_LINE_NUMS_STRIPPED<BR>0x0004</p>
+</TD>
+<TD width="60%"><p>Line numbers are stripped from the file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_LOCAL_SYMS_STRIPPED<BR>0x0008</p>
+</TD>
+<TD width="60%"><p>Local symbols are stripped from file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_AGGRESIVE_WS_TRIM<BR>0x0010</p>
+</TD>
+<TD width="60%"><p>Aggressively trim the working set.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_LARGE_ADDRESS_AWARE<BR>0x0020</p>
+</TD>
+<TD width="60%"><p>The application can handle addresses larger than 2 GB.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_BYTES_REVERSED_LO<BR>0x0080</p>
+</TD>
+<TD width="60%"><p>Bytes of the word are reversed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_32BIT_MACHINE<BR>0x0100</p>
+</TD>
+<TD width="60%"><p>Computer supports 32-bit words.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_DEBUG_STRIPPED<BR>0x0200</p>
+</TD>
+<TD width="60%"><p>Debugging information is stored separately in a .dbg file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP<BR>0x0400</p>
+</TD>
+<TD width="60%"><p>If the image is on removable media, copy and run from the swap file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_NET_RUN_FROM_SWAP<BR>0x0800</p>
+</TD>
+<TD width="60%"><p>If the image is on the network, copy and run from the swap file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_SYSTEM<BR>0x1000</p>
+</TD>
+<TD width="60%"><p>System file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_DLL<BR>0x2000</p>
+</TD>
+<TD width="60%"><p>DLL file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_UP_SYSTEM_ONLY<BR>0x4000</p>
+</TD>
+<TD width="60%"><p>File should be run only on a uniprocessor computer.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_FILE_BYTES_REVERSED_HI<BR>0x8000</p>
+</TD>
+<TD width="60%"><p>Bytes of the word are reversed.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>CheckSum</B></DT>
+<DD><p>The checksum of the image.</p>
+</DD>
+<DT><B>ImageBase</B></DT>
+<DD><p>The requested base address of the image.</p>
+</DD>
+<DT><B>SizeOfImage</B></DT>
+<DD><p>The size of the image, in bytes.</p>
+</DD>
+<DT><B>NumberOfSections</B></DT>
+<DD><p>The number of COFF section headers.</p>
+</DD>
+<DT><B>Sections</B></DT>
+<DD><p>A pointer to the first COFF section header. For more information, see 
+<A HREF="image_section_header_str.htm"><b>IMAGE_SECTION_HEADER</b></A>.</p>
+</DD>
+<DT><B>ExportedNamesSize</B></DT>
+<DD><p>The size of the <b>ExportedNames</b> member, in bytes.</p>
+</DD>
+<DT><B>ExportedNames</B></DT>
+<DD><p>A pointer to a series of null-terminated strings that name all the functions exported from the image.</p>
+</DD>
+<DT><B>NumberOfFunctionTableEntries</B></DT>
+<DD><p>The number of entries contained in the <b>FunctionTableEntries</b> member.</p>
+</DD>
+<DT><B>FunctionTableEntries</B></DT>
+<DD><p>A pointer to the first function table entry. For more information, see 
+<A HREF="image_function_entry_str.htm"><b>IMAGE_FUNCTION_ENTRY</b></A>.</p>
+</DD>
+<DT><B>LowestFunctionStartingAddress</B></DT>
+<DD><p>The lowest function table starting address.</p>
+</DD>
+<DT><B>HighestFunctionEndingAddress</B></DT>
+<DD><p>The highest function table ending address.</p>
+</DD>
+<DT><B>NumberOfFpoTableEntries</B></DT>
+<DD><p>The number of entries contained in the <b>FpoTableEntries</b> member.</p>
+</DD>
+<DT><B>FpoTableEntries</B></DT>
+<DD><p>A pointer to the first FPO entry. For more information, see 
+<A HREF="fpo_data_str.htm"><b>FPO_DATA</b></A>.</p>
+</DD>
+<DT><B>SizeOfCoffSymbols</B></DT>
+<DD><p>The size of the COFF symbol table, in bytes.</p>
+</DD>
+<DT><B>CoffSymbols</B></DT>
+<DD><p>A pointer to the COFF symbol table.</p>
+</DD>
+<DT><B>SizeOfCodeViewSymbols</B></DT>
+<DD><p>The size of the CodeView symbol table, in bytes.</p>
+</DD>
+<DT><B>CodeViewSymbols</B></DT>
+<DD><p>A pointer to the beginning of the CodeView symbol table.</p>
+</DD>
+<DT><B>ImageFilePath</B></DT>
+<DD><p>The relative path to the image file name.</p>
+</DD>
+<DT><B>ImageFileName</B></DT>
+<DD><p>The image file name.</p>
+</DD>
+<DT><B>ReservedDebugFilePath</B></DT>
+<DD><p>The full path to the symbol file.</p>
+</DD>
+<DT><B>ReservedTimeDateStamp</B></DT>
+<DD><p>The timestamp of the image. This represents the date and time the image was created by the linker.</p>
+</DD>
+<DT><B>ReservedRomImage</B></DT>
+<DD><p>This value is TRUE if the image is a ROM image.</p>
+</DD>
+<DT><B>ReservedDebugDirectory</B></DT>
+<DD><p>A pointer to the first debug directory. For more information, see 
+<A HREF="image_debug_directory_str.htm"><b>IMAGE_DEBUG_DIRECTORY</b></A>.</p>
+</DD>
+<DT><B>ReservedNumberOfDebugDirectories</B></DT>
+<DD><p>The number of entries contained in the <b>DebugDirectory</b> member.</p>
+</DD>
+<DT><B>ReservedOriginalFunctionTableBaseAddress</B></DT>
+<DD><p>The original function table base address.</p>
+</DD>
+<DT><B>Reserved</B></DT>
+<DD><p>This member is reserved for use by the operating system.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>The <A><b>LIST_ENTRY</b></A> structure is defined as follows:</p>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve" class="syntax">typedef struct _LIST_ENTRY {
+   struct _LIST_ENTRY *Flink;
+   struct _LIST_ENTRY *Blink;
+} LIST_ENTRY, *PLIST_ENTRY, *RESTRICTED_POINTER PRLIST_ENTRY;</PRE></DIV>
+</DIV>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="fpo_data_str.htm"><b>FPO_DATA</b></A><BR><A HREF="image_coff_symbols_header_str.htm"><b>IMAGE_COFF_SYMBOLS_HEADER</b></A><BR><A HREF="image_debug_directory_str.htm"><b>IMAGE_DEBUG_DIRECTORY</b></A><BR><A HREF="image_function_entry_str.htm"><b>IMAGE_FUNCTION_ENTRY</b></A><BR><A HREF="image_section_header_str.htm"><b>IMAGE_SECTION_HEADER</b></A><BR><A HREF="mapdebuginformation.htm"><b>MapDebugInformation</b></A><BR><A HREF="unmapdebuginformation.htm"><b>UnmapDebugInformation</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGE_DEBUG_INFORMATION%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,91 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>CheckSumMappedFile Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_checksummappedfile">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.checksummappedfile"></A>CheckSumMappedFile Function</H1>
+<P><P>Computes the checksum of the specified image file.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+PIMAGE_NT_HEADERS CheckSumMappedFile(
+  __in          PVOID <I>BaseAddress</I>,
+  __in          DWORD <I>FileLength</I>,
+  __out         PDWORD <I>HeaderSum</I>,
+  __out         PDWORD <I>CheckSum</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>BaseAddress</I></DT>
+<DD>
+<p>The base address of the mapped file. This value is obtained by calling the 
+<b>MapViewOfFile</b> function.
+					</p>
+</DD>
+<DT><I>FileLength</I></DT>
+<DD>
+<p>The size of the file, in bytes.</p>
+</DD>
+<DT><I>HeaderSum</I></DT>
+<DD>
+<p>A pointer to a variable that receives the original checksum from the image file, or zero if there is an error.</p>
+</DD>
+<DT><I>CheckSum</I></DT>
+<DD>
+<p>A pointer to the variable that receives the computed checksum.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is a pointer to the 
+<A HREF="image_nt_headers_str.htm"><b>IMAGE_NT_HEADERS</b></A> structure contained in the mapped image.</P>
+<P>If the function fails, the return value is NULL. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>CheckSumMappedFile</b> function computes a new checksum for the file and returns it in the <i>CheckSum</i> parameter. This function is used by any application that creates or modifies an executable image. Checksums are required for kernel-mode drivers and some system DLLs. The linker computes the original checksum at link time, if you use the appropriate linker switch. For more details, see your linker documentation.</p>
+<p>It is recommended that all images have valid checksums. It is the caller's responsibility to place the newly computed checksum into the mapped image and update the on-disk image of the file.</p>
+<p>All ImageHlp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, Windows 2000 Professional, Windows NT Workstation 4.0, Windows Me, Windows 98, or Windows 95.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, Windows 2000 Server, or Windows NT Server 4.0.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Imagehlp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Imagehlp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Imagehlp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_functions.htm">ImageHlp Functions</A><BR><A HREF="image_nt_headers_str.htm"><b>IMAGE_NT_HEADERS</b></A><BR><A HREF="mapfileandchecksum.htm"><b>MapFileAndCheckSum</b></A><BR><b>MapViewOfFile</b></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20CheckSumMappedFile%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

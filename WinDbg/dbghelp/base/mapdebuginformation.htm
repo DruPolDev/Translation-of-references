@@ -1,0 +1,90 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MapDebugInformation Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_mapdebuginformation">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.mapdebuginformation"></A>MapDebugInformation Function</H1>
+<P><P>Obtains access to the debugging information for an image.</P>
+<P CLASS="note"><B>Note</B>  This function is provided only for backward compatibility. It does not return reliable information. New applications should use the 
+<A HREF="symgetmoduleinfo64.htm"><b>SymGetModuleInfo64</b></A> and 
+<A HREF="symloadmodule64.htm"><b>SymLoadModule64</b></A> functions. </P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+PIMAGE_DEBUG_INFORMATION WINAPI MapDebugInformation(
+  __in          HANDLE <I>FileHandle</I>,
+  __in          PSTR <I>FileName</I>,
+  __in          PSTR <I>SymbolPath</I>,
+  __in          DWORD <I>ImageBase</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>FileHandle</I></DT>
+<DD>
+<p>A handle to an open executable image or NULL.</p>
+</DD>
+<DT><I>FileName</I></DT>
+<DD>
+<p>The name of an executable image file or NULL.</p>
+</DD>
+<DT><I>SymbolPath</I></DT>
+<DD>
+<p>The path where symbol files are located. The path can be multiple paths separated by semicolons. To retrieve the symbol path, use the 
+<A HREF="symgetsearchpath.htm"><b>SymGetSearchPath</b></A> function.</p>
+</DD>
+<DT><I>ImageBase</I></DT>
+<DD>
+<p>The base address for the image or zero.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is a pointer to an 
+<A HREF="image_debug_information_str.htm"><b>IMAGE_DEBUG_INFORMATION</b></A> structure.</P>
+<P>If the function fails, the return value is NULL. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>MapDebugInformation</b> function is used to obtain access to an image's debugging information. The debugging information is extracted from the image or the symbol file and placed into the 
+<b>IMAGE_DEBUG_INFORMATION</b> structure. This structure is allocated by the library and must be deallocated by using the 
+<A HREF="unmapdebuginformation.htm"><b>UnmapDebugInformation</b></A> function. The memory for the structure is not in the process's default heap, so attempts to free it with a memory deallocation routine will fail.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="image_debug_information_str.htm"><b>IMAGE_DEBUG_INFORMATION</b></A><BR><A HREF="symgetsearchpath.htm"><b>SymGetSearchPath</b></A><BR><A HREF="unmapdebuginformation.htm"><b>UnmapDebugInformation</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MapDebugInformation%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

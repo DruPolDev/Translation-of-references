@@ -1,0 +1,47 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Finding Symbols </TITLE><META NAME="MS-HAID" CONTENT="_win32_finding_symbols">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.finding_symbols"></A>Finding Symbols</H1>
+<P>After a symbol file has been loaded into the symbol handler, an application can use the symbol locator functions to return symbol information for a specified address. These functions can also find a source code file name and line number location for an address.</P>
+<H4><A NAME="enumerating_symbol_files"></A>Enumerating Symbol Files</H4>
+<P>To retrieve a list of all symbol files loaded by module name, call the 
+<A HREF="symenumeratemodules64.htm"><b>SymEnumerateModules64</b></A> function. For an example, see <A HREF="enumerating_symbol_modules.htm">Enumerating Symbol Modules</A>. To retrieve a list of symbols for a given module, call the 
+<A HREF="symenumsymbols.htm"><b>SymEnumSymbols</b></A> function. For an example, see <A HREF="enumerating_symbols.htm">Enumerating Symbols</A>.</P>
+<H4><A NAME="retrieving_symbols_by_address"></A>Retrieving Symbols by Address</H4>
+<P>To retrieve symbolic information for a specific address, use the 
+<A HREF="symfromaddr.htm"><b>SymFromAddr</b></A> function. This function retrieves information and stores it in a 
+<A HREF="symbol_info_str.htm"><b>SYMBOL_INFO</b></A> structure. Because symbol names are variable in length, you must provide additional buffer space following the 
+<b>SYMBOL_INFO</b> structure declaration. For an example, see <A HREF="retrieving_symbol_information_by_address.htm">Retrieving Symbol Information by Address</A>.</P>
+<P>Note that the address does not need to be on a symbol boundary. If the address comes after the beginning of a symbol but before the end of the symbol (the beginning of the symbol plus the symbol size), the function will locate the symbol.</P>
+<H4><A NAME="retrieving_symbols_by_symbol_name"></A>Retrieving Symbols by Symbol Name</H4>
+<P>To retrieve symbolic information in a 
+<A HREF="symbol_info_str.htm"><b>SYMBOL_INFO</b></A> structure for a specific module and symbol name, use the 
+<A HREF="symfromname.htm"><b>SymFromName</b></A> function. If deferred symbol loading is set, 
+<b>SymFromName</b> will attempt to load the symbol file for a module if it has not already been loaded. To specify a module name along with a symbol name, use the syntax <i>Module</i>!<i>SymName</i>. The "!" character delimits the module name from the symbol name. For an example, see <A HREF="retrieving_symbol_information_by_name.htm">Retrieving Symbol Information by Name</A>.</P>
+<H4><A NAME="retrieving_line_numbers_by_address"></A>Retrieving Line Numbers by Address</H4>
+<P>To retrieve the source code location for a specific address, use the 
+<A HREF="symgetlinefromaddr64.htm"><b>SymGetLineFromAddr64</b></A> function. This function fills an 
+<A HREF="imagehlp_line64_str.htm"><b>IMAGEHLP_LINE64</b></A> structure that includes the source file name and line number location referred to by the specified address. For an example, see <A HREF="retrieving_symbol_information_by_address.htm">Retrieving Symbol Information by Address</A>.</P>
+<H4><A NAME="retrieving_line_numbers_by_symbol_name"></A>Retrieving Line Numbers by Symbol Name</H4>
+<P>To retrieve source code location for a specific symbol name, use the 
+<A HREF="symgetlinefromname64.htm"><b>SymGetLineFromName64</b></A> function. This function is similar to 
+<A HREF="symgetsymfromname64.htm"><b>SymGetSymFromName64</b></A>, but retrieves an 
+<A HREF="imagehlp_line64_str.htm"><b>IMAGEHLP_LINE64</b></A> structure. To use 
+<A HREF="symgetlinefromaddr64.htm"><b>SymGetLineFromAddr64</b></A> or 
+<b>SymGetLineFromName64</b>, you must set the load lines option (SYMOPT_LOAD_LINES) using the 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function. For an example, see <A HREF="retrieving_symbol_information_by_name.htm">Retrieving Symbol Information by Name</A>.</P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Finding Symbols%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

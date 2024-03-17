@@ -1,0 +1,27 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Symbol Handler Initialization </TITLE><META NAME="MS-HAID" CONTENT="_win32_symbol_handler_initialization">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbol_handler_initialization"></A>Symbol Handler Initialization</H1>
+<P>The symbol handler is designed to track various sets of symbol files.</P>
+<P>To initialize the symbol handler, call the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function. The <i>hProcess</i> parameter can be a unique arbitrary number, a value returned from the 
+<b>GetCurrentProcess</b> function, or the identifier of any running process. The <i>fInvadeProcess</i> parameter indicates whether the symbol handler should enumerate the modules loaded by the process and load symbols for each of its modules. If <i>fInvadeProcess</i> is TRUE, the <i>hProcess</i> parameter must be the value returned from 
+<b>GetCurrentProcess</b> or the identifier of an existing process. To refresh this list, use the <A HREF="symrefreshmodulelist.htm"><b>SymRefreshModuleList</b></A> function.</P>
+<P>Using <i>fInvadeProcess</i> is a simple way to load all symbol files for a process. However, the symbol handler will not attempt to load symbols for modules subsequently loaded by the 
+<b>LoadLibrary</b> function. You must use the 
+<A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A> function in this case.</P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20Symbol Handler Initialization%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

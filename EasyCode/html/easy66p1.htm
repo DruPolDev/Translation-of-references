@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>Line method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">Line
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Window</b>, <b>DialogBox</b> and <b>Picture</b>
+objects.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">Line</font></b> <b><font
+color="#0000FF">Proto</font></b> <b>hWnd:<font color="#000080">HWND</font><font color="#FF00FF">,</font>
+x1<font color="#FF00FF">:</font><font color="#000080">LONG</font><font color="#FF00FF">,</font>
+y1<font color="#FF00FF">:</font><font color="#000080">LONG</font><font color="#FF00FF">,</font>
+x2<font color="#FF00FF">:</font><font color="#000080">LONG</font><font color="#FF00FF">,</font>
+y2<font color="#FF00FF">:</font><font color="#000080">LONG</font></b><font color="#FF00FF">,</font>
+<b>bRect<font color="#FF00FF">:</font><font color="#000080">BOOL</font><font color="#FF00FF">,</font>
+crFill<font color="#FF00FF">:</font><font color="#000080">COLORREF</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><strong><font color="#0000FF">Invoke</font> <font
+color="#800080">Line</font><font color="#FF00FF">,</font> hWnd<font color="#FF00FF">,</font> x1<font
+color="#FF00FF">,</font> y1<font color="#FF00FF">,</font> x2<font color="#FF00FF">,</font> y2<font
+color="#FF00FF">,</font> bRect<font color="#FF00FF">,</font> crFill</strong></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Draws a line (or rectangle) in the specified
+coordinates.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote>
+
+<p><font face="Arial" size=2><b>x1</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b>X</b>-coordinate of the line's starting point.</font></p></blockquote>
+
+<p><font face="Arial" size=2><b>y1</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b>Y</b>-coordinate of line's starting point.</font></p></blockquote>
+
+<p><font face="Arial" size=2><b>x2</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b>X</b>-coordinate of line's ending point.</font></p></blockquote>
+
+<p><font face="Arial" size=2><b>y2</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b>Y</b>-coordinate of line's ending point.</font></p></blockquote>
+
+<p><font face="Arial" size=2><b>bRect</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Specifies if a rectangle has to be drawn.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>crFill</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Specifies the color to fill the rectangle with.</font></p>
+</blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <b><font
+color="#000080">TRUE</font></b> if successful, or <b><font color="#000080">FALSE</font></b> if
+not.</font></font></p></blockquote>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The </font><a href="easy8x2d.htm"><font face=Arial
+size=2><b>DrawingStyle</b></font></a><font face="Arial" size="2"> and </font><a href="easy3nmw.htm"><font
+face=Arial size=2><b>DrawingWifth</b></font></a><font face="Arial" size="2"> properties are used to draw the
+line or rectangle. If the <b>bRect</b> parameter is <b><font color="#000080">FALSE</font></b>, the method
+draws just a line and the <b>crFill</b> parameter is ignored. On the other hand, if the <b>bRect</b> parameter
+is <b><font color="#000080">TRUE</font></b>, the method draws a rectangle which is filled with the color
+specified by <b>crFill</b>. If the <b>crFill</b> parameter is <b>-1</b>, the rectangle is filled with the back
+color of the object (see the </font><a href="easy1o6q.htm"><font face=Arial
+size=2><b>BackColor</b></font></a><font face="Arial" size="2"> property).<br><br></font></p>
+
+</body>
+</html>

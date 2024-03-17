@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Programming Unicode applications</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><a name="unicode"></a><b><font color="#004080" face="Arial" size="6">Programming
+Unicode applications</font></b></p>
+<hr>
+<p><font face="Arial" size="2">In order to
+build Unicode applications
+with Easy Code, you must properly set the assembler that is going to be
+used. Please carefully read the following instructions:.<br>
+<br>
+<blockquote>
+<b>AsmC</b>
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then <b>Configurations</b>
+tab. In the
+<b>Text encoding</b> combo box, select <b>UTF-8</b>
+and click <b>OK</b>.<br>
+<br>
+Now click the <b>Project=&gt;Properties</b>
+menu, in the left part of the window click <b>Options</b>,
+then check the <b>This project will run in Unicode mode</b>
+option and click <b>OK</b>.<br>
+<br>
+<b>REMARKS:</b> Text
+strings in the <b>.Data</b> section must be defined with
+the <b>DW</b> directive. On the other hand, since the
+<b>OPTION WSTRING:ON</b> and <b>OPTION
+CODEPAGE:65001</b>
+options must be activated, Easy Code already takes care
+to activate them internally.</blockquote>
+</blockquote>
+<br>
+<blockquote>
+<b>Fasm</b>
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then click the <b>Configurations</b>
+tab. In the <b>Text encoding</b> combo box, select <b>UTF-8</b>
+and click <b>OK</b>.<br>
+<br>
+Now click the
+<b>Project=&gt;Properties</b>
+menu, in the left part of the window click <b>Options</b>,
+then check the <b>This project will run in Unicode mode</b>
+option and click <b>OK</b>.<br>
+<br>
+<b>REMARKS:</b> Text strings in the <b>.data</b>
+section must be defined
+with the <b>du</b> directive. On the other hand, the <b>UTF8.INC</b>
+file
+is needed and it will be internally included by Easy Code.
+</blockquote>
+</blockquote>
+<br>
+<blockquote>
+<b>GoAsm</b>
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then click the <b>Configurations</b>
+tab. In the <b>Text encoding</b> combo box, select <b>Unicode
+(BOM)</b> and click <b>OK</b>.<br>
+<br>
+Now click the
+<b>Project=&gt;Properties</b> menu, in the left
+part of the
+window click <b>Options</b>, then check the <b>This
+project
+will run in Unicode mode</b> option and click <b>OK</b>.
+</blockquote>
+</blockquote>
+<br>
+<blockquote>
+<b>JWasm</b>
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then click the <b>Configurations</b>
+tab. In the <b>Text encoding</b> combo box, select <b>UTF-8</b>
+and click <b>OK</b>.<br>
+<br>
+Now click the
+<b>Project=&gt;Properties</b>
+menu, in the left part of the window click <b>Options</b>,
+then check the <b>This project will run in Unicode mode</b>
+option and
+click <b>OK</b>.<br>
+<br>
+<b>REMARKS:</b> Text strings must be defined in the <b>String
+Table</b> since text strings in the <b>.Data</b>
+section will
+not work because they are <b>NOT</b> interpreted as
+Unicode text.
+</blockquote>
+</blockquote>
+<br>
+<blockquote>
+<b>Masm</b>
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then click the <b>Configurations</b>
+tab. In the <b>Text encoding</b> combo box, select <b>UTF-8</b>
+and click <b>OK</b>.<br>
+<br>
+Now click the
+<b>Project=&gt;Properties</b>
+menu, in the left part of the window click <b>Options</b>,
+then check the <b>This project will run in Unicode mode</b>
+option and
+click <b>OK</b>.<br>
+<br>
+<b>REMARKS:</b> Text strings must be defined in the <b>String
+Table</b> since text strings in the <b>.Data</b>
+section will
+not work because they are <b>NOT</b> interpreted as
+Unicode text.
+</blockquote>
+</blockquote>
+<br>
+<blockquote>
+<b>PoAsm</b>
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then click the <b>Configurations</b>
+tab. In the <b>Text encoding</b> combo box, select <b>UTF-8</b>
+and click <b>OK</b>.<br>
+<br>
+Now click the
+<b>Project=&gt;Properties</b>
+menu, in the left part of the window click <b>Options</b>,
+then check the <b>This project will run in Unicode mode</b>
+option and
+click <b>OK</b>.<br>
+<br>
+<b>REMARKS:</b> Text strings must be defined in the <b>String
+Table</b> and the Microsoft <b>rc.exe</b> resource
+compiler must
+be used (<b>porc.exe</b> will not work since it cannot
+compile
+Unicode format files). On the other hand, text strings in the
+<b>.Data</b> section will not work because they are <b>NOT</b>
+interpreted as Unicode text.
+</blockquote>
+</blockquote>
+<br>
+<blockquote>
+<b>SolAsm</b> (under developmentt)
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then click the <b>Configurations</b>
+tab. In the <b>Text encoding</b> combo box, select <b>UTF-8</b>
+and click <b>OK</b>.<br>
+<br>
+Now click the
+<b>Project=&gt;Properties</b>
+menu, in the left part of the window click <b>Options</b>,
+then check the <b>This project will run in Unicode mode</b>
+option and click <b>OK</b>.<br>
+<br>
+<b>REMARKS:</b> Text strings in the <b>.data</b>
+section must be defined
+with the <b>du</b> directive (at the time of this writing,
+<b>du</b> DOES NOT WORK for Chinese characters).
+</blockquote>
+</blockquote>
+<br>
+<blockquote>
+<b>UAsm</b>
+<blockquote>Create or open the project you want to build as
+Unicode, click the
+<b>Settings=&gt;Tools</b> menu, then <b>Configurations</b>
+tab. In the
+<b>Text encoding</b> combo box, select <b>UTF-8</b>
+and click <b>OK</b>.<br>
+<br>
+Now click the <b>Project=&gt;Properties</b>
+menu, in the left part of the window click <b>Options</b>,
+then check the <b>This project will run in Unicode mode</b>
+option and click <b>OK</b>.<br>
+<br>
+<b>REMARKS:</b> Text
+strings in the <b>.Data</b> section must be defined with
+the <b>DW</b> directive. On the other hand, since the
+<b>OPTION LITERALS:ON</b> option must be actived, Easy
+Code already takes care to activate it internally.
+</blockquote>
+</blockquote>
+<br>
+<center>If you want to download some Unicode text examples
+for different assemblers please click <a href="https://easycode.cat/English/Download/ECUnicode.zip"><b>here</b></a>.</center>
+<br>
+<br>
+<b>REMARKS:</b> In all my tests, <b>AsmC</b>, <b>Fasm</b>,
+<b>GoAsm</b> and <b>UAsm</b> have been the
+best assemblers
+to work with Unicode text, using the Microsoft resource
+compiler <b>rc.exe</b>, or the GoAsm tools <b>GoRC.exe</b>.
+<br>
+<br>
+</font></p>
+</body></html>

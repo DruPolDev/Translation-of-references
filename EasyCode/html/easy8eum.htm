@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>CreateCollection method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">CreateCollection
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">CreateCollection</font> <font
+color="#0000FF">Proto</font></b> <b>bSorted<font color="#FF00FF">:</font><font
+color="#000080">BOOL</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font> <font
+color="#800080">CreateCollection</font><font color="#FF00FF">,</font></b> <b>bSorted</b></font></font></p>
+</blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Creates a collection of strings.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>bSorted</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">A <b><font color="#000080">BOOL</font></b> value specifying whether the strings
+in the collection are going to be sorted (<b><font color="#000080">FALSE</font></b> for no
+sorting).</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns the handle to the created
+collection.</font></font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><br><b>NOTE</b>: Use the <a
+href="easy2ipa.htm"><b>DestroyCollection</b></a> method to destroy a collection created by
+<font color="#800080"><b>CreateCollection</b></font>.</p>
+
+<p><font face="Arial" size="2"><b>REMARKS</b>: The <font color="#800080"><b>CreateCollection</b></font>
+method will create a Unicode collection if the application is running as Unicode, or an ANSI collection if
+not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a> method). You can call
+<font color="#800080"><b>CreateCollectionA</b></font> to create ANSI collections, or <font
+color="#800080"><b>CreateCollectionW</b></font> to create Unicode collections.<br><br></font></p>
+
+</body>
+</html>

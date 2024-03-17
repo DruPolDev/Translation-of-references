@@ -1,0 +1,125 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>ReBaseImage64 Function</TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.rebaseimage64"></A>ReBaseImage64 Function</H1>
+<P><P>Changes the load address for the specified image, which reduces the required load time for a DLL.</P>
+<P>Alternatively, you can use the 
+Rebase tool. This tool is available in Visual Studio and the <A HREF="Http://go.microsoft.com/FWLink/?LinkId=84091" TARGET="_blank">Platform SDK</A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL ReBaseImage(
+  __in          PCSTR <I>CurrentImageName</I>,
+  __in          PCSTR <I>SymbolPath</I>,
+  __in          BOOL <I>fReBase</I>,
+  __in          BOOL <I>fRebaseSysfileOk</I>,
+  __in          BOOL <I>fGoingDown</I>,
+  __in          ULONG <I>CheckImageSize</I>,
+  __out         ULONG* <I>OldImageSize</I>,
+  __out         ULONG64* <I>OldImageBase</I>,
+  __out         ULONG* <I>NewImageSize</I>,
+  __in_out      ULONG64* <I>NewImageBase</I>,
+  __in          ULONG <I>TimeStamp</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>CurrentImageName</I></DT>
+<DD>
+<p>The name of the file to be rebased.</p>
+</DD>
+<DT><I>SymbolPath</I></DT>
+<DD>
+<p>The path used to find the corresponding symbol file.</p>
+</DD>
+<DT><I>fReBase</I></DT>
+<DD>
+<p>If this value is TRUE, the image is rebased. Otherwise, the image is not rebased.</p>
+</DD>
+<DT><I>fRebaseSysfileOk</I></DT>
+<DD>
+<p>If this value is TRUE, the system image is rebased. Otherwise, the system image is not rebased.</p>
+</DD>
+<DT><I>fGoingDown</I></DT>
+<DD>
+<p>If this value is TRUE, the image can be rebased below the given base; otherwise, it cannot.</p>
+</DD>
+<DT><I>CheckImageSize</I></DT>
+<DD>
+<p>The maximum size that the image can grow to, in bytes, or zero if there is no limit.</p>
+</DD>
+<DT><I>OldImageSize</I></DT>
+<DD>
+<p>A pointer to a variable that receives the original image size, in bytes.</p>
+</DD>
+<DT><I>OldImageBase</I></DT>
+<DD>
+<p>A pointer to a variable that receives the original image base.</p>
+</DD>
+<DT><I>NewImageSize</I></DT>
+<DD>
+<p>A pointer to a variable that receives the new image size after the rebase operation, in bytes.</p>
+</DD>
+<DT><I>NewImageBase</I></DT>
+<DD>
+<p>A pointer to a variable that receives the new image base after the rebase operation.</p>
+</DD>
+<DT><I>TimeStamp</I></DT>
+<DD>
+<p>The new time date stamp for the image file header. The value must be represented in the number of seconds elapsed since midnight (00:00:00), January 1, 1970, Universal Coordinated Time, according to the system clock.</p>
+<P>If this parameter is 0, the current file header time date stamp is incremented by 1 second.</P>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE.</P>
+<P>If the function fails, the return value is FALSE. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>ReBaseImage64</b> function changes the desired load address for the specified image. This operation involves reading the entire image and updating all fixups, debugging information, checksum, and time stamp values. You can rebase an image to reduce the required load time for its DLLs. If an application can rely on a DLL being loaded at the desired load address, then the system loader does not have to relocate the image. The image is simply loaded into the application's virtual address space and the 
+<b>DllMain</b> function is called, if one is present.</p>
+<p>All ImageHlp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, or Windows 2000 Professional.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, or Windows 2000 Server.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Imagehlp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Imagehlp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Imagehlp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_functions.htm">ImageHlp Functions</A><BR><b>DllMain</b></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20ReBaseImage64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

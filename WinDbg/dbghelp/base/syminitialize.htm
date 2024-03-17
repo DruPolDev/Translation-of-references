@@ -1,0 +1,113 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymInitialize Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_syminitialize">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.syminitialize"></A>SymInitialize Function</H1>
+<P><P>Initializes the symbol handler for a process.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL WINAPI SymInitialize(
+  __in          HANDLE <I>hProcess</I>,
+  __in          PCTSTR <I>UserSearchPath</I>,
+  __in          BOOL <I>fInvadeProcess</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle that identifies the caller. This value should be unique and nonzero, but need not be a process handle. However, if you do use a process handle, be sure to use the correct handle. If the application is a debugger, use the process handle for the process being debugged. Do not use the handle returned by <b>GetCurrentProcess</b> when debugging another process, because calling functions like <A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A> can have unexpected results. 
+
+
+</p>
+<P>This parameter cannot be NULL.</P>
+<BLOCKQUOTE><B>Windows Me/98/95:  </B>Use the process identifier, not the process handle.</BLOCKQUOTE>
+</DD>
+<DT><I>UserSearchPath</I></DT>
+<DD>
+<p>The path, or series of paths separated by a semicolon (;), that is used to search for symbol files. If this parameter is NULL, the library attempts to form a symbol path from the following sources: 
+
+
+</p>
+<P></P>
+<ul>
+<li>The current working directory of the application</li>
+<li>The _NT_SYMBOL_PATH environment variable</li>
+<li>The _NT_ALTERNATE_SYMBOL_PATH environment variable</li>
+</ul>
+<P>Note that the search path can also be set using the <A HREF="symsetsearchpath.htm"><b>SymSetSearchPath</b></A> function.</P>
+</DD>
+<DT><I>fInvadeProcess</I></DT>
+<DD>
+<p>If this value is TRUE, enumerates the loaded modules for the process and effectively calls the 
+<A HREF="symloadmodule64.htm"><b>SymLoadModule64</b></A> function for each module.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE.</P>
+<P>If the function fails, the return value is FALSE. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>SymInitialize</b> function is used to initialize the symbol handler for a process. In the context of the symbol handler, a process is a convenient object to use when collecting symbol information. Usually, symbol handlers are used by debuggers and other tools that need to load symbols for a process being debugged.</p>
+<p>The  handle passed to 
+<b>SymInitialize</b> must be the same value passed to all other symbol handler functions called by the process. It is the  handle that the functions use to identify the caller and locate the correct symbol information. When you have finished using the symbol information, call the 
+<A HREF="symcleanup.htm"><b>SymCleanup</b></A> function to deallocate all resources associated with the process for which symbols are loaded.</p>
+<p>The search for symbols files is performed recursively for all paths specified in the <i>UserSearchPath</i> parameter. Therefore, if you specify the root directory in a search, the whole drive is searched, which can take significant time. Note that the directory that contains the executable file for the process is not automatically part of the search path. To include this directory in the search path, call the 
+<b>GetModuleFileNameEx</b> function, then add the path returned to <i>UserSearchPath</i>.</p>
+<p>A process that calls <b>SymInitialize</b> should not call it again unless it calls <b>SymCleanup</b> first. If the call to <b>SymInitialize</b> set <i>fInvadeProcess</i> to TRUE and you simply need to reload the module list, use the <A HREF="symrefreshmodulelist.htm"><b>SymRefreshModuleList</b></A> function.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, call 
+<b>SymInitialize</b> only when your process starts and 
+<b>SymCleanup</b> only when your process ends. It is not necessary for each thread in the process to call these functions.</p>
+<p>To call the Unicode version of this function, define DBGHELP_TRANSLATE_TCHAR.</p>
+<H4>Example Code 
+</H4>
+<p>For an example, see 
+<A HREF="initializing_the_symbol_handler.htm">Initializing the Symbol Handler</A>.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>SymInitializeW</B> (Unicode) and <B>SymInitialize</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><b>GetModuleFileNameEx</b><BR><A HREF="symcleanup.htm"><b>SymCleanup</b></A><BR><A HREF="symenumprocesses.htm"><b>SymEnumProcesses</b></A><BR><A HREF="symloadmodule64.htm"><b>SymLoadModule64</b></A><BR><A HREF="symrefreshmodulelist.htm"><b>SymRefreshModuleList</b></A><BR><A HREF="symsetsearchpath.htm"><b>SymSetSearchPath</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymInitialize%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

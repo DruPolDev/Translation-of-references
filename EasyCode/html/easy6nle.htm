@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>Right method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">Right
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">Right</font></b> <b><font
+color="#0000FF">Proto</font></b> <b>lpszString<font color="#FF00FF">:</font><font
+color="#000080">LPSTR</font><font color="#FF00FF">,</font></b> <b>lChars<font color="#FF00FF">:</font><font
+color="#000080">LONG</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font></b> <b><font
+color="#800080">Right</font><font color="#FF00FF">,</font></b> <b>lpszString<font color="#FF00FF">,</font>
+lChars</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Converts the specified string to the last (rightmost) <b>lChars</b>
+characters.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>lpszString</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the effective address of the null-terminated string to be
+converted.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>lChars</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Number of right characters to
+convert the string to.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <strong><font
+color="#000080">TRUE</font></strong> if successfull, or <strong><font color="#000080">FALSE</font></strong>
+if not.</font></font></p></blockquote>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The <font color="#800080"><b>Right</b></font>
+method expects <b>lpszString</b> to be a Unicode string if the application is running as Unicode,
+or an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call <font color="#800080"><b>RightA</b></font> to convert ANSI strings in Unicode
+applications, or <font color="#800080"><b>RightW</b></font> to convert Unicode strings in ANSI
+applications.<br><br></font></p>
+
+</body>
+</html>

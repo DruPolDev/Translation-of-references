@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>App object</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font face="Arial" size="6"><font color="#800080">App</font> <font color="#004080">object
+(only visual project type)</font></font></b></p>
+<hr>
+<p><font face="Arial" size="6"><font face="Arial" size="2"><br>
+At run time, you have access to
+this interesting and useful object.</font></font></p>
+<p><font face="Arial" size="6"><b><font face="Arial" size="2"><br>
+<font color="#800080">App</font>
+object</font></b></font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;The
+<b><font color="#800080">App</font></b>
+object
+contains some information about the running application. It has the
+following members:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Accel</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The handle to the main
+accelerator table, if any,
+or <b><font color="#000080">NULL</font></b></font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>CommandLine</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The command line (excluding the
+program name and path)
+for the application</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>FileName</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The name of the executable file</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Header</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The header or title of the
+application (the text in
+the <b>Header</b> field of the <a href="Project.htm#project1"><b>Project
+Properties</b></a>)</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Instance</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The handle to the application's
+instance</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Main</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The handle to the main window
+(start up window)
+of the application</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Major</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The major version</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Minor</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The minor version</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Path</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The path to the application</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Previous</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The handle to the main window
+of a previous instance,
+if any, or <b><font color="#000080">NULL</font></b></font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>ProcessID</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The process identifier (not the
+process handle). To
+get the process handle, call the <b><font color="#800000">GetCurrentProcess</font></b>
+API function.</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>Revision</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The revision of the version</font></td>
+</tr>
+<tr>
+<td style="color: rgb(0, 0, 0);" v="" valign="top" width="110"><font face="Arial" size="2"><b>ThreadID</b></font></td>
+<td style="color: rgb(0, 0, 0);"><font face="Arial" size="2">The identifier of the thread
+that created the main
+window.</font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+<p><font face="Arial" size="2">Some
+applications can only have one instance running at a time.
+In Order to know if there is any other instance already running
+when you start the application, watch the <b><font color="#800080">App</font>.Previous</b> variable
+in the
+<b><font color="#000080">WM_CREATE</font></b>
+message. If <b><font color="#800080">App</font>.Previous</b>
+is not <b><font color="#000080">NULL</font></b>
+and you do not want another instance to run, return <b>-1</b>.
+The value of <b><font color="#800080">App</font>.Previous</b>
+is the handle to the main window of the running
+instance (if any), or <b><font color="#000080">NULL</font></b>.</font></p>
+<p><font face="Arial"><font size="2"><br>
+<b>WARNING:</b> You should <b>NEVER CHANGE</b>
+any of the values of
+the <b><font color="#800080">App</font></b>
+object or the application may crash.</font></font></p>
+<p><font face="Arial" size="2"><b>IMPORTANT</b>:
+When working
+with <b>Fasm visual projects</b>, you must take into
+account
+that the <b><font color="#800080">App</font></b>
+object is a
+structure, so it always has to be within brackets (i.e.
+<b><font color="#ff00ff">[</font></b><b><font color="#800080">App</font>.Previous</b></font><b><font face="Arial" size="2"><font color="#ff00ff">]</font></font></b><font face="Arial" size="2">). If
+the <b><font color="#800080">App</font></b>
+object is not within
+brackets, Fasm does not fire any error because it thinks an
+effective address is being passed, but the built application (or
+part of it) will not work.</font></p>
+<p><font face="Arial"><font size="2"><b>REMARKS</b>:
+The <b>CommandLine</b> member points to a null-terminated
+string specifying just the command line for the application (if any),
+that is, not including the program name
+and path. To retrieve the entire command line, use the API function <b><font color="#800000">GetCommandLine</font></b>.</font></font></p>
+</body></html>

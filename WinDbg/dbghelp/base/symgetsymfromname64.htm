@@ -1,0 +1,88 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymGetSymFromName64 Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_symgetsymfromname64">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symgetsymfromname64"></A>SymGetSymFromName64 Function</H1>
+<P><P>Locates a symbol for the specified name.</P>
+<P CLASS="note"><B>Note</B>  This function is provided only for compatibility. Applications should use 
+<A HREF="symfromname.htm"><b>SymFromName</b></A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL WINAPI SymGetSymFromName64(
+  __in          HANDLE <I>hProcess</I>,
+  __in          PCSTR <I>Name</I>,
+  __out         PIMAGEHLP_SYMBOL64 <I>Symbol</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to the process that was originally passed to the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function.</p>
+</DD>
+<DT><I>Name</I></DT>
+<DD>
+<p>The symbol name for which a symbol is to be located.</p>
+</DD>
+<DT><I>Symbol</I></DT>
+<DD>
+<p>A pointer to an 
+<A HREF="imagehlp_symbol64_str.htm"><b>IMAGEHLP_SYMBOL64</b></A> structure.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE.</P>
+<P>If the function fails, the return value is FALSE. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>This function supersedes the <A><b>SymGetSymFromName</b></A> function. For more information, see 
+<A HREF="updated_platform_support.htm">Updated Platform Support</A>.</p>
+<p>The 
+<b>SymGetSymFromName64</b> function is used to locate a symbol for a specified name. The name can contain a module prefix that isolates the symbol search to a single module's symbol table.</p>
+<p>The module prefix is in the form of "<i>module</i>!". The "!" character is the delimiter between the module name and the symbol name. If there is no module prefix, then the search is performed on each module's symbol table in a linear manner, beginning with the first module that is loaded.</p>
+<p>Using the module prefix is preferable for two reasons. First, the symbol search occurs much faster. Second, when deferred symbol loading is turned on, the search causes symbols to be loaded for each module that is searched. When the symbol is found, the symbol information is copied into the <i>Symbol</i> buffer provided by the caller. The caller must allocate the <i>Symbol</i> buffer properly and fill in the required parameters in the 
+<b>IMAGEHLP_SYMBOL64</b> structure before calling 
+<b>SymGetSymFromName64</b>.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="imagehlp_symbol64_str.htm"><b>IMAGEHLP_SYMBOL64</b></A><BR><A HREF="symfromname.htm"><b>SymFromName</b></A><BR><A HREF="syminitialize.htm"><b>SymInitialize</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymGetSymFromName64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

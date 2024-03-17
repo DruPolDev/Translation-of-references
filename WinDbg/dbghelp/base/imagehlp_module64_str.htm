@@ -1,0 +1,191 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGEHLP_MODULE64 Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_imagehlp_module64_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagehlp_module64_str"></A>IMAGEHLP_MODULE64 Structure</H1>
+<P><P>Contains module information.</P>
+<P>This structure supersedes the <A><b>IMAGEHLP_MODULE</b></A> structure. For more information, see 
+<A HREF="updated_platform_support.htm">Updated Platform Support</A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGEHLP_MODULE64 {<br>  DWORD SizeOfStruct;<br>  DWORD64 BaseOfImage;<br>  DWORD ImageSize;<br>  DWORD TimeDateStamp;<br>  DWORD CheckSum;<br>  DWORD NumSyms;<br>  SYM_TYPE SymType;<br>  TCHAR ModuleName[32];<br>  TCHAR ImageName[256];<br>  TCHAR LoadedImageName[256];<br>  TCHAR LoadedPdbName[256];<br>  DWORD CVSig;<br>  TCHAR CVData[MAX_PATH*3];<br>  DWORD PdbSig;<br>  GUID PdbSig70;<br>  DWORD PdbAge;<br>  BOOL PdbUnmatched;<br>  BOOL DbgUnmatched;<br>  BOOL LineNumbers;<br>  BOOL GlobalSymbols;<br>  BOOL TypeInfo;<br>  BOOL SourceIndexed;<br>  BOOL Publics;
+} IMAGEHLP_MODULE64, <br> *PIMAGEHLP_MODULE64;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>SizeOfStruct</B></DT>
+<DD><p>The size of the structure, in bytes. The caller must set this member to <CODE>sizeof(IMAGEHLP_MODULE64)</CODE>.</p>
+</DD>
+<DT><B>BaseOfImage</B></DT>
+<DD><p>The base virtual address where the image is loaded.</p>
+</DD>
+<DT><B>ImageSize</B></DT>
+<DD><p>The size of the image, in bytes.</p>
+</DD>
+<DT><B>TimeDateStamp</B></DT>
+<DD><p>The date and timestamp value. The value is represented in the number of seconds elapsed since midnight (00:00:00), January 1, 1970, Universal Coordinated Time, according to the system clock. The timestamp can be printed using the C run-time (CRT) function <A><b>ctime</b></A>.</p>
+</DD>
+<DT><B>CheckSum</B></DT>
+<DD><p>The checksum of the image. This value can be zero.</p>
+</DD>
+<DT><B>NumSyms</B></DT>
+<DD><p>The number of symbols in the symbol table.  The value of this parameter is not meaningful when <b>SymPdb</b> is specified as  the value of the <i>SymType</i> parameter.</p>
+</DD>
+<DT><B>SymType</B></DT>
+<DD><p>The type of symbols that are loaded. This member can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymCoff</p>
+</TD>
+<TD width="60%"><p>COFF symbols.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymCv</p>
+</TD>
+<TD width="60%"><p>CodeView symbols.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymDeferred</p>
+</TD>
+<TD width="60%"><p>Symbol loading deferred.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymDia</p>
+</TD>
+<TD width="60%"><p>DIA symbols.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymExport</p>
+</TD>
+<TD width="60%"><p>Symbols generated from a DLL export table.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymNone</p>
+</TD>
+<TD width="60%"><p>No symbols are loaded.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymPdb</p>
+</TD>
+<TD width="60%"><p>PDB symbols.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymSym</p>
+</TD>
+<TD width="60%"><p>.sym file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SymVirtual</p>
+</TD>
+<TD width="60%"><p>The virtual module created by 
+<A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A> with SLMFLAG_VIRTUAL.
+							</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>ModuleName</B></DT>
+<DD><p>The module name.</p>
+</DD>
+<DT><B>ImageName</B></DT>
+<DD><p>The image name. The name may or may not contain a full path.</p>
+</DD>
+<DT><B>LoadedImageName</B></DT>
+<DD><p>The full path and file name of the file from which symbols were loaded.</p>
+</DD>
+<DT><B>LoadedPdbName</B></DT>
+<DD><p>The full path and file name of the .pdb file.</p>
+</DD>
+<DT><B>CVSig</B></DT>
+<DD><p>The signature of the CV record in the debug directories.</p>
+</DD>
+<DT><B>CVData</B></DT>
+<DD><p>The contents of the CV record.</p>
+</DD>
+<DT><B>PdbSig</B></DT>
+<DD><p>The PDB signature.</p>
+</DD>
+<DT><B>PdbSig70</B></DT>
+<DD><p>The PDB signature (Visual C/C++ 7.0 and later)</p>
+</DD>
+<DT><B>PdbAge</B></DT>
+<DD><p>The DBI age of PDB.</p>
+</DD>
+<DT><B>PdbUnmatched</B></DT>
+<DD><p>A value that indicates whether the loaded PDB is unmatched.</p>
+</DD>
+<DT><B>DbgUnmatched</B></DT>
+<DD><p>A value that indicates whether the loaded DBG is unmatched.</p>
+</DD>
+<DT><B>LineNumbers</B></DT>
+<DD><p>A value that indicates whether line number information is available.</p>
+</DD>
+<DT><B>GlobalSymbols</B></DT>
+<DD><p>A value that indicates whether symbol information is available.</p>
+</DD>
+<DT><B>TypeInfo</B></DT>
+<DD><p>A value that indicates whether type information is available.</p>
+</DD>
+<DT><B>SourceIndexed</B></DT>
+<DD><p>A value that indicates whether the .pdb supports the source server.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This member is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>Publics</B></DT>
+<DD><p>A value that indicates whether the module contains public symbols.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This member is not supported.</BLOCKQUOTE>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>IMAGEHLP_MODULEW64</B> (Unicode) and <B>IMAGEHLP_MODULE64</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="symgetmoduleinfo64.htm"><b>SymGetModuleInfo64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGEHLP_MODULE64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

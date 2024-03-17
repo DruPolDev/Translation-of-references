@@ -1,0 +1,226 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SYMBOL_INFO Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_symbol_info_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symbol_info_str"></A>SYMBOL_INFO Structure</H1>
+<P><P>Contains symbol information.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _SYMBOL_INFO {<br>  ULONG SizeOfStruct;<br>  ULONG TypeIndex;<br>  ULONG64 Reserved[2];<br>  ULONG Index;<br>  ULONG Size;<br>  ULONG64 ModBase;<br>  ULONG Flags;<br>  ULONG64 Value;<br>  ULONG64 Address;<br>  ULONG Register;<br>  ULONG Scope;<br>  ULONG Tag;<br>  ULONG NameLen;<br>  ULONG MaxNameLen;<br>  TCHAR Name[1];
+} SYMBOL_INFO, <br> *PSYMBOL_INFO;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>SizeOfStruct</B></DT>
+<DD><p>The size of the structure, in bytes. This member must be set to <CODE>sizeof(SYMBOL_INFO)</CODE>. Note that the total size of the data is the <b>SizeOfStruct</b> + <b>MaxNameLen</b> - 1. The reason to subtract one is that the first character in the name is accounted for in the size of the structure.</p>
+</DD>
+<DT><B>TypeIndex</B></DT>
+<DD><p>The type index of the symbol. For more information, see the PDB documentation.</p>
+</DD>
+<DT><B>Reserved</B></DT>
+<DD><p>This member is reserved for system use.</p>
+</DD>
+<DT><B>Index</B></DT>
+<DD><p>The unique value for the symbol. The value associated with a symbol is not guaranteed to be the same each time you run the process.</p>
+<P>For PDB symbols, the index value for a symbol is not generated until the symbol is enumerated or retrieved through a search by name or address. The index values for all CodeView and COFF symbols are generated when the symbols are loaded.</P>
+</DD>
+<DT><B>Size</B></DT>
+<DD><p>The symbol size, in bytes. This value is typically zero and should be ignored.</p>
+</DD>
+<DT><B>ModBase</B></DT>
+<DD><p>The base address of the module that contains the symbol.</p>
+</DD>
+<DT><B>Flags</B></DT>
+<DD><p>This member can be one or more of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_CLR_TOKEN<BR>0x00040000</p>
+</TD>
+<TD width="60%"><p>The symbol is a CLR token.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_CONSTANT<BR>0x00000100</p>
+</TD>
+<TD width="60%"><p>The symbol is a constant.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_EXPORT<BR>0x00000200</p>
+</TD>
+<TD width="60%"><p>The symbol is from the export table.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_FORWARDER<BR>0x00000400</p>
+</TD>
+<TD width="60%"><p>The symbol is a forwarder.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_FRAMEREL<BR>0x00000020</p>
+</TD>
+<TD width="60%"><p>Offsets are frame relative.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_FUNCTION<BR>0x00000800</p>
+</TD>
+<TD width="60%"><p>The symbol is a known function.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_ILREL<BR>0x00010000</p>
+</TD>
+<TD width="60%"><p>The symbol address is an offset relative to the beginning of the intermediate language block. This applies to managed code only.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_LOCAL<BR>0x00000080</p>
+</TD>
+<TD width="60%"><p>The symbol is a local variable.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_METADATA<BR>0x00020000</p>
+</TD>
+<TD width="60%"><p>The symbol is managed metadata.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_PARAMETER<BR>0x00000040</p>
+</TD>
+<TD width="60%"><p>The symbol is a parameter.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_REGISTER<BR>0x00000008</p>
+</TD>
+<TD width="60%"><p>The symbol is a register. The <b>Register</b> member is used.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_REGREL<BR>0x00000010</p>
+</TD>
+<TD width="60%"><p>Offsets are register relative.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_SLOT<BR>0x00008000</p>
+</TD>
+<TD width="60%"><p>The symbol is a managed code slot.
+							</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_THUNK<BR>0x00002000</p>
+</TD>
+<TD width="60%"><p>The symbol is a thunk.
+							</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_TLSREL<BR>0x00004000</p>
+</TD>
+<TD width="60%"><p>The symbol is an offset into the TLS data area.
+							</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_VALUEPRESENT<BR>0x00000001</p>
+</TD>
+<TD width="60%"><p>The <b>Value</b> member is used.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SYMFLAG_VIRTUAL<BR>0x00001000</p>
+</TD>
+<TD width="60%"><p>The symbol is a virtual symbol created by the 
+<A HREF="symaddsymbol.htm"><b>SymAddSymbol</b></A> function.
+							</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>Value</B></DT>
+<DD><p>The value of a constant.</p>
+</DD>
+<DT><B>Address</B></DT>
+<DD><p>The virtual address of the start of the symbol.</p>
+</DD>
+<DT><B>Register</B></DT>
+<DD><p>The register.</p>
+</DD>
+<DT><B>Scope</B></DT>
+<DD><p>The DIA scope. For more information, see the <i>Debug Interface Access SDK</i> in the Visual Studio documentation.</p>
+</DD>
+<DT><B>Tag</B></DT>
+<DD><p>The PDB classification. These values are defined in Dbghelp.h in the <A><b>SymTagEnum</b></A> enumeration type. For  descriptions, see the PDB documentation.</p>
+</DD>
+<DT><B>NameLen</B></DT>
+<DD><p>The length of the name, in characters, not including the null-terminating character.</p>
+</DD>
+<DT><B>MaxNameLen</B></DT>
+<DD><p>The size of the <b>Name</b> buffer, in characters. If this member is 0, the <b>Name</b> member is not used.</p>
+</DD>
+<DT><B>Name</B></DT>
+<DD><p>The name of the symbol. The name can be undecorated if the SYMOPT_UNDNAME option is used with the 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function.</p>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>SYMBOL_INFOW</B> (Unicode) and <B>SYMBOL_INFO</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="symenumsymbolsproc.htm"><b>SymEnumSymbolsProc</b></A><BR><A HREF="symfromaddr.htm"><b>SymFromAddr</b></A><BR><A HREF="symfromname.htm"><b>SymFromName</b></A><BR><A HREF="symgettypefromname.htm"><b>SymGetTypeFromName</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SYMBOL_INFO%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,131 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGE_LOAD_CONFIG_DIRECTORY64 Structure</TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.image_load_config_directory64_str"></A>IMAGE_LOAD_CONFIG_DIRECTORY64 Structure</H1>
+<P><P>Contains the load configuration data of an image.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct {<br>  DWORD Size;<br>  DWORD TimeDateStamp;<br>  WORD MajorVersion;<br>  WORD MinorVersion;<br>  DWORD GlobalFlagsClear;<br>  DWORD GlobalFlagsSet;<br>  DWORD CriticalSectionDefaultTimeout;<br>  ULONGLONG DeCommitFreeBlockThreshold;<br>  ULONGLONG DeCommitTotalFreeThreshold;<br>  ULONGLONG LockPrefixTable;<br>  ULONGLONG MaximumAllocationSize;<br>  ULONGLONG VirtualMemoryThreshold;<br>  ULONGLONG ProcessAffinityMask;<br>  DWORD ProcessHeapFlags;<br>  WORD CSDVersion;<br>  WORD Reserved1;<br>  ULONGLONG EditList;<br>  ULONGLONG SecurityCookie;<br>  ULONGLONG SEHandlerTable;<br>  ULONGLONG SEHandlerCount;
+} IMAGE_LOAD_CONFIG_DIRECTORY64, <br> *PIMAGE_LOAD_CONFIG_DIRECTORY64;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>Size</B></DT>
+<DD><p>The size of the structure. For Windows XP and Windows 2000, the size must be specified as 64 for x86 images.</p>
+</DD>
+<DT><B>TimeDateStamp</B></DT>
+<DD><p>The date and time stamp value. The value is represented in the number of seconds elapsed since midnight (00:00:00), January 1, 1970, Universal Coordinated Time, according to the system clock. The time stamp can be printed using the C run-time (CRT) function <A><b>ctime</b></A>.</p>
+</DD>
+<DT><B>MajorVersion</B></DT>
+<DD><p>The major version number.</p>
+</DD>
+<DT><B>MinorVersion</B></DT>
+<DD><p>The minor version number.</p>
+</DD>
+<DT><B>GlobalFlagsClear</B></DT>
+<DD><p>The global flags that control system behavior. For more information, see Gflags.exe.</p>
+</DD>
+<DT><B>GlobalFlagsSet</B></DT>
+<DD><p>The global flags that control system behavior. For more information, see Gflags.exe.</p>
+</DD>
+<DT><B>CriticalSectionDefaultTimeout</B></DT>
+<DD><p>The critical section default time-out value.</p>
+</DD>
+<DT><B>DeCommitFreeBlockThreshold</B></DT>
+<DD><p>The size of the minimum block that must be freed before it is freed (de-committed), in bytes. This value is advisory.</p>
+</DD>
+<DT><B>DeCommitTotalFreeThreshold</B></DT>
+<DD><p>The size of the minimum total memory that must be freed in the process heap before it is freed (de-comitted), in bytes. This value is advisory.</p>
+</DD>
+<DT><B>LockPrefixTable</B></DT>
+<DD><p> The VA of a list of addresses where the LOCK prefix is used. These will be replaced by NOP on single-processor systems. This member is available only for x86.</p>
+</DD>
+<DT><B>MaximumAllocationSize</B></DT>
+<DD><p>The maximum allocation size, in bytes. This member is obsolete and is used only for debugging purposes.</p>
+</DD>
+<DT><B>VirtualMemoryThreshold</B></DT>
+<DD><p>The maximum block size that can be allocated from heap segments, in bytes.</p>
+</DD>
+<DT><B>ProcessAffinityMask</B></DT>
+<DD><p>The process affinity mask. For more information, see 
+<b>GetProcessAffinityMask</b>. This member is available only for .exe files.</p>
+</DD>
+<DT><B>ProcessHeapFlags</B></DT>
+<DD><p>The process heap flags. For more information, see <b>HeapCreate</b>.</p>
+</DD>
+<DT><B>CSDVersion</B></DT>
+<DD><p>The service pack version.</p>
+</DD>
+<DT><B>Reserved1</B></DT>
+<DD><p>Reserved for use by the operating system.</p>
+</DD>
+<DT><B>EditList</B></DT>
+<DD><p>Reserved for use by the system.</p>
+</DD>
+<DT><B>SecurityCookie</B></DT>
+<DD><p>A pointer to a cookie that is used by Visual C++ or GS implementation.</p>
+</DD>
+<DT><B>SEHandlerTable</B></DT>
+<DD><p> The VA of the sorted table of RVAs of each valid, unique handler in the image. This member is available only for x86.</p>
+</DD>
+<DT><B>SEHandlerCount</B></DT>
+<DD><p>The count of unique handlers in the table. This member is available only for x86.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>If _WIN64 is defined, then <A><b>IMAGE_LOAD_CONFIG_DIRECTORY</b></A> is defined as <A><b>IMAGE_LOAD_CONFIG_DIRECTORY64</b></A>. However, if _WIN64 is not defined,  then <A><b>IMAGE_LOAD_CONFIG_DIRECTORY</b></A> is defined as <A><b>IMAGE_LOAD_CONFIG_DIRECTORY32</b></A>. </p>
+<DIV ID="newLanguageFilteredSection" CLASS="conditionalSection" development_language="C++">
+<P></P><DIV class="codeSnippet"><PRE xml:space="preserve" class="syntax">typedef struct {
+    DWORD   Size;
+    DWORD   TimeDateStamp;
+    WORD    MajorVersion;
+    WORD    MinorVersion;
+    DWORD   GlobalFlagsClear;
+    DWORD   GlobalFlagsSet;
+    DWORD   CriticalSectionDefaultTimeout;
+    DWORD   DeCommitFreeBlockThreshold;
+    DWORD   DeCommitTotalFreeThreshold;
+    DWORD   LockPrefixTable;            // VA
+    DWORD   MaximumAllocationSize;
+    DWORD   VirtualMemoryThreshold;
+    DWORD   ProcessHeapFlags;
+    DWORD   ProcessAffinityMask;
+    WORD    CSDVersion;
+    WORD    Reserved1;
+    DWORD   EditList;                   // VA
+    DWORD   SecurityCookie;             // VA
+    DWORD   SEHandlerTable;             // VA
+    DWORD   SEHandlerCount;
+} IMAGE_LOAD_CONFIG_DIRECTORY32, *PIMAGE_LOAD_CONFIG_DIRECTORY32;</PRE></DIV>
+</DIV>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, Windows 2000 Professional, Windows NT Workstation 3.51 and later, Windows Me, Windows 98, or Windows 95.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, Windows 2000 Server, or Windows NT Server 3.51 and later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Winnt.h; include Windows.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_structures.htm">ImageHlp Structures</A><BR><A HREF="getimageconfiginformation.htm"><b>GetImageConfigInformation</b></A><BR><b>GetProcessAffinityMask</b><BR><A HREF="setimageconfiginformation.htm"><b>SetImageConfigInformation</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGE_LOAD_CONFIG_DIRECTORY64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

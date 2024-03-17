@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>SetText method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">SetText
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Window</b>, <b>MDIWindow</b>, <b>DialogBox</b>, <b>Static</b>,
+<b>Edit</b>, <b>Group</b>, <b>Button</b>, <b>Check</b>, <b>Radio</b> and <b>Picture</b> objects.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b><font color="#800080">SetText</font> <font color="#0000ff">Proto</font>
+hWnd<font color="#ff00ff">:</font><font color=#000080>HWND</font><font color="#ff00ff">,</font> lpszText<font
+color="#ff00ff">:</font><font color=#000080>LPSTR</font></b></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b><font color=#0000ff>Invoke</font> <font color=#800080>SetText</font><font
+color="#ff00ff">,</font> hWnd<font color="#ff00ff">,</font> lpszText</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Sets the <b><a href="easy0sqc.htm"><font color="#800080">Text</font></a></b>
+property of an object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>lpszText</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">Pointer to the effective address of a null-terminated string with the new
+text.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <b><font
+color="#000080">TRUE</font></b> if successful, or <b><font color="#000080">FALSE</font></b> if
+not.<br><br></font></font></p></blockquote>
+
+<p><font face="Arial" size="2"><b>NOTE</b>: The <b>lpszText</b> parameter can be <b><font
+color="#000080">NULL</font></b> for no text.</font></p>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The <font color="#800080"><b>SetText</b></font>
+method expects <b>lpszText</b> to be a Unicode string if the application is running as Unicode,
+or an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call <font color="#800080"><b>SetTextA</b></font> to set ANSI text in Unicode
+applications, or <font color="#800080"><b>SetTextW</b></font> to set Unicode text in ANSI
+applications.<br><br></font></p>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<a name="IDH_1217"></a>
+<title>Linux debugger</title>
+<table width="100%"><tr valign="top"><td><h2>Linux debugger</h2></td>
+<td width="64"><img src="ida55.bmp"/></td></tr></table>
+The Linux debugger has the following particularities and limitations:
+<p>
+- The debugger server can handle only one IDA client at a time
+<p>
+- By default, the 64-bits debugger will try to load &quot;libunwind-x86_64.so.8&quot;
+  and &quot;libunwind-ptrace.so.0&quot; in order to help with stack recovery.
+<p>
+- ARMLinux: hardware breakpoints are not supported
+<p>
+- ARMLinux: floating point registers are not supported
+<p>
+- ARMLinux: The THUMB mode is not supported
+<p>
+- Configure the debugger specific options (for 64 bits only) in
+    Debugger Options, Set specific options.
+<pre>
+  - Path to libunwind:
+    - &quot;libunwind-x64_64.so.8&quot; (the default): the debugger will try to load
+      libunwind &quot;libunwind-x86_64.so.8&quot; + &quot;libunwind-ptrace.so.0&quot; pair
+      using the regular 'ld' search path.
+    - &quot;libunwind-x64_64.so&quot; (note the lack of &quot;.8&quot; at the end): like the
+      default, except the debugger will look for &quot;libunwind-x86_64.so&quot;
+      and &quot;libunwind-ptrace.so&quot; (this is particularly useful for working
+      with libunwind &quot;dev&quot; packages)
+    - absolute path to libunwind-x64_64.so.8 or libunwind-x64_64.so: Linux debugger
+      will try to load libunwind only from the provided path.
+    - absolute path to &quot;libunwind-x64_64.so[.8]&quot;: the debugger will try
+      to load the two libraries from there (the absolute path to
+      &quot;libunwind-ptrace.so[.0]&quot; will be derived from that of
+      &quot;libunwind-x64_64.so[.8]&quot;)
+    - left blank: don't use libunwind to collect stack traces.
+</pre>
+<pre>
+  By default this is set to libunwind-x86_64.so meaning the default
+  path will be used to load libunwind-x86_64.so(.8) and libunwind-ptrace.so(.0). If an absolute
+  path is provided, both libraries will be loaded from this path. If left emtpy, the call
+  stack will be analysed by Ida and not libunwind.
+</pre>
+<pre>
+ See also <a href="1397.html">Start process</a>
+          <a href="1395.html">Debugger</a> submenu
+          <a href="1463.html">How to launch remote debugging</a></pre>

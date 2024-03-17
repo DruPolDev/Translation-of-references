@@ -1,0 +1,97 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymStore Command-Line Options </TITLE><META NAME="MS-HAID" CONTENT="_win32_symstore_command_line_options">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symstore_command_line_options"></A>SymStore Command-Line Options</H1>
+<P>The following syntax forms are supported for SymStore transactions. The first parameter must always be add or del. The order of the other parameters does not matter.</P>
+<P><b>symstore add </b>[<B>/l</B> <B>/o</B> <B>/p</B> <B>/r</B>]<b> </b><B>/f</B> <i>File</i><b> </b><B>/s</B><b> </b><i>Store</i><b> </b><B>/t</B><b> </b><i>Product</i><b> </b>[<B>/v</B> <i>Version</i>]<b> 
+    </b>[<B>/c</B> <i>Comment</i>]<b> </b>[<B>/d</B> <i>LogFile</i>]</P>
+<P><b>symstore add </b>[<B>/a</B> <B>/l</B> <B>/o</B> <B>/p</B> <B>/r</B>]<b> </b><B>/g</B> <i>Share</i><b> </b><B>/f</B> <i>File</i><b> </b><B>/x</B> <i>IndexFile</i><b> </b>[<B>/d</B> <i>LogFile</i>]</P>
+<P><b>symstore add </b>[<B>/o</B> <B>/p</B>]<b> </b><B>/y</B> <i>IndexFile</i><b> </b><B>/g</B> <i>Share</i><b> </b><B>/s</B> <i>Store</i><b> </b><B>/t</B> <i>Product</i><b> 
+    </b>[<B>/v</B> <i>Version</i>]<b> </b>[<B>/c</B> <i>Comment</i>]<b> </b>[<B>/d</B> <i>LogFile</i>]</P>
+<P><b>symstore del </b><B>/i</B> <i>ID</i><b> </b><B>/s</B> <i>Store</i><b> </b>[<B>/o</B>]<b> </b>[<B>/d</B> <i>LogFile</i>]</P>
+<P><b>symstore </b><B>/?</B></P>
+<TABLE CLASS="clsStd">
+<TR>
+<TH>Parameter</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD>/f <i>File</i></TD>
+<TD>Specifies the network path of files or directories to add.</TD>
+</TR>
+<TR>
+<TD>/g <i>Share</i></TD>
+<TD>Specifies the server and share where the symbol files were originally stored. When used with /f, <i>Share</i> should be identical to the beginning of the <i>File</i> specifier. When used with /y, <i>Share</i> should be the location of the original symbol files (not the index file). This allows you to later change this portion of the file path in case you move the symbol files to a different server and share.</TD>
+</TR>
+<TR>
+<TD>/i <i>ID</i></TD>
+<TD>Specifies the transaction ID string.</TD>
+</TR>
+<TR>
+<TD>/l</TD>
+<TD>Allows the file to be in a local directory rather than a network path. (This option is only used with the /p option.)</TD>
+</TR>
+<TR>
+<TD>/p</TD>
+<TD>Causes SymStore to store a pointer to the file, rather than the file itself.</TD>
+</TR>
+<TR>
+<TD>/r</TD>
+<TD>Causes SymStore to add files or directories recursively.</TD>
+</TR>
+<TR>
+<TD>/s <i>Store</i></TD>
+<TD>Specifies the root directory for the symbol store.</TD>
+</TR>
+<TR>
+<TD>/t <i>Product</i></TD>
+<TD>Specifies the name of the product.</TD>
+</TR>
+<TR>
+<TD>/v <i>Version</i></TD>
+<TD>Specifies the version of the product.</TD>
+</TR>
+<TR>
+<TD>/c <i>Comment</i></TD>
+<TD>Specifies a comment for the transaction.</TD>
+</TR>
+<TR>
+<TD>/d <i>LogFile</i></TD>
+<TD>Specifies a log file to be used for command output. If this is not included, transaction information and other output is sent to stdout.</TD>
+</TR>
+<TR>
+<TD>/o</TD>
+<TD>Causes SymStore to display verbose output.</TD>
+</TR>
+<TR>
+<TD>/x <i>IndexFile</i></TD>
+<TD>Causes SymStore not to store the actual symbol files. Instead, SymStore records information in the <i>IndexFile</i> that will enable SymStore to access the symbol files at a later time.</TD>
+</TR>
+<TR>
+<TD>/a</TD>
+<TD>Causes SymStore to append new indexing information to an existing index file. (This option is only used with the /x option.)</TD>
+</TR>
+<TR>
+<TD>/y <i>IndexFile</i></TD>
+<TD>Causes SymStore to read the data from a file created with /x.</TD>
+</TR>
+<TR>
+<TD>/?</TD>
+<TD>Displays help text for the SymStore command.</TD>
+</TR>
+</TABLE><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymStore Command-Line Options%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

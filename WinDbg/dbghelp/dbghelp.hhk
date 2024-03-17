@@ -1,0 +1,1910 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="DevDoc XML Build Tool">
+</HEAD>
+<BODY>
+<OBJECT TYPE="text/site properties">
+	<PARAM NAME="FrameName" VALUE="TEXT">
+</OBJECT>
+<UL>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="_IMAGE_RUNTIME_FUNCTION_ENTRY structure">
+		<PARAM NAME="Name" VALUE="_IMAGE_RUNTIME_FUNCTION_ENTRY Structure">
+		<PARAM NAME="Local" VALUE="base/_image_runtime_function_entry.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="_PIMAGE_RUNTIME_FUNCTION_ENTRY structure pointer">
+		<PARAM NAME="Name" VALUE="_IMAGE_RUNTIME_FUNCTION_ENTRY Structure">
+		<PARAM NAME="Local" VALUE="base/_image_runtime_function_entry.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ADDRESS">
+		<PARAM NAME="Name" VALUE="ADDRESS64 Structure">
+		<PARAM NAME="Local" VALUE="base/address64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ADDRESS64 structure">
+		<PARAM NAME="Name" VALUE="ADDRESS64 Structure">
+		<PARAM NAME="Local" VALUE="base/address64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="API_VERSION structure">
+		<PARAM NAME="Name" VALUE="API_VERSION Structure">
+		<PARAM NAME="Local" VALUE="base/api_version_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="BindImage function">
+		<PARAM NAME="Name" VALUE="BindImage Function">
+		<PARAM NAME="Local" VALUE="base/bindimage.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="BindImageEx function">
+		<PARAM NAME="Name" VALUE="BindImageEx Function">
+		<PARAM NAME="Local" VALUE="base/bindimageex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="CheckSumMappedFile function">
+		<PARAM NAME="Name" VALUE="CheckSumMappedFile Function">
+		<PARAM NAME="Local" VALUE="base/checksummappedfile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="DbgHelp library">
+		<PARAM NAME="Name" VALUE="DbgHelp Versions">
+		<PARAM NAME="Local" VALUE="base/dbghelp_versions.htm">
+		<PARAM NAME="Name" VALUE="Debug Help Library">
+		<PARAM NAME="Local" VALUE="base/debug_help_library.htm">
+		</OBJECT>
+	<UL>
+		<LI><OBJECT TYPE="text/sitemap">
+			<PARAM NAME="Keyword" VALUE="obtaining">
+			<PARAM NAME="Name" VALUE="DbgHelp Versions">
+			<PARAM NAME="Local" VALUE="base/dbghelp_versions.htm">
+			</OBJECT>
+		<LI><OBJECT TYPE="text/sitemap">
+			<PARAM NAME="Keyword" VALUE="what's new">
+			<PARAM NAME="Name" VALUE="DbgHelp Versions">
+			<PARAM NAME="Local" VALUE="base/dbghelp_versions.htm">
+			</OBJECT>
+	</UL>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="debugging">
+		<PARAM NAME="Name" VALUE="Debug Help Library">
+		<PARAM NAME="Local" VALUE="base/debug_help_library.htm">
+		<PARAM NAME="Name" VALUE="Image Help Library">
+		<PARAM NAME="Local" VALUE="base/image_help_library.htm">
+		</OBJECT>
+	<UL>
+		<LI><OBJECT TYPE="text/sitemap">
+			<PARAM NAME="Keyword" VALUE="DbgHelp library">
+			<PARAM NAME="Name" VALUE="Debug Help Library">
+			<PARAM NAME="Local" VALUE="base/debug_help_library.htm">
+			</OBJECT>
+		<LI><OBJECT TYPE="text/sitemap">
+			<PARAM NAME="Keyword" VALUE="ImageHlp library">
+			<PARAM NAME="Name" VALUE="Image Help Library">
+			<PARAM NAME="Local" VALUE="base/image_help_library.htm">
+			</OBJECT>
+	</UL>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="DIGEST_FUNCTION">
+		<PARAM NAME="Name" VALUE="DigestFunction Callback Function">
+		<PARAM NAME="Local" VALUE="base/digestfunction.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="DigestFunction callback function">
+		<PARAM NAME="Name" VALUE="DigestFunction Callback Function">
+		<PARAM NAME="Local" VALUE="base/digestfunction.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="EnumDirTree function">
+		<PARAM NAME="Name" VALUE="EnumDirTree Function">
+		<PARAM NAME="Local" VALUE="base/enumdirtree.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="EnumDirTreeProc callback function">
+		<PARAM NAME="Name" VALUE="EnumDirTreeProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/enumdirtreeproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="EnumerateLoadedModules">
+		<PARAM NAME="Name" VALUE="EnumerateLoadedModules64 Function">
+		<PARAM NAME="Local" VALUE="base/enumerateloadedmodules64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="EnumerateLoadedModules64 function">
+		<PARAM NAME="Name" VALUE="EnumerateLoadedModules64 Function">
+		<PARAM NAME="Local" VALUE="base/enumerateloadedmodules64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="EnumerateLoadedModulesEx function">
+		<PARAM NAME="Name" VALUE="EnumerateLoadedModulesEx Function">
+		<PARAM NAME="Local" VALUE="base/enumerateloadedmodulesex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="EnumerateLoadedModulesProc64 callback function">
+		<PARAM NAME="Name" VALUE="EnumerateLoadedModulesProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/enumerateloadedmodulesproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FindDebugInfoFile function">
+		<PARAM NAME="Name" VALUE="FindDebugInfoFile Function">
+		<PARAM NAME="Local" VALUE="base/finddebuginfofile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FindDebugInfoFileEx function">
+		<PARAM NAME="Name" VALUE="FindDebugInfoFileEx Function">
+		<PARAM NAME="Local" VALUE="base/finddebuginfofileex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FindDebugInfoFileProc callback function">
+		<PARAM NAME="Name" VALUE="FindDebugInfoFileProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/finddebuginfofileproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FindExecutableImage function">
+		<PARAM NAME="Name" VALUE="FindExecutableImage Function">
+		<PARAM NAME="Local" VALUE="base/findexecutableimage.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FindExecutableImageEx function">
+		<PARAM NAME="Name" VALUE="FindExecutableImageEx Function">
+		<PARAM NAME="Local" VALUE="base/findexecutableimageex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FindExecutableImageProc callback function">
+		<PARAM NAME="Name" VALUE="FindExecutableImageProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/findexecutableimageproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FPO_DATA structure">
+		<PARAM NAME="Name" VALUE="FPO_DATA Structure">
+		<PARAM NAME="Local" VALUE="base/fpo_data_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="FunctionTableAccessProc64 callback function">
+		<PARAM NAME="Name" VALUE="FunctionTableAccessProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/functiontableaccessproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="GetImageConfigInformation function">
+		<PARAM NAME="Name" VALUE="GetImageConfigInformation Function">
+		<PARAM NAME="Local" VALUE="base/getimageconfiginformation.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="GetImageUnusedHeaderBytes function">
+		<PARAM NAME="Name" VALUE="GetImageUnusedHeaderBytes Function">
+		<PARAM NAME="Local" VALUE="base/getimageunusedheaderbytes.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="GetModuleBaseProc64 callback function">
+		<PARAM NAME="Name" VALUE="GetModuleBaseProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/getmodulebaseproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="GetTimestampForLoadedLibrary function">
+		<PARAM NAME="Name" VALUE="GetTimestampForLoadedLibrary Function">
+		<PARAM NAME="Local" VALUE="base/gettimestampforloadedlibrary.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_COFF_SYMBOLS_HEADER structure">
+		<PARAM NAME="Name" VALUE="IMAGE_COFF_SYMBOLS_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_coff_symbols_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_DATA_DIRECTORY structure">
+		<PARAM NAME="Name" VALUE="IMAGE_DATA_DIRECTORY Structure">
+		<PARAM NAME="Local" VALUE="base/image_data_directory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_DEBUG_DIRECTORY structure">
+		<PARAM NAME="Name" VALUE="IMAGE_DEBUG_DIRECTORY Structure">
+		<PARAM NAME="Local" VALUE="base/image_debug_directory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_DEBUG_INFORMATION structure">
+		<PARAM NAME="Name" VALUE="IMAGE_DEBUG_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/image_debug_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_FILE_HEADER structure">
+		<PARAM NAME="Name" VALUE="IMAGE_FILE_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_file_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_FUNCTION_ENTRY structure">
+		<PARAM NAME="Name" VALUE="IMAGE_FUNCTION_ENTRY Structure">
+		<PARAM NAME="Local" VALUE="base/image_function_entry_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_FUNCTION_ENTRY64">
+		<PARAM NAME="Name" VALUE="IMAGE_FUNCTION_ENTRY Structure">
+		<PARAM NAME="Local" VALUE="base/image_function_entry_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_LOAD_CONFIG_DIRECTORY">
+		<PARAM NAME="Name" VALUE="IMAGE_LOAD_CONFIG_DIRECTORY64 Structure">
+		<PARAM NAME="Local" VALUE="base/image_load_config_directory64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_LOAD_CONFIG_DIRECTORY32">
+		<PARAM NAME="Name" VALUE="IMAGE_LOAD_CONFIG_DIRECTORY64 Structure">
+		<PARAM NAME="Local" VALUE="base/image_load_config_directory64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_LOAD_CONFIG_DIRECTORY64 structure">
+		<PARAM NAME="Name" VALUE="IMAGE_LOAD_CONFIG_DIRECTORY64 Structure">
+		<PARAM NAME="Local" VALUE="base/image_load_config_directory64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_NT_HEADERS structure">
+		<PARAM NAME="Name" VALUE="IMAGE_NT_HEADERS Structure">
+		<PARAM NAME="Local" VALUE="base/image_nt_headers_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_NT_HEADERS32">
+		<PARAM NAME="Name" VALUE="IMAGE_NT_HEADERS Structure">
+		<PARAM NAME="Local" VALUE="base/image_nt_headers_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_NT_HEADERS64">
+		<PARAM NAME="Name" VALUE="IMAGE_NT_HEADERS Structure">
+		<PARAM NAME="Local" VALUE="base/image_nt_headers_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_OPTIONAL_HEADER structure">
+		<PARAM NAME="Name" VALUE="IMAGE_OPTIONAL_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_optional_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_OPTIONAL_HEADER32">
+		<PARAM NAME="Name" VALUE="IMAGE_OPTIONAL_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_optional_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_OPTIONAL_HEADER64">
+		<PARAM NAME="Name" VALUE="IMAGE_OPTIONAL_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_optional_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGE_SECTION_HEADER structure">
+		<PARAM NAME="Name" VALUE="IMAGE_SECTION_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_section_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageAddCertificate function">
+		<PARAM NAME="Name" VALUE="ImageAddCertificate Function">
+		<PARAM NAME="Local" VALUE="base/imageaddcertificate.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageDirectoryEntryToData function">
+		<PARAM NAME="Name" VALUE="ImageDirectoryEntryToData Function">
+		<PARAM NAME="Local" VALUE="base/imagedirectoryentrytodata.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageDirectoryEntryToDataEx function">
+		<PARAM NAME="Name" VALUE="ImageDirectoryEntryToDataEx Function">
+		<PARAM NAME="Local" VALUE="base/imagedirectoryentrytodataex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageEnumerateCertificates function">
+		<PARAM NAME="Name" VALUE="ImageEnumerateCertificates Function">
+		<PARAM NAME="Local" VALUE="base/imageenumeratecertificates.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageGetCertificateData function">
+		<PARAM NAME="Name" VALUE="ImageGetCertificateData Function">
+		<PARAM NAME="Local" VALUE="base/imagegetcertificatedata.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageGetCertificateHeader function">
+		<PARAM NAME="Name" VALUE="ImageGetCertificateHeader Function">
+		<PARAM NAME="Local" VALUE="base/imagegetcertificateheader.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageGetDigestStream function">
+		<PARAM NAME="Name" VALUE="ImageGetDigestStream Function">
+		<PARAM NAME="Local" VALUE="base/imagegetdigeststream.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageHlp library">
+		<PARAM NAME="Name" VALUE="Image Help Library">
+		<PARAM NAME="Local" VALUE="base/image_help_library.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_CBA_EVENT structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_CBA_EVENT Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_cba_event_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_CBA_READ_MEMORY structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_CBA_READ_MEMORY Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_cba_read_memory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_DEFERRED_SYMBOL_LOAD">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_DEFERRED_SYMBOL_LOAD64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_deferred_symbol_load64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_DEFERRED_SYMBOL_LOAD64 structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_DEFERRED_SYMBOL_LOAD64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_deferred_symbol_load64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_DUPLICATE_SYMBOL">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_DUPLICATE_SYMBOL64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_duplicate_symbol64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_DUPLICATE_SYMBOL64 structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_DUPLICATE_SYMBOL64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_duplicate_symbol64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_GET_TYPE_INFO_PARAMS structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_GET_TYPE_INFO_PARAMS Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_get_type_info_params_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_LINE">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_LINE64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_line64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_LINE64 structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_LINE64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_line64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_MODULE">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_MODULE64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_module64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_MODULE64 structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_MODULE64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_module64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_STACK_FRAME structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_STACK_FRAME Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_stack_frame_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_SYMBOL">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_SYMBOL64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_symbol64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_SYMBOL_TYPE_INFO enumeration">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_SYMBOL_TYPE_INFO Enumeration">
+		<PARAM NAME="Local" VALUE="base/imagehlp_symbol_type_info.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="IMAGEHLP_SYMBOL64 structure">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_SYMBOL64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_symbol64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImagehlpApiVersion function">
+		<PARAM NAME="Name" VALUE="ImagehlpApiVersion Function">
+		<PARAM NAME="Local" VALUE="base/imagehlpapiversion.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImagehlpApiVersionEx function">
+		<PARAM NAME="Name" VALUE="ImagehlpApiVersionEx Function">
+		<PARAM NAME="Local" VALUE="base/imagehlpapiversionex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageLoad function">
+		<PARAM NAME="Name" VALUE="ImageLoad Function">
+		<PARAM NAME="Local" VALUE="base/imageload.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageNtHeader function">
+		<PARAM NAME="Name" VALUE="ImageNtHeader Function">
+		<PARAM NAME="Local" VALUE="base/imagentheader.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageRemoveCertificate function">
+		<PARAM NAME="Name" VALUE="ImageRemoveCertificate Function">
+		<PARAM NAME="Local" VALUE="base/imageremovecertificate.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageRvaToSection function">
+		<PARAM NAME="Name" VALUE="ImageRvaToSection Function">
+		<PARAM NAME="Local" VALUE="base/imagervatosection.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageRvaToVa function">
+		<PARAM NAME="Name" VALUE="ImageRvaToVa Function">
+		<PARAM NAME="Local" VALUE="base/imagervatova.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ImageUnload function">
+		<PARAM NAME="Name" VALUE="ImageUnload Function">
+		<PARAM NAME="Local" VALUE="base/imageunload.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="KDHELP">
+		<PARAM NAME="Name" VALUE="KDHELP64 Structure">
+		<PARAM NAME="Local" VALUE="base/kdhelp64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="KDHELP64 structure">
+		<PARAM NAME="Name" VALUE="KDHELP64 Structure">
+		<PARAM NAME="Local" VALUE="base/kdhelp64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="LIST_ENTRY">
+		<PARAM NAME="Name" VALUE="IMAGE_DEBUG_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/image_debug_information_str.htm">
+		<PARAM NAME="Name" VALUE="LOADED_IMAGE Structure">
+		<PARAM NAME="Local" VALUE="base/loaded_image_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="LOADED_IMAGE structure">
+		<PARAM NAME="Name" VALUE="LOADED_IMAGE Structure">
+		<PARAM NAME="Local" VALUE="base/loaded_image_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="LPADDRESS64 structure pointer">
+		<PARAM NAME="Name" VALUE="ADDRESS64 Structure">
+		<PARAM NAME="Local" VALUE="base/address64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="LPAPI_VERSION structure pointer">
+		<PARAM NAME="Name" VALUE="API_VERSION Structure">
+		<PARAM NAME="Local" VALUE="base/api_version_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="LPSTACKFRAME64 structure pointer">
+		<PARAM NAME="Name" VALUE="STACKFRAME64 Structure">
+		<PARAM NAME="Local" VALUE="base/stackframe64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MakeSureDirectoryPathExists function">
+		<PARAM NAME="Name" VALUE="MakeSureDirectoryPathExists Function">
+		<PARAM NAME="Local" VALUE="base/makesuredirectorypathexists.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MapAndLoad function">
+		<PARAM NAME="Name" VALUE="MapAndLoad Function">
+		<PARAM NAME="Local" VALUE="base/mapandload.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MapDebugInformation function">
+		<PARAM NAME="Name" VALUE="MapDebugInformation Function">
+		<PARAM NAME="Local" VALUE="base/mapdebuginformation.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MapFileAndCheckSum function">
+		<PARAM NAME="Name" VALUE="MapFileAndCheckSum Function">
+		<PARAM NAME="Local" VALUE="base/mapfileandchecksum.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="minidump">
+		<PARAM NAME="Name" VALUE="Minidump Files">
+		<PARAM NAME="Local" VALUE="base/minidump_files.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_CALLBACK_INFORMATION structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_CALLBACK_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_callback_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_CALLBACK_INPUT structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_CALLBACK_INPUT Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_callback_input_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_CALLBACK_OUTPUT structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_CALLBACK_OUTPUT Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_callback_output_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_CALLBACK_ROUTINE">
+		<PARAM NAME="Name" VALUE="MiniDumpCallback Callback Function">
+		<PARAM NAME="Local" VALUE="base/minidumpcallback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_CALLBACK_TYPE enumeration">
+		<PARAM NAME="Name" VALUE="MINIDUMP_CALLBACK_TYPE Enumeration">
+		<PARAM NAME="Local" VALUE="base/minidump_callback_type.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_DIRECTORY structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_DIRECTORY Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_directory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_EXCEPTION structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_EXCEPTION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_exception_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_EXCEPTION_INFORMATION structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_EXCEPTION_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_exception_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_EXCEPTION_STREAM structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_EXCEPTION_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_exception_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_FUNCTION_TABLE_DESCRIPTOR structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_FUNCTION_TABLE_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_function_table_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_FUNCTION_TABLE_STREAM structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_FUNCTION_TABLE_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_function_table_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_HANDLE_DATA_STREAM structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_DATA_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_data_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_HANDLE_DESCRIPTOR structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_HANDLE_DESCRIPTOR_2 structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_DESCRIPTOR_2 Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_descriptor_2.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_HANDLE_OBJECT_INFORMATION structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_OBJECT_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_object_information.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE enumeration">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE Enumeration">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_object_information_type.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_HANDLE_OPERATION_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_OPERATION_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_operation_list.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_HEADER structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_INCLUDE_MODULE_CALLBACK structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_INCLUDE_MODULE_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_include_module_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_INCLUDE_THREAD_CALLBACK structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_INCLUDE_THREAD_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_include_thread_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_IO_CALLBACK structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_IO_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_io_callback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_LOCATION_DESCRIPTOR structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_LOCATION_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_location_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_LOCATION_DESCRIPTOR64">
+		<PARAM NAME="Name" VALUE="MINIDUMP_LOCATION_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_location_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MEMORY_DESCRIPTOR structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MEMORY_DESCRIPTOR64">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MEMORY_INFO structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MEMORY_INFO_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_INFO_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_info_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MEMORY_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MEMORY64_LIST">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MISC_INFO structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MISC_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_misc_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MISC_INFO_2 structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MISC_INFO_2 Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_misc_info_2.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MODULE structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MODULE Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_module_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MODULE_CALLBACK structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MODULE_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_module_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_MODULE_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MODULE_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_module_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_READ_MEMORY_FAILURE_CALLBACK structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_READ_MEMORY_FAILURE_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_read_memory_failure_callback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_SECONDARY_FLAGS enumeration">
+		<PARAM NAME="Name" VALUE="MINIDUMP_SECONDARY_FLAGS Enumeration">
+		<PARAM NAME="Local" VALUE="base/minidump_secondary_flags.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_STREAM_TYPE enumeration">
+		<PARAM NAME="Name" VALUE="MINIDUMP_STREAM_TYPE Enumeration">
+		<PARAM NAME="Local" VALUE="base/minidump_stream_type.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_STRING structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_STRING Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_string_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_SYSTEM_INFO structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_SYSTEM_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_system_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD_CALLBACK structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD_EX structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_EX Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_ex_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD_EX_CALLBACK structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_EX_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_ex_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD_EX_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_EX_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_ex_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD_INFO structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD_INFO_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_INFO_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_info_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_THREAD_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_TYPE enumeration">
+		<PARAM NAME="Name" VALUE="MINIDUMP_TYPE Enumeration">
+		<PARAM NAME="Local" VALUE="base/minidump_type.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_UNLOADED_MODULE structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_UNLOADED_MODULE Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_unloaded_module_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_UNLOADED_MODULE_LIST structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_UNLOADED_MODULE_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_unloaded_module_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_USER_STREAM structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_USER_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_user_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MINIDUMP_USER_STREAM_INFORMATION structure">
+		<PARAM NAME="Name" VALUE="MINIDUMP_USER_STREAM_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_user_stream_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MiniDumpCallback callback function">
+		<PARAM NAME="Name" VALUE="MiniDumpCallback Callback Function">
+		<PARAM NAME="Local" VALUE="base/minidumpcallback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MiniDumpReadDumpStream function">
+		<PARAM NAME="Name" VALUE="MiniDumpReadDumpStream Function">
+		<PARAM NAME="Local" VALUE="base/minidumpreaddumpstream.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MiniDumpWriteDump function">
+		<PARAM NAME="Name" VALUE="MiniDumpWriteDump Function">
+		<PARAM NAME="Local" VALUE="base/minidumpwritedump.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MODLOAD_CVMISC structure">
+		<PARAM NAME="Name" VALUE="MODLOAD_CVMISC Structure">
+		<PARAM NAME="Local" VALUE="base/modload_cvmisc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MODLOAD_DATA structure">
+		<PARAM NAME="Name" VALUE="MODLOAD_DATA Structure">
+		<PARAM NAME="Local" VALUE="base/modload_data_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="MODULE_WRITE_FLAGS enumeration">
+		<PARAM NAME="Name" VALUE="MODULE_WRITE_FLAGS Enumeration">
+		<PARAM NAME="Local" VALUE="base/module_write_flags.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="OMAP structure">
+		<PARAM NAME="Name" VALUE="OMAP Structure">
+		<PARAM NAME="Local" VALUE="base/omap.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PENUMDIRTREE_CALLBACK">
+		<PARAM NAME="Name" VALUE="EnumDirTreeProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/enumdirtreeproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PENUMLOADED_MODULES_CALLBACK64">
+		<PARAM NAME="Name" VALUE="EnumerateLoadedModulesProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/enumerateloadedmodulesproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PFIND_DEBUG_FILE_CALLBACK">
+		<PARAM NAME="Name" VALUE="FindDebugInfoFileProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/finddebuginfofileproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PFIND_EXE_FILE_CALLBACK">
+		<PARAM NAME="Name" VALUE="FindExecutableImageProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/findexecutableimageproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PFINDFILEINPATHCALLBACK">
+		<PARAM NAME="Name" VALUE="SymFindFileInPathProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symfindfileinpathproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PFPO_DATA structure pointer">
+		<PARAM NAME="Name" VALUE="FPO_DATA Structure">
+		<PARAM NAME="Local" VALUE="base/fpo_data_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PFUNCTION_TABLE_ACCESS_ROUTINE64">
+		<PARAM NAME="Name" VALUE="FunctionTableAccessProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/functiontableaccessproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PGET_MODULE_BASE_ROUTINE64">
+		<PARAM NAME="Name" VALUE="GetModuleBaseProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/getmodulebaseproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_COFF_SYMBOLS_HEADER structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_COFF_SYMBOLS_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_coff_symbols_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_DATA_DIRECTORY structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_DATA_DIRECTORY Structure">
+		<PARAM NAME="Local" VALUE="base/image_data_directory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_DEBUG_DIRECTORY structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_DEBUG_DIRECTORY Structure">
+		<PARAM NAME="Local" VALUE="base/image_debug_directory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_DEBUG_INFORMATION structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_DEBUG_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/image_debug_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_FILE_HEADER structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_FILE_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_file_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_FUNCTION_ENTRY structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_FUNCTION_ENTRY Structure">
+		<PARAM NAME="Local" VALUE="base/image_function_entry_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_LOAD_CONFIG_DIRECTORY64 structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_LOAD_CONFIG_DIRECTORY64 Structure">
+		<PARAM NAME="Local" VALUE="base/image_load_config_directory64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_NT_HEADERS structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_NT_HEADERS Structure">
+		<PARAM NAME="Local" VALUE="base/image_nt_headers_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_OPTIONAL_HEADER structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_OPTIONAL_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_optional_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGE_SECTION_HEADER structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGE_SECTION_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/image_section_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_CBA_EVENT structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_CBA_EVENT Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_cba_event_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_CBA_READ_MEMORY structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_CBA_READ_MEMORY Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_cba_read_memory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_DEFERRED_SYMBOL_LOAD64 structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_DEFERRED_SYMBOL_LOAD64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_deferred_symbol_load64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_DUPLICATE_SYMBOL64 structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_DUPLICATE_SYMBOL64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_duplicate_symbol64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_GET_TYPE_INFO_PARAMS structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_GET_TYPE_INFO_PARAMS Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_get_type_info_params_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_LINE64 structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_LINE64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_line64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_MODULE64 structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_MODULE64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_module64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_STACK_FRAME structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_STACK_FRAME Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_stack_frame_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_STATUS_ROUTINE">
+		<PARAM NAME="Name" VALUE="StatusRoutine Callback Function">
+		<PARAM NAME="Local" VALUE="base/statusroutine.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PIMAGEHLP_SYMBOL64 structure pointer">
+		<PARAM NAME="Name" VALUE="IMAGEHLP_SYMBOL64 Structure">
+		<PARAM NAME="Local" VALUE="base/imagehlp_symbol64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PKDHELP64 structure pointer">
+		<PARAM NAME="Name" VALUE="KDHELP64 Structure">
+		<PARAM NAME="Local" VALUE="base/kdhelp64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PLOADED_IMAGE structure pointer">
+		<PARAM NAME="Name" VALUE="LOADED_IMAGE Structure">
+		<PARAM NAME="Local" VALUE="base/loaded_image_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_CALLBACK_INFORMATION structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_CALLBACK_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_callback_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_CALLBACK_INPUT structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_CALLBACK_INPUT Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_callback_input_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_CALLBACK_OUTPUT structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_CALLBACK_OUTPUT Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_callback_output_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_DIRECTORY structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_DIRECTORY Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_directory_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_EXCEPTION structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_EXCEPTION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_exception_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_EXCEPTION_INFORMATION structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_EXCEPTION_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_exception_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_EXCEPTION_STREAM structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_EXCEPTION_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_exception_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_FUNCTION_TABLE_DESCRIPTOR structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_FUNCTION_TABLE_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_function_table_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_FUNCTION_TABLE_STREAM structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_FUNCTION_TABLE_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_function_table_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_HANDLE_DATA_STREAM structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_DATA_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_data_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_HANDLE_DESCRIPTOR structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_HANDLE_DESCRIPTOR_2 structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_DESCRIPTOR_2 Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_descriptor_2.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_HANDLE_OPERATION_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HANDLE_OPERATION_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_handle_operation_list.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_HEADER structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_HEADER Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_header_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_INCLUDE_MODULE_CALLBACK structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_INCLUDE_MODULE_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_include_module_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_INCLUDE_THREAD_CALLBACK structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_INCLUDE_THREAD_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_include_thread_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_IO_CALLBACK structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_IO_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_io_callback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MEMORY_DESCRIPTOR structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_DESCRIPTOR Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_descriptor_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MEMORY_INFO structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MEMORY_INFO_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_INFO_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_info_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MEMORY_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MEMORY_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_memory_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MISC_INFO structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MISC_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_misc_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MISC_INFO_2 structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MISC_INFO_2 Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_misc_info_2.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MODULE structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MODULE Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_module_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MODULE_CALLBACK structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MODULE_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_module_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_MODULE_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_MODULE_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_module_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_READ_MEMORY_FAILURE_CALLBACK structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_READ_MEMORY_FAILURE_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_read_memory_failure_callback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_STRING structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_STRING Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_string_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_SYSTEM_INFO structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_SYSTEM_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_system_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD_CALLBACK structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD_EX structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_EX Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_ex_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD_EX_CALLBACK structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_EX_CALLBACK Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_ex_callback_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD_EX_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_EX_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_ex_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD_INFO structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD_INFO_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_INFO_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_info_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_THREAD_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_THREAD_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_thread_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_UNLOADED_MODULE structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_UNLOADED_MODULE Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_unloaded_module_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_UNLOADED_MODULE_LIST structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_UNLOADED_MODULE_LIST Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_unloaded_module_list_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_USER_STREAM structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_USER_STREAM Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_user_stream_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMINIDUMP_USER_STREAM_INFORMATION structure pointer">
+		<PARAM NAME="Name" VALUE="MINIDUMP_USER_STREAM_INFORMATION Structure">
+		<PARAM NAME="Local" VALUE="base/minidump_user_stream_information_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMODLOAD_CVMISC structure pointer">
+		<PARAM NAME="Name" VALUE="MODLOAD_CVMISC Structure">
+		<PARAM NAME="Local" VALUE="base/modload_cvmisc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PMODLOAD_DATA structure pointer">
+		<PARAM NAME="Name" VALUE="MODLOAD_DATA Structure">
+		<PARAM NAME="Local" VALUE="base/modload_data_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="POMAP structure pointer">
+		<PARAM NAME="Name" VALUE="OMAP Structure">
+		<PARAM NAME="Local" VALUE="base/omap.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PREAD_PROCESS_MEMORY_ROUTINE64">
+		<PARAM NAME="Name" VALUE="ReadProcessMemoryProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/readprocessmemoryproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSOURCEFILE structure pointer">
+		<PARAM NAME="Name" VALUE="SOURCEFILE Structure">
+		<PARAM NAME="Local" VALUE="base/sourcefile_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSRCCODEINFO structure pointer">
+		<PARAM NAME="Name" VALUE="SRCCODEINFO Structure">
+		<PARAM NAME="Local" VALUE="base/srccodeinfo_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYM_ENUMERATESYMBOLS_CALLBACK">
+		<PARAM NAME="Name" VALUE="SymEnumSymbolsProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumsymbolsproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYM_ENUMLINES_CALLBACK">
+		<PARAM NAME="Name" VALUE="SymEnumLinesProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumlinesproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYM_ENUMMODULES_CALLBACK64">
+		<PARAM NAME="Name" VALUE="SymEnumerateModulesProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratemodulesproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYM_ENUMPROCESSES_CALLBACK">
+		<PARAM NAME="Name" VALUE="SymEnumProcessesProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumprocessesproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYM_ENUMSOURCEFILES_CALLBACK">
+		<PARAM NAME="Name" VALUE="SymEnumSourceFilesProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumsourcefilesproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYM_ENUMSYMBOLS_CALLBACK64">
+		<PARAM NAME="Name" VALUE="SymEnumerateSymbolsProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratesymbolsproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOL_FUNCENTRY_CALLBACK64">
+		<PARAM NAME="Name" VALUE="SymRegisterFunctionEntryCallbackProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symregisterfunctionentrycallbackproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOL_INFO structure pointer">
+		<PARAM NAME="Name" VALUE="SYMBOL_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/symbol_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOL_REGISTERED_CALLBACK64">
+		<PARAM NAME="Name" VALUE="SymRegisterCallbackProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symregistercallbackproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOLSERVERCALLBACKPROC">
+		<PARAM NAME="Name" VALUE="SymbolServerCallback Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolservercallback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOLSERVERCLOSEPROC">
+		<PARAM NAME="Name" VALUE="SymbolServerClose Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolserverclose.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOLSERVERGETOPTIONSPROC">
+		<PARAM NAME="Name" VALUE="SymbolServerGetOptions Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolservergetoptions.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOLSERVERPROC">
+		<PARAM NAME="Name" VALUE="SymbolServer Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolserver.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMBOLSERVERSETOPTIONSPROC">
+		<PARAM NAME="Name" VALUE="SymbolServerSetOptions Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolserversetoptions.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PSYMSRV_INDEX_INFO structure pointer">
+		<PARAM NAME="Name" VALUE="SYMSRV_INDEX_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/symsrv_index_info.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="PTRANSLATE_ADDRESS_ROUTINE64">
+		<PARAM NAME="Name" VALUE="TranslateAddressProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/translateaddressproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ReadProcessMemoryProc64 callback function">
+		<PARAM NAME="Name" VALUE="ReadProcessMemoryProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/readprocessmemoryproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="ReBaseImage function">
+		<PARAM NAME="Name" VALUE="ReBaseImage Function">
+		<PARAM NAME="Local" VALUE="base/rebaseimage.htm">
+		<PARAM NAME="Name" VALUE="ReBaseImage64 Function">
+		<PARAM NAME="Local" VALUE="base/rebaseimage64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SearchTreeForFile function">
+		<PARAM NAME="Name" VALUE="SearchTreeForFile Function">
+		<PARAM NAME="Local" VALUE="base/searchtreeforfile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SetImageConfigInformation function">
+		<PARAM NAME="Name" VALUE="SetImageConfigInformation Function">
+		<PARAM NAME="Local" VALUE="base/setimageconfiginformation.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="source server">
+		<PARAM NAME="Name" VALUE="Source Server">
+		<PARAM NAME="Local" VALUE="base/source_server_and_source_indexing.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SOURCEFILE structure">
+		<PARAM NAME="Name" VALUE="SOURCEFILE Structure">
+		<PARAM NAME="Local" VALUE="base/sourcefile_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SplitSymbols function">
+		<PARAM NAME="Name" VALUE="SplitSymbols Function">
+		<PARAM NAME="Local" VALUE="base/splitsymbols.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SRCCODEINFO structure">
+		<PARAM NAME="Name" VALUE="SRCCODEINFO Structure">
+		<PARAM NAME="Local" VALUE="base/srccodeinfo_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="STACKFRAME">
+		<PARAM NAME="Name" VALUE="STACKFRAME64 Structure">
+		<PARAM NAME="Local" VALUE="base/stackframe64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="STACKFRAME64 structure">
+		<PARAM NAME="Name" VALUE="STACKFRAME64 Structure">
+		<PARAM NAME="Local" VALUE="base/stackframe64_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="StackWalk64 function">
+		<PARAM NAME="Name" VALUE="StackWalk64 Function">
+		<PARAM NAME="Local" VALUE="base/stackwalk64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="StatusRoutine callback function">
+		<PARAM NAME="Name" VALUE="StatusRoutine Callback Function">
+		<PARAM NAME="Local" VALUE="base/statusroutine.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymAddSourceStream function">
+		<PARAM NAME="Name" VALUE="SymAddSourceStream Function">
+		<PARAM NAME="Local" VALUE="base/symaddsourcestream.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymAddSymbol function">
+		<PARAM NAME="Name" VALUE="SymAddSymbol Function">
+		<PARAM NAME="Local" VALUE="base/symaddsymbol.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SYMBOL_INFO structure">
+		<PARAM NAME="Name" VALUE="SYMBOL_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/symbol_info_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymbolServer callback function">
+		<PARAM NAME="Name" VALUE="SymbolServer Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolserver.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymbolServerCallback callback function">
+		<PARAM NAME="Name" VALUE="SymbolServerCallback Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolservercallback.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymbolServerClose callback function">
+		<PARAM NAME="Name" VALUE="SymbolServerClose Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolserverclose.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymbolServerGetOptions callback function">
+		<PARAM NAME="Name" VALUE="SymbolServerGetOptions Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolservergetoptions.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymbolServerSetOptions callback function">
+		<PARAM NAME="Name" VALUE="SymbolServerSetOptions Callback Function">
+		<PARAM NAME="Local" VALUE="base/symbolserversetoptions.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymCleanup function">
+		<PARAM NAME="Name" VALUE="SymCleanup Function">
+		<PARAM NAME="Local" VALUE="base/symcleanup.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymDeleteSymbol function">
+		<PARAM NAME="Name" VALUE="SymDeleteSymbol Function">
+		<PARAM NAME="Local" VALUE="base/symdeletesymbol.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumerateModules">
+		<PARAM NAME="Name" VALUE="SymEnumerateModules64 Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratemodules64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumerateModules64 function">
+		<PARAM NAME="Name" VALUE="SymEnumerateModules64 Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratemodules64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumerateModulesProc64 callback function">
+		<PARAM NAME="Name" VALUE="SymEnumerateModulesProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratemodulesproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumerateSymbols">
+		<PARAM NAME="Name" VALUE="SymEnumerateSymbols64 Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratesymbols64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumerateSymbols64 function">
+		<PARAM NAME="Name" VALUE="SymEnumerateSymbols64 Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratesymbols64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumerateSymbolsProc64 callback function">
+		<PARAM NAME="Name" VALUE="SymEnumerateSymbolsProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumeratesymbolsproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumLines function">
+		<PARAM NAME="Name" VALUE="SymEnumLines Function">
+		<PARAM NAME="Local" VALUE="base/symenumlines.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumLinesProc callback function">
+		<PARAM NAME="Name" VALUE="SymEnumLinesProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumlinesproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumProcesses function">
+		<PARAM NAME="Name" VALUE="SymEnumProcesses Function">
+		<PARAM NAME="Local" VALUE="base/symenumprocesses.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumProcessesProc callback function">
+		<PARAM NAME="Name" VALUE="SymEnumProcessesProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumprocessesproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSourceFiles function">
+		<PARAM NAME="Name" VALUE="SymEnumSourceFiles Function">
+		<PARAM NAME="Local" VALUE="base/symenumsourcefiles.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSourceFilesProc callback function">
+		<PARAM NAME="Name" VALUE="SymEnumSourceFilesProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumsourcefilesproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSourceFileTokens function">
+		<PARAM NAME="Name" VALUE="SymEnumSourceFileTokens Function">
+		<PARAM NAME="Local" VALUE="base/symenumsourcefiletokens.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSourceFileTokensProc callback function">
+		<PARAM NAME="Name" VALUE="SymEnumSourceFileTokensProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumsourcefiletokensproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSourceLines function">
+		<PARAM NAME="Name" VALUE="SymEnumSourceLines Function">
+		<PARAM NAME="Local" VALUE="base/symenumsourcelines.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSymbols function">
+		<PARAM NAME="Name" VALUE="SymEnumSymbols Function">
+		<PARAM NAME="Local" VALUE="base/symenumsymbols.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSymbolsForAddr function">
+		<PARAM NAME="Name" VALUE="SymEnumSymbolsForAddr Function">
+		<PARAM NAME="Local" VALUE="base/symenumsymbolsforaddr.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumSymbolsProc callback function">
+		<PARAM NAME="Name" VALUE="SymEnumSymbolsProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symenumsymbolsproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumTypes function">
+		<PARAM NAME="Name" VALUE="SymEnumTypes Function">
+		<PARAM NAME="Local" VALUE="base/symenumtypes.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymEnumTypesByName function">
+		<PARAM NAME="Name" VALUE="SymEnumTypesByName Function">
+		<PARAM NAME="Local" VALUE="base/symenumtypesbyname.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFindDebugInfoFile function">
+		<PARAM NAME="Name" VALUE="SymFindDebugInfoFile Function">
+		<PARAM NAME="Local" VALUE="base/symfinddebuginfofile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFindExecutableImage function">
+		<PARAM NAME="Name" VALUE="SymFindExecutableImage Function">
+		<PARAM NAME="Local" VALUE="base/symfindexecutableimage.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFindFileInPath function">
+		<PARAM NAME="Name" VALUE="SymFindFileInPath Function">
+		<PARAM NAME="Local" VALUE="base/symfindfileinpath.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFindFileInPathProc callback function">
+		<PARAM NAME="Name" VALUE="SymFindFileInPathProc Callback Function">
+		<PARAM NAME="Local" VALUE="base/symfindfileinpathproc.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFromAddr function">
+		<PARAM NAME="Name" VALUE="SymFromAddr Function">
+		<PARAM NAME="Local" VALUE="base/symfromaddr.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFromIndex function">
+		<PARAM NAME="Name" VALUE="SymFromIndex Function">
+		<PARAM NAME="Local" VALUE="base/symfromindex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFromName function">
+		<PARAM NAME="Name" VALUE="SymFromName Function">
+		<PARAM NAME="Local" VALUE="base/symfromname.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFromToken function">
+		<PARAM NAME="Name" VALUE="SymFromToken Function">
+		<PARAM NAME="Local" VALUE="base/symfromtoken.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFunctionTableAccess">
+		<PARAM NAME="Name" VALUE="SymFunctionTableAccess64 Function">
+		<PARAM NAME="Local" VALUE="base/symfunctiontableaccess64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymFunctionTableAccess64 function">
+		<PARAM NAME="Name" VALUE="SymFunctionTableAccess64 Function">
+		<PARAM NAME="Local" VALUE="base/symfunctiontableaccess64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetFileLineOffsets64 function">
+		<PARAM NAME="Name" VALUE="SymGetFileLineOffsets64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetfilelineoffsets64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetHomeDirectory function">
+		<PARAM NAME="Name" VALUE="SymGetHomeDirectory Function">
+		<PARAM NAME="Local" VALUE="base/symgethomedirectory.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLineFromAddr">
+		<PARAM NAME="Name" VALUE="SymGetLineFromAddr64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlinefromaddr64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLineFromAddr64 function">
+		<PARAM NAME="Name" VALUE="SymGetLineFromAddr64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlinefromaddr64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLineFromName">
+		<PARAM NAME="Name" VALUE="SymGetLineFromName64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlinefromname64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLineFromName64 function">
+		<PARAM NAME="Name" VALUE="SymGetLineFromName64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlinefromname64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLineNext">
+		<PARAM NAME="Name" VALUE="SymGetLineNext64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlinenext64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLineNext64 function">
+		<PARAM NAME="Name" VALUE="SymGetLineNext64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlinenext64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLinePrev">
+		<PARAM NAME="Name" VALUE="SymGetLinePrev64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlineprev64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetLinePrev64 function">
+		<PARAM NAME="Name" VALUE="SymGetLinePrev64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetlineprev64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetModuleBase">
+		<PARAM NAME="Name" VALUE="SymGetModuleBase64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetmodulebase64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetModuleBase64 function">
+		<PARAM NAME="Name" VALUE="SymGetModuleBase64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetmodulebase64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetModuleInfo">
+		<PARAM NAME="Name" VALUE="SymGetModuleInfo64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetmoduleinfo64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetModuleInfo64 function">
+		<PARAM NAME="Name" VALUE="SymGetModuleInfo64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetmoduleinfo64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetOmaps function">
+		<PARAM NAME="Name" VALUE="SymGetOmaps Function">
+		<PARAM NAME="Local" VALUE="base/symgetomaps.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetOptions function">
+		<PARAM NAME="Name" VALUE="SymGetOptions Function">
+		<PARAM NAME="Local" VALUE="base/symgetoptions.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetScope function">
+		<PARAM NAME="Name" VALUE="SymGetScope Function">
+		<PARAM NAME="Local" VALUE="base/symgetscope.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSearchPath function">
+		<PARAM NAME="Name" VALUE="SymGetSearchPath Function">
+		<PARAM NAME="Local" VALUE="base/symgetsearchpath.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSourceFile function">
+		<PARAM NAME="Name" VALUE="SymGetSourceFile Function">
+		<PARAM NAME="Local" VALUE="base/symgetsourcefile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSourceFileFromToken function">
+		<PARAM NAME="Name" VALUE="SymGetSourceFileFromToken Function">
+		<PARAM NAME="Local" VALUE="base/symgetsourcefilefromtoken.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSourceFileToken function">
+		<PARAM NAME="Name" VALUE="SymGetSourceFileToken Function">
+		<PARAM NAME="Local" VALUE="base/symgetsourcefiletoken.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSourceVarFromToken function">
+		<PARAM NAME="Name" VALUE="SymGetSourceVarFromToken Function">
+		<PARAM NAME="Local" VALUE="base/symgetsourcevarfromtoken.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymbolFile function">
+		<PARAM NAME="Name" VALUE="SymGetSymbolFile Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymbolfile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymFromAddr">
+		<PARAM NAME="Name" VALUE="SymGetSymFromAddr64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymfromaddr64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymFromAddr64 function">
+		<PARAM NAME="Name" VALUE="SymGetSymFromAddr64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymfromaddr64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymFromName">
+		<PARAM NAME="Name" VALUE="SymGetSymFromName64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymfromname64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymFromName64 function">
+		<PARAM NAME="Name" VALUE="SymGetSymFromName64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymfromname64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymNext">
+		<PARAM NAME="Name" VALUE="SymGetSymNext64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymnext64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymNext64 function">
+		<PARAM NAME="Name" VALUE="SymGetSymNext64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymnext64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymPrev">
+		<PARAM NAME="Name" VALUE="SymGetSymPrev64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymprev64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetSymPrev64 function">
+		<PARAM NAME="Name" VALUE="SymGetSymPrev64 Function">
+		<PARAM NAME="Local" VALUE="base/symgetsymprev64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetTypeFromName function">
+		<PARAM NAME="Name" VALUE="SymGetTypeFromName Function">
+		<PARAM NAME="Local" VALUE="base/symgettypefromname.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetTypeInfo function">
+		<PARAM NAME="Name" VALUE="SymGetTypeInfo Function">
+		<PARAM NAME="Local" VALUE="base/symgettypeinfo.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetTypeInfoEx function">
+		<PARAM NAME="Name" VALUE="SymGetTypeInfoEx Function">
+		<PARAM NAME="Local" VALUE="base/symgettypeinfoex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymGetUnwindInfo function">
+		<PARAM NAME="Name" VALUE="SymGetUnwindInfo Function">
+		<PARAM NAME="Local" VALUE="base/symgetunwindinfo.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymInitialize function">
+		<PARAM NAME="Name" VALUE="SymInitialize Function">
+		<PARAM NAME="Local" VALUE="base/syminitialize.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymLoadModule">
+		<PARAM NAME="Name" VALUE="SymLoadModule64 Function">
+		<PARAM NAME="Local" VALUE="base/symloadmodule64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymLoadModule64 function">
+		<PARAM NAME="Name" VALUE="SymLoadModule64 Function">
+		<PARAM NAME="Local" VALUE="base/symloadmodule64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymLoadModuleEx function">
+		<PARAM NAME="Name" VALUE="SymLoadModuleEx Function">
+		<PARAM NAME="Local" VALUE="base/symloadmoduleex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymMatchFileName function">
+		<PARAM NAME="Name" VALUE="SymMatchFileName Function">
+		<PARAM NAME="Local" VALUE="base/symmatchfilename.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymMatchString function">
+		<PARAM NAME="Name" VALUE="SymMatchString Function">
+		<PARAM NAME="Local" VALUE="base/symmatchstring.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymNext function">
+		<PARAM NAME="Name" VALUE="SymNext Function">
+		<PARAM NAME="Local" VALUE="base/symnext.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymPrev function">
+		<PARAM NAME="Name" VALUE="SymPrev Function">
+		<PARAM NAME="Local" VALUE="base/symprev.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymRefreshModuleList function">
+		<PARAM NAME="Name" VALUE="SymRefreshModuleList Function">
+		<PARAM NAME="Local" VALUE="base/symrefreshmodulelist.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymRegisterCallback">
+		<PARAM NAME="Name" VALUE="SymRegisterCallback64 Function">
+		<PARAM NAME="Local" VALUE="base/symregistercallback64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymRegisterCallback64 function">
+		<PARAM NAME="Name" VALUE="SymRegisterCallback64 Function">
+		<PARAM NAME="Local" VALUE="base/symregistercallback64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymRegisterCallbackProc64 callback function">
+		<PARAM NAME="Name" VALUE="SymRegisterCallbackProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symregistercallbackproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymRegisterFunctionEntryCallback">
+		<PARAM NAME="Name" VALUE="SymRegisterFunctionEntryCallback64 Function">
+		<PARAM NAME="Local" VALUE="base/symregisterfunctionentrycallback64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymRegisterFunctionEntryCallback64 function">
+		<PARAM NAME="Name" VALUE="SymRegisterFunctionEntryCallback64 Function">
+		<PARAM NAME="Local" VALUE="base/symregisterfunctionentrycallback64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymRegisterFunctionEntryCallbackProc64 callback function">
+		<PARAM NAME="Name" VALUE="SymRegisterFunctionEntryCallbackProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/symregisterfunctionentrycallbackproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSearch function">
+		<PARAM NAME="Name" VALUE="SymSearch Function">
+		<PARAM NAME="Local" VALUE="base/symsearch.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSetContext function">
+		<PARAM NAME="Name" VALUE="SymSetContext Function">
+		<PARAM NAME="Local" VALUE="base/symsetcontext.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSetHomeDirectory function">
+		<PARAM NAME="Name" VALUE="SymSetHomeDirectory Function">
+		<PARAM NAME="Local" VALUE="base/symsethomedirectory.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSetOptions function">
+		<PARAM NAME="Name" VALUE="SymSetOptions Function">
+		<PARAM NAME="Local" VALUE="base/symsetoptions.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSetParentWindow function">
+		<PARAM NAME="Name" VALUE="SymSetParentWindow Function">
+		<PARAM NAME="Local" VALUE="base/symsetparentwindow.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSetScopeFromAddr function">
+		<PARAM NAME="Name" VALUE="SymSetScopeFromAddr Function">
+		<PARAM NAME="Local" VALUE="base/symsetscopefromaddr.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSetScopeFromIndex function">
+		<PARAM NAME="Name" VALUE="SymSetScopeFromIndex Function">
+		<PARAM NAME="Local" VALUE="base/symsetscopefromindex.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSetSearchPath function">
+		<PARAM NAME="Name" VALUE="SymSetSearchPath Function">
+		<PARAM NAME="Local" VALUE="base/symsetsearchpath.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SYMSRV_INDEX_INFO structure">
+		<PARAM NAME="Name" VALUE="SYMSRV_INDEX_INFO Structure">
+		<PARAM NAME="Local" VALUE="base/symsrv_index_info.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvDeltaName function">
+		<PARAM NAME="Name" VALUE="SymSrvDeltaName Function">
+		<PARAM NAME="Local" VALUE="base/symsrvdeltaname.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvGetFileIndexes function">
+		<PARAM NAME="Name" VALUE="SymSrvGetFileIndexes Function">
+		<PARAM NAME="Local" VALUE="base/symsrvgetfileindexes.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvGetFileIndexInfo function">
+		<PARAM NAME="Name" VALUE="SymSrvGetFileIndexInfo Function">
+		<PARAM NAME="Local" VALUE="base/symsrvgetfileindexinfo.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvGetFileIndexString function">
+		<PARAM NAME="Name" VALUE="SymSrvGetFileIndexString Function">
+		<PARAM NAME="Local" VALUE="base/symsrvgetfileindexstring.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvGetSupplement function">
+		<PARAM NAME="Name" VALUE="SymSrvGetSupplement Function">
+		<PARAM NAME="Local" VALUE="base/symsrvgetsupplement.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvIsStore function">
+		<PARAM NAME="Name" VALUE="SymSrvIsStore Function">
+		<PARAM NAME="Local" VALUE="base/symsrvisstore.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvStoreFile function">
+		<PARAM NAME="Name" VALUE="SymSrvStoreFile Function">
+		<PARAM NAME="Local" VALUE="base/symsrvstorefile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymSrvStoreSupplement function">
+		<PARAM NAME="Name" VALUE="SymSrvStoreSupplement Function">
+		<PARAM NAME="Local" VALUE="base/symsrvstoresupplement.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymUnDName64 function">
+		<PARAM NAME="Name" VALUE="SymUnDName64 Function">
+		<PARAM NAME="Local" VALUE="base/symundname64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymUnloadModule">
+		<PARAM NAME="Name" VALUE="SymUnloadModule64 Function">
+		<PARAM NAME="Local" VALUE="base/symunloadmodule64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="SymUnloadModule64 function">
+		<PARAM NAME="Name" VALUE="SymUnloadModule64 Function">
+		<PARAM NAME="Local" VALUE="base/symunloadmodule64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="THREAD_WRITE_FLAGS enumeration">
+		<PARAM NAME="Name" VALUE="THREAD_WRITE_FLAGS Enumeration">
+		<PARAM NAME="Local" VALUE="base/thread_write_flags.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="TI_FINDCHILDREN_PARAMS structure">
+		<PARAM NAME="Name" VALUE="TI_FINDCHILDREN_PARAMS Structure">
+		<PARAM NAME="Local" VALUE="base/ti_findchildren_params_str.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="TouchFileTimes function">
+		<PARAM NAME="Name" VALUE="TouchFileTimes Function">
+		<PARAM NAME="Local" VALUE="base/touchfiletimes.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="TranslateAddressProc64 callback function">
+		<PARAM NAME="Name" VALUE="TranslateAddressProc64 Callback Function">
+		<PARAM NAME="Local" VALUE="base/translateaddressproc64.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="UnDecorateSymbolName function">
+		<PARAM NAME="Name" VALUE="UnDecorateSymbolName Function">
+		<PARAM NAME="Local" VALUE="base/undecoratesymbolname.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="UnMapAndLoad function">
+		<PARAM NAME="Name" VALUE="UnMapAndLoad Function">
+		<PARAM NAME="Local" VALUE="base/unmapandload.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="UnmapDebugInformation function">
+		<PARAM NAME="Name" VALUE="UnmapDebugInformation Function">
+		<PARAM NAME="Local" VALUE="base/unmapdebuginformation.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="UpdateDebugInfoFile function">
+		<PARAM NAME="Name" VALUE="UpdateDebugInfoFile Function">
+		<PARAM NAME="Local" VALUE="base/updatedebuginfofile.htm">
+		</OBJECT>
+	<LI><OBJECT TYPE="text/sitemap">
+		<PARAM NAME="Keyword" VALUE="UpdateDebugInfoFileEx function">
+		<PARAM NAME="Name" VALUE="UpdateDebugInfoFileEx Function">
+		<PARAM NAME="Local" VALUE="base/updatedebuginfofileex.htm">
+		</OBJECT>
+</UL>
+</BODY>
+</HTML>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>MakeFullPath method</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">MakeFullPath
+<font color="#004080">method</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#800080">MakeFullPath</font></b> <b><font color="#0000ff">Proto</font> lpszPath<font color="#ff00ff">:</font><font color="#000080">LPSTR</font><font color="#ff00ff">,</font></b> <b>lpszFile<font color="#ff00ff">:</font><font color="#000080">LPSTR</font></b>
+</font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Syntax</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#0000ff">Invoke</font></b> <b><font color="#800080">MakeFullPath</font><font color="#ff00ff">,</font></b> <b>lpszPath<font color="#ff00ff">,</font></b> <b>lpszFile</b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Function</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Makes the
+full path
+for lpszPath plus lpszFile. The full path is returned in lpszPath.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Parameters</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><b><font face="Arial" size="2">lpszPath</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Pointer to
+the effective address of the null-terminated string for the path
+where the lpsFile has to be added.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">lpszFile</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Pointer to
+the effective address of the null-terminated string for the
+file to be added to lpszPath.</font></p>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2">Return
+value</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns
+a pointer to the string just after the lpszPath plus the back slash,
+that is, the address where lpszFile has been added. If <b>lpszFile</b>
+is <font color="#000080"><b>NULL</b></font>,
+or it is an empty string,
+just a back slash is added to <b>lpszPath</b>.</font></font></p>
+</blockquote>
+<p><font face="Arial" size="2"><br>
+<b>Examples</b>:
+<blockquote><b>lpszPath</b>
+= <font color="#ff00ff"><b>"G:\EasyCode"</b></font>,
+<b>lpszFile</b> = <font color="#ff00ff"><b>"Bin"</b></font>.
+After calling <font color="#800080"><b>MakeFullPath</b></font>,
+<b>lpszPath</b> = <font color="#ff00ff"><b>"G:\EasyCode\Bin"</b></font>.<br>
+<b>lpszPath</b>
+= <font color="#ff00ff"><b>"G:\EasyCode\Bin"</b></font>,
+<b>lpszFile</b> = <font color="#ff00ff"><b>"EasyCode.exe"</b></font>.
+After calling <font color="#800080"><b>MakeFullPath</b></font>,
+<b>lpszPath</b> = <font color="#ff00ff"><b>"G:\EasyCode\Bin\EasyCode.exe"</b></font>.<br>
+<b>lpszPath</b> =
+<font color="#ff00ff"><b>"G:\EasyCode\Bin"</b></font>,
+<b>lpszFile</b> =
+<font color="#000080"><b>NULL</b></font>
+(or an empty string). After calling
+<font color="#800080"><b>MakeFullPath</b></font>,
+<b>lpszPath</b> =
+<font color="#ff00ff"><b>"G:\EasyCode\Bin\"</b></font>.</blockquote>
+</font></p>
+<p><font face="Arial" size="2"><br>
+<b>REMARKS</b>: The <font color="#800080"><b>MakeFullPath</b></font>
+method expects <b>lpszPath</b> and <b>lpszFile</b>
+to be Unicode strings
+if the application is running as Unicode,
+or ANSI strings if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a> method).
+You can call <font color="#800080"><b>MakeFullPathA</b></font>
+if <b>lpszPath</b> and <b>lpszFile</b> are
+ANSI strings in Unicode
+applications, or <font color="#800080"><b>MakeFullPathW</b></font>
+if <b>lpszPath</b> and <b>lpszFile</b> are
+Unicode strings in ANSI
+applications.</font><br>
+<br>
+</p>
+</body></html>

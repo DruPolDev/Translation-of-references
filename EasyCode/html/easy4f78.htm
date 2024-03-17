@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>Print method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">Print
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Window</b>, <b>DialogBox</b> and <b>Picture</b>
+objects.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">Print</font></b> <b><font
+color="#0000FF">Proto</font></b> <b>hWnd<font color="#FF00FF">:</font><font color="#000080">HWND</font><font
+color="#FF00FF">,</font></b> <b>lpszText<font color="#FF00FF">:</font><font
+color="#000080">LPSTR</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font></b> <b><font
+color="#800080">Print</font><font color="#FF00FF">,</font></b> <b>hWnd<font color="#FF00FF">,</font>
+lpszText</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Prints text inside the object's client area.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>lpszText</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the effective address of the null-terminated string to
+print.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <strong><font
+color="#000080">TRUE</font></strong> if successful, or <strong><font color="#000080">FALSE</font></strong>
+if not.</font></font></p></blockquote>
+
+<p><font face="Arial" size="2"><br><b>NOTE</b>: This method uses the coordinates set by </font><a
+href="easy47w8.htm"><font face="Arial" size="2"><b>SetCurrentX</b></font></a><font face=Arial size=2> and
+</font><a href="easy47w9.htm"><font face="Arial" size="2"><b>SetCurrentY</b></font></a><font face=Arial
+size=2> methods as the starting point for drawing the text.</font></p>
+
+<p><font face="Arial" size="2"><b>REMARKS</b>: The <font color="#800080"><b>Print</b></font>
+method expects <b>lpszText</b> to be a Unicode string if the application is running as Unicode,
+or an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call <font color="#800080"><b>PrintA</b></font> to print ANSI strings in Unicode
+applications, or <font color="#800080"><b>PrintW</b></font> to print Unicode strings in ANSI
+applications.</font></p>
+
+<p><font face="Arial" size="2"><b>IMPORTANT</b>: For <b>Picture</b> objects, you can also call the
+</font></font><a href="easy01kk.htm"><font face="Arial" size=2><b>SetText</b></font></a><font
+face="Arial" size="2"> method, although <b><font color="#800080">Print</font></b> method is faster as it
+does not update the object's <a href="easy0sqc.htm"><b>text</b></a>.<br><br></font></p>
+
+</body>
+</html>

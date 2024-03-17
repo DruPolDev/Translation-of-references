@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=Windows-1252">
+  <title>Menu editor</title>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Menu
+Editor</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Available through the <b>Tools--&gt;Menu
+Editor</b> menu or when adding a
+menu resource
+(<b>Project--&gt;Add
+Resource--&gt;Menu</b>).</font></p>
+<p><font face="Arial" size="2">When it is open, it
+shows the window below and allows you to design a menu for the
+window object being active (only for visual project type). If the menu
+editor is open by a menu designed as a resource
+(see </font><a href="ResEdit.htm"><font face="Arial" size="2">Resources</font></a><font
+ face="Arial" size="2">), the
+<b>Acc<u>e</u>lerator</b>
+option is not available as Resources have their own Accelerator
+designer.</font></p>
+<p><img src="MenuEdit.gif" border="0" height="353" hspace="0"
+ width="366"></p>
+<p><font face="Arial" size="2">In </font><a href="Visual.htm"><font
+ face="Arial" size="2">visual projects</font></a><font face="Arial"
+ size="2">, each window object may
+have a menu object. This menu object is the <b>top</b>
+menu, which is set
+to the window object (that specified in the caption of the menu Editor)
+and it is<b> not </b>shown
+in the menu bar
+(let's say it is the menu bar). A <b>top</b>
+menu is a <b>popup</b>
+menu, which may have other <b>popup</b>
+menus
+inside. On the other hand, inside <b>popup</b>
+menus there are menu <b>items</b>
+or other <b>popup</b>
+menus. Those
+<b>popup</b>
+menus being in the first level, that is, being directly children of the
+<b>top</b>
+menu, will be shown in
+the menu bar. Other <b>popup</b>
+or menu <b>items</b>
+are only shown when their <b>popup</b>
+parent menu is clicked. A
+<b>popup</b>
+menu does not have an identifier because they do not send <b><font
+ color="#000080">WM_COMMAND</font></b>
+messages to the owner window. Menu <b>items</b>
+do have an identifier or <b><u>I</u>D</b>
+and they are shown when their
+<b>popup</b>
+parent menu is clicked. Once shown, we can click on any menu <b>item</b>
+to perform an action. When
+clicking on a menu <b>item</b>,
+it sends a <b><font color="#000080">WM_COMMAND</font></b>
+message with its ID value in
+the low word of <b>wParam</b>
+parameter (high word of <b>wParam</b>
+is <b>0</b>).
+The window receiving this message is
+the window which the menu is set to. We can easily get the ID constant
+name for each menu <b>item</b>,
+just applying
+the following simple rule:</font></p>
+<p><font face="Arial" size="2">A menu <b>item</b>
+constant ID is formed by '<b>IDM_</b>'
+plus the upper case name of
+the <b>Window</b>
+object, plus '<b>_</b>',
+plus the text you write in the text box named <b><u>I</u>D</b>
+(that text
+box is not available for <b>popup</b>
+menus and <b>separators</b>).
+For example, supose you write <b>EXIT</b>
+as an
+<b><u>I</u>D</b>
+for a menu <b>item</b>
+which is inside a menu belonging to a window named <b>wndMain</b>.
+The constant
+name for that menu <b>item</b>
+will be:</font></p>
+<p><b><font face="Arial" size="2">IDM_WNDMAIN_EXIT</font></b></p>
+<p><font face="Arial" size="2">By default, Easy Code
+sets each menu to its owner window (that specified in the menu
+editor's caption at design time) in visual projects. The </font><a
+ href="easy6pwl.htm"><font face="Arial" size="2">name</font></a><font
+ face="Arial" size="2"> of that owner window is
+used to form the constant ID. If you set a
+menu to any other window along the code (API function <b>SetMenu</b>),
+<b><font color="#000080">WM_COMMAND</font></b>
+messages will be sent to the new owner window of the menu, but its
+constant ID <b>WILL NOT CHANGE</b>.
+So, you should
+use that constant ID along all code for the referred menu <b>item</b>,
+for example when writing code for it in the
+<b><font color="#000080">WM_COMMAND</font></b>
+message of the window object which the menu is set to.</font></p>
+<p><font face="Arial" size="2">It should look like this:</font></p>
+<p><font size="2"><font face="Courier New"><b><font color="#008000">.ElseIf</font>
+uMsg ==</b> </font></font><b><font color="#000080" face="Courier New"
+ size="2">WM_COMMAND<br>
+</font></b><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;<font
+ color="#808080">;Get the low word of wParam (needed
+for accelerators to
+work)</font><br>
+</font><font face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;
+<font color="#800080">LoWord</font>
+wParam<br>
+</strong></font><font face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;
+<font color="#008000">.If</font>
+<font color="#808000">Ax</font>
+<font color="#ff00ff">==</font>
+IDM_WNDMAIN_EXIT<br>
+</strong></font><font face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;......<br>
+</font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;&nbsp;</b>Do
+something...<br>
+</font><font face="Courier New"><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&middot;&middot;&middot;&middot;&middot;&middot;<br>
+</font><font size="2"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+ color="#800080">Return</font></b></font></font>
+<b><font face="Courier New" size="2"><font color="#000080">TRUE</font><br>
+</font></b><font face="Courier New"><font size="2"><b>&nbsp;&nbsp;&nbsp;&nbsp;<font
+ color="#808080">.EndIf</font><br>
+</b><b><font color="#008000">.EndIf</font></b></font></font></p>
+<p><font face="Arial" size="2">In the menu editor, a
+line may be a <b>popup</b>
+menu only when it has menu <b>items</b>,
+that is, when at least the line immediately after has one more tab (<b>&gt;&gt;</b>).
+By clicking on forward
+(<b>&gt;&gt;</b>)
+and backward (<b>&lt;&lt;</b>)
+buttons you can design a menu. Every menu <b>item</b>
+may be checked,
+disabled or both, and it may have an accelerator key. An accelerator is
+that key which performs the same operation than
+clicking on the corresponding menu <b>item</b>.
+For example, in most applications, pressing the &lt;<b>F1</b>&gt;
+key
+is the same than open the <b><u>H</u>elp</b>
+menu and click on <b><u>V</u>iew
+help</b> menu <b>item</b>.
+For those menu
+<b>items</b>
+you like to appear as separators, write just a hyphen (<b>-</b>)
+in its caption (text box named
+<b><u>C</u>aption</b>).
+For example, supose we have the following lines:</font></p>
+<p style="margin-right: 0px;" dir="ltr"><b><font face="Arial" size="2">&amp;File<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&amp;Open<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&amp;Close<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;-<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;Exit</font></b></p>
+<p><font face="Arial" size="2">First line (<b>&amp;File</b>)
+is a <b>popup</b>
+menu (because four lines after it has
+one more tab (<b>&gt;&gt;</b>).
+As it is in the first level (has no tabs), it will appear in the menu
+bar. When clicked,
+its four menu <b>items</b>
+will be shown. The third menu <b>item</b>
+(fourth line) is a separator. Separators do nothing
+else than <b>separate</b>
+menu items. On the other hand, note that ampersands (<b>&amp;</b>)
+will not be visible in
+<b>popup</b>
+menus or menu <b>items</b>,
+but the character immediately after an ampersand will appear underlined
+at run
+time.</font></p>
+<p><font face="Arial" size="2">Now supose we want to
+add another <b>popup</b>
+menu, let's say for example,
+<b><u>E</u>dit</b>.
+We will add the following lines (added lines in bold font):</font></p>
+<p><font face="Arial" size="2">&amp;File<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&amp;Open<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&amp;Close<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;-<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;Exit</font></p>
+<p><b><font face="Arial" size="2">&amp;Edit<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&amp;Copy<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;C&amp;ut<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&amp;Paste<br>
+</font></b><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&amp;Delete</font></b></p>
+<p><font face="Arial" size="2">As you can see, sixth
+line (<b>&amp;Edit</b>)
+is backwarded to the same level than first
+line (<b>&amp;File</b>).
+It has menu <b>items</b>,
+so it is a <b>popup</b>
+menu. As it is in the first level too, it
+will appear in the menu bar, which will look like this:</font></p>
+<p><font face="Arial"><font size="2"><b><u>F</u>ile&nbsp;&nbsp;&nbsp;</b><b><u>E</u>dit</b></font></font></p>
+<p><font face="Arial" size="2">After creating a menu,
+it is easy to write code for its menu <b>items</b>
+using their
+constant ID names. For the menu <b>items</b>
+in the example above, supose we have assigned (in the text box named
+<b><u>I</u>D</b>)
+the following ID's (remember that <b>popup</b>
+menus and <b>separators</b>
+have no ID):</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+  <p><font face="Courier New" size="2">&amp;Open&nbsp;&nbsp;&nbsp;&nbsp;<u>I</u>D:&nbsp;&nbsp;</font><font
+ face="Courier New"><strong><font size="2">OPEN<br>
+  </font></strong><font size="2">&amp;Close&nbsp;&nbsp;&nbsp;<u>I</u>D:&nbsp;&nbsp;</font></font><font
+ face="Courier New"><strong><font size="2">CLOSE<br>
+  </font></strong><font size="2">&amp;Exit&nbsp;&nbsp;&nbsp;&nbsp;<u>I</u>D:&nbsp;&nbsp;</font></font><font
+ face="Courier New"><strong><font size="2">EXIT<br>
+  </font></strong><font size="2">&amp;Copy&nbsp;&nbsp;&nbsp;&nbsp;<u>I</u>D:&nbsp;&nbsp;</font></font><font
+ face="Courier New"><strong><font size="2">COPY<br>
+  </font></strong><font size="2">C&amp;ut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>I</u>D:&nbsp;&nbsp;</font></font><font
+ face="Courier New"><strong><font size="2">CUT<br>
+  </font></strong><font size="2">&amp;Paste&nbsp;&nbsp;&nbsp;<u>I</u>D:&nbsp;&nbsp;</font></font><font
+ face="Courier New"><strong><font size="2">PASTE<br>
+  </font></strong><font size="2">&amp;Delete&nbsp;&nbsp;<u>I</u>D:&nbsp;&nbsp;<b>DELETE</b></font></font></p>
+</blockquote>
+<p><font face="Arial" size="2">As the <b>top</b>
+menu belongs to a window named <b>wndMain</b>,
+all those menu
+<b>items</b>
+will have, respectively, the following constant ID names (all upper
+case):</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+  <p><b><font face="Arial" size="2">IDM_WNDMAIN_OPEN<br>
+  </font></b><b><font face="Arial" size="2">IDM_WNDMAIN_CLOSE<br>
+  </font></b><b><font face="Arial" size="2">IDM_WNDMAIN_EXIT<br>
+  </font></b><b><font face="Arial" size="2">IDM_WNDMAIN_COPY<br>
+  </font></b><b><font face="Arial" size="2">IDM_WNDMAIN_CUT<br>
+  </font></b><b><font face="Arial" size="2">IDM_WNDMAIN_PASTE<br>
+  </font></b><b><font face="Arial" size="2">IDM_WNDMAIN_DELETE</font></b></p>
+</blockquote>
+<p><font face="Arial" size="2">Besides, for each menu <b>item</b>,
+you can assign (or not) an accelerator key in the
+combo box named <b>Acc<u>e</u>lerator</b>.
+When at least one accelerator key is assigned, Easy Code creates an
+<b>Accelerator table</b>.
+You can get its handle at run time (only for the main window) through
+the&nbsp;</font><a href="AppError.htm"><b><font face="Arial" size="2">App</font></b></a><font
+ face="Arial"><font size="2"><b>.Accel</b>
+member&nbsp;even though you usually do not need it, as Easy Code
+also takes care of accelerators in visual
+projects.</font></font></p>
+<p><font face="Arial" size="2">When working with MDI
+applications (see </font><a href="Visual.htm#mdiapplication"><font
+ face="Arial" size="2">MDI Applications</font></a><font face="Arial"
+ size="2">), take into account
+that each MDI child
+window getting active, sets its menu (if any) to the MDI frame window.
+The MDI frame (an <b>MDIWindow </b>object)
+will
+be the owner of that menu, so messages from the menu <b>items</b>
+will be sent to <b>MDI frame</b>,
+not to <b>MDI
+child</b> which originally was the
+owner of the menu. That does not affect to the menu <b>items</b>
+constant ID names,
+which remain being the same. When the <b>MDI
+child</b> gets inactive, the menu
+will be set to it again and the MDI frame
+will get the menu of the new active MDI child window.</font></p>
+<p><font face="Arial" size="2"><b>IMPORTANT</b>:
+When the <b>Owner draw</b>
+check box is selected, the corresponding
+menu item is not drawn by Windows. Instead, a <b><font color="#000080">WM_DRAWITEM</font></b>
+message is sent to
+the parent window for the menu item to be drawn by the application.</font></p>
+<p><font face="Arial"><font size="2"><b>NOTE</b>:
+Everything we have just seen in the lines above is only valid for
+visual projects type. When the menu editor is open by a menu designed
+as a resource, the <b>ID</b>
+for each item is
+exactly the name specified in the <b><u>I</u>D</b>
+text box and the accelerators must be set in the classic way, that
+is, creating an accelerator table where all keys are assigned to the
+corresponding menu items.</font></font></p>
+<p><font face="Arial"><font size="2"><b>REMARKS:</b>
+To be even more flexible, menus (both <b>popup</b>
+and
+<b>items</b>)
+accept string IDentifiers in its <b>Caption</b>
+(see </font></font><a href="ResEdit.htm"><font face="Arial" size="2">Resources</font></a><font
+ face="Arial" size="2">)<br>
+<br>
+.</font></p>
+</body>
+</html>

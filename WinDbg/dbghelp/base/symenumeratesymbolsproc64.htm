@@ -1,0 +1,75 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymEnumerateSymbolsProc64 Callback Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_symenumeratesymbolsproc64">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symenumeratesymbolsproc64"></A>SymEnumerateSymbolsProc64 Callback Function</H1>
+<P><P>An application-defined callback function used with the 
+<A HREF="symenumeratesymbols64.htm"><b>SymEnumerateSymbols64</b></A> function. It is called once for each enumerated symbol, and receives the symbol information.</P>
+<P>The <b>PSYM_ENUMSYMBOLS_CALLBACK64</b> type defines a pointer to this callback function. 
+<b>SymEnumerateSymbolsProc64</b> is a placeholder for the application-defined function name.</P>
+<P CLASS="note"><B>Note</B>  This function is provided only for compatibility. Applications should use 
+<A HREF="symenumsymbols.htm"><b>SymEnumSymbols</b></A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL CALLBACK SymEnumerateSymbolsProc64(
+  [in]                 PTSTR <I>SymbolName</I>,
+  [in]                 DWORD64 <I>SymbolAddress</I>,
+  [in]                 ULONG <I>SymbolSize</I>,
+  [in]                 PVOID <I>UserContext</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>SymbolName</I></DT>
+<DD>
+<p>The name of the symbol. The name can be undecorated if the SYMOPT_UNDNAME option is used with the 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function.</p>
+</DD>
+<DT><I>SymbolAddress</I></DT>
+<DD>
+<p>The virtual address for the beginning of the symbol.</p>
+</DD>
+<DT><I>SymbolSize</I></DT>
+<DD>
+<p>The size of the symbol, in bytes. The size is calculated and is actually a best-guess value. In some cases, the value can be zero.</p>
+</DD>
+<DT><I>UserContext</I></DT>
+<DD>
+<p>The user-defined value specified in 
+<A HREF="symenumeratesymbols64.htm"><b>SymEnumerateSymbols64</b></A>, or NULL. Typically, this parameter is used by an application to pass a pointer to a data structure that lets the callback function establish some type of context.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function returns TRUE, the enumeration will continue.</P>
+<P>If the function returns FALSE, the enumeration will stop.</P>
+<H4>Remarks</H4>
+<p>The calling application is called once per symbol until all the symbols are enumerated or until the enumeration callback function returns FALSE.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="symenumeratesymbols64.htm"><b>SymEnumerateSymbols64</b></A><BR><A HREF="symenumsymbols.htm"><b>SymEnumSymbols</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymEnumerateSymbolsProc64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

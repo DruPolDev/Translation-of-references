@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>SetForeColor method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">SetForeColor
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for all objects except <b>Image</b>, <b>HScroll</b>, <b>VScroll</b>,
+<b>ToolBar</b>, <b>StatusBar</b> <b>ProgressBar</b>, <b>Slider</b>, <b>TabStrip</b>, <b>UpDown</b>,
+<b>Animate</b>, <b>IpAddress</b>, <b>ImageCombo</b>, <b>Calendar</b>, <b>DateTime</b> and
+<b>HotKey</b>.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">SetForeColor</font> <font
+color="#0000FF">Proto</font></b> <b>hWnd<font color="#FF00FF">:</font><font color="#000080">HWND</font><font
+color="#FF00FF">,</font></b> <b>crForeColor<font color="#FF00FF">:</font><font
+color="#000080">COLORREF</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font> <font
+color="#800080">SetForeColor</font><font color="#FF00FF">,</font> hWnd<font color="#FF00FF">,</font></b>
+<b>crForeColor</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Sets the <b><a href="easy14mq.htm">ForeColor</a></b> property for an
+object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>crForeColor</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">A <b><font color="#000080">COLORREF</font></b> value specifying the new fore
+color for the object.</font></p></blockquote></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <b><font
+color="#000080">TRUE</font></b> if successful, or <b><font color="#000080">FALSE</font></b> if
+not.</font></font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>REMARKS</b>: The most significant byte of <b>crForeColor</b>
+specifies whether the color is an RGB value (<b>00H</b>) or a system color (<b>80H</b>), while the other three
+bytes are the corresponding RGB values. For example, a value <b>00FF0000H</b> means blue, <b>0000FF00H</b>
+means green and <b>000000FFH</b> means red, while <b>80000005H</b> means the system color number 5 (<b><font
+color=#000080>COLOR_WINDOW</font></b>).<br><br></font></font></p>
+
+</body>
+</html>

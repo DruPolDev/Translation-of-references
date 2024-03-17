@@ -1,0 +1,372 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_SYSTEM_INFO Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_system_info_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_system_info_str"></A>MINIDUMP_SYSTEM_INFO Structure</H1>
+<P><P>Contains processor and operating system information.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_SYSTEM_INFO {<br>  USHORT ProcessorArchitecture;<br>  USHORT ProcessorLevel;<br>  USHORT ProcessorRevision;<br>  union {<br>    USHORT Reserved0;<br>    struct {<br>      UCHAR NumberOfProcessors;<br>      UCHAR ProductType;<br>    };<br>  };<br>  ULONG32 MajorVersion;<br>  ULONG32 MinorVersion;<br>  ULONG32 BuildNumber;<br>  ULONG32 PlatformId;<br>  RVA CSDVersionRva;<br>  union {<br>    ULONG32 Reserved1;<br>    struct {<br>      USHORT SuiteMask;<br>      USHORT Reserved2;<br>    };<br>  };<br>  union {<br>    struct {<br>      ULONG32 VendorId[3];<br>      ULONG32 VersionInformation;<br>      ULONG32 FeatureInformation;<br>      ULONG32 AMDExtendedCpuFeatures;<br>    } X86CpuInfo;<br>    struct {<br>      ULONG64 ProcessorFeatures[2];<br>    } OtherCpuInfo;<br>  } Cpu;
+} MINIDUMP_SYSTEM_INFO, <br> *PMINIDUMP_SYSTEM_INFO;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>ProcessorArchitecture</B></DT>
+<DD><p>The system's processor architecture. This member can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>PROCESSOR_ARCHITECTURE_AMD64<BR>9</p>
+</TD>
+<TD width="60%"><p>x64 (AMD or Intel)</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>PROCESSOR_ARCHITECTURE_IA64<BR>6</p>
+</TD>
+<TD width="60%"><p>Intel Itanium Processor Family (IPF)</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>PROCESSOR_ARCHITECTURE_INTEL<BR>0</p>
+</TD>
+<TD width="60%"><p>x86</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>PROCESSOR_ARCHITECTURE_UNKNOWN<BR>0xffff</p>
+</TD>
+<TD width="60%"><p>Unknown processor.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>ProcessorLevel</B></DT>
+<DD><p>The system's architecture-dependent processor level. 
+
+
+</p>
+<P>If <b>ProcessorArchitecture</b> is PROCESSOR_ARCHITECTURE_INTEL, <b>ProcessorLevel</b> can be one of the following values.</P>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>3</p>
+</TD>
+<TD width="60%"><p>Intel 80386</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>4</p>
+</TD>
+<TD width="60%"><p>Intel 80486</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>5</p>
+</TD>
+<TD width="60%"><p>Intel Pentium</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>6</p>
+</TD>
+<TD width="60%"><p>Intel Pentium Pro or Pentium II</p>
+</TD>
+</TR>
+</TABLE>
+<P>If <b>ProcessorArchitecture</b> is PROCESSOR_ARCHITECTURE_IA64, <b>ProcessorLevel</b> is set to 1.</P>
+</DD>
+<DT><B>ProcessorRevision</B></DT>
+<DD><p>The architecture-dependent processor revision. 
+
+</p>
+<TABLE CLASS="clsStd">
+<TR>
+<TH>Processor</TH>
+<TH>Value</TH>
+</TR>
+<TR>
+<TD>Intel 80386 or 80486</TD>
+<TD>A value of the form <i>xxyz</i>. 
+
+
+<P>If <i>xx</i> is equal to 0xFF, <i>y</i> - 0xA is the model number, and <i>z</i> is the stepping identifier. For example, an Intel 80486-D0 system returns 0xFFD0.</P>
+<P>If <i>xx</i> is not equal to 0xFF, <i>xx</i> + 'A' is the stepping letter and <i>yz</i> is the minor stepping.</P>
+</TD>
+</TR>
+<TR>
+<TD>Intel Pentium, Cyrix, or NextGen 586</TD>
+<TD>A value of the form <i>xxyy</i>, where <i>xx</i> is the model number and <i>yy</i> is the stepping. Display this value of 0x0201 as follows: 
+
+
+<P>Model <i>xx</i>, Stepping <i>yy</i></P>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>Reserved0</B></DT>
+<DD><p>This member is reserved for future use and must be zero.</p>
+</DD>
+<DT><B>NumberOfProcessors</B></DT>
+<DD><p>The number of processors in the system.</p>
+</DD>
+<DT><B>ProductType</B></DT>
+<DD><p>Any additional information about the system. This member can be one of the following values.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_NT_DOMAIN_CONTROLLER<BR>0x0000002</p>
+</TD>
+<TD width="60%"><p>The system is a domain controller.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_NT_SERVER<BR>0x0000003</p>
+</TD>
+<TD width="60%"><p>The system is a server.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_NT_WORKSTATION<BR>0x0000001</p>
+</TD>
+<TD width="60%"><p>The system is running Windows NT 4.0 Workstation, Windows 2000 Professional, Windows XP Home Edition, or Windows XP Professional.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>MajorVersion</B></DT>
+<DD><p>The major version number of the operating system. This member can be 4, 5, or 6.</p>
+</DD>
+<DT><B>MinorVersion</B></DT>
+<DD><p>The minor version number of the operating system.</p>
+</DD>
+<DT><B>BuildNumber</B></DT>
+<DD><p>The build number of the operating system.
+						</p>
+<BLOCKQUOTE><B>Windows Me/98/95:  </B>The low-order word contains the build number of the operating system. The high-order word contains the major and minor version numbers.</BLOCKQUOTE>
+</DD>
+<DT><B>PlatformId</B></DT>
+<DD><p>The operating system platform. This member can be one of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_PLATFORM_WIN32s<BR>0</p>
+</TD>
+<TD width="60%"><p>Win32s.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_PLATFORM_WIN32_WINDOWS<BR>1</p>
+</TD>
+<TD width="60%"><p>Windows Me, Windows 98, or Windows 95.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_PLATFORM_WIN32_NT<BR>2</p>
+</TD>
+<TD width="60%"><p>Windows Server 2003, Windows XP, or Windows 2000.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>CSDVersionRva</B></DT>
+<DD><p>An RVA (from the beginning of the dump) to a <A HREF="minidump_string_str.htm"><b>MINIDUMP_STRING</b></A> that describes the latest Service Pack installed on the system. If no Service Pack has been installed, the string is empty.</p>
+</DD>
+<DT><B>Reserved1</B></DT>
+<DD><p>This member is reserved for future use.</p>
+</DD>
+<DT><B>SuiteMask</B></DT>
+<DD><p>The bit flags that identify the product suites available on the system. This member can be a combination of the following values.
+							</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_BACKOFFICE<BR>0x00000004</p>
+</TD>
+<TD width="60%"><p>Microsoft BackOffice components are installed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_BLADE<BR>0x00000400</p>
+</TD>
+<TD width="60%"><p>Windows Server 2003, Web Edition is installed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_COMPUTE_SERVER<BR>0x00004000</p>
+</TD>
+<TD width="60%"><p>Windows Server 2003, Compute Cluster Edition is installed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_DATACENTER<BR>0x00000080</p>
+</TD>
+<TD width="60%"><p>Windows Server 2008 Datacenter, Windows Server 2003, Datacenter Edition or Windows 2000 Datacenter Server is installed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_ENTERPRISE<BR>0x00000002</p>
+</TD>
+<TD width="60%"><p>Windows Server 2008 Enterprise, Windows Server 2003, Enterprise Edition,
+       Windows 2000 Advanced Server, or Windows NT Server 4.0 Enterprise Edition is installed. Refer to the Remarks section for more information about this bit flag.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_EMBEDDEDNT<BR>0x00000040</p>
+</TD>
+<TD width="60%"><p>Windows XP Embedded is installed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_PERSONAL<BR>0x00000200</p>
+</TD>
+<TD width="60%"><p>Windows XP Home Edition is installed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_SINGLEUSERTS<BR>0x00000100</p>
+</TD>
+<TD width="60%"><p>Remote Desktop is supported, but only one interactive session is supported. This value is set unless the system is running in application server mode.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_SMALLBUSINESS<BR>0x00000001</p>
+</TD>
+<TD width="60%"><p>Microsoft Small Business Server was once installed on the system, but may have been upgraded to another
+       version of Windows. Refer to the Remarks section for more information about this bit flag.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_SMALLBUSINESS_RESTRICTED<BR>0x00000020</p>
+</TD>
+<TD width="60%"><p>Microsoft Small Business Server is installed with the restrictive client license in force. Refer to the
+       Remarks section for more information about this bit flag.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_STORAGE_SERVER<BR>0x00002000</p>
+</TD>
+<TD width="60%"><p>Windows Storage Server 2003 R2 is installed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>VER_SUITE_TERMINAL<BR>0x00000010</p>
+</TD>
+<TD width="60%"><p>Terminal Services is installed. This value is always set.</p>
+<P>If VER_SUITE_TERMINAL is set but VER_SUITE_SINGLEUSERTS is not set, the system is running in application server mode.</P>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><B>Reserved2</B></DT>
+<DD><p>This member is reserved for future use.</p>
+</DD>
+<DT><B>Cpu</B></DT>
+<DD><DL>
+<DT><B>X86CpuInfo</B></DT>
+<DD><p>The CPU information obtained from the CPUID instruction. This structure is supported only for x86 computers.</p>
+<DL>
+<DT><B>VendorId</B></DT>
+<DD><p>CPUID subfunction 0. The array elements are as follows:</p>
+<P></P>
+<dl>
+<dd>VendorId[0] is EAX</dd>
+<dd>VendorId[1] is EBX</dd>
+<dd>VendorId[2] is ECX</dd>
+</dl>
+</DD>
+<DT><B>VersionInformation</B></DT>
+<DD><p>CPUID subfunction 1. Value of EAX.</p>
+</DD>
+<DT><B>FeatureInformation</B></DT>
+<DD><p>CPUID subfunction 1. Value of EDX.</p>
+</DD>
+<DT><B>AMDExtendedCpuFeatures</B></DT>
+<DD><p>CPUID subfunction 80000001. Value of EBX. This member is supported only if the vendor is "AuthenticAMD".</p>
+</DD>
+</DL>
+</DD>
+<DT><B>OtherCpuInfo</B></DT>
+<DD><p>
+Other CPU information. This structure is supported only for non-x86 computers.
+					</p>
+<DL>
+<DT><B>ProcessorFeatures</B></DT>
+<DD><p>For a list of possible values, see the 
+<b>IsProcessorFeaturePresent</b> function.</p>
+</DD>
+</DL>
+</DD>
+</DL>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><b>IsProcessorFeaturePresent</b><BR><A HREF="minidump_stream_type.htm"><b>MINIDUMP_STREAM_TYPE</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_SYSTEM_INFO%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

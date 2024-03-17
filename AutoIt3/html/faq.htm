@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Часто задаваемые вопросы</title>
+  <meta charset=UTF-8"utf-8">
+  <link href="css/default.css" rel="stylesheet">
+</head>
+<body>
+  <h1><FONT color=#7b7e5f>Часто задаваемые вопросы 
+(FAQ)</FONT>   </h1>
+  <p>В этом разделе приведены некоторые из наиболее часто 
+задаваемых вопросов на <A href="http://www.autoitscript.com/forum/"><FONT color=#ff00ff>форуме</FONT></A>. Если вы не можете здесь найти ответ,&nbsp;<A 
+href="http://www.autoitscript.com/forum/"><FONT color=#ff00ff>форум</FONT></A> 
+должен стать вашим первым прибежищем.</p>
+  <h2><FONT color=#7b7e5f>Вопросы</FONT></h2>
+  <ol>
+    <li><A href="#1"><FONT color=#ff00ff>Как можно запустить 
+  DOS программу в AutoIt?</FONT></A>&nbsp;<FONT color=#ff00ff> </FONT>
+    <li><FONT color=#ff00ff><A 
+  href="#2"><FONT color=#ff00ff>Почему можно использовать Run() только для 
+  запуска .exe файлов? А как насчет .msi/.txt и других файлов?</FONT></A>  
+              
+    &nbsp; </FONT>
+    <li><FONT color=#ff00ff><A 
+  href="#3"><FONT color=#ff00ff>Почему я получаю 
+  сообщение об ошибке при использовании двойных кавычек (")?</FONT>         
+   </A> </FONT>
+    <li><A href="#4"><FONT color=#ff00ff>Что означают 
+  параметры функцими работы с оконным 
+  &nbsp;интерфейсом "title" и "text"?</FONT>    
+     </A>&nbsp;<FONT color=#ff00ff> </FONT>
+    <li><A href="#5"><FONT color=#ff00ff>Почему нельзя ввести 
+  переменную $vVariable в строке "My var is $vVariable"?</FONT></A>&nbsp;<FONT color=#ff00ff> </FONT>
+    <li><A 
+  href="#6"><FONT color=#ff00ff>Почему при 
+  использовании функции Send() для передачи переменной, получаются странные 
+  вещи?</FONT>        
+    </A><FONT color=#ff00ff> </FONT> 
+    <li><A 
+  href="#7"><FONT color=#ff00ff>В чем разница между 
+  возвращаемым значением и @error?</FONT>       </A><FONT color=#ff00ff> </FONT> 
+    <li><A href="#8"><FONT color=#ff00ff>Как можно выйти из выполняемого 
+  сценария, используя горячие клавиши?</FONT>     
+     </A><FONT color=#ff00ff>&nbsp; </FONT>
+    <li><A 
+  href="#9"><FONT color=#ff00ff>Как использовать 
+  свою иконку при компиляции сценариев?</FONT>      </A><FONT color=#ff00ff> 
+  </FONT> 
+    <li><A href="#10"><FONT color=#ff00ff>Как я могу убедиться, что запущена 
+  только одна копия моего сценария?</FONT>      
+      </A><FONT color=#ff00ff>&nbsp; </FONT>
+    <li><A href="#11"><FONT color=#ff00ff>Каковы текущие технические ограничения 
+  AutoIt 3?</FONT>    
+   </A><FONT color=#ff00ff>&nbsp; </FONT>
+    <li><A href="#12"><FONT color=#ff00ff>Символ отсутствующей 
+  картинки в файле справки для примеров.</FONT></A>&nbsp;<FONT color=#ff00ff> </FONT></li>
+  </ol>
+  <hr>
+  <h2><a id="1"></a><FONT color=#7b7e5f>1. 
+</FONT> <A href="#1"><FONT color=#7b7e5f>    Как можно запустить DOS программу&nbsp;в AutoIt?</FONT>         </A></h2>
+  <p>Если вы хотите&nbsp;использовать что-то вроде DOS команды "DIR", 
+необходимо ее запустить через&nbsp;командный интерпретатор (command.com или 
+cmd.exe, в зависимости от вашей ОС). Макрос&nbsp;<A href="macros.htm"><FONT color=#ff00ff>@ComSpec</FONT></A> содержит правильное располоржение этого файла. 
+Необходимо использовать функцию&nbsp;<A href="functions/RunWait.htm"><FONT color=#ff00ff>RunWait()</FONT></A>                , поскольку она ждет завершение&nbsp;DOS&nbsp;программы, прежде чем продолжить выполнение следующей строки сценария. Например, запуск команды DIR на диске C: (фактически
+  выполняется команда <strong>command.com /c Dir C:\</strong> )</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../functions/RunWait.htm"><span class="S4"><FONT color=#6699cc>RunWait</FONT></span></A><span class="S8"><FONT color=#f97b57><FONT color=#d8dee9>(</FONT></FONT></span><A class=codeSnippetLink href="../macros.htm#@ComSpec"><span class="S6"><FONT color=#6699cc>@ComSpec</FONT></span></A><span class="S0"> </span><span class="S8"><FONT color=#f97b57>&amp;</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>/c Dir C:\</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff>В начало</FONT></A></p>
+  <hr>
+  <h2><a id="2"></a><FONT color=#7b7e5f>2.&nbsp;<A href="#2"><FONT color=#7b7e5f> Почему 
+можно использовать Run() только для запуска .exe файлов? А как насчет .msi/.txt 
+и других файлов?</FONT></A>         
+        
+</FONT> <A href="#2">                </A></h2>
+  <p>Только несколько файлов с расширениями: .exe, .bat, .com 
+и&nbsp;.pif,&nbsp;обычно являются "запускаемыми". Другие типы, как&nbsp; .txt и 
+.msi файлы, выполняются с помощью других программ. Дважды кликнув файл 
+<STRONG>"my_installer.msi"</STRONG>, на самом деле мы запускакм в фоновом режиме команду 
+"<STRONG>msiexec.exe my_installer.msi"</STRONG>                                         
+         . Поэтому для запуска .msi файла в AutuIt необходимо выполнить:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../functions/RunWait.htm"><span class="S4"><FONT color=#6699cc>RunWait</FONT></span></A><span class="S8"><FONT color=#6699cc><FONT color=#d8dee9>(</FONT></FONT></span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>msiexec my_installer.msi</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p>Или запустить команду 
+<STRONG>start</STRONG>,&nbsp;которая сама определит как&nbsp;выполнить ваш 
+файл:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../functions/RunWait.htm"><span class="S4"><FONT color=#6699cc>RunWait</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><A class=codeSnippetLink href="../macros.htm#@ComSpec"><span class="S6"><FONT color=#6699cc>@ComSpec</FONT></span></A><span class="S0"> </span><span class="S8"><FONT color=#d17757>&amp; </FONT></span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>/c Start 
+my_installer.msi</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p>Или использовать функцию 
+<STRONG>ShellExecuteWait</STRONG>          , которая сама определит как&nbsp;выполнить ваш файл:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../functions/ShellExecuteWait.htm"><span class="S4"><FONT color=#6699cc>ShellExecuteWait</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>my_installer.msi</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p><!--QuoteEnd-->
+  <p><A href="#FAQ"><FONT color=#ff00ff>В 
+начало</FONT></A></p>
+  <hr>
+  <h2><a id="3"></a><FONT color=#7b7e5f>3.&nbsp;<A href="#3"><FONT color=#7b7e5f>Почему я получаю 
+сообщение об ошибке при использовании двойных кавычек (") ?</FONT></A>         
+   
+</FONT> <A href="#3">             </A></h2>
+  <p>                       Для                       использования двойных кавычек внутри строки, необходимо удвоить их количество. Например, если значение переменной, является строка: <strong>A word in "this" sentence has quotes around
+  it!</strong> Необходимо выполнить:</p>
+<p class="codebox">
+<span><span class="S9"><FONT color=#d8dee9>$vVar</FONT></span><span class="S0"> </span><A class=codeSnippetLink href="../intro/lang_operators.htm"><span class="S8"><FONT color=#d17757>=</FONT></span></A><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>  Это</FONT><FONT color=#a295c6> ""</FONT><FONT color=#99c794>слово</FONT><FONT color=#a295c6>"" </FONT><FONT color=#99c794>  заключено в 
+кавычки!</FONT><FONT color=#6699cc>"</FONT>        </span></span>
+</p>
+  <p>Или использовать одинарные кавычки:</p>
+<p class="codebox">
+<span><span class="S9"><FONT color=#d8dee9>$vVar</FONT></span><span class="S0"> </span><A class=codeSnippetLink href="../intro/lang_operators.htm"><span class="S8"><FONT color=#d17757>=</FONT></span></A><span class="S0"> </span><span class="S7"><FONT color=#6699cc>'</FONT><FONT color=#99c794>    Это "слово" 
+заключено в кавычки!</FONT><FONT color=#6699cc>'</FONT>        </span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff>В 
+начало</FONT></A></p>
+  <hr>
+  <h2><a id="4"></a><FONT color=#7b7e5f>4.&nbsp;<A href="#4"><FONT color=#7b7e5f>Что означают 
+параметры функции работы 
+с оконным интерфейсом "title" и "text"?</FONT></A>      
+</FONT> <A href="#4">        </A></h2>
+  <p><A href="intro/windowsbasic.htm"><FONT color=#ff00ff>Здесь</FONT></A>&nbsp;есть подробное описание.</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff>В 
+начало</FONT></A></p>
+  <hr>
+  <h2><a id="5"></a><FONT color=#7b7e5f>5.&nbsp;<A href="#5"><FONT color=#7b7e5f> Почему 
+нельзя ввести переменную $vVar в строке "Это переменная 
+$vVar"?</FONT></A> 
+ 
+</FONT> <A href="#5">          </A></h2>
+  <p>Если есть переменная <STRONG>$msg</STRONG> и вы 
+напечатаете в&nbsp;строковом аргументе&nbsp;<STRONG>MsgBox</STRONG>                , &nbsp;функция НЕ будет работать:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../keywords/include.htm"><span class="S11"><FONT color=#a295c6>#include</FONT></span></A><span class="S0"> </span><span class="S7"><FONT color=#6699cc>&lt;</FONT><FONT color=#99c794>MsgBoxConstants.au3</FONT><FONT color=#6699cc>&gt;</FONT></span><br ><br ><A class=codeSnippetLink href="../functions/MsgBox.htm"><span class="S4"><FONT color=#6699cc>MsgBox</FONT></span></A><FONT color=#d8dee9><span class="S8"><FONT color=#d8dee9>(</FONT></span></FONT><span class="S9"><FONT color=#d8dee9>$MB_OK</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Пример</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794> Это переменная $msg</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p>На деле выведется строка <strong>My variable is $msg</strong>. Необходимо сообщить AutoIt, чтобы он соединил строку 
+и переменную с помощью <A href="intro/lang_operators.htm"><FONT color=#ff00ff>оператора &amp;</FONT></A>:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../keywords/include.htm"><span class="S11"><FONT color=#a295c6>#include</FONT></span></A><span class="S0"> </span><span class="S7"><span class="S7"><FONT color=#6699cc>&lt;</FONT><FONT color=#99c794>MsgBoxConstants.au3</FONT><FONT color=#6699cc>&gt;</FONT></span></span><br ><br ><A class=codeSnippetLink href="../functions/MsgBox.htm"><span class="S4"><FONT color=#6699cc>MsgBox</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S9"><FONT color=#d8dee9>$MB_OK</FONT></span><span class="S8"><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Пример</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794> Это переменная</FONT></span></span><span class="S7"><FONT color=#6699cc>"</FONT>   </span><span class="S0"> </span><span class="S8"><FONT color=#d17757>&amp;</FONT></span><span class="S0"> </span><span class="S9"><FONT color=#d8dee9>$msg</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p><strong>Дополнительно:</strong> Если 
+у в строке несколько добавляемых переменных, вам может пригодится функция <A href="functions/StringFormat.htm"><FONT color=#ff00ff>StringFormat()</FONT></A>. Например, необходимо вставить 
+переменные $vVar1&nbsp;- $vVar5, это можно сделать проще:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../keywords/include.htm"><span class="S11"><FONT color=#a295c6>#include</FONT></span></A><span class="S0"> </span><span class="S7"><span class="S7"><span class="S7"><FONT color=#6699cc>&lt;</FONT><FONT color=#99c794>MsgBoxConstants.au3</FONT><FONT color=#6699cc>&gt;</FONT></span></span></span><br ><br ><A class=codeSnippetLink href="../keywords/Dim.htm"><span class="S5"><FONT color=#a295c6>Local</FONT></span></A><span class="S0"> </span><span class="S9"><FONT color=#d8dee9>$sMessage</FONT></span><span class="S0"> </span><A class=codeSnippetLink href="../intro/lang_operators.htm"><span class="S8"><FONT color=#d17757>=</FONT></span></A><span class="S0"> </span><A class=codeSnippetLink href="../functions/StringFormat.htm"><span class="S4"><FONT color=#6699cc>StringFormat</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Переменная 1 
+-&nbsp;%s, Переменная 2 -&nbsp;%s, Переменная 3 -&nbsp;%s, Переменная 4 -&nbsp;%s</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S9"><FONT color=#d8dee9>$vVar1</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S9"><FONT color=#d8dee9>$vVar2</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S9"><FONT color=#d8dee9>$vVar3</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S9"><FONT color=#d8dee9>$vVar4</FONT></span><FONT color=#d8dee9><span class="S8"><FONT color=#d8dee9>)</FONT></span><br ></FONT><A class=codeSnippetLink href="../functions/MsgBox.htm"><span class="S4"><FONT color=#6699cc>MsgBox</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S9"><FONT color=#d8dee9>$MB_SYSTEMMODAL</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>""</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S9"><FONT color=#d8dee9>$sMessage</FONT></span><span class="S8"><span class="S8"><FONT color=#d8dee9>)</FONT></span></span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff>В 
+начало</FONT></A></p>
+  <hr>
+  <h2><a id="6"></a><FONT color=#7b7e5f>6. 
+</FONT> <A href="#6"><FONT color=#7b7e5f>Почему при 
+использовании функции Send() для передачи переменной, получаются странные 
+вещи?</FONT>          </A></h2>
+  <p>При&nbsp;<A href="functions/Send.htm"><FONT color=#ff00ff>передаче</FONT></A> содержимого переменной, помните, если она 
+содержит специальные символы: <STRONG>! ^ + {SPASE}</STRONG>, которые 
+преобразуются в соответствующие нажатия клавиш - не всегда будет тем, что вам 
+надо. Чтобы это исправить, используйте режим RAW <A 
+href="functions/Send.htm"><FONT color=#ff00ff>Send()</FONT></A>, когда символы не преобразуются в нажатия клавиш:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../functions/Send.htm"><span class="S4"><FONT color=#6699cc>Send</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S9"><FONT color=#d8dee9>$vMyVar</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S3"><FONT color=#d17757>1</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff>В 
+начало</FONT></A></p>
+  <hr>
+  <h2><a id="7"></a><FONT color=#7b7e5f>7. 
+</FONT> <A href="#7"><FONT color=#7b7e5f>  В чем разница между возвращаемым значением и 
+@error?</FONT>         </A></h2>
+  <p>            Обычно возвращаемое значение обозначает успешное выполнение функции. Но если функция (например, <A href="functions/WinGetText.htm"><FONT color=#ff00ff><U>WinGetText()</U></FONT></A> ) уже вернула какое то 
+значение, и нам необходимо определить успешность выполнения функции, то вместо 
+значения мы определяем <STRONG>@error</STRONG>               
+       .</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff>В 
+начало</FONT></A></p>
+  <hr>
+  <h2><a id="8"></a><FONT color=#7b7e5f>8. 
+</FONT> <A href="#8"><FONT color=#7b7e5f>Как можно выйти из 
+выполняемого сценария, используя горячие клавиши?</FONT>        </A></h2>
+  <p>Да, легко. Если необходимо, чтобы ваш сценарий завершился при нажатии определенной комбинации клавиш, используйте функцию <A href="functions/HotKeySet.htm"><FONT color=#ff00ff><U>HotKeySet()</U></FONT></A>, которая запускалась бы при 
+нажатии нужной клавиши.&nbsp;Функция должна содержать только <FONT color=#6699cc>ключевое</FONT>                
+     слово <A href="keywords/Exit.htm"><FONT color=#ff00ff><U>Exit</U></FONT></A> .</p>
+  <p>Пример кода, работа которого завершится при нажатии 
+клавиш CTRL+ALT+x:</p>
+<p class="codebox">
+<span><A class=codeSnippetLink href="../functions/HotKeySet.htm"><span class="S4"><FONT color=#6699cc>HotKeySet</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>^!x</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>MyExit</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>)</FONT></span><br ><FONT color=#d8dee9><span class="S8"><FONT color=#d8dee9>...</FONT></span><br ></FONT><span class="S8"><FONT color=#d8dee9>...</FONT></span><br ><span class="S1"><FONT color=#a3acb9>;</FONT><FONT color=#a3acb9>Rest of 
+Script</FONT>   </span><br ><FONT color=#d8dee9><span class="S8"><FONT color=#d8dee9>...</FONT></span><br ></FONT><span class="S8"><FONT color=#d8dee9>...</FONT></span><br ><A class=codeSnippetLink href="../keywords/Func.htm"><span class="S5"><FONT color=#a295c6>Func</FONT></span></A><span class="S0"> <FONT color=#d8dee9>MyExit</FONT></span><FONT color=#d8dee9><span class="S8"><FONT color=#d8dee9>()</FONT></span><br ></FONT><span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><A class=codeSnippetLink href="../keywords/Exit.htm"><span class="S5"><FONT color=#a295c6>Exit</FONT></span></A><br ><A class=codeSnippetLink href="../keywords/Func.htm"><span class="S5"><FONT color=#a295c6>EndFunc</FONT></span></A><span class="S0"> &nbsp;&nbsp;</span><span class="S1"><FONT color=#a3acb9>;==&gt;MyExit</FONT></span></span>
+</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff>В 
+начало</FONT></A>&nbsp;</p>
+  <hr>
+  <h2><a id="9"></a><FONT color=#7b7e5f>9. 
+</FONT> <A href="#9"><FONT color=#7b7e5f>    Как использовать свою иконку при компиляции 
+сценариев?</FONT>          </A></h2>
+  <p>Необходимо запустить сам компилятор (вместо того, чтобы 
+просто выбрать компиляцию в контекстном меню). На&nbsp;<A 
+href="intro/compiler.htm"><FONT color=#ff00ff>этой странице</FONT></A>   подробно описан компилятор.</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff><U>В 
+начало</U></FONT></A><A href="#FAQ">  </A></p>
+  <hr>
+  <h2><a id="10"></a><FONT color=#7b7e5f>10. </FONT> <A href="#10"><FONT color=#7b7e5f>Как я могу 
+убедиться, что запущена только одна 
+копия моего сценария?</FONT>            </A></h2>
+  <p>Используйте функцию <A 
+href="libfunctions/_Singleton.htm"><FONT color=#ff00ff>_Singleton()</FONT></A>       . Смотрите документацию по функциям пользователя, информацию о _Singleton()&nbsp;и ее использовании.</p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff><U>В 
+начало</U></FONT></A><A href="#FAQ">  </A></p>
+  <hr>
+  <h2><a id="11"></a><FONT color=#7b7e5f>11. </FONT> <A href="#11"><FONT color=#7b7e5f>   Каковы текущие технические ограничения 
+AutoIt 3?</FONT>        </A></h2>
+  <p>Пожалуйста, ознакомтесь с разделом&nbsp;<A 
+href="appendix/LimitsDefaults.htm"><FONT color=#ff00ff>Ограничения и значения по 
+умолчанию</FONT></A>       AutoIt3.<br >
+  <br >
+  Дополнительная теоретическая информация об ограничениях AutoIt3.</p>
+  <table>
+    <tr>
+      <th><FONT style="BACKGROUND-COLOR: #ededed" color=#7b7e5f>Значение</FONT></th>
+      <th><FONT style="BACKGROUND-COLOR: #ededed" color=#7b7e5f>Описание</FONT></th>
+    </tr>
+    <tr>
+      <td class="right">Не лимитировано</td>
+      <td>Максимальное количество используемых графических оконных интерфейсов Windows.</td>
+    </tr>
+    <tr>
+      <td class="right">Не лимитировано</td>
+      <td>Максимальное количество используемых функций.</td>
+    </tr>
+    <tr>
+      <td class="right">Не лимитировано</td>
+      <td>Максимальное количество одновременно используемых переменных</td>
+    </tr>
+    <tr>
+      <td class="right">от 1.7E308&nbsp;до 1.7E+308</td>
+      <td>Диапазон чисел (с плавающей запятой) с точностью до 15-го знака.</td>
+    </tr>
+    <tr>
+      <td class="right">от 0x8000000000000000&nbsp;до 0x7FFFFFFFFFFFFFFF</td>
+      <td>Диапазон шестнадцатеричных чисел (32-/64-битное целое число со знаком).</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff><U>В 
+начало</U></FONT></A><A href="#FAQ">  </A></p>
+  <hr>
+  <h2><a id="12"></a><FONT color=#7b7e5f>12. </FONT> <A href="#12"><FONT color=#7b7e5f>  
+         Символ отсутствующей 
+картинки&nbsp;в файле справки для примеров.</FONT>            </A></h2>
+  <p>         Должно быть это кнопка&nbsp;"Открыть", позволяющая открывать примеры&nbsp;из справки.<br >
+  Проблема в том, что файл hhctrl.ocx неправильно зарегистрирован или поврежден.<br >
+  Попробуйте выполнить команду "regsvr32 hhctrl.ocx"&nbsp;в командной строке или проверьте наличие и&nbsp;валидность файла.<br ></p>
+  <p>&nbsp;</p>
+  <p><A href="#FAQ"><FONT color=#ff00ff><U>В 
+начало</U></FONT></A><A href="#FAQ">  </A></p>
+  <hr>
+</body>
+</html>

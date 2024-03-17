@@ -1,0 +1,203 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymRegisterCallbackProc64 Callback Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_symregistercallbackproc64">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symregistercallbackproc64"></A>SymRegisterCallbackProc64 Callback Function</H1>
+<P><P>An application-defined callback function used with the 
+<A HREF="symregistercallback64.htm"><b>SymRegisterCallback64</b></A> function. It is called by the symbol handler.</P>
+<P>The <b>PSYMBOL_REGISTERED_CALLBACK64</b> type defines a pointer to this callback function. 
+<b>SymRegisterCallbackProc64</b> is a placeholder for the application-defined function name.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL CALLBACK SymRegisterCallbackProc64(
+  [in]                 HANDLE <I>hProcess</I>,
+  [in]                 ULONG <I>ActionCode</I>,
+  [in]                 ULONG64 <I>CallbackData</I>,
+  [in]                 ULONG64 <I>UserContext</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to the process that was originally passed to the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function.</p>
+</DD>
+<DT><I>ActionCode</I></DT>
+<DD>
+<p>The callback code. This parameter can be one of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_DEBUG_INFO<BR>0x10000000</p>
+</TD>
+<TD width="60%"><p>Display verbose information.</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a string.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_DEFERRED_SYMBOL_LOAD_CANCEL<BR>0x00000007</p>
+</TD>
+<TD width="60%"><p>Deferred symbol loading has started. To cancel the symbol load, return TRUE. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter should be ignored.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_DEFERRED_SYMBOL_LOAD_COMPLETE<BR>0x00000002</p>
+</TD>
+<TD width="60%"><p>Deferred symbol load has completed. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a 
+<A HREF="imagehlp_deferred_symbol_load64_str.htm"><b>IMAGEHLP_DEFERRED_SYMBOL_LOAD64</b></A> structure.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_DEFERRED_SYMBOL_LOAD_FAILURE<BR>0x00000003</p>
+</TD>
+<TD width="60%"><p>Deferred symbol load has failed. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a 
+<A HREF="imagehlp_deferred_symbol_load64_str.htm"><b>IMAGEHLP_DEFERRED_SYMBOL_LOAD64</b></A> structure. The symbol handler will attempt to load the symbols again if the callback function sets the <b>FileName</b> member of this structure.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_DEFERRED_SYMBOL_LOAD_PARTIAL<BR>0x00000020</p>
+</TD>
+<TD width="60%"><p>Deferred symbol load has partially completed. The symbol loader is unable to read the image header from either the image file or the specified module.</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a 
+<A HREF="imagehlp_deferred_symbol_load64_str.htm"><b>IMAGEHLP_DEFERRED_SYMBOL_LOAD64</b></A> structure. The symbol handler will attempt to load the symbols again if the callback function sets the <b>FileName</b> member of this structure.</P>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_DEFERRED_SYMBOL_LOAD_START<BR>0x00000001</p>
+</TD>
+<TD width="60%"><p>Deferred symbol load has started. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a 
+<A HREF="imagehlp_deferred_symbol_load64_str.htm"><b>IMAGEHLP_DEFERRED_SYMBOL_LOAD64</b></A> structure.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_DUPLICATE_SYMBOL<BR>0x00000005</p>
+</TD>
+<TD width="60%"><p>Duplicate symbols were found. This reason is used only in COFF or CodeView format. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a 
+<A HREF="imagehlp_duplicate_symbol64_str.htm"><b>IMAGEHLP_DUPLICATE_SYMBOL64</b></A> structure. To specify which symbol to use, set the <b>SelectedSymbol</b> member of this structure.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_EVENT<BR>0x00000010</p>
+</TD>
+<TD width="60%"><p>Display verbose information. If you do not handle this event, the information is resent through the CBA_DEBUG_INFO event.</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a 
+<A HREF="imagehlp_cba_event_str.htm"><b>IMAGEHLP_CBA_EVENT</b></A> structure.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_READ_MEMORY<BR>0x00000006</p>
+</TD>
+<TD width="60%"><p>The loaded image has been read. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter is a pointer to a 
+<A HREF="imagehlp_cba_read_memory_str.htm"><b>IMAGEHLP_CBA_READ_MEMORY</b></A> structure. The callback function should read the number of bytes specified by the <b>bytes</b> member into the buffer specified by the <b>buf</b> member, and update the <b>bytesread</b> member accordingly. </P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_SET_OPTIONS<BR>0x00000008</p>
+</TD>
+<TD width="60%"><p>Symbol options have been updated. To retrieve the current options, call the 
+<A HREF="symgetoptions.htm"><b>SymGetOptions</b></A> function. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter should be ignored.</P>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CBA_SYMBOLS_UNLOADED<BR>0x00000004</p>
+</TD>
+<TD width="60%"><p>Symbols have been unloaded. 
+
+
+</p>
+<P>The <i>CallbackData</i> parameter should be ignored.</P>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><I>CallbackData</I></DT>
+<DD>
+<p>Data for the operation. The format of this data depends on the value of the <i>ActionCode</i> parameter.</p>
+<P>If the callback function was registered with <A HREF="symregistercallback64.htm"><b>SymRegisterCallbackW64</b></A>, the data is a Unicode string or data structure. Otherwise, the data uses ANSI format.</P>
+</DD>
+<DT><I>UserContext</I></DT>
+<DD>
+<p>User-defined value specified in 
+<A HREF="symregistercallback64.htm"><b>SymRegisterCallback64</b></A>, or NULL. Typically, this parameter is used by an application to pass a pointer to a data structure that lets the callback function establish some context.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>To indicate success handling the code, return TRUE.</P>
+<P>To indicate failure handling the code, return FALSE. If your code does not handle a particular code, you should also return FALSE. (Returning TRUE in this case may have unintended consequences.)</P>
+<H4>Remarks</H4>
+<p>The calling application gets called through the registered callback function as a result of another call to one of the symbol handler functions. The calling application must be prepared for the possible side effects that this can cause. If the application has only one callback function that is being used by multiple threads, then care may be necessary to synchronize some types of data access while in the context of the callback function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="imagehlp_cba_event_str.htm"><b>IMAGEHLP_CBA_EVENT</b></A><BR><A HREF="imagehlp_cba_read_memory_str.htm"><b>IMAGEHLP_CBA_READ_MEMORY</b></A><BR><A HREF="imagehlp_deferred_symbol_load64_str.htm"><b>IMAGEHLP_DEFERRED_SYMBOL_LOAD64</b></A><BR><A HREF="imagehlp_duplicate_symbol64_str.htm"><b>IMAGEHLP_DUPLICATE_SYMBOL64</b></A><BR><A HREF="symregistercallback64.htm"><b>SymRegisterCallback64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymRegisterCallbackProc64%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

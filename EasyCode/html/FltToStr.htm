@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>FloatToString method</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">FloatToString
+<font color="#004080">method</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#800080">FloatToString</font> <font color="#0000ff">Proto</font> fValue<font color="#ff00ff">:</font><font color="#000080">Real8</font><font color="#ff00ff">,</font> lpszBuffer<font color="#ff00ff">:</font><font color="#000080">LPSTR</font></b></font></font></p>
+</blockquote>
+<p><font face="Arial"><b><font face="Arial" size="2">Syntax</font></b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font face="Arial"><font size="2"><b><font color="#0000ff">Invoke</font>
+<font color="#800080">FloatToString</font><font color="#ff00ff">,</font>
+fValue<font color="#ff00ff">,</font> lpszBuffer</b></font></font></font></p>
+</blockquote>
+<p><font face="Arial"><font face="Arial"><b><font face="Arial" size="2">Function</font></b></font></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font face="Arial"><font face="Arial" size="2">Converts a double-precision
+value to a null-terminated string.</font></font></font></p>
+</blockquote>
+<p><font face="Arial"><font face="Arial"><b><font face="Arial" size="2">Parameters</font></b></font></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font face="Arial"><b><font face="Arial" size="2">fValue</font></b></font></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font face="Arial"><font face="Arial" size="2">Double-precision
+value to be converted (<font color="#a00000"><b>Please
+see the WARNING at
+the end of the page</b></font>).</font></font></font></p>
+</blockquote>
+<p><font face="Arial"><font face="Arial"><b><font face="Arial" size="2">lpszBuffer</font></b></font></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font face="Arial"><font face="Arial" size="2">Pointer to
+a buffer to receive the converted
+value.</font></font></font></p>
+</blockquote>
+</blockquote>
+<p><font face="Arial"><font face="Arial"><b><font face="Arial" size="2">Return
+value</font></b></font></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font face="Arial"><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b> returns the
+number of characters placed
+in the buffer excluding the terminating null character.</font></font></font></p>
+</blockquote>
+<p><font face="Arial"><font face="Arial"><font face="Arial" size="2"><br>
+</font></font></font></p>
+<p><font face="Arial"><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2"><b>REMARKS</b>:
+The <font color="#800080"><b>FloatToString</b></font>
+method will
+fill the buffer pointed by <b>lpszBuffer</b> with a
+Unicode string if the application is running as Unicode,
+or with an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call <font color="#800080"><b>FloatToStringA</b></font>
+to get ANSI strings in Unicode applications,
+or <font color="#800080"><b>FloatToStringW</b></font>
+to get Unicode strings in ANSI applications.</font></font></font></font></p>
+<p><font face="Arial"><font face="Arial"><font face="Arial" size="2"><font face="Arial" size="2"><b>WARNING</b>: When working
+with <b>FASM</b>, <b>GOASM</b> or <b>SOLASM</b>
+32-bit
+projects, the <b>fValue</b> parameter (which is a <font color="#0000ff"><b>QWORD</b></font>) must
+be split in two
+<font color="#0000ff"><b>DWORD</b></font>
+values in the
+following way (<b>fTest</b> would be a <font color="#0000ff"><b>QWORD</b></font>
+variable with a
+double-precision value):<br>
+<br>
+<blockquote><b>
+FASM:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#0000ff">stdcall</font> <font color="#800080">FloatToString</font>, <font color="#0000ff">DWORD</font>
+[fTest], <font color="#0000ff">DWORD</font> [fTest +
+4], [lpszBuffer]<br>
+GOASM:&nbsp;&nbsp;&nbsp;
+<font color="#0000ff">Invoke</font> <font color="#800080">FloatToString</font>,
+[fTest], [fTest + 4], [lpszBuffer]<br>
+SOLASM:&nbsp;
+<font color="#0000ff">invoke</font> <font color="#800080">FloatToString</font>,
+<font color="#808000">ecx</font>, <font color="#808000">edx</font>, [lpszBuffer]
+<font color="#808080">&nbsp;&nbsp;;Registers ecx
+and edx must be
+loaded before the call
+(mov ecx, dword [fTest] and mov edx, dword [fTest+4])</font>
+</b><br>
+<br>
+Also see the <a href="StrToFlt.htm"><font color="#800080"><b>StringToFloat</b></font></a>
+method.</blockquote>
+</font></font></font></font></p>
+<font face="Arial"><font face="Arial"><font face="Arial" size="2"><br>
+</font></font></font>
+</body></html>

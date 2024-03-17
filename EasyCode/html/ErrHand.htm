@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Handling errors</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Handling
+exceptions (Only Visual Project Type)</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Easy Code can
+create an error
+handler for catching exceptions (errors) fired during the program
+execution, so you can handle errors at procedure level
+(or even at message level) with these two macros:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">&nbsp;&nbsp;&nbsp;
+StartErrorHandler</font> &lt;<font color="#0000ff">Offset</font>
+HandlerAddress&gt;</font></b></p>
+<p><b><font color="#800080" face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+EndErrorHandler</font></b></p>
+<p><font face="Arial"><font size="2"><b><br>
+<font color="#800080">StartErrorHandler</font></b>
+starts the error
+handling, specifying the effective address that will receive control
+when an
+error occurs, while <b><font color="#800080">EndErrorHandler</font></b>
+specifies that the error handling ends its control.&nbsp;You can
+use these
+macros in the following way:</font></font></p>
+<p><b><font face="Courier New" size="2">AnyProcedure
+<font color="#0000ff">Proc</font><br>
+</font> </b><b><font size="2"><font face="Courier New"><font color="#800080">&nbsp;&nbsp;&nbsp;
+StartErrorHandler</font> <font color="#0000ff">Offset</font>
+ErrorsPlace<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.........<br>
+</font></font>
+</b><font face="Courier New"><font size="2">&nbsp;&nbsp;&nbsp;
+code.....<br>
+</font><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;.........<br>
+</strong>
+</font></font><font color="#800080" face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;
+EndErrorHandler<br>
+</strong></font><font face="Courier New" size="2">
+<font color="#0000ff"><b>@@</b></font><font color="#ff00ff">:</font>&nbsp;<font color="#ff0000">Ret</font><br>
+<br>
+</font><font size="2"><font face="Courier New"><b>ErrorsPlace</b><font color="#ff00ff">:</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#800080">EndErrorHandler</font></b><br>
+</font></font><font size="2"><font face="Courier New"><b>&nbsp;&nbsp;&nbsp;
+<font color="#008000">.If</font></b>
+<b><font color="#800080">Error</font><font color="#ff00ff">.</font>lCode</b>
+<font color="#ff00ff">==</font>
+<b><font color="#0080c0">0C0000005H</font></b><font color="#808080">
+;Access violation read</font><br>
+</font></font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+do something<br>
+</font><font face="Courier New"><b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">.EndIf</font><br>
+</font></b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000"><strong>Jmp</strong></font>
+</font></font><font face="Courier New"> <b><font size="2">@B<br>
+</font></b><b><font size="2">AnyProcedure
+<font color="#0000ff">EndP</font></font></b></font></p>
+<p><font face="Arial" size="2">This error
+handler will
+be active along all code between the two sentences (<b><font color="#800080">StartErrorHandler</font></b>
+and <b><font color="#800080">EndErrorHandler</font></b>),
+and any other
+procedures called inside it (unless those other procedures have their
+own error handler), until <b><font color="#800080">EndErrorHandler</font></b>
+is reached (in the example above, at the end of the procedure). It is
+very
+important, for a correct behavior of the application, that each <b><font color="#800080">StartErrorHandler</font></b>
+matches an <b><font color="#800080">EndErrorHandler</font></b>
+at the same level (usually at the end of the
+procedure).</font></p>
+<p><font face="Arial" size="2"><br>
+You can accurate even more the error handling. For example:</font></p>
+<p><font face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;
+<font color="#008000">.If</font>
+uMsg <font color="#ff00ff">==</font>
+<font color="#000080">WM_CREATE</font><br>
+</strong></font><font face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#800080">StartErrorHandler</font>
+<font color="#0000ff">Offset</font>
+ErrorsPlace1<br>
+</strong></font><font face="Courier New"><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.........<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;
+code.....<br>
+</font><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.........</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#800080">EndErrorHandler</font></b><br>
+<font color="#0000ff"><b>@@</b></font><font color="#ff00ff">:</font>&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Ret</font></strong>
+</font></font><br>
+<br>
+<font size="2"><font face="Courier New"><strong>ErrorsPlace1</strong><font color="#ff00ff">:</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#800080">EndErrorHandler</font></b><br>
+</font></font><font size="2"><font face="Courier New"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">.If</font></b>
+<b><font color="#800080">Error</font><font color="#ff00ff">.</font>lCode</b>
+<font color="#ff00ff">==</font>
+<strong><font color="#0080c0">0C0000005H</font>
+</strong><font color="#808080"> ;Access
+violation read</font><br>
+</font></font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;
+</strong>do something<br>
+</font><font face="Courier New"><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#008000">.EndIf</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Jmp</font> @B</strong></font><strong></strong></font><strong><br>
+<br>
+</strong><font face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;
+<font color="#008000">.ElseIf</font>
+uMsg </strong><font color="#ff00ff">==</font><strong>
+<font color="#000080">WM_DESTROY</font><br>
+</strong></font><font face="Courier New" size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#800080">StartErrorHandler</font>
+<font color="#0000ff">Offset</font>
+ErrorsPlace2<br>
+</strong></font><font face="Courier New"><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.........<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;
+code.....<br>
+</font><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.........</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#800080">EndErrorHandler</font></b><br>
+<font color="#0000ff"><b>@@</b></font><font color="#ff00ff">:</font>&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Ret</font></strong>
+</font></font><br>
+<br>
+<font size="2"><font face="Courier New"><strong>ErrorsPlace2</strong><font color="#ff00ff">:</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#800080">EndErrorHandler</font></b><br>
+</font></font><font size="2"><font face="Courier New"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">.If</font></b>
+<b><font color="#800080">Error</font><font color="#ff00ff">.</font>lCode</b>
+<font color="#ff00ff">==</font>
+<strong><font color="#0080c0">0C0000005H</font>
+</strong><font color="#808080"> ;Access
+violation read</font><br>
+</font></font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;
+</strong>do something<br>
+</font><font face="Courier New"><font size="2"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#008000">.EndIf</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ff0000">Jmp</font> @B<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">.EndIf</font></strong></font></font></p>
+<p><font face="Arial" size="2">This type of
+handling <b>cannot be nested</b>,
+so as said before, you should write an <b><font color="#800080">EndErrorHandler
+</font></b>for
+each <b><font color="#800080">StartErrorHandler</font></b>
+at the same level (take into account whether
+the procedure has two or more <b><font color="#ff0000">Ret</font></b></font><font face="Arial" size="2"><font face="Arial" size="2"> o <span style="font-weight: bold; color: rgb(168, 0, 168);">Return</span></font></font><font face="Arial" size="2"> sentences due to the
+stack frame), so that it removes the handler address from the stack. If
+you do not do that, next time the program execution enters the
+procedure for processing any other message and an error
+occurs, it will not work properly.<br>
+</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:
+All the code above is written in <b>Masm</b>
+syntax. You will have to make the necessary modifications for other
+assemblers.<br>
+<br>
+</font></p>
+</body></html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=Windows-1252">
+  <title>Property BackColor</title>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><a name="backcolor"></a><b><font color="#004080" face="Arial"
+ size="6">BackColor
+property</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Available for all
+objects except <b>ToolBar</b>,
+<b>StatusBar</b>,
+<b>ProgressBar</b>,
+<b>TabStrip</b>,
+<b>UpDown</b>,
+<b>IpAddress</b>,
+<b>ImageCombo</b>,
+<b>Calendar</b>,
+<b>DateTime</b>,
+<b>HotKey</b>,
+<b>Header</b>,
+<b>Rebar</b>
+and <b>Thread</b>.</font></p>
+<p><b><font face="Arial" size="2">Read/Write at design time<br>
+</font></b><b><font face="Arial" size="2">Read/Write at run time</font></b></p>
+<p><font face="Arial" size="2">Specifies the background
+color for an object. The value for this
+property must be an RGB color or a system color.</font></p>
+<p><font face="Arial" size="2">When referring to <b>ImageList</b>
+objects, this property can be set
+to <b>CLR_NONE</b>
+(0xFFFFFFFF) which means that the ImageList has no background color and
+the
+images are drawn transparently.</font></p>
+<p><font face="Arial"><font size="2"><b><br>
+REMARKS</b>: The most significant
+byte of
+this property specifies whether the color is an
+RGB value (<b>00H</b>)
+or a system color (<b>80H</b>),
+while the other three bytes are
+the corresponding RGB values. For example, a value <b>00FF0000H</b>
+means blue, <b>0000FF00H</b>
+means green and <b>000000FFH</b>
+means red, while <b>80000005H</b>
+means the system color
+number 5 (<strong><font color="#000080">COLOR_WINDOW</font></strong>).</font></font></p>
+<p><font face="Arial"><font size="2"><b>WARNING</b>:
+This property may have no effect for some controls when the new
+<b>common controls 6.0</b> are used (see <a href="XPThemes.htm">Enabling
+XP themes</a>).</font></font></p>
+<p>&nbsp;</p>
+</body>
+</html>

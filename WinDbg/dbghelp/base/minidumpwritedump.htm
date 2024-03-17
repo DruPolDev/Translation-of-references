@@ -1,0 +1,104 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MiniDumpWriteDump Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidumpwritedump">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidumpwritedump"></A>MiniDumpWriteDump Function</H1>
+<P><P>Writes user-mode minidump information to the specified file.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL WINAPI MiniDumpWriteDump(
+  __in          HANDLE <I>hProcess</I>,
+  __in          DWORD <I>ProcessId</I>,
+  __in          HANDLE <I>hFile</I>,
+  __in          MINIDUMP_TYPE <I>DumpType</I>,
+  __in          PMINIDUMP_EXCEPTION_INFORMATION <I>ExceptionParam</I>,
+  __in          PMINIDUMP_USER_STREAM_INFORMATION <I>UserStreamParam</I>,
+  __in          PMINIDUMP_CALLBACK_INFORMATION <I>CallbackParam</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to the process for which the information is to be generated. </p>
+<P>This handle must have PROCESS_QUERY_INFORMATION and PROCESS_VM_READ access to the process. For more information, see Process Security and Access Rights. The caller must also be able to get THREAD_ALL_ACCESS access to the threads in the process. For more information, see Thread Security and Access Rights.</P>
+</DD>
+<DT><I>ProcessId</I></DT>
+<DD>
+<p>The identifier of the process for which the information is to be generated.</p>
+</DD>
+<DT><I>hFile</I></DT>
+<DD>
+<p>A handle to the file in which the information is to be written.</p>
+</DD>
+<DT><I>DumpType</I></DT>
+<DD>
+<p>The type of information to be generated. This parameter can be one or more of the values from the 
+<A HREF="minidump_type.htm"><b>MINIDUMP_TYPE</b></A> enumeration.</p>
+</DD>
+<DT><I>ExceptionParam</I></DT>
+<DD>
+<p>A pointer to a 
+<A HREF="minidump_exception_information_str.htm"><b>MINIDUMP_EXCEPTION_INFORMATION</b></A> structure describing the client exception that caused the minidump to be generated. If the value of this parameter is NULL, no exception information is included in the minidump file.</p>
+</DD>
+<DT><I>UserStreamParam</I></DT>
+<DD>
+<p>A pointer to a 
+<A HREF="minidump_user_stream_information_str.htm"><b>MINIDUMP_USER_STREAM_INFORMATION</b></A> structure. If the value of this parameter is NULL, no user-defined information is included in the minidump file.</p>
+</DD>
+<DT><I>CallbackParam</I></DT>
+<DD>
+<p>A pointer to a 
+<A HREF="minidump_callback_information_str.htm"><b>MINIDUMP_CALLBACK_INFORMATION</b></A> structure that specifies a callback routine which is to receive extended minidump information. If the value of this parameter is NULL, no callbacks are performed.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE; otherwise, the return value is FALSE. To retrieve extended error information, call 
+<b>GetLastError</b>. Note that the last error will be an <b>HRESULT</b> value.</P>
+<P>If the operation is canceled, the last error code is <CODE>HRESULT_FROM_WIN32(ERROR_CANCELLED)</CODE>.</P>
+<H4>Remarks</H4>
+<p>The 
+<A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A> function receives extended minidump information from 
+<b>MiniDumpWriteDump</b>. It also provides a way for the caller to determine the granularity of information written to the minidump file, as the callback function can filter the default information.</p>
+<p><b>MiniDumpWriteDump</b> may not produce a valid  stack trace for the calling thread. To work around this problem, you must capture the state of the calling thread before calling <b>MiniDumpWriteDump</b> and use it as the <i>ExceptionParam</i> parameter. One way to do this is to force  an exception inside a <B>__try</B>/<B>__except</B> block and use  the  <b>EXCEPTION_POINTERS</b> information provided by <b>GetExceptionInformation</b>. Alternatively, you can call the function from a new worker thread and filter this worker thread from the dump.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="minidump_callback_information_str.htm"><b>MINIDUMP_CALLBACK_INFORMATION</b></A><BR><A HREF="minidump_exception_information_str.htm"><b>MINIDUMP_EXCEPTION_INFORMATION</b></A><BR><A HREF="minidump_user_stream_information_str.htm"><b>MINIDUMP_USER_STREAM_INFORMATION</b></A><BR><A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A><BR><A HREF="minidumpreaddumpstream.htm"><b>MiniDumpReadDumpStream</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MiniDumpWriteDump%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

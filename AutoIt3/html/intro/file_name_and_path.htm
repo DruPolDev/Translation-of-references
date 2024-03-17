@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Имя и расположение файла</title>
+  <meta charset=UTF-8"utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+</head>
+<body>
+  <h1><FONT color=#7b7e5f>Имя и расположение файла</FONT>   </h1>
+  <p>       Каждый  раз, когда параметр функции определяется как "имя файла", подразумевается имя файла и полный путь к нему. Хотя функции AutoIt часто принимают относительный путь, при  этом корректная работа не гарантируется, поскольку для некоторых Windows API функций требуется полный путь.&nbsp;Если полный путь не указан, а для определения файла используется только имя,&nbsp;AutoIt&nbsp;создас новый файл с этим именем или будет искать в текущем каталоге,&nbsp;путь к которому содержит макрос&nbsp;@WorkingDir.</p>
+  <p>                   Рабочий каталог устанавливается в @ScriptDir при  запуске скрипта, и это значение&nbsp;можно изменить во время выполнения скрипта, вызвав FileChangeDir. Обратите вниманее на то, что текущий каталог тоже может меняться некоторыми функциями, например, FileOpen/SaveDialog (если успешно выполнится) или&nbsp;Run&nbsp;с параметром&nbsp;"workingdir".</p>
+<p>    На странице MSDN "<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85).aspx#fully_qualified_vs._relative_paths"><U><FONT color=#ff00ff>Naming Files, Paths, and 
+Namespaces</FONT></U></a>" содержится более полная информация.</p>
+</body>
+</html>

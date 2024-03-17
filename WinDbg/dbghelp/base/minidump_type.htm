@@ -1,0 +1,140 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_TYPE Enumeration</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_type">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_type"></A>MINIDUMP_TYPE Enumeration</H1>
+<P><P>Identifies the type of information that will be written to the minidump file by the 
+<A HREF="minidumpwritedump.htm"><b>MiniDumpWriteDump</b></A> function.</P>
+</P>
+<PRE class="syntaxNew" xml:space="preserve">typedef enum _MINIDUMP_TYPE
+{
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpNormal</A><div class="classNewTip" ID="MiniDumpNormal"><DL><DT>MiniDumpNormal</DT><DD><p>Include just the information necessary to capture stack traces for all existing threads in a process.</p>
+</DD></DL></div> = 0x00000000,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithDataSegs</A><div class="classNewTip" ID="MiniDumpWithDataSegs"><DL><DT>MiniDumpWithDataSegs</DT><DD><p>Include the data sections from all loaded modules. This results in the inclusion of global variables, which can make the minidump file significantly larger. For per-module control, use the ModuleWriteDataSeg enumeration value from <A HREF="module_write_flags.htm"><b>MODULE_WRITE_FLAGS</b></A>.</p>
+</DD></DL></div> = 0x00000001,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithFullMemory</A><div class="classNewTip" ID="MiniDumpWithFullMemory"><DL><DT>MiniDumpWithFullMemory</DT><DD><p>Include all accessible memory in the process. The raw memory data is included at the end, so that the initial structures can be mapped directly without the raw memory information. This option can result in a very large file.</p>
+</DD></DL></div> = 0x00000002,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithHandleData</A><div class="classNewTip" ID="MiniDumpWithHandleData"><DL><DT>MiniDumpWithHandleData</DT><DD><p>Include high-level information about the operating system handles that are active when the minidump is made.</p>
+</DD></DL></div> = 0x00000004,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpFilterMemory</A><div class="classNewTip" ID="MiniDumpFilterMemory"><DL><DT>MiniDumpFilterMemory</DT><DD><p>Stack and backing store memory written to the minidump file should be filtered to remove all but the pointer values necessary to reconstruct a stack trace. Typically, this removes any private information.</p>
+</DD></DL></div> = 0x00000008,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpScanMemory</A><div class="classNewTip" ID="MiniDumpScanMemory"><DL><DT>MiniDumpScanMemory</DT><DD><p>Stack and backing store memory should be scanned for pointer references to modules in the module list. If a module is referenced by stack or backing store memory, the <b>ModuleWriteFlags</b> member of the 
+<A HREF="minidump_callback_output_str.htm"><b>MINIDUMP_CALLBACK_OUTPUT</b></A> structure is set to ModuleReferencedByMemory.</p>
+</DD></DL></div> = 0x00000010,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithUnloadedModules</A><div class="classNewTip" ID="MiniDumpWithUnloadedModules"><DL><DT>MiniDumpWithUnloadedModules</DT><DD><p>Include information from the list of modules that were recently unloaded, if this information is maintained by the operating system.</p>
+<BLOCKQUOTE><B>Windows Server 2003 and Windows XP:  </B>The operating system does not maintain information for unloaded modules until Windows Server 2003 SP1 and Windows XP SP2.</BLOCKQUOTE>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00000020,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithIndirectlyReferencedMemory</A><div class="classNewTip" ID="MiniDumpWithIndirectlyReferencedMemory"><DL><DT>MiniDumpWithIndirectlyReferencedMemory</DT><DD><p>Include pages with data referenced by locals or other stack memory. This option can increase the size of the minidump file significantly.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00000040,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpFilterModulePaths</A><div class="classNewTip" ID="MiniDumpFilterModulePaths"><DL><DT>MiniDumpFilterModulePaths</DT><DD><p>Filter module paths for information such as user names or important directories. This option may prevent the system from locating the image file and should be used only in special situations.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00000080,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithProcessThreadData</A><div class="classNewTip" ID="MiniDumpWithProcessThreadData"><DL><DT>MiniDumpWithProcessThreadData</DT><DD><p>Include complete per-process and per-thread information from the operating system.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00000100,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithPrivateReadWriteMemory</A><div class="classNewTip" ID="MiniDumpWithPrivateReadWriteMemory"><DL><DT>MiniDumpWithPrivateReadWriteMemory</DT><DD><p>Scan the virtual address space for other types of memory to be included.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00000200,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithoutOptionalData</A><div class="classNewTip" ID="MiniDumpWithoutOptionalData"><DL><DT>MiniDumpWithoutOptionalData</DT><DD><p>Reduce the data that is dumped by eliminating memory regions that are not essential to meet criteria  specified for the dump. This can avoid dumping  memory that may contain data that is private to the user. However, it is not a guarantee that no private information will be present.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00000400,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithFullMemoryInfo</A><div class="classNewTip" ID="MiniDumpWithFullMemoryInfo"><DL><DT>MiniDumpWithFullMemoryInfo</DT><DD><p>Include memory region information. For more information, see <A HREF="minidump_memory_info_list_str.htm"><b>MINIDUMP_MEMORY_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00000800,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithThreadInfo</A><div class="classNewTip" ID="MiniDumpWithThreadInfo"><DL><DT>MiniDumpWithThreadInfo</DT><DD><p>Include thread state information. For more information, see <A HREF="minidump_thread_info_list_str.htm"><b>MINIDUMP_THREAD_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00001000,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MiniDumpWithCodeSegs</A><div class="classNewTip" ID="MiniDumpWithCodeSegs"><DL><DT>MiniDumpWithCodeSegs</DT><DD><p>Include all code and code-related sections from loaded modules to capture executable content. For per-module control, use the ModuleWriteCodeSegs enumeration value from <A HREF="module_write_flags.htm"><b>MODULE_WRITE_FLAGS</b></A>. </p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div> = 0x00002000
+}MINIDUMP_TYPE;</PRE>
+<H4>Constants</H4>
+<DL>
+<DT><B>MiniDumpNormal</B></DT>
+<DD><p>Include just the information necessary to capture stack traces for all existing threads in a process.</p>
+</DD>
+<DT><B>MiniDumpWithDataSegs</B></DT>
+<DD><p>Include the data sections from all loaded modules. This results in the inclusion of global variables, which can make the minidump file significantly larger. For per-module control, use the ModuleWriteDataSeg enumeration value from <A HREF="module_write_flags.htm"><b>MODULE_WRITE_FLAGS</b></A>.</p>
+</DD>
+<DT><B>MiniDumpWithFullMemory</B></DT>
+<DD><p>Include all accessible memory in the process. The raw memory data is included at the end, so that the initial structures can be mapped directly without the raw memory information. This option can result in a very large file.</p>
+</DD>
+<DT><B>MiniDumpWithHandleData</B></DT>
+<DD><p>Include high-level information about the operating system handles that are active when the minidump is made.</p>
+</DD>
+<DT><B>MiniDumpFilterMemory</B></DT>
+<DD><p>Stack and backing store memory written to the minidump file should be filtered to remove all but the pointer values necessary to reconstruct a stack trace. Typically, this removes any private information.</p>
+</DD>
+<DT><B>MiniDumpScanMemory</B></DT>
+<DD><p>Stack and backing store memory should be scanned for pointer references to modules in the module list. If a module is referenced by stack or backing store memory, the <b>ModuleWriteFlags</b> member of the 
+<A HREF="minidump_callback_output_str.htm"><b>MINIDUMP_CALLBACK_OUTPUT</b></A> structure is set to ModuleReferencedByMemory.</p>
+</DD>
+<DT><B>MiniDumpWithUnloadedModules</B></DT>
+<DD><p>Include information from the list of modules that were recently unloaded, if this information is maintained by the operating system.</p>
+<BLOCKQUOTE><B>Windows Server 2003 and Windows XP:  </B>The operating system does not maintain information for unloaded modules until Windows Server 2003 SP1 and Windows XP SP2.</BLOCKQUOTE>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpWithIndirectlyReferencedMemory</B></DT>
+<DD><p>Include pages with data referenced by locals or other stack memory. This option can increase the size of the minidump file significantly.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpFilterModulePaths</B></DT>
+<DD><p>Filter module paths for information such as user names or important directories. This option may prevent the system from locating the image file and should be used only in special situations.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpWithProcessThreadData</B></DT>
+<DD><p>Include complete per-process and per-thread information from the operating system.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpWithPrivateReadWriteMemory</B></DT>
+<DD><p>Scan the virtual address space for other types of memory to be included.</p>
+<BLOCKQUOTE><B>DbgHelp 5.1:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpWithoutOptionalData</B></DT>
+<DD><p>Reduce the data that is dumped by eliminating memory regions that are not essential to meet criteria  specified for the dump. This can avoid dumping  memory that may contain data that is private to the user. However, it is not a guarantee that no private information will be present.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpWithFullMemoryInfo</B></DT>
+<DD><p>Include memory region information. For more information, see <A HREF="minidump_memory_info_list_str.htm"><b>MINIDUMP_MEMORY_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpWithThreadInfo</B></DT>
+<DD><p>Include thread state information. For more information, see <A HREF="minidump_thread_info_list_str.htm"><b>MINIDUMP_THREAD_INFO_LIST</b></A>.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>MiniDumpWithCodeSegs</B></DT>
+<DD><p>Include all code and code-related sections from loaded modules to capture executable content. For per-module control, use the ModuleWriteCodeSegs enumeration value from <A HREF="module_write_flags.htm"><b>MODULE_WRITE_FLAGS</b></A>. </p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidumpwritedump.htm"><b>MiniDumpWriteDump</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_TYPE%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

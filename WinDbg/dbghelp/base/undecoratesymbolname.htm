@@ -1,0 +1,222 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>UnDecorateSymbolName Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_undecoratesymbolname">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.undecoratesymbolname"></A>UnDecorateSymbolName Function</H1>
+<P><P>Undecorates the specified decorated C++ symbol name.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+DWORD WINAPI UnDecorateSymbolName(
+  __in          PCTSTR <I>DecoratedName</I>,
+  __out         PTSTR <I>UnDecoratedName</I>,
+  __in          DWORD <I>UndecoratedLength</I>,
+  __in          DWORD <I>Flags</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>DecoratedName</I></DT>
+<DD>
+<p>The decorated C++ symbol name. This name can be identified by the first character of the name, which is always a question mark (?).</p>
+</DD>
+<DT><I>UnDecoratedName</I></DT>
+<DD>
+<p>A pointer to a string buffer that receives the undecorated name.</p>
+</DD>
+<DT><I>UndecoratedLength</I></DT>
+<DD>
+<p>The size of the <i>UnDecoratedName</i> buffer, in characters.</p>
+</DD>
+<DT><I>Flags</I></DT>
+<DD>
+<p>The options for how the decorated name is undecorated. This parameter can be zero or more of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_32_BIT_DECODE<BR>0x0800</p>
+</TD>
+<TD width="60%"><p>Undecorate 32-bit decorated names.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_COMPLETE<BR>0x0000</p>
+</TD>
+<TD width="60%"><p>Enable full undecoration.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NAME_ONLY<BR>0x1000</p>
+</TD>
+<TD width="60%"><p>Crack only the name for primary declaration. Returns [scope::]name. Does expand template parameters.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_ACCESS_SPECIFIERS<BR>0x0080</p>
+</TD>
+<TD width="60%"><p>Disable expansion of access specifiers for members.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_ALLOCATION_LANGUAGE<BR>0x0010</p>
+</TD>
+<TD width="60%"><p>Disable expansion of the declaration language specifier.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_ALLOCATION_MODEL<BR>0x0008</p>
+</TD>
+<TD width="60%"><p>Disable expansion of the declaration model.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_ARGUMENTS<BR>0x2000</p>
+</TD>
+<TD width="60%"><p>Do not undecorate function arguments.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_CV_THISTYPE<BR>0x0040</p>
+</TD>
+<TD width="60%"><p>Disable expansion of CodeView modifiers on the <B>this</B> type for primary declaration.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_FUNCTION_RETURNS<BR>0x0004</p>
+</TD>
+<TD width="60%"><p>Disable expansion of return types for primary declarations.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_LEADING_UNDERSCORES<BR>0x0001</p>
+</TD>
+<TD width="60%"><p>Remove leading underscores from Microsoft keywords.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_MEMBER_TYPE<BR>0x0200</p>
+</TD>
+<TD width="60%"><p>Disable expansion of the static or virtual attribute of members.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_MS_KEYWORDS<BR>0x0002</p>
+</TD>
+<TD width="60%"><p>Disable expansion of Microsoft keywords.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_MS_THISTYPE<BR>0x0020</p>
+</TD>
+<TD width="60%"><p>Disable expansion of Microsoft keywords on the <B>this</B> type for primary declaration.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_RETURN_UDT_MODEL<BR>0x0400</p>
+</TD>
+<TD width="60%"><p>Disable expansion of the Microsoft model for user-defined type returns.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_SPECIAL_SYMS<BR>0x4000</p>
+</TD>
+<TD width="60%"><p>Do not undecorate special names, such as vtable, vcall, vector, metatype, and so on.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_THISTYPE<BR>0x0060</p>
+</TD>
+<TD width="60%"><p>Disable all modifiers on the <B>this</B> type.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>UNDNAME_NO_THROW_SIGNATURES<BR>0x0100</p>
+</TD>
+<TD width="60%"><p>Disable expansion of throw-signatures for functions and pointers to functions.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is the number of characters in the <i>UnDecoratedName</i> buffer, not including the NULL terminator.</P>
+<P>If the function fails, the return value is zero. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<P>If the function fails and returns zero, the content of the <i>UnDecoratedName</i> buffer is undetermined.</P>
+<H4>Remarks</H4>
+<p>To use undecorated symbols, call the 
+<A HREF="symsetoptions.htm"><b>SymSetOptions</b></A> function with the SYMOPT_UNDNAME option.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<p>To call the Unicode version of this function, define DBGHELP_TRANSLATE_TCHAR.</p>
+<H4>Example Code 
+</H4>
+<p>For an example, see 
+<A HREF="retrieving_undecorated_symbol_names.htm">Retrieving Undecorated Symbol Names</A>.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>UnDecorateSymbolNameW</B> (Unicode) and <B>UnDecorateSymbolName</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="symsetoptions.htm"><b>SymSetOptions</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20UnDecorateSymbolName%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

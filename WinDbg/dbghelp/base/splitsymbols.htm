@@ -1,0 +1,117 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SplitSymbols Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_splitsymbols">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.splitsymbols"></A>SplitSymbols Function</H1>
+<P><P>Strips symbols from the specified image.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL SplitSymbols(
+  __in          PSTR <I>ImageName</I>,
+  __in          PSTR <I>SymbolsPath</I>,
+  __out         PSTR <I>SymbolFilePath</I>,
+  __in          DWORD <I>Flags</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>ImageName</I></DT>
+<DD>
+<p>The name of the image from which to split symbols.</p>
+</DD>
+<DT><I>SymbolsPath</I></DT>
+<DD>
+<p>The subdirectory for storing symbols. This parameter is optional.</p>
+</DD>
+<DT><I>SymbolFilePath</I></DT>
+<DD>
+<p>The name of the generated symbol file. This file typically has a .dbg extension.</p>
+</DD>
+<DT><I>Flags</I></DT>
+<DD>
+<p>The information to be split from the image. This parameter can be zero or a combination of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>SPLITSYM_EXTRACT_ALL<BR>0x00000002</p>
+</TD>
+<TD width="60%"><p>Usually, an image with the symbols split off will still contain a MISC debug directory with the name of the symbol file. Therefore, the debugger can still find the symbols. Using this flag removes this link. The end result is similar to using the <B>-debug:none</B> switch on the Microsoft linker.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SPLITSYM_REMOVE_PRIVATE<BR>0x00000001</p>
+</TD>
+<TD width="60%"><p>This strips off the private CodeView symbolic information when generating the symbol file.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SPLITSYM_SYMBOLPATH_IS_SRC<BR>0x00000004</p>
+</TD>
+<TD width="60%"><p>The symbol file path contains an alternate path to locate the .pdb file.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE.</P>
+<P>If the function fails, the return value is FALSE. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>SplitSymbols</b> function should be used when stripping symbols from an image. It will create a symbol file that all compatible debuggers understand. The format is defined in Winnt.h and consists of an image header, followed by the array of section headers, the FPO information, and all debugging symbolic information from the image.</p>
+<p>If the <i>SymbolsPath</i> parameter is NULL, the symbol file is stored in the directory where the image exists. Otherwise, it is stored in the subdirectory below <i>SymbolsPath</i> that matches the extension of the image. Using this method reduces the chances of symbol file collision. For example, the symbols for myapp.exe will be in the <i>SymbolsPath</i>\exe directory and the symbols for myapp.dll will be in the <i>SymbolsPath</i>\dll directory.</p>
+<p>All ImageHlp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, Windows 2000 Professional, Windows NT Workstation 4.0, Windows Me, Windows 98, or Windows 95.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, Windows 2000 Server, or Windows NT Server 4.0.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Imagehlp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Imagehlp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Imagehlp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_functions.htm">ImageHlp Functions</A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SplitSymbols%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

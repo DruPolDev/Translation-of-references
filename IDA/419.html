@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><title>Файлы конфигурации</title>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY><a name="IDH_419"></a>
+<table width="100%"><tr valign="top"><td><h2>Файлы конфигурации</h2></td>
+<td width="64"><IMG src="ida55.bmp"></td></tr></table>
+The configuration files are searched first in %IDADIR%\cfg, then in
+%IDAUSR%\cfg.
+<p>
+See documentation about the <A href="1375.html">IDAUSR</a> environment variable.
+<p>
+In the configuration files, you can use C,C++ style comments and include files.
+If no file is found, IDA uses default values. IDA uses the following
+configuration files:
+<pre>
+ <b>IDA.CFG</b>    - general config file
+ <b>IDATUI.CFG</b> - text mode interface config file
+ <b>IDAGUI.CFG</b> - graphics mode interface config file
+</pre>
+In the IDATUI.CFG, you can define the hotkeys and keyboard macros for the text version
+of IDA.
+Syntax:
+<pre>
+        "ActionName" = Value
+</pre>
+where value may be:
+<pre>
+        a string:       "Ctrl-F5"
+        a char:         'F'
+        a scancode:     0x4900
+        zero:           0
+</pre>
+Zero scancode disables the hotkey.
+<p>
+To define the keyboard macros:
+<pre>
+     MACRO key { key1 key2 key3 ... keyN }
+</pre>
+where key is a string (key name), char or a scancode.
+Example:
+<pre>
+        MACRO   "Alt-W" // this sample macro jumps to "start" label
+        {
+                "Ctrl-G"
+                's' 't' 'a' 'r', 't'
+                "Enter"
+        }
+</pre></BODY></HTML>

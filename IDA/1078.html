@@ -1,0 +1,19 @@
+<a name="IDH_1078"></a>
+<title>Intel/ARM macOS debugger</title>
+<table width="100%"><tr valign="top"><td><h2>Intel/ARM macOS debugger</h2></td>
+<td width="64"><img src="ida55.bmp"/></td></tr></table>
+On macOS, the suggested approach is to use <a href="1463.html">Remote debugging</a> with one of the mac_server*
+binaries that are shipped with IDA - even when debugging apps on your local machine.
+<p>
+Using a standalone debug server application makes it easier to get around the codesigning and debugging restrictions
+that are built into macOS. Note that this is also the approach used by lldb. Internally lldb uses a dedicated debugserver
+that implements the core debugger engine - so IDA does the same.
+<p>
+It is possible to use the Local Mac OS X Debugger in ida.app, but you must run IDA as root.
+<p>
+For a deeper dive into macOS debugging, see our tutorial: <a href="https://www.hex-rays.com/wp-content/static/tutorials/mac_debugger_primer2/mac_debugger_primer2.html">https://www.hex-rays.com/wp-content/static/tutorials/mac_debugger_primer2/mac_debugger_primer2.html</a>
+<pre>
+ See also <a href="1463.html">How to launch remote debugging</a>
+          <a href="1395.html">Debugger</a> submenu
+          <a href="1397.html">Start process</a>
+          <a href="1677.html">Remote iOS debugger</a></pre>

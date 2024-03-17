@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=Windows-1252">
+  <title>OwnerDraw property</title>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">OwnerDraw
+property</font></b></p>
+<hr>
+<p dir="ltr"><font face="Arial" size="2">Available for <b>Button</b>,
+<b>List</b>,
+<b>Combo</b>
+and <b>TabStrip</b>
+objects.</font></p>
+<p style="margin-right: 0px;" dir="ltr"><b><font face="Arial" size="2">Read/Write
+at
+design time</font></b></p>
+<p><font face="Arial" size="2">Specifies whether the
+contents of a <b>List</b>
+or
+<b>Combo</b>
+object, or the appearance of a <b>Button</b>
+or <b>TabStrip</b>
+object,
+has to be drawn by the operating system or by the application which
+owns it. For
+<b>List</b>
+and <b>Combo</b>
+objects it can be one of the following values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+  <p>
+  <table style="text-align: left; width: 650px;" border="0"
+ cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td><font face="Arial" size="2"><b>0</b>&nbsp;&nbsp;None&nbsp;</font></td>
+        <td><font face="Arial" size="2">The operating system
+draws the contents of the list box (<b>default</b>)</font>
+        </td>
+      </tr>
+      <tr>
+        <td><font face="Arial" size="2"><b>1</b>&nbsp;&nbsp;Fixed&nbsp;</font></td>
+        <td><font face="Arial" size="2">The contents of the list
+box has to be drawn by the application and items are
+the same height</font></td>
+      </tr>
+      <tr>
+        <td>
+        <font face="Arial" size="2"><b>2</b>&nbsp;&nbsp;Variable&nbsp;</font></td>
+        <td><font face="Arial" size="2">The contents of the list
+box has to be drawn by the application and items are
+variable in height</font></td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+</blockquote>
+<p><font face="Arial" size="2"><br>
+For <b>Button</b>
+and <b>TabStrip</b>
+objects it can be one of the following
+values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+  <p><font face="Arial"><font size="2"><b><font color="#000080">FALSE</font>&nbsp;&nbsp;&nbsp;</b>The
+operating system draws the control (<b>default</b>)<br>
+  </font></font><font face="Arial" size="2"><b><font color="#000080">TRUE</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>Easy
+Code or the application have to draw the
+control.</font></p>
+</blockquote>
+<p><font face="Arial" size="2"><br>
+<br>
+<b>REMARKS</b>:
+When the <b>OwnerDraw</b>
+property is <b>Fixed</b>
+o <b>Variable</b>
+for <b>List </b>and
+<b>Combo</b>
+objects, or <b><font color="#000080">TRUE</font></b>
+for
+<b>Button</b>
+and <b>TabStrip</b>
+objects, the application receives a <b><font color="#000080">WM_DRAWITEM</font></b>
+message each time the object must be redrawn. As usual in Easy Code,
+the message is received by the <b>owner
+window</b> even though the control
+to be drawn is a child of a
+<b>Group</b>,
+<b>Picture</b>
+or <b>Rebar</b>
+object.</font></p>
+<p><font face="Arial" size="2"><br>
+<b>Button objects</b></font></p>
+<p><font face="Arial" size="2">If the <b>OwnerDraw</b>
+property is set to <b><font color="#000080">FALSE</font></b>
+(default value), the operating system draws the corresponding button.
+If so,
+you must take into account that Windows XP and later may vary the
+appearance for buttons depending
+on the new "Common controls" (see the <a href="XPThemes.htm"><b>Enabling
+XP themes</b></a>
+topic). On the
+other hand, if this property is set to <b><font color="#000080">TRUE</font></b>,
+the application will receive
+the <b><font color="#000080">WM_DRAWITEM</font></b>
+message. There you can draw a custom button or just
+letting Easy Code to do so (recommended). If the application draws the
+button, the return value for this
+message must be <b><font color="#000080">TRUE</font></b>,
+so that Easy Code do not process it again. On the
+contrary, if the return value is <b><font color="#000080">FALSE</font></b>
+(default), Easy Code will draw the
+button with its corresponding image (bitmap, icon or cursor) and text.</font></p>
+<p><font face="Arial" size="2"><br>
+<b>List and Combo objects</b></font></p>
+<p><font face="Arial" size="2"><br>
+If the <b>OwnerDraw</b>
+property is set to <b>Fixed</b>
+or <b>Variable</b>,
+the operating system does not draw the list box contents. Instead, you
+will have to process the <b><font color="#000080">WM_DRAWITEM</font></b>
+message in order to draw the contents. The return value for this
+message
+must be <b><font color="#000080">TRUE</font></b></font></p>
+<p><font face="Arial" size="2"><br>
+<b>TabStrip objects</b></font></p>
+<p><font face="Arial" size="2">When the <b>OwnerDraw</b>
+property is set to <b><font color="#000080">FALSE</font></b>
+(default value), the operating system draws the tab
+control. If so, you must take into account that Windows XP and later
+may vary the
+appearance for tab controls depending on the new "Common controls" (see
+the <a href="XPThemes.htm"><b>Enabling
+XP themes</b></a>
+topic). On the other hand, if this
+property is set to <b><font color="#000080">TRUE</font></b>,
+the application will
+receive a <b><font color="#000080">WM_DRAWITEM</font></b>
+message each time the
+tab control needs to be painted.</font></p>
+<p><font face="Arial" size="2"><b><br>
+IMPORTANT:</b> In order to take
+advantage of the new look for buttons and
+other controls in Windows XP and later, the new Common controls 6.0
+have to be enabled. For more information,
+see the <a href="XPThemes.htm"><b>Enabling
+XP themes</b></a>
+topic.</font></p>
+<p><font face="Arial"><font size="2"><b><br>
+REMARKS:</b> <b>BackColor</b>,
+<b>ForeColor</b>,
+<b>Picture</b>
+and <b>PicturePosition</b>
+properties only take effect for <b>Button</b>
+objects if the <b>OwnerDraw</b>
+property is set to <b><font color="#000080">TRUE</font></b>.<br>
+<br>
+</font></font></p>
+</body>
+</html>

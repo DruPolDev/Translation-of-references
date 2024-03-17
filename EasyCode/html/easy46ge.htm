@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>SetCursorIcon method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">SetCursorIcon
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for all objects.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">SetCursorIcon</font></b> <b>Proto</b> <b>hWnd<font
+color="#FF00FF">:</font><font color="#000080">HWND</font><font color="#FF00FF">,</font></b> <b>hCursorIcon<font
+color="#FF00FF">:</font><font color="#0000FF">DWord</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b>Invoke</b> <b><font color="#800080">SetCursorIcon</font><font
+color="#FF00FF">,</font></b> <b>hWnd<font color="#FF00FF">,</font> hCursorIcon</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size=2>Sets the <a href="easy6sa6.htm"><b>CursorIcon</b></a> property for an object</font></p>
+</blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>hCursorIcon</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">A <b><font color="#0000FF">DWord</font></b> value specifying the new icon to
+be displayed as the cursor shape for the object (see <b>REMARKS</b>).</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b> returns <b><font
+color="#000080">TRUE</font></b> if successful, or <b><font color="#000080">FALSE</font></b> if
+not.<br><br></font></p></blockquote>
+
+<p><font face="Arial" size="2"><b>REMARKS</b>: The <b>hCursorIcon</b> parameter may be an existing resource
+ID or the handle to an image (cursor or icon). First, Easy Code tries to load it as a resource (only if it is
+less than 65536) and, if it fails, then it is processed as a handle. For this method to be effective, the
+<a href="easy736t.htm"><b>CursorShape</b></a> property must be set to <font
+color="#800080"><b>ecCustom</b></font>.<br><br></font></p>
+
+</body>
+</html>

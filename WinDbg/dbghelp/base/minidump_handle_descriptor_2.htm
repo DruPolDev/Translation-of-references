@@ -1,0 +1,73 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_HANDLE_DESCRIPTOR_2 Structure</TITLE><!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_handle_descriptor_2"></A>MINIDUMP_HANDLE_DESCRIPTOR_2 Structure</H1>
+<P><P>Describes the state of an individual system handle at the time the minidump was written.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_HANDLE_DESCRIPTOR_2 {<br>  ULONG64 Handle;<br>  RVA TypeNameRva;<br>  RVA ObjectNameRva;<br>  ULONG32 Attributes;<br>  ULONG32 GrantedAccess;<br>  ULONG32 HandleCount;<br>  ULONG32 PointerCount;<br>  RVA ObjectInfoRva;<br>  ULONG32 Reserved0;
+} MINIDUMP_HANDLE_DESCRIPTOR_2, <br> *PMINIDUMP_HANDLE_DESCRIPTOR_2;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>Handle</B></DT>
+<DD><p>The operating system handle value.</p>
+</DD>
+<DT><B>TypeNameRva</B></DT>
+<DD><p>An RVA to a 
+<A HREF="minidump_string_str.htm"><b>MINIDUMP_STRING</b></A> structure that specifies the object type of the handle. This member can be zero.</p>
+</DD>
+<DT><B>ObjectNameRva</B></DT>
+<DD><p>An RVA to a 
+<b>MINIDUMP_STRING</b> structure that specifies the object name of the handle. This member can be 0.</p>
+</DD>
+<DT><B>Attributes</B></DT>
+<DD><p>The meaning of this member depends on the handle type and the operating system.</p>
+</DD>
+<DT><B>GrantedAccess</B></DT>
+<DD><p>The meaning of this member depends on the handle type and the operating system.</p>
+</DD>
+<DT><B>HandleCount</B></DT>
+<DD><p>The meaning of this member depends on the handle type and the operating system.</p>
+</DD>
+<DT><B>PointerCount</B></DT>
+<DD><p>The meaning of this member depends on the handle type and the operating system.</p>
+</DD>
+<DT><B>ObjectInfoRva</B></DT>
+<DD><p>An RVA to a 
+<A HREF="minidump_handle_object_information.htm"><b>MINIDUMP_HANDLE_OBJECT_INFORMATION</b></A> structure that specifies object-specific information. This member can be 0 if there is no extra information.</p>
+</DD>
+<DT><B>Reserved0</B></DT>
+<DD><p>Reserved for future use; must be zero.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>The first descriptor in the handle data stream follows the header, 
+<A HREF="minidump_handle_data_stream_str.htm"><b>MINIDUMP_HANDLE_DATA_STREAM</b></A>.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 6.5 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_handle_data_stream_str.htm"><b>MINIDUMP_HANDLE_DATA_STREAM</b></A><BR><A HREF="minidump_handle_object_information.htm"><b>MINIDUMP_HANDLE_OBJECT_INFORMATION</b></A><BR><A HREF="minidump_string_str.htm"><b>MINIDUMP_STRING</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_HANDLE_DESCRIPTOR_2%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

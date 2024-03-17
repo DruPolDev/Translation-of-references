@@ -1,0 +1,77 @@
+<a name="IDH_1705"></a>
+<title>DYLD Shared Cache Utils</title>
+<table width="100%"><tr valign="top"><td><h2>DYLD Shared Cache Utils</h2></td>
+<td width="64"><img src="ida55.bmp"/></td></tr></table>
+This plugin (nicknamed &quot;dscu&quot; for brevity) is essentially just an extension of
+the Mach-O loader. It allows you to manually load modules from a dyldcache
+that were not loaded when first opening the cache in IDA (the plugin is only activated
+after using the &quot;single module&quot; option for a dyldcache).
+<p>
+For a quick overview of the dscu functionality, see menu File&gt;Load file&gt;DYLD Shared Cache Utils.
+
+<p>
+Loading Modules
+---------------
+<p>
+There are a few ways to manually load a module from the cache:
+<p>
+1) Use File&gt;Load file&gt;DYLD Shared Cache Utils&gt;Load module... and choose which module to load
+<p>
+2) Right-click on an unmapped address in the disassembly, and select 'Load module &lt;module name&gt;'
+<p>
+3) Programatically:
+<pre>
+  n = idaapi.netnode()
+  n.create(&quot;$ dscu&quot;)
+  n.supset(2, &quot;/usr/lib/libobjc.A.dylib&quot;)
+  idaapi.load_and_run_plugin(&quot;dscu&quot;, 1)
+
+</pre>
+Loading Sections
+----------------
+<p>
+dscu also allows you to load a subset of a given module.
+<p>
+Any section from any of the dyldcache's submodules can be loaded individually.
+This is especially useful when analyzing Objective-C code, since often times it is
+convenient to only load Objective-C info from a given module without loading all
+of its code.
+<p>
+For example, if you see a pointer to a selector string that has not been loaded:
+<pre>
+  ADRP  X8, #0x1AECFF7F9@PAGE
+  ADD   X1, X8, #0x1AECFF7F9@PAGEOFF ; SEL
+  MOV   X0, X21 ; id
+  BL    _objc_msgSend_0
+</pre>
+Right-click on &quot;0x1AECFF7F9&quot; and dscu will provide you with two options:
+<pre>
+  Load UIKitCore:__objc_methname
+  Load UIKitCore
+</pre>
+The UIKitCore module is huge, so perhaps you don't want to load the entire thing,
+but still want to clean up the disassembly. If you choose &quot;Load UIKitCore:__objc_methname&quot;,
+dscu will load only these selector strings into the database:
+<pre>
+  ADRP  X8, #sel_alloc@PAGE ; &quot;alloc&quot;
+  ADD   X1, X8, #sel_alloc@PAGEOFF ; SEL
+  MOV   X0, X21 ; id
+  BL    _objc_msgSend_0
+</pre>
+This operation is much faster, and still provides a lot of benefit to the analysis.
+<p>
+Sections can also be loaded via:
+<pre>
+  File&gt;Load file&gt;DYLD Shared Cache Utils&gt;Load section...
+</pre>
+or programmatically with:
+<pre>
+  node = idaapi.netnode()
+  node.create(&quot;$ dscu&quot;)
+  node.altset(3, 0x1AECFF7F9) # address can be any address in the section
+  idaapi.load_and_run_plugin(&quot;dscu&quot;, 2)
+
+</pre>
+See also <a href="1687.html">Objective-C Analysis Plugin</a>
+         <a href="1078.html">Debugger for macOS</a>
+         <a href="1677.html">Remote iOS debugger</a>

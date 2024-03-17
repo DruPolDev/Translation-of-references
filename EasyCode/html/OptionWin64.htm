@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Configuring Option win64:n</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><a name="align"></a><b><font color="#004080" face="Arial" size="6">Configuring
+Option win64:n (All Project Type)</font></b></p>
+<hr>
+<p><font face="Arial" size="2">This option is
+available in the <a href="Project.htm#project1"><b>Project
+Properties</b></a> window and
+<b>ONLY</b> applies to 64-bit projects being compiled with
+one of these three
+compilers:<br>
+<br>
+<b>asmc.exe</b><br>
+<b>jwasm.exe</b><br>
+<b>uasm64.exe</b><br>
+<br>
+For any other compiler file
+name, this option will not be shown and Easy Code will ignore it.<br>
+<br>
+The
+<b>n</b> character will be replaced with the value entered
+for this option in
+the <a href="Project.htm#project1"><b>Project
+Properties</b></a>.<br>
+<br>
+For instance, a value of <b>1</b> will make Easy Code to
+internally insert the line
+<b>Option win64:1</b> for all windows and/or modules in the
+project, so
+you do not need to write it in the source code.<br>
+<br>
+The accepted values for
+this option are from <b>-1</b> to <b>15</b>,
+that is, values from <b>0</b>
+to <b>15</b> will make Easy Code to internally insert the
+corresponding <b>Option
+win64:n</b> line as said before, while <b>-1</b>
+will make Easy Code to
+ignore it and no <b>Option win64:n</b> line will be
+inserted.<br>
+<br>
+<br>
+<b>REMARKS</b>: Not all the compilers mentioned before
+accept
+the same number of
+options, so you will have to see the documentation for each of them.
+</font></p>
+<p></p>
+</body></html>

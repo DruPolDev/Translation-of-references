@@ -1,0 +1,141 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>SymLoadModuleEx Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_symloadmoduleex">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.symloadmoduleex"></A>SymLoadModuleEx Function</H1>
+<P><P>Loads the symbol table for the specified module.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+DWORD64 WINAPI SymLoadModuleEx(
+  __in          HANDLE <I>hProcess</I>,
+  __in          HANDLE <I>hFile</I>,
+  __in          PCTSTR <I>ImageName</I>,
+  __in          PCTSTR <I>ModuleName</I>,
+  __in          DWORD64 <I>BaseOfDll</I>,
+  __in          DWORD <I>DllSize</I>,
+  __in          PMODLOAD_DATA <I>Data</I>,
+  __in          DWORD <I>Flags</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>hProcess</I></DT>
+<DD>
+<p>A handle to the process that was originally passed to the 
+<A HREF="syminitialize.htm"><b>SymInitialize</b></A> function.</p>
+</DD>
+<DT><I>hFile</I></DT>
+<DD>
+<p>A handle to the file for the executable image. This argument is used mostly by debuggers, where the debugger passes the file handle obtained from a debugging event. A value of NULL indicates that <i>hFile</i> is not used.</p>
+</DD>
+<DT><I>ImageName</I></DT>
+<DD>
+<p>The name of the executable image. This name can contain a partial path, a full path, or no path at all. If the file cannot be located by the name provided, the symbol search path is used.</p>
+</DD>
+<DT><I>ModuleName</I></DT>
+<DD>
+<p>A shortcut name for the module. If the pointer value is NULL, the library creates a name using the base name of the symbol file.</p>
+</DD>
+<DT><I>BaseOfDll</I></DT>
+<DD>
+<p>The load address of the module. If the value is zero, the library obtains the load address from the symbol file. The load address contained in the symbol file is not necessarily the actual load address. Debuggers and other applications having an actual load address should use the real load address when calling this function.</p>
+<P>If the image is a .pdb file, this parameter cannot be zero.</P>
+</DD>
+<DT><I>DllSize</I></DT>
+<DD>
+<p>The size of the module, in bytes. If the value is zero, the library obtains the size from the symbol file. The size contained in the symbol file is not necessarily the actual size. Debuggers and other applications having an actual size should use the real size when calling this function.</p>
+<P>If the image is a .pdb file, this parameter cannot be zero.</P>
+</DD>
+<DT><I>Data</I></DT>
+<DD>
+<p>A pointer to a 
+<A HREF="modload_data_str.htm"><b>MODLOAD_DATA</b></A> structure that represents headers other than the standard PE header. This parameter is optional and can be NULL.</p>
+</DD>
+<DT><I>Flags</I></DT>
+<DD>
+<p>This parameter can be zero or one or more of the following values. If this parameter is zero, the function loads the modules and the symbols for the module.</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>SLMFLAG_NO_SYMBOLS<BR>0x4</p>
+</TD>
+<TD width="60%"><p>Loads the module but not the symbols for the module.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>SLMFLAG_VIRTUAL<BR>0x1</p>
+</TD>
+<TD width="60%"><p>Creates a virtual module named <i>ModuleName</i> at the address specified in <i>BaseOfDll</i>. To add symbols to this module, call the 
+<A HREF="symaddsymbol.htm"><b>SymAddSymbol</b></A> function.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is the base address of the loaded module.</P>
+<P>If the function fails, the return value is zero. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<P>If the module is already loaded, the return value is zero and <b>GetLastError</b> returns ERROR_SUCCESS.</P>
+<H4>Remarks</H4>
+<p>The symbol handler creates an entry for the module and if the deferred symbol loading option is turned off, an attempt is made to load the symbols. If deferred symbol loading is enabled, the module is marked as deferred and the symbols are not loaded until a reference is made to a symbol in the module. Therefore, you should always call the <A HREF="symgetmoduleinfo64.htm"><b>SymGetModuleInfo64</b></A> function after calling <b>SymLoadModuleEx</b>.</p>
+<p>To unload the symbol table, use the 
+<A HREF="symunloadmodule64.htm"><b>SymUnloadModule64</b></A> function.</p>
+<p>All DbgHelp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<p>To call the Unicode version of this function, define DBGHELP_TRANSLATE_TCHAR.</p>
+<H4>Example Code 
+</H4>
+<p>For an example, see 
+<A HREF="loading_a_symbol_module.htm">Loading a Symbol Module</A>.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 6.0 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Dbghelp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Dbghelp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Dbghelp.dll.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Unicode</P></TH>
+<TD>
+<P>Implemented as <B>SymLoadModuleExW</B> (Unicode) and <B>SymLoadModuleEx</B> (ANSI).</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="dbghelp_functions.htm">DbgHelp Functions</A><BR><A HREF="modload_data_str.htm"><b>MODLOAD_DATA</b></A><BR><A HREF="symaddsymbol.htm"><b>SymAddSymbol</b></A><BR><A HREF="symunloadmodule64.htm"><b>SymUnloadModule64</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20SymLoadModuleEx%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

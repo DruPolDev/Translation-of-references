@@ -1,0 +1,125 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>ImageGetDigestStream Function</TITLE><META NAME="MS-HAID" CONTENT="_win32_imagegetdigeststream">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.imagegetdigeststream"></A>ImageGetDigestStream Function</H1>
+<P><P>Retrieves the requested data from the specified image file.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">
+BOOL ImageGetDigestStream(
+  __in          HANDLE <I>FileHandle</I>,
+  __in          DWORD <I>DigestLevel</I>,
+  __in          DIGEST_FUNCTION <I>DigestFunction</I>,
+  __in          DIGEST_HANDLE <I>DigestHandle</I>
+);
+</PRE>
+<H4>Parameters</H4>
+<DL>
+<DT><I>FileHandle</I></DT>
+<DD>
+<p>A handle to the image file. This handle must be opened for FILE_READ_DATA access.</p>
+</DD>
+<DT><I>DigestLevel</I></DT>
+<DD>
+<p>The aspects of the image that are to be included in the returned data stream. This parameter can be one or more of the following values. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Value</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>CERT_PE_IMAGE_DIGEST_ALL_IMPORT_INFO<BR>0x04</p>
+</TD>
+<TD width="60%"><p>Include all import information.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CERT_PE_IMAGE_DIGEST_DEBUG_INFO<BR>0x01</p>
+</TD>
+<TD width="60%"><p>Include symbolic debugging information.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>CERT_PE_IMAGE_DIGEST_RESOURCES<BR>0x02</p>
+</TD>
+<TD width="60%"><p>Include resource information.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+<DT><I>DigestFunction</I></DT>
+<DD>
+<p>A pointer to a callback routine to process the data. For more information, see 
+<A HREF="digestfunction.htm"><b>DigestFunction</b></A>.</p>
+</DD>
+<DT><I>DigestHandle</I></DT>
+<DD>
+<p> A user-supplied handle to the digest. This parameter is passed to <b>DigestFunction</b> as the first argument.</p>
+</DD>
+</DL>
+<H4>Return Value</H4>
+<P>If the function succeeds, the return value is TRUE.</P>
+<P>If the function fails, the return value is FALSE. To retrieve extended error information, call 
+<b>GetLastError</b>.</P>
+<H4>Remarks</H4>
+<p>The 
+<b>ImageGetDigestStream</b> function returns the data to be digested from a specified image file, subject to the passed <i>DigestLevel</i> parameter. The order of the bytes will be consistent for different calls, which is required to ensure that the same message digest is always produced from the retrieved byte stream.</p>
+<p>To ensure cross-platform compatibility, all implementations of this function must behave in a consistent manner with respect to the order in which the various parts of the image file are returned.</p>
+<p>Data should be returned in the following order:</p>
+<ol>
+<li>Image (executable and static data) information.</li>
+<li>Resource data.</li>
+<li>Debugging information.</li>
+</ol>
+<p>If any of these are not specified, the remaining parts must be returned in the same order.</p>
+<p>All ImageHlp functions, such as this one, are single threaded. Therefore, calls from more than one thread to this function will likely result in unexpected behavior or memory corruption. To avoid this, you must synchronize all concurrent calls from more than one thread to this function.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, Windows 2000 Professional, Windows NT Workstation 4.0, Windows Me, Windows 98, or Windows 95.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, Windows 2000 Server, or Windows NT Server 4.0.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Imagehlp.h.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>Library</P></TH>
+<TD>
+<P>Use Imagehlp.lib.</P>
+</TD>
+</TR>
+<TR>
+<TH><P>DLL</P></TH>
+<TD>
+<P>Requires Imagehlp.dll.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_functions.htm">ImageHlp Functions</A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20ImageGetDigestStream%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

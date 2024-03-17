@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>GetChildRect method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">GetChildRect
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size=2>Available for all objects.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">GetChildRect</b></font> <b><font
+color="#0000FF">Proto</font></b> <b>hWnd<font color="#FF00FF">:</font><font color="#000080">HWND</font><font
+color="#FF00FF">,</font></b> <b>lpRect<font color="#FF00FF">:</font><font
+color="#0000FF">DWord</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font></b> <b><font
+color="#800080">GetChildRect</font><font color="#FF00FF">,</font></b> <b>hWnd<font color="#FF00FF">,</font></b>
+<b>lpRect</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Retrieves the dimensions of the bounding rectangle for the specified
+object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>lpRect</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the address of a <b><font color="#000080">RECT</font></b>
+structure that receives the bounding rectangle.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <b><font
+color="#000080">TRUE</font></b> if successful, or <b><font color="#000080">FALSE</font></b> if
+not.</font></font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><br>Possible returned values are:</font></p>
+
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2"><b><font color="#000080">TRUE</font></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The
+<b><font color="#000080">RECT</font></b> structure pointed by <b>lpRect</b> is filled with the object
+dimensions.<br><b><font color="#000080">FALSE</font>&nbsp;&nbsp;&nbsp;hWnd</b> is not a valid
+handle.</font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><br><b>REMARKS</b>: If the object is a child control or an MDI child
+window, the coordinates of the object (<b>left</b> and <b>top</b> members of the <b><font
+color="#000080">RECT</font></b> structure) are relative to its parent client area. If the object has no
+parent (window objects), then the coordinates are relative to the screen.</font></font></p>
+
+<p><font face="Arial"><font size="2"><b>IMPORTANT</b>: The dimensions of the bounding rectangle are retrieved
+in <b>Pixels</b> o <b>Twips</b> depending on the </font></font><a href="easy3h45.htm"><font face="Arial"
+size="2"><b>ScaleMode</b></font></a><font face=Arial size=2> property of the <b>owner window</b> o <b>Picture</b>
+object containing the child control. If the parent of the child control is a <b>DialogBox</b> object, the
+dimensions are always retrieved in <b>Pixels</b>.<br><br></font></p>
+
+</body>
+</html>

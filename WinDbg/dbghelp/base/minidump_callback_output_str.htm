@@ -1,0 +1,88 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_CALLBACK_OUTPUT Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_callback_output_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_callback_output_str"></A>MINIDUMP_CALLBACK_OUTPUT Structure</H1>
+<P><P>Contains information returned by the 
+<A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A> function.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_CALLBACK_OUTPUT {<br>  union {<br>    ULONG ModuleWriteFlags;<br>    ULONG ThreadWriteFlags;<br>    ULONG SecondaryFlags;<br>    struct {<br>      ULONG64 MemoryBase;<br>      ULONG MemorySize;<br>    };<br>    struct {<br>      BOOL CheckCancel;<br>      BOOL Cancel;<br>    };<br>    HANDLE Handle;<br>  };<br>  struct {<br>    MINIDUMP_MEMORY_INFO VmRegion;<br>    BOOL Continue;<br>  };<br>  HRESULT Status;
+} MINIDUMP_CALLBACK_OUTPUT, <br> *PMINIDUMP_CALLBACK_OUTPUT;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>ModuleWriteFlags</B></DT>
+<DD><p>The module write operation flags. This member can be one or more of the values in the 
+<A HREF="module_write_flags.htm"><b>MODULE_WRITE_FLAGS</b></A> enumeration. The flags are set to their default values on entry to the callback.</p>
+<P>This member is ignored unless the callback type is IncludeModuleCallback or ModuleCallback.</P>
+</DD>
+<DT><B>ThreadWriteFlags</B></DT>
+<DD><p>The thread write operation flags. This member can be one or more of the values in the 
+<A HREF="thread_write_flags.htm"><b>THREAD_WRITE_FLAGS</b></A> enumeration. The flags are set to their default values on entry to the callback.</p>
+<P>This member is ignored unless the callback type is IncludeThreadCallback, ThreadCallback, or ThreadExCallback.</P>
+</DD>
+<DT><B>SecondaryFlags</B></DT>
+<DD><p>Contains a value from the <A HREF="minidump_secondary_flags.htm"><b>MINIDUMP_SECONDARY_FLAGS</b></A> enumeration type.</p>
+<BLOCKQUOTE><B>DbgHelp 6.5 and earlier:  </B>This member is not available.</BLOCKQUOTE>
+</DD>
+<DT><B>MemoryBase</B></DT>
+<DD><p>The base address of the memory region to be included in the dump. </p>
+<P>This member is ignored unless the callback type is MemoryCallback or RemoveMemoryCallback.</P>
+</DD>
+<DT><B>MemorySize</B></DT>
+<DD><p>The size of the memory region to be included in the dump, in bytes. </p>
+<P>This member is ignored unless the callback type is MemoryCallback or RemoveMemoryCallback.</P>
+</DD>
+<DT><B>CheckCancel</B></DT>
+<DD><p>Controls whether the callback function should receive cancel callbacks. If this member is TRUE, the cancel callbacks will continue. Otherwise, they will not.</p>
+<P>This member is ignored unless the callback type is CancelCallback.</P>
+</DD>
+<DT><B>Cancel</B></DT>
+<DD><p>Controls whether the dump should be canceled. If the callback function returns TRUE and <b>Cancel</b> is TRUE, the dump will be canceled. In this case, the <A HREF="minidumpwritedump.htm"><b>MiniDumpWriteDump</b></A> function fails and the dump is not valid.</p>
+<P>This member is ignored unless the callback type is CancelCallback.</P>
+</DD>
+<DT><B>Handle</B></DT>
+<DD><p>A handle to the file to which a kernel minidump will be written.</p>
+<P>This member is ignored unless the callback type is WriteKernelMinidumpCallback.</P>
+</DD>
+<DT><B>VmRegion</B></DT>
+<DD><p>A <A HREF="minidump_memory_info_str.htm"><b>MINIDUMP_MEMORY_INFO</b></A> structure that describes the virtual memory region. The region base and size must be aligned on a page boundary. The region size can be set to 0 to filter out the region.</p>
+<P>This member is ignored unless the callback type is IncludeVmRegionCallback.</P>
+</DD>
+<DT><B>Continue</B></DT>
+<DD><p>Controls whether the dump should be continued. If the callback function returns TRUE and <b>Continue</b> is TRUE, the dump will be continued. Otherwise, the <b>MiniDumpWriteDump</b> function fails and the dump is not valid.</p>
+<P>This member is ignored unless the callback type is IncludeVmRegionCallback.</P>
+</DD>
+<DT><B>Status</B></DT>
+<DD><p>The status of the operation.</p>
+<P>This member is ignored unless the callback type is ReadMemoryFailureCallback, IoStartCallback, IoWriteAllCallback, or IoFinishCallback.</P>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A><BR><A HREF="module_write_flags.htm"><b>MODULE_WRITE_FLAGS</b></A><BR><A HREF="thread_write_flags.htm"><b>THREAD_WRITE_FLAGS</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_CALLBACK_OUTPUT%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Using ECInvoke</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Using
+<font color="#800080">ECInvoke</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><font color="#800080"><b>ECInvoke</b></font>
+was primarily developed for the <b>ml64</b> compiler as it
+does not have
+the <font color="#0000ff"><b>Invoke</b></font>
+directive. However, it also
+may be used with <b>JWasm</b>, <b>UAsm64</b>,
+<b>AsmC</b>
+and <b>PoAsm</b>
+with 64-bit projects, although it
+is better to use their own <font color="#0000ff"><b>Invoke</b></font>
+when
+possible. <font color="#800080"><b>ECInvoke</b></font>
+works like <font color="#0000ff"><b>Invoke</b></font>
+but it does not make any parameter
+checking. The use of <font color="#800080"><b>ECInvoke</b></font>
+makes sure
+that the stack pointer (<b><font color="#606000">Rsp</font></b>)
+will always
+be 16-byte aligned, avoiding unpleasant crashes when calling API
+functions.
+For <b>ml64</b>, <b>AsmC</b>, <b>JWasm</b>
+and <b>UAsm64</b>
+you can use <font color="#800080"><b>ECInvoke</b></font>
+as
+you did with <font color="#0000ff"><b>Invoke</b></font>,
+but for <b>PoAsm</b> there is a
+difference you must take into account. Complex arguments have to
+be between angle brackets, for example:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#800080">ECInvoke</font>
+<font color="#800000">SetWindowText</font>,
+hWnd, &lt;<font color="#800080">TextStr</font><font color="#ff00ff">("Hello")</font>&gt;</b><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#800080">ECInvoke</font>
+<font color="#800000">GetSystemDirectory</font>,
+lpszBuffer,
+<font color="#000080">&lt;MAX_PATH - 1&gt;</font></b></font></p>
+<p><font face="Arial" size="2">All arguments
+having characters like <b>(</b>,
+<b>)</b>, <b>"</b>, <b>'</b>, <b>+</b>,
+<b>-</b>, etc., must be between angle
+brackets. Otherwise, PoAsm will fire the corresponding
+error.</font></p>
+<p><font face="Arial"><font face="Arial" size="2"><br>
+<b>REMARKS</b>:
+Please remember that <b><font color="#800080">ECInvoke</font></b>
+is only available for <b>Masm</b>, <b>JWasm</b>,
+<b>UAsm64</b>, <b>AsmC</b> and
+<b>PoAsm</b> 64-bit projects, and angle brackets are only
+needed for the <b>PoAsm</b> compiler.</font></font></p>
+<br>
+</body></html>

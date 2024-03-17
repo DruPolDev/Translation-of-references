@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>DeleteRegistryKey method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">DeleteRegistryKey
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">DeleteRegistryKey</font></b> <b><font
+color="#0000FF">Proto</font></b> <b>hKey<font color="#FF00FF">:</font><font color="#000080">HKEY</font><font
+color="#FF00FF">,</font></b> <b>lpszSubKey<font color="#FF00FF">:</font><font
+color="#000080">LPSTR</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font></b> <b><font
+color="#800080">DeleteRegistryKey</font><font color="#FF00FF">,</font></b> <b>hKey<font color="#FF00FF">,</font>
+lpszSubKey</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Deletes a registry subkey and all its descendants.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hKey</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Handle to one of the following predefined keys:</font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" color="#800080"
+size=2>ecClassesRoot<br></font></b><b><font face="Arial" color="#800080"
+size=2>ecCurrentUser<br></font></b><b><font face="Arial" color="#800080"
+size=2>ecLocalMachine<br></font></b><b><font face="Arial" color="#800080"
+size=2>ecUsers<br></font></b><b><font face="Arial" color="#800080"
+size=2>ecPerformanceData<br></font></b><b><font
+face=Arial color="#800080" size=2>ecCurrentConfig<br></font></b><b><font
+face=Arial color="#800080" size=2>ecDynData</font></b></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size=2>lpszSubKey</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Pointer to the effective address
+of a null-terminated string that names the path of the subkey to be
+deleted.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font> </b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#808000">Eax/Rax</font></b> returns <strong><font
+color="#000080">TRUE</font></strong> if successfull, or <strong><font color="#000080">FALSE</font></strong>
+if not.</font></font></p></blockquote>
+
+<p><font face="Arial" size="2"><br><b>REMARKS</b>: The <font color="#800080"><b>DeleteRegistryKey</b></font>
+method expects <b>lpszSubKey</b> to be a Unicode string if the application is running as Unicode,
+or an ANSI string if not (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a>
+method). You can call <font color="#800080"><b>DeleteRegistryKeyA</b></font> to delete ANSI keys in Unicode
+applications, or <font color="#800080"><b>DeleteRegistryKeyW</b></font> to delete Unicode keys in ANSI
+applications.<br><br></font></p>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>GetPlatform method</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#800080" face="Arial" size="6">GetPlatform
+<font color="#004080">method</font></font></b></p>
+<hr>
+<p><font face="Arial" size="2"><b>Prototype</b></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#800080">GetPlatform</font></b> <b><font color="#0000ff">Proto</font></b> <b>lpszSvPack<font color="#ff00ff">:</font><font color="#000080">LPSTR</font></b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Syntax</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2"><b><font color="#0000ff">Invoke</font></b> <b><font color="#800080">GetPlatform</font><font color="#ff00ff">,</font> lpszSvPack</b></font></font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Function</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Gets the
+current operating system platform. Use this method to determine when
+your application is running in a particular platform of the Windows
+operating systems.</font></p>
+</blockquote>
+<p><b><font face="Arial" size="2">Parameters</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><b><font face="Arial" size="2">lpszSvPack</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Pointer to
+the effective address of a null-terminated string to receive the
+service pack string (if any). This parameter can be <b><font color="#000080">NULL</font></b> if you do not
+need
+the service pack information.</font></p>
+</blockquote>
+</blockquote>
+<p><b><font face="Arial" size="2">Return
+value</font> </b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b> returns the
+platform of the running operating
+system.<br>
+<br>
+</font></p>
+</blockquote>
+<p><font face="Arial" size="2">Possible
+returned values are:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p>
+<table style="text-align: left; width: 450px;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><font face="Arial"><font size="2"><b>1&nbsp;&nbsp;<font color="#800080">ecWin95</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 95</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>2&nbsp;&nbsp;<font color="#800080">ecWin98</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 98/ME</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>3&nbsp;&nbsp;<font color="#800080">ecWinNT</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows NT40</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>4&nbsp;&nbsp;<font color="#800080">ecWin2K</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 2000</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>5&nbsp;&nbsp;<font color="#800080">ecWinXP</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows XP</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>6&nbsp;&nbsp;<font color="#800080">ecWinVista</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Vista</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>7&nbsp;&nbsp;<font color="#800080">ecWin7</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 7</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>8&nbsp;&nbsp;<font color="#800080">ecWin8</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 8</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>9&nbsp;&nbsp;<font color="#800080">ecWin81</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 8.1</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>10&nbsp;&nbsp;<font color="#800080">ecWin10</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 10</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>11&nbsp;&nbsp;<font color="#800080">ecWin11</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows 11</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>12&nbsp;&nbsp;<font color="#800080">ecWinSever2003</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2003</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>13&nbsp;&nbsp;<font color="#800080">ecWinHomeServer</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Home Sever</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>14&nbsp;&nbsp;<font color="#800080">ecWinServer2008</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2008</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>15&nbsp;&nbsp;<font color="#800080">ecWinServer2008R2</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2008 R2</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>16&nbsp;&nbsp;<font color="#800080">ecWinSever2012</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2012</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>17&nbsp;&nbsp;<font color="#800080">ecWinSever2012R2</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2012 R2</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>18&nbsp;&nbsp;<font color="#800080">ecWinSever2016</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2016</font></font></td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>19&nbsp;&nbsp;<font color="#800080">ecWinSever2019</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2019</font></font></td>
+</tr>
+<tr>
+<td><font face="Arial"><font size="2"><b>20&nbsp;&nbsp;<font color="#800080">ecWinSever2022</font></b></font></font></td>
+<td style=""><font face="Arial"><font size="2">Running O.S. is Windows Sever 2022</font></font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+<p><font face="Arial" size="2"><b><br>
+WARNING</b>: Applications not explicity manifested for Windows
+8.1, Windows 10, or Windows 11 will return the Windows 8 OS version (<font color="#800080"><b>ecWin8</b></font>). To
+manifest your
+applications for Windows 8.1, Windows 10, or Windows 11, it should be
+specified in the <b>Manifest</b> file. For more
+information, please click this MSDN <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dn481241%28v=vs.85%29.aspx"><b>link</b></a>.</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:
+The address specified by the <b>lpszSvPack</b>
+parameter will
+be filled with a null-terminated string (such as "Service Pack 2")
+specifying the last service pack installed.
+This string can be empty if no service pack has been installed on the
+system. If the <b>lpszSvPack</b>
+parameter is a <b><font color="#000080">NULL</font></b>
+pointer, then it is ignored and no information about
+the service pack is returned.</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:The
+<b>lpszSvPack</b> parameter will be filled with a
+Unicode string if the application is running as Unicode. Otherwise, it
+will be filled with an ANSI
+string (see the <a href="AppUnicode.htm"><font color="#800080">IsAppUnicode</font></a> method).
+You
+can call <font color="#800080"><b>GetPlatformA</b></font>
+to get an ANSI string in Unicode applications,
+or <font color="#800080"><b>GetPlatformW</b></font>
+to get a Unicode string in ANSI applications.
+<br>
+<br>
+</font></p>
+</body></html>

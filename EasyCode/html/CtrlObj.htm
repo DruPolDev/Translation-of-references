@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Control objects (child controls)</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><a name="controlobjects"></a><b><font color="#004080" face="Arial" size="6">Control
+objects (child
+controls)</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Controls are
+little
+windows placed inside window objects. In Visual projects you can
+place controls inside any window object except <b>MDI
+WIndows</b>, while in classic
+projects you can only place them
+inside <b>Dialog boxes</b>.
+Easy Code manages the following controls:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<table align="center" border="0" cellpadding="3" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Static</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+simple rectangle object which may contain text. Usually used as a
+label</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Edit</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+editor object, with some editional functions to accept user text
+input</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Group</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+frame/tray used to group other controls. As a little window, a <b>Group</b>
+object is a container and it may have child controls inside it,
+including other <b>Group</b>
+or <b>Picture</b>
+objects</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Button</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+classical Windows button that triggers an action associated with
+it</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Check</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+box which can be toggled "checked" or "unchecked" in order to
+select/unselect different options</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Radio</b></font></td>
+<td><font color="#000000" face="Arial" size="2">Similar
+to <b>Check</b>
+object but can be grouped with other <b>Radio</b>
+objects to select one or more combinations of options</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>List</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object which can have several items being text strings or others
+inside it. Items can be selected</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Combo</b></font></td>
+<td><font color="#000000" face="Arial" size="2">Similar
+to <b>List</b>
+object but only displaying the selected item
+at top. The list in the object can be dropped down to display more of
+the list items</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Picture</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object which can display graphics being a bitmap, icon, cursor,
+text. As a little window, it is a container and may have child controls
+inside it, including other <b>Group</b>
+or <b>Picture</b>
+objects</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Image</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+simple static object used to display images (bitmaps, icons, or
+cursors)</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>HScroll</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+horizontal scroll bar used to obtain a value to the scroll factor
+of another object</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>VScroll</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+vertical scroll bar used to obtain a value to the scroll factor of
+another object</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>RichEdit</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+more completed editor object with edition functions, accepting rich
+text format</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>TreeView</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object that displays a hierarchical list of items which can have
+subitems. By clicking an item, its associated subitems can be expanded
+or collapsed</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>ListView</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object that displays icons, text or both, in separated columns.
+It can have different view types</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>ToolBar</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object that displays a row of bitmapped buttons that activate
+commands. Pressing a toolbar button is equivalent to choosing a menu
+item</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>StatusBar</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object that may contain several pannels or o single one. Each
+pannel is a rectangular area of the status bar that you can use to
+display information</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>ProgressBar</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+rectangle object gradually filled, from left to right, that an
+application can use to indicate the progress of a lengthy operation</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Slider</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object (also known as <b>trackbar</b>)
+containing a slider and
+optional tick marks</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>TabStrip</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object with dividers (like a notebook) that can define multiple
+pages for the same area of a window</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>UpDown</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object with a pair of arrows that the user can click to adjust a
+value</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Animate</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+rectangular window that displays a clip in AVI (Audio Video
+Interleaved) format</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>IpAddress</b></font></td>
+<td><font color="#000000" face="Arial" size="2">Similar
+to an <b>Edit</b>
+object, but formatted to enter an I.P.
+address</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>ImageCombo</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+more advanced version of a <b>Combo</b>
+object, capable to display
+images</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Calendar</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object displaying a traditional one-month calendar. Users can use
+this control to view and select dates</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>DateTime</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object used to allow the user to select a date and time and display
+it in a specified format</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>HotKey</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object used to allow the user to define a hot key</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Pager</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object container that is used with a window that does not have
+enough display area to show all of its content</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>ImageList</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+collection of images of the same size, each of which can be
+referred to by its index</font></td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Header</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object usually positioned above columns of text or numbers.
+It can contain a title and an image for each column, and it can be
+divided into parts</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Rebar</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+container for child controls. It can contain one or more bands, and
+each
+band can have any combination of a gripper bar, a bitmap, a text label,
+and one child control</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>Thread</b></font></td>
+<td><font color="#000000" face="Arial" size="2">An
+object alllowing to create threads in visual applications. It
+is treated as a child
+control although it is not. Please see the <a href="ThreadObj.htm"><b>Thread
+object</b></a>
+help for more information</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>SysLink</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A small window that renders marked-up
+text, and notifies the application when users click its embedded
+hyperlinks. A SysLink
+control needs the new Common controls (Windows XP and later) to be
+available, otherwise
+it cannot be created. For the new Common controls to be available, the
+application has
+to include a <a href="Manifest.htm"><b>Manifest</b></a></font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>PicWindow</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A little window, with a close button to hide
+it, that can be placed inside the main window. This little window only
+accepts a "Picture"
+control which will occupy all the client area</font></td>
+</tr>
+<tr>
+<td v="" valign="top" width="100"><font face="Arial" size="2"><b>User</b></font></td>
+<td><font color="#000000" face="Arial" size="2">A
+custom defined control. It must have a class name which has to be
+registered, or one of the Windows predefined classes</font></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><font face="Arial"><font size="2"><br>
+<b>REMARKS</b>:
+<b>User</b>
+controls are only available in classic projects.
+The class name specified for a user control, must be registered before
+opening the dialog box that contains it. If the
+class is not registered, the dialog box will fail (it will not be
+built) and will never be shown, unless the dialog
+has its <b>NoFailCreate</b>
+property set to <b><font color="#000080">TRUE</font></b>.
+If you do not specify any class
+name for a user control, Easy Code will create an unvisible <b>Static</b>
+object (<b>"STATIC"</b>
+class) so that the
+dialog box can be built.<br>
+<br>
+</font></font></p>
+</body></html>

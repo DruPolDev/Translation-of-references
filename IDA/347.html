@@ -1,0 +1,17 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><title>create_pack_real</title>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY><a name="IDH_347"></a>
+<table width="100%"><tr valign="top"><td><h2> create_pack_real</h2></td>
+<td width="64"><IMG src="ida55.bmp"></td></tr></table>
+<pre>
+Convert the current item to a packed real (10 or 12 bytes)
+     ea - linear address
+returns: 1-ok, 0-failure
+This is a convenience macro, see also <A href="18.html">create_data</A>() function
+<p>
+#define create_pack_real(ea) create_data(ea, FF_PACKREAL, 10, BADADDR)</p>
+     
+
+</pre></BODY></HTML>

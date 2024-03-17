@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Layout property</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Layout property</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Available for
+all objects except <b>ImageList</b>
+and <b>Thread</b>.</font></p>
+<p><b><font face="Arial" size="2">Read/Write
+at design time</font><br>
+</b><b><font face="Arial" size="2">Read/Write
+at run time</font></b></p>
+<p><font face="Arial" size="2">Specifies
+whether the layout for an object is left-to-right
+or right-to-left.
+<p><font face="Arial" size="2">The layout for
+an object
+defines how text and Graphics Device Interface
+(GDI) objects are laid out in a window or control,
+the location of the origin and whether the horizontal
+coordinate increases as you go left or right. Most languages
+require a
+left-to-right (LTR) layout, but some languages, such as Arabic and
+Hebrew,
+require a right-to-left (RTL) layout.</font></p>
+<p><br>
+<font face="Arial" size="2">For
+window objects (<b>Window</b>, <b>MDIWindow</b>
+and <b>DialogBox</b>)
+this property can be set to one of the following values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p>
+<table style="text-align: left; width: 650px;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><font face="Arial" size="2"><b>0</b>&nbsp;&nbsp;Left-To-Right&nbsp;&nbsp;</font></td>
+<td><font face="Arial" size="2">The
+layout for the window is left-to-right (<b>default</b>)</font>
+</td>
+</tr>
+<tr>
+<td><font face="Arial" size="2"><b>1</b>&nbsp;&nbsp;Right-To-Left&nbsp;&nbsp;</font></td>
+<td><font face="Arial" size="2">The
+layout for the window is right-to-left. The
+origin is positioned at the right edge of the window.</font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+</font></p>
+<p><br>
+<font face="Arial" size="2">For
+control objects (except <b>ImageList</b> and <b>Thread</b>),
+this property can be set to one of the following values:</font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p>
+<table style="text-align: left; width: 650px;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><font face="Arial" size="2"><b>0</b>&nbsp;&nbsp;Left-To-Right&nbsp;&nbsp;</font></td>
+<td><font face="Arial" size="2">The
+layout for the control is left-to-right.</font> </td>
+</tr>
+<tr>
+<td><font face="Arial" size="2"><b>1</b>&nbsp;&nbsp;Right-To-Left&nbsp;&nbsp;</font></td>
+<td><font face="Arial" size="2">The
+layout for the control is right-to-left. The
+origin is positioned at the right edge of the control.</font></td>
+</tr>
+<tr>
+<td> <font face="Arial" size="2"><b>2</b>&nbsp;&nbsp;Inherited&nbsp;&nbsp;</font></td>
+<td><font face="Arial" size="2">The
+layout for the control
+is inherited from its parent (<b>default</b>).</font></td>
+</tr>
+</tbody>
+</table>
+</p>
+</blockquote>
+<p></p>
+<p><font face="Arial" size="2">In visual
+projects, <b>Group</b>, <b>Picture</b>
+and <b>Rebar</b> objects can also have child controls, so
+please take that into account
+since a control with its property <b>Layout</b> set to "<b>2
+- Inherited</b>"
+will always inherit the layout from its parent (<b>which may NOT
+be the owner window</b>).
+On the other hand, two methods are available for changing the layout at
+run time, <b><a href="GetLayout.htm"><font color="#800080">GetLayoutRTL</font></a></b>
+and <b><a href="SetLayout.htm"><font color="#800080">SetLayoutRTL</font></a></b>.</font></p>
+<p><font face="Arial" size="2"><b>WARNING</b>:
+This property has no effect if the
+running operating system is not a Windows bi-directional platform
+(Windows 2000 and later).<br>
+<br>
+</font></p>
+</body></html>

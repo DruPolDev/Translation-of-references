@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Project properties</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Project
+properties</font></b></p>
+<hr>
+<p><font face="Arial" size="2">The properties
+for the
+project you are working with, are always available
+through the "<b>Project--&gt;Properties</b>"
+menu and they are divided into two main groups,
+<b>General</b> and <b>Advanced</b>. The <b>General</b>
+group has two sections, <b>Properties</b> and
+<b>Options</b>:</font></p>
+<p><font face="Arial" size="2">For visual
+projects,
+the <b>Properties</b> section shows a window like
+this:</font></p>
+<p><a name="project1"><img src="Project1.gif" border="0" height="306" hspace="0" width="568"></a></p>
+<p><a name="project1"><font face="Arial" size="2">While for classic projects,
+the <b>Properties</b> section shows a window like
+this:</font></a></p>
+<p><a name="project1cla"><img src="Project1Cla.gif" border="0" height="306" hspace="0" width="568"></a></p>
+<p><a name="project1cla"><font face="Arial" size="2">Where you can specify
+the following information:</font></a></p>
+<ul>
+<a name="project1cla"> <li>
+<div><font face="Arial" size="2">The <b>Project
+Name</b> (each project must have a name) which will
+be the name for the final exe, dll, lib, obj or sys
+file</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2">The name
+of the
+<b>Startup window</b> (visual projects) or the <b>Startup
+module</b> (classic projects)</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2">The type
+of processor
+(<b>.486</b>, <b>.586</b>, <b>.686</b>,
+etc.). This option
+only has effect for JWASM, MASM and POASM projects</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2">The
+alignment of data
+(<b>4</b>, <b>8</b>, <b>16</b>,
+etc.). It should be <b>4</b>
+for 32-bit projects and <b>16</b> for 64-bit projects</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Add
+symbolic
+information</b> (<b>Debug</b> version) or not
+(<b>Release</b> version)</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Generate
+source
+files (*.asm)</b>. The source files will be generated in
+the text encoding specified by the <a href="Settings.htm#configtab"><b>Text
+encoding</b></a>
+option</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Easy
+Code
+library</b> (only visual projects). Specifies the
+Easy Code visual library that must be linked,
+<b>Static</b>
+(default) or <b>Dynamic</b></font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Generate
+resource files in ANSI mode</b>. Resource files will
+always be generated in ANSI text, although the <a href="Settings.htm#configtab"><b>Text
+encoding</b></a> option is set to any other encoding
+value. This option will have no efect for Unicode projects,
+that is, when the <b>This project will run in Unicode
+Mode</b> option is checked</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Option
+win64:n</b>. Specifies the options to be set
+for some compilers. Please see <a href="OptionWin64.htm"><b>Configuring
+Option
+win64:n</b></a>.</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Header</b>
+(a text string), <b>only for visual projects</b>,
+which will be available at run time through the
+<b>Header</b> member of the <b><a href="AppError.htm"><font color="#800080">App</font></a></b>
+object (<b><font color="#800080">App</font>.Header</b>).</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Make
+all
+variables global</b> makes all variables common
+to the whole project (<b>only for classic
+projects</b>), that is, visible from any module. This option has
+no effect for Fasm and GoAsm
+projects.</font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Enable
+compatibility with Easy Code 1.x macros</b>.
+Specifies whether the <font color="#800080"><b>Text</b></font>
+and <font color="#800080"><b>TextAddr</b></font>
+macros
+work as they did in Easy Code 1 (this option
+is only availble for 32-bit MASM projects). For
+more information, please see how the <a href="EasyCode.htm#macrochanges"><b>Text
+and TextAddr</b></a> macros work in Easy
+Code 2</font></div>
+</li>
+</a>
+</ul>
+<p></p>
+<p><a name="project1cla"><font face="Arial" size="2"><br>
+</font></a><font face="Arial" size="2"><a name="project2"></a><br>
+<font face="Arial" size="2">The <b>Options</b>
+section shows the following window:</font></font></p>
+<p><a name="project2"><font face="Arial" size="2"><img src="Project2.gif" border="0" height="306" hspace="0" width="568"></font></a></p>
+<p><a name="project2"><font face="Arial" size="2"><font face="Arial" size="2">Where
+you
+can specify
+the following information:</font></font></a></p>
+<ul>
+<a name="project2"> <li>
+<div><font face="Arial" size="2"><b>This
+project
+will run in Unicode Mode</b> (only visual projects)
+will make the built application to work in Unicode mode
+if it is running on Windows NT or later systems. For
+more information, please see <a href="Unicode.htm"><b>ANSI
+/ Unicode
+applications</b></a></font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><b>Compress the executable
+file (Release mode only)</b> using <b>UPX.EXE</b>,
+included with Easy Code</font></font></font></div>
+</li>
+<li>
+<div><font face="Arial" size="2"><b>Enable
+the use
+of</b> </font>
+<ul>
+<font face="Arial" size="2"> <li><b>Common
+controls</b>: Enables the use of the new common controls
+available in Windows XP and later (show or hide the corresponding
+buttons in the tool box) </li>
+<li><b>Rich edit control</b>: Enables the use
+of the Rich edit control (show or hide the corresponding button in the
+tool box) </li>
+<li><b>Manifest</b>: Includes an "XP Manifest"
+file as a resource (please see <a href="Manifest.htm"><b>Including
+a Manifest in the project</b></a>) </li>
+<li><b>Easy Code macros</b>: Includes the
+corresponding macros file, depending on the used configuration (please
+see <a href="ECMacros.htm"><b>Easy Code macros</b></a>)
+</li>
+</font>
+</ul>
+<font face="Arial" size="2"> </font></div>
+</li>
+<font face="Arial" size="2"> <li>
+<div><font face="Arial" size="2"><b>Internally
+declare</b> </font>
+<ul>
+<font face="Arial" size="2"> <li> <b>Local
+prototypes</b>: Easy Code takes care of declaring all local
+prototypes (this option only has effect for JWASM, MASM and POASM
+projects) </li>
+<li> <b>Global prototypes</b>: Easy Code takes
+care of declaring all global prototypes (this option only has effect
+for JWASM, MASM and POASM projects) </li>
+</font>
+</ul>
+<font face="Arial" size="2"> <li>
+<div><font face="Arial" size="2"><b>Preferred
+operating system</b>: This option is related to
+the Easy Code include files and depending on the
+operating system selected determines which API
+functions have to be declared. A value of <b>All
+Windows</b> makes all API functions to be
+declared, from Windows 95 to the latest
+version.</font></div>
+</li>
+</font></div>
+</li>
+</font></a>
+</ul>
+<p><a name="project2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">The Easy Code visual mode
+(visual projects) needs to link the visual library. You can
+link it statically (default option) and the size of the final
+application will be larger, but it will have no
+dependency. On the other hand, you can link it
+dynamically and the size of your application will
+be smaller, but then you will have to join the
+<b>ECDll32.dll</b> file (<b>ECDll64.dll</b> for
+64-bit projects) when distributing your application.
+This case may be useful when you are going to distribute
+more than one Easy Code application, because just one copy
+of the dynamic link librrary is needed in the
+Windows system directory.</font></font></font></a></p>
+<p><a name="project2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><b>REMARKS</b>:
+The <b>Easy Code
+macros</b> option is
+always checked by default when starting a new project. Sometimes, a
+macro name might conflict or you just
+may want not to include them. If so, uncheck the option and the Easy
+Code macros will not be included in
+the project.<br>
+<br>
+</font></font></font></a></p>
+<p><a name="project2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><br>
+The <b>Advanced</b>
+group has three sections, <b>Tools</b>, <b>Command
+line</b> and <b>Build events</b>:</font></font></font></a></p>
+<p><a name="project2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2">The <b>Tools</b>
+section shows a window like this:</font></font></font></a></p>
+<p><font face="Arial" size="2"><a name="project3"><font face="Arial" size="2"><img src="Project3.gif" border="0" height="306" hspace="0" width="568"></font></a></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><a name="project3"><font face="Arial" size="2">Easy Code allows you
+to choose the tools being used for building each project. When a
+new project is created, those tools are set to their default paths
+(the paths previously set for that configuration in
+the </font></a><font face="Arial" size="2"><a href="Settings.htm#projectpaths"><b>Settings</b></a>
+section),
+but you can change the <b>Compiler</b>, <b>Linker</b>
+(or <b>Library compiler</b>) and the <b>Resource
+compiler</b> if you
+like (this change only affects
+to the related project). On the other hand, take into account that
+<font color="#a00000"><b>wrong paths will be printed
+in red
+colour</b></font>.<br>
+<br>
+All the Easy Code
+examples have those paths empty in its project file (the file
+with an <b>ecp</b> extension),
+so that they get the default paths for the correspondig configuration
+(the right paths previously set in the </font><font face="Arial" size="2"><a href="Settings.htm#projectpaths"><b>Settings</b></a>
+section).</font></font></font></p>
+<p><font face="Arial" size="2">Easy Code also
+allows you to
+specify a <b>Command line for the project's executable file</b>
+if you need so. The command line is available from version
+<b>2.02.0.0009</b> and it will be appended to the built
+executable file when it is launched from Easy Code with its
+<b>Build=&gt;Run</b> menu. This new option will only be
+available for projects which build an executable file
+(<b>.exe</b>) and the user is responsible for its content
+to be valid and accepted by the built executable file.</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:
+The path labeled as <b>Linker</b> will be the path for
+the Library compiler <b>ONLY</b> when working with
+static library projects.</font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><a name="project3"><font face="Arial" size="2"><b>WARNING</b>: If
+you change the path for any tool, or for all of them, <b>YOU
+ALSO HAVE
+TO CHANGE THE CORRESPONDING COMMAND LINE OPTIONS</b> according to
+the new tool in the <b>Command line</b> section shown
+below.</font></a></font></font></p>
+<p><font face="Arial" size="2"><a name="project3"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><br>
+The <b>Command
+line</b> section shows a window like this:</font></font></font></a></font></p>
+<p><font face="Arial" size="2"><a name="project3"></a><font face="Arial" size="2"><font face="Arial" size="2"><a name="project4"><img src="Project4.gif" border="0" height="306" hspace="0" width="568"></a></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><a name="project4"><font face="Arial" size="2">This section contains
+all the command line options for the <b>Compiler</b>,
+<b>Linker</b> and <b>Resource compiler</b>
+(Debug
+and Release modes), in order to build the project
+without errors. These options are set to their default
+values when the project is created (those specified
+in the corresponding configuration file) according
+to the tools set in the </font></a><font face="Arial" size="2"><a href="Project.htm#project3"><b>Tools</b></a>
+section.</font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><b>WARNING</b>:
+These
+command line options <b>SHOULD ONLY BE MODIFIED</b>
+according to the changes (if any) of the <a href="Project.htm#project3"><b>Tools</b></a>
+section.</font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><br>
+The <b>Build
+events</b> section shows a window like
+this:</font></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><a name="project5"><img src="Project5.gif" border="0" height="306" hspace="0" width="568"></a></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><a name="project5"><font face="Arial" size="2">Advanced users can
+create some custom batch files (*.bat) that will
+be run during the project building. When the
+corresponding option is enabled, you can create
+and/or edit a batch file that Easy Code will run
+at the specified step.
+<ul>
+<li>
+<b>Custom build</b>: This option is similar to a
+<b>make</b> file (and <b>not available for
+visual
+projects</b>) since it allows you to create a batch
+file in order to build the whole project. If
+the specified file is created, this batch file will
+be named <b>CustomBuild.bat</b> and it will be
+located in the <b>Custom</b> subfolder inside the
+project folder. When this option is checked and
+the file exists, Easy Code only creates the resource
+text files (".rc" and ".h") and does nothing else than
+launching <b>CustomBuild.bat</b>, so this file has to
+contain all the necesary lines to build the whole
+project.<br>
+<br>
+<b>REMARKS</b>: The <b>Custom build</b>
+option
+<b>CANNOT BE AVAILABLE</b> for visual projects.
+Easy Code needs to do a lot of internal work
+for a visual project to be built and that is
+why this option <b>is disabled and cannot be
+used</b> in visual projects.</li>
+<br>
+<li><b>Pre-Build Event</b>: If created, this batch
+file will be named <b>PreBuild.bat</b> and it will
+be located in the project folder. If the
+<b>Pre-Build Event</b> option is checked, this
+file will be run before building the project.
+</li>
+<br>
+<li><b>Pre-Link Event</b>: If created, this batch
+file will be named <b>PreLink.bat</b> and it
+will be located in the project folder. If the
+<b>Pre-Link Event</b> option is checked, this
+file will be run after compiling and before
+linking the project.
+</li>
+<br>
+<li><b>Post-Build Event</b>: If created, this batch
+file will be named <b>PostBuild.bat</b> and it
+will be located in the project folder. If the
+<b>Post-Build Event</b> option is checked, this
+file will be run after building the project.
+</li>
+</ul>
+</font></a></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><a name="project5"><font face="Arial" size="2"><b>REMARKS</b>:
+These batch files will not be run if its
+corresponding option is not enabled. On the
+other hand, if an option is enabled but its
+corresponding file does not exist, Easy Code
+will just ignore it.</font></a></font></font></font></p>
+<p><font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><a name="project5"><font face="Arial" size="2"><b>WARNING</b>:
+Easy Code just runs the batch files but it
+has nothing to do with its content. You are
+responsible to create these batch files without
+errors.</font></a></font></font></font></p>
+<font face="Arial" size="2"><font face="Arial" size="2"><font face="Arial" size="2"><a name="project5"><br>
+</a></font></font>
+</font>
+</body></html>

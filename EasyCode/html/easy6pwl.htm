@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>Name property</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#004080" size="6">Name property</font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for all objects.</font></p>
+
+<p><b><font face="Arial" size="2">Read/Write at design time<br></font></b><b><font face="Arial" size="2">Read
+only at run time</font></b></p>
+
+<p><font face="Arial" size="2">Specifies a name identifying the object. If it is a window object (<b>Window</b>,
+<b>MDIWindow</b> or <b>DialogBox</b>) the name has to be unique in the project, while if it is a control object
+the name has to be unique in the window. For a window object, this is the name used when creating the object at
+run time (see the </font><a href="easy78bp.htm"><font face="Arial" size=2><b>Create</b></font></a><font
+face="Arial" size="2"> method).</font></p>
+
+<p><font face="Arial"><font size="2"><b><br>REMARKS</b>: Remember that each window in the project needs its
+<b>window procedure</b> having a name which is formed by its name (that specified by this property) plus the
+word <b>Procedure</b>. When modifying this property, Easy Code changes the window procedure name according to
+the new name. The same is applied for a control object procedure, but only if it exists (control objects
+procedures are optional, so they may not exist).</font></font></p>
+
+<p><font face="Arial"><font size="2">
+<b><font color="#800000">IMPORTANT</font></b>:
+This property <b>always</b>
+is an ANSI string. Even so, when Easy Code works in Unicode mode (that
+is, on Windows
+NT or later) the string returned by the <a href="easy3fhh.htm">GetName</a>
+method is internally converted to Unicode.<br><br>
+</font></font></p>
+
+</body>
+</html>

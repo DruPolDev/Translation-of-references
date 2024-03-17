@@ -1,0 +1,59 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_FUNCTION_TABLE_DESCRIPTOR Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_function_table_descriptor_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_function_table_descriptor_str"></A>MINIDUMP_FUNCTION_TABLE_DESCRIPTOR Structure</H1>
+<P><P>Represents a function table stream.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {<br>  ULONG64 MinimumAddress;<br>  ULONG64 MaximumAddress;<br>  ULONG64 BaseAddress;<br>  ULONG32 EntryCount;<br>  ULONG32 SizeOfAlignPad;
+} MINIDUMP_FUNCTION_TABLE_DESCRIPTOR, <br> *PMINIDUMP_FUNCTION_TABLE_DESCRIPTOR;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>MinimumAddress</B></DT>
+<DD><p>The minimum address of functions described by the table.</p>
+</DD>
+<DT><B>MaximumAddress</B></DT>
+<DD><p>The maximum address of functions described by the table.</p>
+</DD>
+<DT><B>BaseAddress</B></DT>
+<DD><p>The base address to use when computing full virtual addresses from relative virtual addresses in function entries.</p>
+</DD>
+<DT><B>EntryCount</B></DT>
+<DD><p>The number of entries in the function table.</p>
+</DD>
+<DT><B>SizeOfAlignPad</B></DT>
+<DD><p>The size of alignment padding that follows the function entry data, in bytes. The function entry data in the stream is guaranteed to be aligned appropriately for access to the data members. If a minidump is directly mapped in memory, it is always possible to directly reference structure members in the stream.</p>
+</DD>
+</DL>
+<H4>Remarks</H4>
+<p>The first descriptor in the function table stream follows the header, 
+<A HREF="minidump_function_table_stream_str.htm"><b>MINIDUMP_FUNCTION_TABLE_STREAM</b></A>. The generic descriptor is followed by a native system descriptor, then by <b>EntryCount</b> native system function entry structures.</p>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_function_table_stream_str.htm"><b>MINIDUMP_FUNCTION_TABLE_STREAM</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_FUNCTION_TABLE_DESCRIPTOR%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

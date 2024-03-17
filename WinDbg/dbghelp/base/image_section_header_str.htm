@@ -1,0 +1,393 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IMAGE_SECTION_HEADER Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_image_section_header_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.image_section_header_str"></A>IMAGE_SECTION_HEADER Structure</H1>
+<P><P>Represents the image section header format.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _IMAGE_SECTION_HEADER {<br>  BYTE Name[IMAGE_SIZEOF_SHORT_NAME];<br>  union {<br>    DWORD PhysicalAddress;<br>    DWORD VirtualSize;<br>  } Misc;<br>  DWORD VirtualAddress;<br>  DWORD SizeOfRawData;<br>  DWORD PointerToRawData;<br>  DWORD PointerToRelocations;<br>  DWORD PointerToLinenumbers;<br>  WORD NumberOfRelocations;<br>  WORD NumberOfLinenumbers;<br>  DWORD Characteristics;
+} IMAGE_SECTION_HEADER, <br> *PIMAGE_SECTION_HEADER;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>Name</B></DT>
+<DD><p>An 8-byte, null-padded UTF-8 string. There is no terminating null character if the string is exactly eight characters long. For longer names, this member contains a forward slash (/) followed by an ASCII representation of a decimal number that is an offset into the string table. Executable images do not use a string table and do not support section names longer than eight characters.</p>
+</DD>
+<DT><B>Misc</B></DT>
+<DD><DL>
+<DT><B>PhysicalAddress</B></DT>
+<DD><p>The file address.</p>
+</DD>
+<DT><B>VirtualSize</B></DT>
+<DD><p>The total size of the section when loaded into memory, in bytes. If this value is greater than the <b>SizeOfRawData</b> member, the section is filled with zeroes. This field is valid only for executable images and should be set to 0 for object files.</p>
+</DD>
+</DL>
+</DD>
+<DT><B>VirtualAddress</B></DT>
+<DD><p>The address of the first byte of the section when loaded into memory, relative to the image base. For object files, this is the address of the first byte before relocation is applied.</p>
+</DD>
+<DT><B>SizeOfRawData</B></DT>
+<DD><p>The size of the initialized data on disk, in bytes. This value must be a multiple of the <b>FileAlignment</b> member of the 
+<A HREF="image_optional_header_str.htm"><b>IMAGE_OPTIONAL_HEADER</b></A> structure. If this value is less than the <b>VirtualSize</b> member, the remainder of the section is filled with zeroes. If the section contains only uninitialized data, the member is zero.</p>
+</DD>
+<DT><B>PointerToRawData</B></DT>
+<DD><p>A file pointer to the first page within the COFF file. This value must be a multiple of the <b>FileAlignment</b> member of the 
+<A HREF="image_optional_header_str.htm"><b>IMAGE_OPTIONAL_HEADER</b></A> structure. If a section contains only uninitialized data, this member is zero.</p>
+</DD>
+<DT><B>PointerToRelocations</B></DT>
+<DD><p> A file pointer to the beginning of the relocation entries for the section. If there are no relocations, this value is zero.</p>
+</DD>
+<DT><B>PointerToLinenumbers</B></DT>
+<DD><p>A file pointer to the beginning of the line-number entries for the section. If there are no COFF line numbers, this value is zero.</p>
+</DD>
+<DT><B>NumberOfRelocations</B></DT>
+<DD><p>The number of relocation entries for the section. This value is zero for executable images.</p>
+</DD>
+<DT><B>NumberOfLinenumbers</B></DT>
+<DD><p>The number of line-number entries for the section.</p>
+</DD>
+<DT><B>Characteristics</B></DT>
+<DD><p>The characteristics of the image. The following values are defined. 
+
+</p>
+<TABLE class="clsStd">
+<TR>
+<TH>Flag</TH>
+<TH>Meaning</TH>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00000000</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00000001</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00000002</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00000004</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_TYPE_NO_PAD<BR>0x00000008</p>
+</TD>
+<TD width="60%"><p>The section should not be padded to the next boundary. This flag is obsolete and is replaced by IMAGE_SCN_ALIGN_1BYTES.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00000010</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_CNT_CODE<BR>0x00000020</p>
+</TD>
+<TD width="60%"><p>The section contains executable code.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_CNT_INITIALIZED_DATA<BR>0x00000040</p>
+</TD>
+<TD width="60%"><p>The section contains initialized data.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_CNT_UNINITIALIZED_DATA<BR>0x00000080</p>
+</TD>
+<TD width="60%"><p>The section contains uninitialized data.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_LNK_OTHER<BR>0x00000100</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_LNK_INFO<BR>0x00000200</p>
+</TD>
+<TD width="60%"><p>The section contains comments or other information. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00000400</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_LNK_REMOVE<BR>0x00000800</p>
+</TD>
+<TD width="60%"><p>The section will not become part of the image. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_LNK_COMDAT<BR>0x00001000</p>
+</TD>
+<TD width="60%"><p>The section contains COMDAT data. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00002000</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_NO_DEFER_SPEC_EXC<BR>0x00004000</p>
+</TD>
+<TD width="60%"><p>Reset speculative exceptions handling bits in the TLB entries for this section.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_GPREL<BR>0x00008000</p>
+</TD>
+<TD width="60%"><p>The section contains data referenced through the global pointer.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>0x00010000</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_PURGEABLE<BR>0x00020000</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_LOCKED<BR>0x00040000</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_PRELOAD<BR>0x00080000</p>
+</TD>
+<TD width="60%"><p>Reserved.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_1BYTES<BR>0x00100000</p>
+</TD>
+<TD width="60%"><p>Align data on a 1-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_2BYTES<BR>0x00200000</p>
+</TD>
+<TD width="60%"><p>Align data on a 2-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_4BYTES<BR>0x00300000</p>
+</TD>
+<TD width="60%"><p>Align data on a 4-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_8BYTES<BR>0x00400000</p>
+</TD>
+<TD width="60%"><p>Align data on a 8-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_16BYTES<BR>0x00500000</p>
+</TD>
+<TD width="60%"><p>Align data on a 16-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_32BYTES<BR>0x00600000</p>
+</TD>
+<TD width="60%"><p>Align data on a 32-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_64BYTES<BR>0x00700000</p>
+</TD>
+<TD width="60%"><p>Align data on a 64-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_128BYTES<BR>0x00800000</p>
+</TD>
+<TD width="60%"><p>Align data on a 128-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_256BYTES<BR>0x00900000</p>
+</TD>
+<TD width="60%"><p>Align data on a 256-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_512BYTES<BR>0x00A00000</p>
+</TD>
+<TD width="60%"><p>Align data on a 512-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_1024BYTES<BR>0x00B00000</p>
+</TD>
+<TD width="60%"><p>Align data on a 1024-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_2048BYTES<BR>0x00C00000</p>
+</TD>
+<TD width="60%"><p>Align data on a 2048-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_4096BYTES<BR>0x00D00000</p>
+</TD>
+<TD width="60%"><p>Align data on a 4096-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_ALIGN_8192BYTES<BR>0x00E00000</p>
+</TD>
+<TD width="60%"><p>Align data on a 8192-byte boundary. This is valid only for object files.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_LNK_NRELOC_OVFL<BR>0x01000000</p>
+</TD>
+<TD width="60%"><p>The section contains extended relocations. The count of relocations for the section exceeds the 16 bits that is reserved for it in the section header. If the <b>NumberOfRelocations</b> field in the section header is 0xffff, the actual relocation count is stored in the <b>VirtualAddress</b> field of the first relocation. It is an error if IMAGE_SCN_LNK_NRELOC_OVFL is set and there are fewer than 0xffff relocations in the section.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_DISCARDABLE<BR>0x02000000</p>
+</TD>
+<TD width="60%"><p>The section can be discarded as needed.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_NOT_CACHED<BR>0x04000000</p>
+</TD>
+<TD width="60%"><p>The section cannot be cached.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_NOT_PAGED<BR>0x08000000</p>
+</TD>
+<TD width="60%"><p>The section cannot be paged.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_SHARED<BR>0x10000000</p>
+</TD>
+<TD width="60%"><p>The section can be shared in memory.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_EXECUTE<BR>0x20000000</p>
+</TD>
+<TD width="60%"><p>The section can be executed as code.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_READ<BR>0x40000000</p>
+</TD>
+<TD width="60%"><p>The section can be read.</p>
+</TD>
+</TR>
+<TR>
+<TD width="40%">
+<p>IMAGE_SCN_MEM_WRITE<BR>0x80000000</p>
+</TD>
+<TD width="60%"><p>The section can be written to.</p>
+</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Client</P></TH>
+<TD><P>Requires Windows Vista, Windows XP, Windows 2000 Professional, Windows NT Workstation 4.0, Windows Me, Windows 98, or Windows 95.</P></TD>
+</TR>
+<TR>
+<TH><P>Server</P></TH>
+<TD><P>Requires Windows Server 2008, Windows Server 2003, Windows 2000 Server, or Windows NT Server 4.0.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in Winnt.h; include Windows.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="imagehlp_structures.htm">ImageHlp Structures</A><BR><A HREF="imagedirectoryentrytodataex.htm"><b>ImageDirectoryEntryToDataEx</b></A><BR><A HREF="imagervatosection.htm"><b>ImageRvaToSection</b></A><BR><A HREF="imagervatova.htm"><b>ImageRvaToVa</b></A><BR><A HREF="loaded_image_str.htm"><b>LOADED_IMAGE</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20IMAGE_SECTION_HEADER%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

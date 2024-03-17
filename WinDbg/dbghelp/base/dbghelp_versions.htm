@@ -1,0 +1,234 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>DbgHelp Versions </TITLE><META NAME="MS-HAID" CONTENT="_win32_dbghelp_versions">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.dbghelp_versions"></A>DbgHelp Versions</H1>
+<P>The DbgHelp library is implemented by DbgHelp.dll. This DLL is included in the operating system. To use this DLL on earlier systems, you can distribute the DLL with your application. To obtain the latest version of DbgHelp.dll, go to 
+<A HREF="Http://go.microsoft.com/FWLink/?LinkId=84137" TARGET="_blank">http://www.microsoft.com/whdc/devtools/debugging/default.mspx</A> and download Debugging Tools for Windows.</P>
+<P>Each version of DbgHelp includes additional functionality. To ensure that the correct version of DbgHelp is available for your application, review the 
+Requirements information in the documentation of the functions it uses.</P>
+<H4><A NAME="supported_versions"></A>Supported Versions</H4>
+<P>The following is a summary of the released versions of DbgHelp, in reverse chronological order.</P>
+<TABLE CLASS="clsStd">
+<TR>
+<TH>Version</TH>
+<TH>Date stamp</TH>
+<TH>Distribution Vehicle</TH>
+</TR>
+<TR>
+<TD>6.8</TD>
+<TD>10/07/2007</TD>
+<TD>Debugging Tools for Windows 6.8</TD>
+</TR>
+<TR>
+<TD>6.6</TD>
+<TD>7/10/2006</TD>
+<TD>Debugging Tools for Windows 6.6</TD>
+</TR>
+<TR>
+<TD>6.5</TD>
+<TD>5/24/2005</TD>
+<TD>Debugging Tools for Windows 6.5</TD>
+</TR>
+<TR>
+<TD>6.4</TD>
+<TD>1/10/2005</TD>
+<TD>Debugging Tools for Windows 6.4</TD>
+</TR>
+<TR>
+<TD>6.3</TD>
+<TD>5/24/2004</TD>
+<TD>Debugging Tools for Windows 6.3</TD>
+</TR>
+<TR>
+<TD>6.2</TD>
+<TD>7/11/2003</TD>
+<TD>Debugging Tools for Windows 6.2</TD>
+</TR>
+<TR>
+<TD>5.2</TD>
+<TD>3/25/2003</TD>
+<TD>Windows Server 2003</TD>
+</TR>
+<TR>
+<TD>6.1</TD>
+<TD></TD>
+<TD>Debugging Tools for Windows 6.1</TD>
+</TR>
+<TR>
+<TD>6.0</TD>
+<TD></TD>
+<TD>Debugging Tools for Windows 6.0</TD>
+</TR>
+<TR>
+<TD>4.0</TD>
+<TD></TD>
+<TD>Debugging Tools for Windows 4.0</TD>
+</TR>
+<TR>
+<TD>5.1</TD>
+<TD></TD>
+<TD>Windows XP</TD>
+</TR>
+<TR>
+<TD>3.0</TD>
+<TD></TD>
+<TD>Debugging Tools for Windows 3.0</TD>
+</TR>
+<TR>
+<TD>2.0</TD>
+<TD></TD>
+<TD>Debugging Tools for Windows 2.0</TD>
+</TR>
+<TR>
+<TD>1.0</TD>
+<TD></TD>
+<TD>Debugging Tools for Windows 1.0</TD>
+</TR>
+<TR>
+<TD>5.0</TD>
+<TD></TD>
+<TD>Windows 2000</TD>
+</TR>
+</TABLE>
+<H4><A NAME="version_6.8"></A>Version 6.8</H4>
+<P>The following functions were added to DbgHelp version 6.8.<P></P>
+<dl>
+<dd><A HREF="omap.htm"><b>OMAP</b></A></dd>
+<dd><A HREF="symaddsourcestream.htm"><b>SymAddSourceStream</b></A></dd>
+<dd><A HREF="symgetomaps.htm"><b>SymGetOmaps</b></A></dd>
+<dd><A HREF="symgetsourcevarfromtoken.htm"><b>SymGetSourceVarFromToken</b></A></dd>
+</dl>
+</P>
+<H4><A NAME="version_6.6"></A>Version 6.6</H4>
+<P>The following functions were added to DbgHelp version 6.6.<P></P>
+<dl>
+<dd><A HREF="symfinddebuginfofile.htm"><b>SymFindDebugInfoFile</b></A></dd>
+<dd><A HREF="symfindexecutableimage.htm"><b>SymFindExecutableImage</b></A></dd>
+<dd><A HREF="symsrvgetfileindexinfo.htm"><b>SymSrvGetFileIndexInfo</b></A></dd>
+</dl>
+</P>
+<H4><A NAME="version_6.5"></A>Version 6.5</H4>
+<P>The following function was added to DbgHelp version 6.5.<P></P>
+<dl>
+<dd><A HREF="symrefreshmodulelist.htm"><b>SymRefreshModuleList</b></A></dd>
+</dl>
+</P>
+<P>The following structures were added to DbgHelp version 6.5.<P></P>
+<dl>
+<dd><A HREF="minidump_handle_descriptor_2.htm"><b>MINIDUMP_HANDLE_DESCRIPTOR_2</b></A></dd>
+<dd><A HREF="minidump_handle_object_information.htm"><b>MINIDUMP_HANDLE_OBJECT_INFORMATION</b></A></dd>
+<dd><A HREF="minidump_handle_operation_list.htm"><b>MINIDUMP_HANDLE_OPERATION_LIST</b></A></dd>
+<dd><A HREF="minidump_io_callback.htm"><b>MINIDUMP_IO_CALLBACK</b></A></dd>
+<dd><A HREF="minidump_misc_info_2.htm"><b>MINIDUMP_MISC_INFO_2</b></A></dd>
+<dd><A HREF="minidump_read_memory_failure_callback.htm"><b>MINIDUMP_READ_MEMORY_FAILURE_CALLBACK</b></A></dd>
+</dl>
+</P>
+<H4><A NAME="version_6.4"></A>Version 6.4</H4>
+<P>The following function was added to DbgHelp version 6.4.<P></P>
+<dl>
+<dd><A HREF="symenumsourcelines.htm"><b>SymEnumSourceLines</b></A></dd>
+</dl>
+</P>
+<H4><A NAME="version_6.3"></A>Version 6.3</H4>
+<P>DbgHelp version 6.3 adds Unicode support to many of the existing functions. To enable this support, define DBGHELP_TRANSLATE_TCHAR at the top of each source file or when you compile your application.</P>
+<P>The following functions were added to DbgHelp version 6.3.<P></P>
+<dl>
+<dd><A HREF="symenumprocesses.htm"><b>SymEnumProcesses</b></A></dd>
+<dd><A HREF="symgetsymbolfile.htm"><b>SymGetSymbolFile</b></A></dd>
+<dd><A HREF="symgettypeinfoex.htm"><b>SymGetTypeInfoEx</b></A></dd>
+<dd><A HREF="symsrvdeltaname.htm"><b>SymSrvDeltaName</b></A></dd>
+<dd><A HREF="symsrvgetfileindexes.htm"><b>SymSrvGetFileIndexes</b></A></dd>
+<dd><A HREF="symsrvgetfileindexstring.htm"><b>SymSrvGetFileIndexString</b></A></dd>
+<dd><A HREF="symsrvgetsupplement.htm"><b>SymSrvGetSupplement</b></A></dd>
+<dd><A HREF="symsrvisstore.htm"><b>SymSrvIsStore</b></A></dd>
+<dd><A HREF="symsrvstorefile.htm"><b>SymSrvStoreFile</b></A></dd>
+<dd><A HREF="symsrvstoresupplement.htm"><b>SymSrvStoreSupplement</b></A></dd>
+</dl>
+</P>
+<P>The following structures were added to DbgHelp version 6.3.<P></P>
+<dl>
+<dd><A HREF="minidump_memory_info_str.htm"><b>MINIDUMP_MEMORY_INFO</b></A></dd>
+<dd><A HREF="minidump_memory_info_list_str.htm"><b>MINIDUMP_MEMORY_INFO_LIST</b></A></dd>
+<dd><A HREF="minidump_thread_info_str.htm"><b>MINIDUMP_THREAD_INFO</b></A></dd>
+<dd><A HREF="minidump_thread_info_list_str.htm"><b>MINIDUMP_THREAD_INFO_LIST</b></A></dd>
+</dl>
+</P>
+<P>DbgHelp 6.3 also supports Source Server.</P>
+<H4><A NAME="version_6.2"></A>Version 6.2</H4>
+<P>The following functions were added to DbgHelp version 6.2.<P></P>
+<dl>
+<dd><A HREF="symenumsourcefiles.htm"><b>SymEnumSourceFiles</b></A></dd>
+<dd><A HREF="symfromindex.htm"><b>SymFromIndex</b></A></dd>
+<dd><A HREF="symgetscope.htm"><b>SymGetScope</b></A></dd>
+<dd><A HREF="symgetsourcefile.htm"><b>SymGetSourceFile</b></A></dd>
+<dd><A HREF="symgetsourcefilefromtoken.htm"><b>SymGetSourceFileFromToken</b></A></dd>
+<dd><A HREF="symgetsourcefiletoken.htm"><b>SymGetSourceFileToken</b></A></dd>
+<dd><A HREF="symmatchstring.htm"><b>SymMatchString</b></A></dd>
+<dd><A HREF="symnext.htm"><b>SymNext</b></A></dd>
+<dd><A HREF="symprev.htm"><b>SymPrev</b></A></dd>
+<dd><A HREF="symsearch.htm"><b>SymSearch</b></A></dd>
+</dl>
+</P>
+<H4><A NAME="version_6.1"></A>Version 6.1</H4>
+<P>The following functions were added to DbgHelp version 6.1.<P></P>
+<dl>
+<dd><A HREF="symenumlines.htm"><b>SymEnumLines</b></A></dd>
+<dd><A HREF="symfromtoken.htm"><b>SymFromToken</b></A></dd>
+<dd><A HREF="symgethomedirectory.htm"><b>SymGetHomeDirectory</b></A></dd>
+<dd><A HREF="symsethomedirectory.htm"><b>SymSetHomeDirectory</b></A></dd>
+</dl>
+</P>
+<H4><A NAME="versions_5.2_and_6.0"></A>Versions 5.2 and 6.0</H4>
+<P>The following functions were added to DbgHelp versions 5.2 and  6.0.<P></P>
+<dl>
+<dd><A HREF="enumdirtree.htm"><b>EnumDirTree</b></A></dd>
+<dd><A HREF="symaddsymbol.htm"><b>SymAddSymbol</b></A></dd>
+<dd><A HREF="symdeletesymbol.htm"><b>SymDeleteSymbol</b></A></dd>
+<dd><A HREF="symenumsymbolsforaddr.htm"><b>SymEnumSymbolsForAddr</b></A></dd>
+<dd><A HREF="symloadmoduleex.htm"><b>SymLoadModuleEx</b></A></dd>
+<dd><A HREF="symsetparentwindow.htm"><b>SymSetParentWindow</b></A></dd>
+</dl>
+</P>
+<P>The following structures were added to DbgHelp version 5.2 and 6.0.<P></P>
+<dl>
+<dd><A HREF="minidump_misc_info_str.htm"><b>MINIDUMP_MISC_INFO</b></A></dd>
+<dd><A HREF="minidump_unloaded_module_str.htm"><b>MINIDUMP_UNLOADED_MODULE</b></A></dd>
+<dd><A HREF="minidump_unloaded_module_list_str.htm"><b>MINIDUMP_UNLOADED_MODULE_LIST</b></A></dd>
+<dd><A HREF="modload_data_str.htm"><b>MODLOAD_DATA</b></A></dd>
+</dl>
+</P>
+<H4><A NAME="versions_4.0_and_5.1"></A>Versions 4.0 and 5.1</H4>
+<P>The following functions were added to DbgHelp versions 4.0 and 5.1.<P></P>
+<dl>
+<dd><A HREF="minidumpreaddumpstream.htm"><b>MiniDumpReadDumpStream</b></A></dd>
+<dd><A HREF="minidumpwritedump.htm"><b>MiniDumpWriteDump</b></A></dd>
+<dd><A HREF="symbolserver.htm"><b>SymbolServer</b></A></dd>
+<dd><A HREF="symbolserverclose.htm"><b>SymbolServerClose</b></A></dd>
+<dd><A HREF="symbolservergetoptions.htm"><b>SymbolServerGetOptions</b></A></dd>
+<dd><A HREF="symbolserversetoptions.htm"><b>SymbolServerSetOptions</b></A></dd>
+<dd><A HREF="symenumsymbols.htm"><b>SymEnumSymbols</b></A></dd>
+<dd><A HREF="symenumtypes.htm"><b>SymEnumTypes</b></A></dd>
+<dd><A HREF="symfindfileinpath.htm"><b>SymFindFileInPath</b></A></dd>
+<dd><A HREF="symfromaddr.htm"><b>SymFromAddr</b></A></dd>
+<dd><A HREF="symfromname.htm"><b>SymFromName</b></A></dd>
+<dd><A HREF="symgetfilelineoffsets64.htm"><b>SymGetFileLineOffsets64</b></A></dd>
+<dd><A HREF="symgettypefromname.htm"><b>SymGetTypeFromName</b></A></dd>
+<dd><A HREF="symgettypeinfo.htm"><b>SymGetTypeInfo</b></A></dd>
+<dd><A HREF="symsetcontext.htm"><b>SymSetContext</b></A></dd>
+</dl>
+</P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20DbgHelp Versions%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

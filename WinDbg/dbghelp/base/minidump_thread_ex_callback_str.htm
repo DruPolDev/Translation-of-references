@@ -1,0 +1,68 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_THREAD_EX_CALLBACK Structure</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_thread_ex_callback_str">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_thread_ex_callback_str"></A>MINIDUMP_THREAD_EX_CALLBACK Structure</H1>
+<P><P>Contains extended thread information for the 
+<A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A> function when the callback type is 
+<A HREF="minidump_callback_type.htm"><b>ThreadExCallback</b></A>.</P>
+</P>
+<PRE class="syntax" xml:space="preserve">typedef struct _MINIDUMP_THREAD_EX_CALLBACK {<br>  ULONG ThreadId;<br>  HANDLE ThreadHandle;<br>  CONTEXT Context;<br>  ULONG SizeOfContext;<br>  ULONG64 StackBase;<br>  ULONG64 StackEnd;<br>  ULONG64 BackingStoreBase;<br>  ULONG64 BackingStoreEnd;
+} MINIDUMP_THREAD_EX_CALLBACK, <br> *PMINIDUMP_THREAD_EX_CALLBACK;</PRE>
+<H4>Members</H4>
+<DL>
+<DT><B>ThreadId</B></DT>
+<DD><p>The identifier of the thread.</p>
+</DD>
+<DT><B>ThreadHandle</B></DT>
+<DD><p>A handle to the thread</p>
+</DD>
+<DT><B>Context</B></DT>
+<DD><p>A 
+<b>CONTEXT</b> structure that contains the processor-specific data.</p>
+</DD>
+<DT><B>SizeOfContext</B></DT>
+<DD><p>The size of the returned processor-specific data in the <b>Context</b> member, in bytes.</p>
+</DD>
+<DT><B>StackBase</B></DT>
+<DD><p>The base address of the thread stack.</p>
+</DD>
+<DT><B>StackEnd</B></DT>
+<DD><p>The ending address of the thread stack.</p>
+</DD>
+<DT><B>BackingStoreBase</B></DT>
+<DD><BLOCKQUOTE><B>Intel IPF:  </B>The base address of the thread backing store.</BLOCKQUOTE>
+</DD>
+<DT><B>BackingStoreEnd</B></DT>
+<DD><BLOCKQUOTE><B>Intel IPF:  </B>The ending address of the thread backing store.</BLOCKQUOTE>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_callback_input_str.htm"><b>MINIDUMP_CALLBACK_INPUT</b></A><BR><A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A><BR><b>CONTEXT</b></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_THREAD_EX_CALLBACK%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

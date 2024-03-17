@@ -1,0 +1,609 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="ca"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Easy Code 2 macros</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">Easy
+Code 2 Macros (All Project Type)</font></b></p>
+<hr>
+<p><font face="Arial" size="2">Easy Code
+includes
+some useful macros for the various supported
+assemblers that can be used in Easy Code projects
+(both, visual and classic) by checking the <b>Easy
+Code macros</b> option in the <a href="Project.htm#project2">Project
+Properties</a>.
+Their names are colorized as Easy Code reserved words
+(see </font><a href="Settings.htm#editortab"><font face="Arial" size="2">Settings</font></a><font face="Arial" size="2"> menu) and you can use
+them when you like along the code.
+These macros, being in the correspondig file
+depending on the used configuration, are located
+in the <b>\EasyCode\Macros</b> folder and have
+the following syntax:</font></p>
+<p><font face="Arial" size="2"><strong><font color="#800080">Color</font>
+byRed<font color="#ff00ff">,</font>
+byGreen<font color="#ff00ff">,</font>
+byBlue </strong></font></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Arguments <b>byRed</b>,
+<b>byGreen</b>, <b>byBlue</b>
+must be 8-bit values (<b><font color="#0000ff">Byte</font></b>).
+<b><font color="#808000">Eax</font></b>
+returns an RGB color (a 32-bit value or <b><font color="#000080">COLORREF</font></b>).</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">Color</font></b> <font color="#0080c0">0AH</font><font color="#ff00ff">,</font>
+<font color="#0080c0">0BH</font><font color="#ff00ff">,</font> <font color="#0080c0">0CH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax</font></b>
+returns <font color="#0080c0">000C0B0AH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">HiByte</font>
+wValue</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>wValue</b>
+must be a 16-bit value (<b><font color="#0000ff">Word</font></b>).
+<b><font color="#808000">Al</font></b>
+returns the high byte (8-bit value or <b><font color="#0000ff">Byte</font></b>)
+of <b>wValue</b>.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial"><font size="2"><b><font color="#800080">HiByte</font></b> <font color="#0080c0">0C0AH</font> </font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Al</font></b>
+returns <font color="#0080c0">0CH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">HiWord</font>
+dwValue</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>dwValue</b>
+must be a 32-bit value (<b><font color="#0000ff">DWord</font></b>).
+<b><font color="#808000">Ax</font></b>
+returns the high word (16-bit value or <b><font color="#0000ff">Word</font></b>)
+of <b>dwValue</b>.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">HiWord</font></b> <font color="#0080c0">000C000AH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Ax</font></b>
+returns <font color="#0080c0">000CH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">LoByte</font>
+wValue</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>wValue</b>
+must be a 16-bit value (<b><font color="#0000ff">Word</font></b>).
+<b><font color="#808000">Al</font></b>
+returns the low byte (8-bit value or <b><font color="#0000ff">Byte</font></b>)
+of <b>wValue</b>.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">LoByte</font></b> <font color="#0080c0">0C0AH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Al</font></b>
+returns <font color="#0080c0">0AH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">LoWord</font>
+dwValue</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>dwValue</b>
+must be a 32-bit value (<b><font color="#0000ff">DWord</font></b>).
+<b><font color="#808000">Ax</font></b>
+returns the low word (16-bit value or <b><font color="#0000ff">Word</font></b>)
+of <b>dwValue</b>.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">LoWord</font></b> <font color="#0080c0">000C000AH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Ax</font></b>
+returns <font color="#0080c0">000AH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">HiDWord</font>
+dqValue <font color="#c00000">(64-bit projects only)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>dqValue</b>
+must be a 64-bit value (<b><font color="#0000ff">QWord</font></b>).
+<b><font color="#808000">Eax</font></b>
+returns the high double word (32-bit value or <b><font color="#0000ff">DWord</font></b>)
+of <b>dqValue</b>.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">HiDWord</font></b> <font color="#0080c0">00FFFFFF000C000AH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax</font></b>
+returns <font color="#0080c0">00FFFFFFH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">LoDWord</font>
+dqValue <font color="#c00000">(64-bit projects only)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>dqValue</b>
+must be a 64-bit value (<b><font color="#0000ff">QWord</font></b>).
+<b><font color="#808000">Eax</font></b>
+returns the low double word (32-bit value or <b><font color="#0000ff">DWord</font></b>)
+of <b>dqValue</b>.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">LoDWord</font></b> <font color="#0080c0">00FFFFFF000C000AH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax</font></b>
+returns <font color="#0080c0">000C000AH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">MakeWord</font>
+byLow<font color="#ff00ff">,</font>
+byHigh</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Arguments <b>byLow</b>
+and <b>byHigh</b>
+must be 8-bit values (<b><font color="#0000ff">Byte</font></b>).
+<b><font color="#808000">Ax</font></b>
+returns the resultant 16-bit value (<b><font color="#0000ff">Word</font></b>).</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">MakeWord</font></b> <font color="#0080c0">0CH</font><font color="#ff00ff">,</font>
+<font color="#0080c0">0AH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Ax</font></b>
+returns <font color="#0080c0">0A0CH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">MakeLong</font>
+wLow<font color="#ff00ff">,</font>
+wHigh</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Arguments <b>wLow</b>
+and <b>wHigh</b>
+must be 16-bit values (<b><font color="#0000ff">Word</font></b>).
+<b><font color="#808000">Eax</font></b>
+returns the resultant 32-bit value (<b><font color="#0000ff">DWord</font></b>).</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">MakeLong</font></b> <font color="#0080c0">0A0BH</font><font color="#ff00ff">,</font>
+<font color="#0080c0">0C0DH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax</font></b>
+returns <font color="#0080c0">0C0D0A0BH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">MakeQWord</font>
+dwLow<font color="#ff00ff">,</font>
+dwHigh <font color="#c00000">(64-bit projects only)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Arguments <b>dwLow</b>
+and <b>dwHigh</b>
+must be 32-bit values (<b><font color="#0000ff">DWord</font></b>).
+<b><font color="#808000">Rax</font></b>
+returns the resultant 64-bit value (<b><font color="#0000ff">QWord</font></b>).</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">MakeQWord</font></b>
+<font color="#0080c0">000C000AH</font><font color="#ff00ff">,</font>
+<font color="#0080c0">00FFFFFFH</font></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Rax</font></b>
+returns <font color="#0080c0">00FFFFFF000C000AH</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Move</font>
+dwValue1<font color="#ff00ff">,</font>
+dwValue2 <font color="#c00000">(for 32-bit projects)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2">Arguments
+<b>dwValue1</b>
+and <b>dwValue2</b>
+must be a 32-bit (<b><font color="#0000ff">DWord</font></b>)
+variable or register.</font></font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">Move</font>
+dwMemPos1</b><font color="#ff00ff">,</font> <b>dwMemPos2</b></font></p>
+<p><font face="Arial" size="2">Moves the
+value in
+variable or register specified by <b>dwMemPos2</b>
+to variable
+or register specified by <b>dwMemPos1</b>.</font></p>
+<p><font face="Arial" size="2">This macro
+does not
+return a value.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Move</font>
+dqValue1<font color="#ff00ff">,</font>
+dqValue2 <font color="#c00000">(for 64-bit projects)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial"><font size="2">Arguments
+<b>dqValue1</b>
+and <b>dqValue2</b>
+must be a 64-bit (<b><font color="#0000ff">QWord</font></b>)
+variable or register.</font></font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">Move</font>
+dqMemPos1</b><font color="#ff00ff">,</font> <b>dqMemPos2</b></font></p>
+<p><font face="Arial" size="2">Moves the
+value in
+variable or register specified by <b>dqMemPos2</b>
+to variable
+or register specified by <b>dqMemPos1</b>.</font></p>
+<p><font face="Arial" size="2">This macro
+does not
+return a value.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Return</font>
+dwValue <font color="#c00000">(for 32-bit projects)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>dwValue</b>
+must be a 32-bit value (<b><font color="#0000ff">DWord</font></b>).
+It loads the <b><font color="#808000">Eax</font></b>
+register with <b>dwValue</b>
+and returns from a procedure.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">Return</font></b> <b><font color="#000080">TRUE</font></b></font></p>
+<p><font face="Arial"><font size="2">Loads
+the <b><font color="#808000">Eax</font></b>
+register with <b><font color="#000080">TRUE</font></b>
+(<b>1</b>)
+and returns.</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Return</font>
+dqValue <font color="#c00000">(for 64-bit projects)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>dqValue</b>
+must be a 64-bit value (<b><font color="#0000ff">QWord</font></b>).
+It loads the <b><font color="#808000">Rax</font></b>
+register with <b>dqValue</b>
+and returns from a procedure.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">Return</font></b> <b><font color="#000080">TRUE</font></b></font></p>
+<p><font face="Arial"><font size="2">Loads
+the <b><font color="#808000">Rax</font></b>
+register with <b><font color="#000080">TRUE</font></b>
+(<b>1</b>)
+and returns.</font></font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Date</font>
+lpszBuf</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>lpszBuf</b>
+must be the effective address of a buffer.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b> <font color="#800080">Date</font>
+lpszDate</b><br>
+<br>
+The <b>lpszDate</b>
+buffer will be filled with an ANSI text string having the current date.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Now</font>
+lpszBuf</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>lpszBuf</b>
+must be the effective address of a buffer.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b> <font color="#800080">Now</font>
+lpszNow</b><br>
+<br>
+The <b>lpszNow</b>
+buffer will be filled with an ANSI text string having the current
+date and time.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Time</font>
+lpszBuf</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>lpszBuf</b>
+must be the effective address of a buffer.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b> <font color="#800080">Time</font>
+lpszTime</b><br>
+<br>
+The <b>lpszTime</b>
+buffer will be filled with an ANSI text string having the current time.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial"><font size="2"><font color="#800080">TextA</font>
+Name<font color="#ff00ff">,</font>
+<font color="#ff00ff">"quoted_text"</font></font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>Name</b>
+must be any valid name identifying the string specified by the
+second argument, <b><font color="#ff00ff">"quoted_text"</font>,</b>
+which can be any double quoted text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextA</font>
+szBuffer<font color="#ff00ff">,</font> <font color="#ff00ff">"Test
+string"</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have a temporary buffer with the specified string
+(null-terminated). Remeber that the value returned by <b><font color="#800080">TextA</font></b>
+is <b>NOT</b>
+the
+effective address of the string, so you should use the <b><font color="#0000ff">Addr</font></b>
+operator in order to
+get it. For example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">TextA</font></b>, <b>szTestA,
+<font color="#ff00ff">"Test string"</font></b></font></p>
+<p><font face="Arial" size="2"><b><font color="#0000ff">Invoke</font></b> <b><font color="#800000">lstrlen</font></b>, <b><font color="#0000ff">Addr</font></b> <b>szTestA</b></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b>
+returns 11 (the length of the string)</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial"><font size="2"><font color="#800080">TextW</font>
+Name<font color="#ff00ff">,</font>
+<font color="#ff00ff">"quoted_text"</font></font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>Name</b>
+must be any valid name identifying the string specified by the
+second argument, <b><font color="#ff00ff">"quoted_text"</font>,</b>
+which can be any double quoted text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextW</font>
+szBufferW<font color="#ff00ff">,</font> <font color="#ff00ff">"Test
+string"</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have a buffer with the specified string
+(null-terminated) in <b>Unicode</b>
+format. Remeber that
+the value returned by <b><font color="#800080">TextW</font></b>
+is <b>NOT</b>
+the
+effective address of the string, so you should use the <b><font color="#0000ff">Addr</font></b>
+operator in order to
+get it. For example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#800080">TextW</font></b>, <b>szTestW,
+<font color="#ff00ff">"Test string"</font></b></font></p>
+<p><font face="Arial" size="2"><b><font color="#0000ff">Invoke</font></b> <b><font color="#800000">lstrlenW</font></b>, <b><font color="#0000ff">Addr</font></b> <b>szTestW</b></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b>
+returns 11 (the length of the string)</font></p>
+<p><font face="Arial" size="2"><b>(Programmed
+by H&eacute;ctor A. Medina)</b></font></p>
+</blockquote>
+<p><a name="Text"></a><br>
+<b><font face="Arial" size="2"><font color="#800080">Text</font>
+<b>Name</b><font color="#ff00ff">,
+("quoted_text")</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b>Name</b>
+must be any valid name identifying the string specified by the
+second argument, <b><font color="#ff00ff">"quoted_text"</font>,</b>
+which can be any double quoted text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">Text</font>
+<b>szTest</b><font color="#ff00ff">, ("Test
+string")</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you will
+have a buffer with the specified null-terminated
+string in <b>ANSI</b>
+or <b>Unicode</b>
+format, depending
+on the mode the application is running on. If the <b>This
+project will run in Unicode mode</b> option
+in the <a href="Project.htm#project2"><font face="Arial" size="2">Project
+Properties</font></a>
+is checked, the returned text will be Unicode, otherwise
+it will be ANSI. Remeber that
+the value returned by <b><font color="#800080">Text</font></b>
+is <b>NOT</b>
+the
+effective address of the string, so you should use the <b><font color="#0000ff">Addr</font></b>
+operator in order to
+get it (<b><font color="#0000ff">Addr</font>
+szTest</b>).</font></p>
+</blockquote>
+<p><a name="TextAddrA"></a><br>
+<b><font face="Arial" size="2"><font color="#800080">TextAddrA</font>
+<font color="#ff00ff">("quoted_text")</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b><font color="#ff00ff">"quoted_text"</font></b>
+can be any double quoted
+text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextAddrA</font><font color="#ff00ff">("Test
+string")</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have the effective address of a temporary null-terminated string.
+You can use it to pass it as an argument to any routine or API call.
+Remeber that the value returned by <b><font color="#800080">TextAddrA</font></b>
+is the effective address, so you should <b>NOT</b>
+use the <b><font color="#0000ff">Addr</font></b>
+operator. For example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#0000ff">Invoke</font></b> <b><font color="#800000">lstrlen</font></b>, <b><font color="#800080">TextAddrA</font><font color="#ff00ff">("Test
+string")</font> </b></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b>
+returns 11 (the length of the string)</font></p>
+</blockquote>
+<p><a name="TextAddrW"></a><br>
+<b><font face="Arial" size="2"><font color="#800080">TextAddrW</font>
+<font color="#ff00ff">("quoted_text")</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b><font color="#ff00ff">"quoted_text"</font></b>
+can be any double quoted
+text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextAddrW</font><font color="#ff00ff">("Test string")</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have the effective address of a temporary null-terminated
+string in <b>Unicode</b>
+format.
+You can use it to pass it as an argument to any Unicode routine or API
+call. Remeber that the value returned by <b><font color="#800080">TextAddrW</font></b>
+is the effective address, so you should <b>NOT</b>
+use the <b><font color="#0000ff">Addr</font></b>
+operator. For example:</font></p>
+<p><font face="Arial" size="2"><b><font color="#0000ff">Invoke</font></b> <b><font color="#800000">lstrlenW</font></b>, <b><font color="#800080">TextAddrW</font><font color="#ff00ff">("Test
+string")</font> </b></font></p>
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b>
+returns 11 (the length, in characters, of the
+string)</font></p>
+<p><font face="Arial" size="2"><b>(Programmed
+by H&eacute;ctor A. Medina)</b></font></p>
+</blockquote>
+<p><a name="TextAddr"></a><br>
+<b><font face="Arial" size="2"><font color="#800080">TextAddr</font>
+<font color="#ff00ff">("quoted_text")</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b><font color="#ff00ff">"quoted_text"</font></b>
+can be any double quoted
+text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextAddr</font><font color="#ff00ff">("Test
+string")</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have the effective address of a temporary null-terminated
+string in <b>ANSI</b>
+or <b>Unicode</b>
+format, depending
+on the mode the application is working on. If the <b>This
+project will run in Unicode mode</b> option
+in the <a href="Project.htm#project2"><font face="Arial" size="2">Project
+Properties</font></a>
+is checked, the returned text will be Unicode. Otherwise
+it will be ANSI.</font></p>
+</blockquote>
+<p><a name="TextStrA"></a><br>
+<b><font face="Arial" size="2"><font color="#800080">TextStrA</font>
+<font color="#ff00ff">("quoted_text")</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b><font color="#ff00ff">"quoted_text"</font></b>
+can be any double quoted
+text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextStrA</font><font color="#ff00ff">("Test
+string")</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have the effective address of a temporary null-terminated
+string in <b>ANSI</b>
+format. Remeber that the value returned by <b><font color="#800080">TextStrA</font></b>
+is the effective address, so you should <b>NOT</b>
+use the <b><font color="#0000ff">Addr</font></b>
+operator.</font></p>
+</blockquote>
+<p><a name="TextStrW"></a><br>
+<b><font face="Arial" size="2"><font color="#800080">TextStrW</font>
+<font color="#ff00ff">("quoted_text")</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b><font color="#ff00ff">"quoted_text"</font></b>
+can be any double quoted
+text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextStrW</font><font color="#ff00ff">("Test
+string")</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have the effective address of a temporary null-terminated
+string in <b>Unicode</b>
+format. Remeber that the value returned by <b><font color="#800080">TextStrW</font></b>
+is the effective address, so you should <b>NOT</b>
+use the <b><font color="#0000ff">Addr</font></b>
+operator.</font></p>
+</blockquote>
+<p><a name="TextStr"></a><br>
+<b><font face="Arial" size="2"><font color="#800080">TextStr</font>
+<font color="#ff00ff">("quoted_text")</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Argument <b><font color="#ff00ff">"quoted_text"</font></b>
+can be any double quoted
+text.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><b><font face="Arial" size="2"><font color="#800080">TextStr</font><font color="#ff00ff">("Test
+string")</font></font></b></p>
+<p><font face="Arial" size="2">After that
+sentence you
+have the effective address of a temporary null-terminated
+string in <b>ANSI</b>
+or <b>Unicode</b>
+format, depending
+on the mode the application is working on. If the <b>This
+project will run in Unicode mode</b> option
+in the <a href="Project.htm#project2"><font face="Arial" size="2">Project
+Properties</font></a>
+is checked, the returned text will be Unicode. Otherwise
+it will be ANSI.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">MultiCat</font>
+lpszDesPtr<font color="#ff00ff">,</font>
+lpszOrgPtr</font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Appends two
+or more text
+strings.
+Argument <b>lpszDesPtr</b>
+must be the effective address of a buffer
+receiving the appended strings, while <b>lpszOrgPtr</b>
+must be the
+effective address of one or more zero-terminated strings separated
+by commas. At least one string address must be passed as the second
+argument.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b> <font color="#800080">MultiCat</font>
+lpszDest<font color="#ff00ff">,</font>
+lpszStr1<font color="#ff00ff">,</font>
+lpszStr2<font color="#ff00ff">,</font>
+...<font color="#ff00ff">,</font>
+lpszStr<i>n</i> </b><br>
+<br>
+Strings <b>lpszStr1</b>, <b>lpszStr2</b>, <b>...</b>
+and <b>lpszStr<i>n</i></b>
+are appended
+to <b>lpszDest</b>.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Swap</font>
+dwValue1<font color="#ff00ff">,</font>
+dwValue2 <font color="#c00000">(for 32-bit projects)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Arguments <b>dwValue1</b>
+and <b>dwValue2</b>
+must be a 32-bit variable or register.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b> <font color="#800080">Swap</font>
+dwVar1<font color="#ff00ff">,</font>
+dwVar2</b><br>
+<br>
+Exchanges the values of the <b>dwVar1</b>
+and <b>dwVar2</b>
+variables.</font></p>
+</blockquote>
+<p><br>
+<b><font face="Arial" size="2"><font color="#800080">Swap</font>
+dqValue1<font color="#ff00ff">,</font>
+dqValue2 <font color="#c00000">(for 64-bit projects)</font></font></b></p>
+<blockquote style="margin-right: 0px;" dir="ltr">
+<p><font face="Arial" size="2">Arguments <b>dqValue1</b>
+and <b>dqValue2</b>
+must be 64-bit variable or register.</font></p>
+<p><font face="Arial" size="2">Example:</font></p>
+<p><font face="Arial" size="2"><b> <font color="#800080">Swap</font>
+dqVar1<font color="#ff00ff">,</font>
+dqVar2</b><br>
+<br>
+Exchanges the values of the <b>dqVar1</b>
+and <b>dqVar2</b>
+variables.</font></p>
+</blockquote>
+<p><font face="Arial"><font size="2"><br>
+<b><br>
+REMARKS</b>:
+Remember that you do not need to add any <b><font color="#000080">NULL</font></b>
+character at the end of the string for the <b><font color="#800080">Text</font></b>,
+<b><font color="#800080">TextA</font></b>,
+<b><font color="#800080">TextW</font></b>,
+<b><font color="#800080">TextAddr</font></b>,
+<b><font color="#800080">TextAddrA</font></b>,
+<b><font color="#800080">TextAddrW</font></b>,
+<b><font color="#800080">TextStr</font></b>,
+<b><font color="#800080">TextStrA</font></b>
+and <b><font color="#800080">TextStrW</font></b>
+macros, as it is always internally added. On the other
+hand, <b><font color="#800080">TextW</font></b>,
+<b><font color="#800080">TextAddrW</font></b>
+and <b><font color="#800080">TextStrW</font></b>
+(returning Unicode text) are limited to 243
+characters (including the final zero added by
+the macros). So, if more than 242 characters are
+passed errors will be fired.</font></font></p>
+<p><font face="Arial"><font face="Arial" size="2"><b>IMPORTANT</b>:
+If you are not going to use any of these macros (included by default),
+or their names conflict with any variable, procedure o macro name of
+the project, you just can remove them by
+unchecking the <b>Easy Code macros</b> option in </font><a href="Project.htm#project2"><font face="Arial" size="2">Project
+Properties</font></a><font face="Arial" size="2">.<br>
+<br>
+</font></font></p>
+</body></html>

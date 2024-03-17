@@ -1,0 +1,891 @@
+/* Cascading Style Sheet for Platform SDK Content */
+
+.classDescriptionTD {
+	width:70%;
+}
+
+table.classXSDReferencePageTables {
+	table-layout:auto; 
+}
+
+body {
+	padding: 0px 0px 0px 0px;
+	background: #ffffff; 
+	color: #000000;
+}
+
+div.clsServerSDKContent {
+	padding: 0px 0px 0px 26px;
+	background: #ffffff; 
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	border: none;
+	width:100%;
+}
+
+@media screen {
+
+	div.codeSnippet {
+		border: none;
+		overflow-x: auto;
+		width: 100%;
+		word-wrap: normal;	
+		background: #dddddd;
+		padding: 0px 0px 0px 0px;
+		padding-bottom: 10pt;
+		margin-bottom: .6em;
+	}
+}
+
+@media print {
+
+	div.codeSnippet {
+		border: none;
+		width: 100%;
+		word-wrap: break-word;	
+		background: #dddddd;
+		padding: 0px 0px 0px 0px;
+		padding-bottom: 10pt;
+	}
+}
+
+
+
+div {
+	width: 90%;
+	border: 2px solid #999999;
+	padding: 4px 8px;
+	background: #cccccc;
+}
+
+div.psdkBeta {
+	font: normal 8pt verdana,arial,helvetica;
+	font-weight: bold;
+	color: black;
+	margin-top:0.5em;
+	margin-bottom:0.5em;
+	border: none;
+	background-color: white;
+	padding: 0px 0px;
+	width: 100%;
+	margin-left:-26px;
+}
+
+/* portal page (sdkformat_portal) classes */
+
+div.clsServerSDKContent table.sdkformat_portal
+{
+	margin-left: -26px;
+	border: 0;
+	background-color: White;
+	width: 100%;		
+}
+
+
+div.clsServerSDKContent td.sdkformat_portal h1
+{
+	margin-left: 0px;
+	border: 0;
+}
+
+div.clsServerSDKContent td.sdkformat_portal h3
+{
+	margin-left: 0px;
+	border: 0;
+}
+
+div.clsServerSDKContent td.sdkformat_portal h4
+{
+	margin-left: 0px;
+	border: 0;
+}
+
+
+/* end portal page classes */
+
+/* MSDN version */
+/* removed by douge -- 2_23
+.clsContainer td div.psdkBeta
+{
+	font: normal 8pt verdana,arial,helvetica;
+	font-weight: bold;
+	color: black;
+	margin-top:0.5em;
+	margin-bottom:0.5em;
+	border: none;
+	background-color: white;
+	padding: 0px 0px;
+	width: 100%;
+	margin-left:0px;
+}
+
+.sdkformat_portal table
+{
+	border: none;
+	background-color: white;
+}
+
+.sdkformat_portal td div.psdkBeta
+{
+	font: normal 8pt verdana,arial,helvetica;
+	font-weight: bold;
+	color: black;
+	margin-top:0.5em;
+	margin-bottom:0.5em;
+	border: none;
+	background-color: white;
+	padding: 0px 0px;
+	width: 100%;
+	margin-left:0px;
+}
+*/
+
+div.highlighttoggle
+{
+	border: 0px;
+	padding:0px;
+	background: none;
+	text-align:right;
+	position:absolute;
+	z-index:999;
+	width:100%;
+	padding-top:6px;
+	padding-bottom:6px;
+	top:0px;
+	right:2px
+}
+
+div.clsServerSDKContent h1, div.clsServerSDKContent h2, div.clsServerSDKContent h3, div.clsServerSDKContent h4
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin-left: -26px;
+}
+
+h1, h2, h3, h4
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin-left: 0px;
+}
+
+div.clsServerSDKContent h1
+{
+	font-size: 145%;
+	margin-top: .5em;
+	margin-bottom: .5em; 
+}
+
+div.clsServerSDKContent h2
+{
+	font-size: 130%;
+	margin-top: 1em;
+	margin-bottom: .6em; 
+}
+
+div.clsServerSDKContent h3
+{
+	font-size: 115%;
+	margin-top: 1em;
+	margin-bottom: .6em;
+}
+
+div.clsServerSDKContent h4
+{
+	font-size: 100%;
+	margin-top: 1em;
+	margin-bottom: .6em; 
+}
+
+ul p, ol p, dl p
+{
+	margin-left: 0em;
+}
+
+/* START: standard paragraph style from global.css */
+p
+{
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	margin-top: 0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom: 10px;
+}
+
+div.section
+{
+	padding-left: 20px;
+}
+/* END: standard paragraph style from global.css */
+
+/*
+p
+{
+	margin-top: .6em;
+	margin-bottom: .6em;
+}
+*/
+
+dl
+{
+	margin-top: 0em; 
+}
+
+dd
+{
+	margin-bottom: 0em;  
+	margin-left: 1.9em; 
+}
+
+dt
+{
+	margin-top: .6em; 
+}
+
+ul, ol
+{
+	margin-top: .6em;
+	margin-bottom: 0em;
+}
+
+ol
+{
+	margin-left: 3.6em; 
+}
+
+ul
+{
+	list-style-type: disc; 
+	margin-left: 3.6em;
+}
+
+li
+{
+	margin-bottom: .6em;
+}
+
+ul ol, ol ol
+{
+	list-style-type: lower-alpha;
+}
+
+code
+{
+	cursor: text;
+	color: #660000;
+	font-size: 100%;
+	font-family: "Lucida Sans Typewriter", Consolas, "Courier New", Courier, monospace; 
+}
+
+pre
+{
+	margin-top: .6em;
+	margin-bottom: .6em; 
+	font-size: 100%;
+	font-family: "Lucida Sans Typewriter", Consolas, "Courier New", Courier, monospace; 
+	color: black;
+	background: #dddddd;
+	padding: 2pt,4pt;
+	cursor: text;
+}
+
+table
+{
+	width: 90%;
+	background: #999999;
+	margin-top: .6em;
+	margin-bottom: .3em;
+}
+
+th
+{ 
+	padding: 4px 8px;
+	background: #cccccc;
+	text-align: left;
+	font-size: 70%;
+	vertical-align: bottom;
+}
+
+td
+{ 
+	padding: 4px 8px;
+	background: #ffffff;
+	vertical-align: top;
+	font-size: 70%;
+}
+
+td p 
+{
+	margin-top: 0.6em;
+	margin-bottom:0em;
+}
+
+table.clsStd tbody tr td
+{
+	background-color:#F7F7FF;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #D5D5D3;
+}
+
+/* START: tables from global.css */
+div.clsServerSDKContent table
+{
+	width: auto; /* 94%; */
+	border-collapse:collapse;
+	margin: 10px 0 10px 0;
+	margin-bottom: .6em;
+}
+
+div.clsServerSDKContent table
+{
+	margin:0px;
+	padding:5px;
+	margin-top: .6em;
+	margin-bottom: .6em;
+}
+
+div.clsServerSDKContent table th
+{
+	background: #cccccc;
+	vertical-align: bottom;
+	text-align: left;
+	font-size: 3mm;
+}
+
+div.clsServerSDKContent table th
+{
+	font-weight: bold;
+	padding:5px;
+	margin:0px;
+}
+
+div.clsServerSDKContent table td
+{
+	background: #ffffff;
+	vertical-align: top;
+	border: solid 0px #cccccc;
+	padding:5px;
+	margin:0px;
+	text-align: left;
+	font-size: 3mm;
+}
+
+.clsServerSDKContent table td UL
+{
+	margin-top:5px;
+	margin-left:20px;
+	margin-bottom:5px;
+	margin-right:10px;
+}
+
+/* END: tables from global.css */
+
+table.ptable
+{
+	font: 100% Lucida Console, Courier New, Courier, mono; 
+	border-collapse:collapse;
+	table-layout:fixed;
+}
+
+
+table.ptable th
+{ 
+	background: #cccccc;
+	padding: 2px 2px;
+	font-size: 100%;
+	font-weight: normal;
+	border-style: solid;
+	border-color:black; 
+	border-width:1;
+	text-align: center
+}
+
+table.ptable td
+{ 
+	background: #ffffff;
+	padding: 2px 2px;
+	font-size: 100%;
+	font-weight: normal;
+	border-style: solid;
+	border-color:black; 
+	border-top-width:0;
+	border-bottom-width:1;
+	border-left-width:1;
+	border-right-width:1;
+	text-align: center
+}
+
+p.ptable
+{
+	font-weight: normal;
+	margin-left: 14pt;
+	margin-right: 40pt;
+}
+
+/* START: info tables from global.css */
+
+table.psdkRequirements tbody tr th
+{
+	background-color:#EFEFF7;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #C8CDDE;
+/*	color:#000066; */
+	vertical-align:top; 
+}
+
+table.psdkRequirements tbody tr td
+{
+	background-color:#F7F7FF;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #C8CDDE;
+}
+/* END: info tables from global.css */
+
+/* JulieSo: removing in favor of global.css styling 
+
+table.psdkRequirments
+{
+	width: 90%;
+	background: #999999;
+	margin-top: .6em;
+	margin-bottom: .3em;
+}
+
+table.psdkRequirements th 
+{
+	width:120px;    
+}
+
+table.psdkRequirements td p {
+	margin-top: 0em;
+	margin-bottom:0em;
+}
+
+*/
+
+blockquote {
+	margin-left: 3.8em;
+	margin-right: 3.8em;
+	margin-top: .6em;
+	margin-bottom: .6em;
+	}
+
+sub {
+	text-decoration: none;
+	vertical-align: sub;
+	font-family: "Small Fonts", Sans-Serif;
+}
+
+sup {
+	text-decoration: none;
+	vertical-align: super;
+	font-family: "Small Fonts", Sans-Serif;
+}
+
+a.classNewTipLink {
+	color: #0066ff;
+	text-decoration: none;
+	cursor: auto;
+}
+
+a.classNewTipLinkOver {
+	color: #cc9900;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+a:link
+{
+	color: #0066ff;
+}
+
+a:visited
+{
+	color: #996600; 
+}
+
+a:hover
+{
+	color: #cc9900;
+}
+
+.label
+{
+	font-weight: bold; 
+	margin-top: 1em;
+	margin-left: -26px;
+}
+
+.tl
+{
+	margin-bottom: .75em; 
+}
+
+.atl
+{
+	padding-left: 1.5em;
+	padding-bottom: .75em; 
+}
+
+.cfe
+{
+	font-weight: bold; 
+}
+
+.mini
+{
+	font-size: smaller;
+}
+
+.dt
+{
+	margin-bottom: -.6em; 
+}
+
+.indent
+{
+	margin-left: 1.9em; 
+	margin-right: 1.9em;
+}
+
+.product
+{
+	text-align: right;
+	color: #333333;
+	font-size: smaller;
+	font-style: italic;
+}
+
+.buttonbarshade
+{
+	position: relative;
+	margin: 0;
+	left: 10px;
+	top: 2;
+	width: 100%;
+	height: 21px;
+}
+
+.buttonbartable
+{
+	position: relative;
+	margin: 0;
+	left: 0;
+	top: 2;
+	width: 100%;
+	height: 21px;
+	align: left;
+}
+
+table.buttonbarshade td
+{
+	background:  #99ccff;
+	border-left: 2px solid #ffffff;
+	margin: 0;
+	padding: 3px 0px 4px 0px;
+	font-family: Verdana, sans-serif;
+	font-size: 9pt;
+}
+
+table.buttonbartable td.button1
+{
+	background: #6699ff;
+	padding: 0;
+	font-weight: bold;
+	text-align: center;
+	cursor: hand;
+}
+
+table.buttonbartable td.button2
+{
+	background: #99cc66;
+	font-weight: bold;
+	text-align: center;
+}
+
+table.buttonbartable td.button3
+{
+	background: #cc9966;
+	font-weight: bold;
+	text-align: center;
+}
+
+table.buttonbartable td.runninghead
+{
+	padding-left: 4px;
+	font-style: italic;
+	text-align: left;
+}
+
+.version
+{
+	text-align: left;
+	color: #000000;
+	margin-top: 3em;
+	margin-left: -26px;
+	font-size: smaller;
+	font-style: italic;
+}
+
+
+.lang, .ilang, .devlangLabel
+{
+	color: #0000ff;
+	font: normal 7pt Arial, Helvetica, sans-serif;
+}
+
+div.conditionalSection
+{
+	margin: 4pt 0 8pt -26px;
+	padding: 4px 4px 8px 26px;
+	width: 100%;
+	border: none;
+	background: #ffffff;
+}
+
+div.langMenu
+{
+	position: absolute;
+	z-index: 1;
+	width: 96pt;
+	padding: 8pt;
+	visibility: hidden;
+	border: 1px solid #000000;
+	background: #ffffd0;
+}
+
+div.langMenu ul
+{
+	padding-left: 2em;
+	margin-left: 0;
+}
+
+div.filtered
+{
+	margin: 4pt 0 8pt -26px;
+	padding: 4px 4px 8px 26px;
+	width: 100%;
+	border: 2px solid #aaaacc;
+	background: #ffffff;
+}
+
+div.filtered2
+{
+	margin: 4pt 0 8pt -26px;
+	padding: 4px 4px 8px 26px;
+	width: 100%;
+	border: none;
+	background: #ffffff;
+}
+
+div.filtered h1, div.filtered h2, div.filtered h3, div.filtered h4
+{
+	margin-left: -22px;
+}
+
+div.filtered span.lang
+{
+	position: relative;
+	left: -22px;
+}
+
+div.classNewTip
+{
+	position: absolute;
+	z-index: 1;
+	padding: 8pt;
+	visibility: hidden;
+	border: 1px solid #000000;
+	width: 260px;
+	height: 24px;
+	overflow: visible;
+	display: none;
+	background: #ffffd0;
+}
+
+div.reftip
+{
+	position: absolute;
+	z-index: 1;
+	padding: 8pt;
+	visibility: hidden;
+	border: 1px solid #000000;
+	background: #ffffd0;
+}
+
+pre.syntax
+{
+	background: #dddddd;
+	padding: 2pt,4pt;
+	cursor: text;
+	color: #000000;
+}
+
+pre.syntaxNew
+{
+	background: #dddddd;
+	padding: 2pt,4pt;
+	cursor: text;
+	color: #000000;
+}
+
+ pre.syntaxNew span
+{
+}
+
+a.synParam
+{
+	color: #0040ff;
+	text-decoration: none;
+}
+
+a.synParam:hover
+{
+	text-decoration: underline;
+}
+
+div.sapop
+{
+	position: absolute;
+	z-index: 1;
+	left: 26px;
+	width: 100%;
+	padding: 10px 10px 10px 36px;
+	visibility: hidden;
+	border: 1px solid #000000;
+	background: #ffffd0;
+}
+
+div.footer
+{
+	width: 100%;
+	border: none;
+	background: #ffffff;
+	margin-top: 18pt;
+	padding-bottom: 12pt;
+	color: #228B22;
+	text-align: center;
+	font-size: 76%;
+}
+
+.note
+{
+	margin-left: 14pt;
+	margin-right: 12pt;
+}
+
+.indent1
+{
+	margin-left: 12pt;
+}
+
+.indent2
+{
+	margin-left: 24pt;
+}
+
+.indent3
+{
+	margin-left: 36pt;
+}
+
+p.proch
+{
+	padding-left: 16px;
+}
+
+p.proch img
+{
+	position: relative; 
+	vertical-align: top;
+	left: -18px; 
+	margin-right: -14px; 
+	margin-bottom: -18px;
+}
+
+div.itfBorder
+{
+	margin: 18pt,0,0,0pt;
+	padding: 0;
+	width: 100%;
+	height: 6px;
+	border: none;
+	background: #6699cc;
+	filter: alpha(style=1,startX=0,startY=0,finishX=100,finishY=0,opacity=100,finishOpacity=0);
+}
+
+div.itf
+{
+	margin: 0,0,0,1pt;
+	padding: 2pt,4pt;
+	width:100%;
+	border: none;
+	background: none;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 10pt;
+}
+
+div.itf table
+{
+	margin: 3pt,0,0,0;
+	padding: 0;
+	width:100%;
+}
+
+td.itficon
+{
+	margin: 0;
+	padding: 0;
+}
+
+td.itf
+{
+	margin: 0;
+	padding: 2px,0,0,5px;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 8pt;
+}
+
+table.inthissection
+{
+	width: 90%;
+	background: #999999;
+	margin-top: .6em;
+	margin-bottom: .3em;
+	vertical-align: bottom;
+}
+
+th.inthissection
+{ 
+	padding: 4px 8px;
+	background: #cccccc;
+	text-align: left;
+	font-size: 70%;
+	vertical-align: center;
+}
+
+td.inthissection
+{ 
+	padding: 4px 8px;
+	background: #ffffff;
+	font-size: 70%;
+	vertical-align: bottom;
+}
+
+ul.inthissection
+{
+	list-style: none;
+}
+
+li.inthissection
+{
+	list-style:none;
+}

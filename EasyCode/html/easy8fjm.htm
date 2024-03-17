@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>GetBackColor method</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#800080" size="6">GetBackColor
+<font color="#004080">method</font></font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for all objects except <b>ToolBar</b>, <b>StatusBar</b>,
+<b>ProgressBar</b>, <b>TabStrip</b>, <b>UpDown</b>, <b>IpAddress</b>, <b>ImageCombo</b>, <b>Calendar</b>,
+<b>DateTime</b> and <b>HotKey</b>.</font></p>
+
+<p><font face="Arial" size=2><b>Prototype</b></font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#800080">GetBackColor</font> <font
+color="#0000FF">Proto</font></b> <b>hWnd<font color="#FF00FF">:</font><font
+color="#000080">HWND</font></b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Syntax</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial"><font size="2"><b><font color="#0000FF">Invoke</font> <font
+color="#800080">GetBackColor</font><font color="#FF00FF">,</font> hWnd</b></font></font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Function</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2">Gets the <b><a href="easy1o6q.htm">BackColor</a></b> property for an
+object.</font></p></blockquote>
+
+<p><b><font face="Arial" size=2>Parameters</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><b><font face="Arial" size=2>hWnd</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+<p><font face="Arial" size="2">Handle to the object.</font></p></blockquote></blockquote>
+
+<p><b><font face="Arial" size="2">Return value</font></b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b><font color="#808000">Eax/Rax</font></b> returns the current back color
+for the object.</font></p></blockquote>
+
+<p><font face="Arial"><font size="2"><b><br>REMARKS</b>: The most significant byte of <b><font
+color="#808000">Eax</font></b> specifies whether the color is an RGB value (<b>00H</b>) or a system color
+(<b>80H</b>), while the other three bytes are the corresponding RGB values. For example, a value
+<b>00FF0000H</b> means blue, <b>0000FF00H</b> means green and <b>000000FFH</b> means red, while
+<b>80000005H</b> means the system color number 5 (<strong><font
+color=#000080>COLOR_WINDOW</font></strong>).<br><br></font></font></p>
+
+</body>
+</html>

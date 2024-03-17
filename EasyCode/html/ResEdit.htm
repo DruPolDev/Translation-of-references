@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>Resource Editor</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><b><font color="#004080" face="Arial" size="6">The Resource Editor (all project
+type)</font></b></p>
+<p><b><font face="Arial">Written by P.
+Eugene Brennick</font></b></p>
+<hr>
+<p><font face="Arial"><font size="2">Available
+through the <b>Project-&gt;Add Resource</b> menu.</font></font></p>
+<p><font face="Arial" size="2">When it comes
+to providing a method to easily get a project up and running quickly
+and
+effortlessly with most, if not all, of the real hard stuff when it
+comes to complicated code automatically done for
+you; there is no match for a Visual Resource Generator. The Resource
+Editor that I have added to Easy Code is a
+workhorse designed to do just that. You can almost sit back and watch
+your projects just leap off the screen as window
+after window is effortlessly generated.</font></p>
+<p><font face="Arial" size="2">If anyone had
+ever written a program called The Anatomy of a Program, you would be
+able
+to read in it that there are certain prerequisites that go into
+creating a program. You must have an idea, born of a
+need that will show you what elements will be needed in the project.
+Get out a pad of paper and whilst thinking out
+how you wish your program to function; write down all the windows and
+dialog boxes you will need. Also list what tools
+will be included in each. You should take the time to think out the
+flow of the program and note what resources will be
+involved. At this point, you will take the time to create all the
+windows and/or dialog boxes that will be used by the
+project. This may include using lots of resources from the Toolbox. If
+you cannot see the Toolbox, just click View,
+Toolbox from the Menu. Things like Buttons, Check Boxes, Radio Buttons,
+Text Boxes, Labels, Pictures, Scroll Bars,
+Frames, Lists, Combo Boxes, List Views and Tree Views are needed to be
+thought out in terms of how they can help bring
+your idea to fruition.</font></p>
+<p><font face="Arial" size="2">Don&rsquo;t
+be afraid to over create at this point because, if some are not used in
+the final
+draft, they are easily removed. Remember this as a
+Programmer&rsquo;s maxim, &ldquo;Creativity comes from a
+conflict of ideas.&rdquo;
+Once you have created all your resources, all you need to do is add the
+code that sews the whole project together. A
+nice feature of Easy Code is the ability to compile and test dialog
+boxes as they are created.</font></p>
+<p><font face="Arial" size="2">I encourage
+you to back up the Examples folder to a zip file and then load the
+various
+projects that are there for your use and/or enjoyment and tinker away.
+Make changes to various parts of the programs
+and then build the project and observe the results of the changes. If
+the project does not build, examine your changes
+to learn why. In my opinion, this is the best way to learn how to code
+in Assembly. Also, remember that all the
+projects are freeware for your use and for you to learn from.</font></p>
+<p><font face="Arial" size="2">To make things
+work efficiently, it was necessary for me to make some support file
+changes. I describe these changes and additions below.</font></p>
+<p><b><font face="Arial" size="2">1 -
+Project file format has changed</font></b></p>
+<p><font face="Arial" size="2">File project
+format has been changed to support the new Resource editor. Now, a new
+file
+is added (with the extension <b>ecr</b>) in order to save
+resources. Backwards compatibility has been maintained so you
+can safely load projects made with old versions of Easy code with no
+errors. When saving an old project, it will be
+saved in new format. Folder housekeeping is maintained by Easy Code
+which means that if a particular file has become
+superfluous, Easy Code will remove it. This feature does not include
+imported RES files, they are left untouched, you
+have the most control over those files, but I would recommend that you
+eventually reach the point where all resources
+are created in the IDE, specially in Visual Mode (see </font><a href="ImportRC.htm"><font face="Arial" size="2">Importing
+resource files</font></a><font face="Arial" size="2">).</font></p>
+<p><b><font face="Arial" size="2">2 -
+Complete Resource editor (available for use by all projects)</font></b></p>
+<p><font face="Arial" size="2">Available from
+the <b>Project--&gt;Add Resource</b> menu or from the <b>Resources</b>
+node (in project explorer), through the context menu. You can choose
+one of the following resources:</font></p>
+<p><font face="Arial" size="2">- <b>Accelerator
+</b>adds a new accelerator table. I would encourage you to use
+this
+feature. Functions such as Cut, Copy, Paste, Undo, Redo, etc. can often
+be more easily accomplished by utilizing the
+Control keys (especially if you grew up with the use of them. Also,
+remember that you should program to as wide an
+audience as possible. Just because you may not use Control keys,
+remember that there are others who will do so almost
+without thinking and a good programmer will satisfy their needs as well.</font></p>
+<p><font face="Arial" size="2">- <b>Dialog</b>
+adds a new dialog box (only available in classic projects as visual
+projects have their own DialogBox object). Dialog boxes are
+indispensable. They are your main means of obtaining
+information from the user at various stages of the program. Add all the
+Buttons, Check Boxes, Radio Buttons, Text
+Boxes, Labels, Pictures, Scroll Bars, Frames, Lists, Combo Boxes, List
+Views and Tree Views to your heart&rsquo;s content.
+For myself, I consider this a fun part of designing an application.
+This is where you can move things around by the
+&lsquo;click and drag&rsquo; method so as to get just the right
+look and feel to your application. A feature that I like is if, for
+instance, you are adding four buttons to the dialog box and you want
+them to be perfectly left aligned, it might be
+difficult to see where to move the left edge of the buttons so they are
+not one pixel off. All you have to do is using
+the toolbar of the dialog box, where there are several buttons to
+modify the edges, height or width of multiple controls
+at a time, or left click each button one at a time to get focus to it.
+While it has focus, look to the left at the
+properties box. Find the line that says Left and then change its value.
+Next, double click each button and make the
+same change. It&rsquo;s just as easy as that! Look at other setting
+in the Properties box, there are lots of things to fiddle
+with! Finally, remember that <b>Dialog</b> objects may
+have a class name (<b>ClassName</b> property). If so, the
+class
+must have been registered before creating the dialog box. Otherwise,
+the creation will fail and it will never be
+shown.</font></p>
+<p><font face="Arial" size="2">- <b>Image</b>
+adds a new image: Icon, Cursor or Bitmap. You can add these resources
+to
+either a window or a dialog box. Icons can be used for various
+purposes. They can be displayed in the Title bar, in
+Menus and assigned to a Shortcut just to name a few. I also like to add
+an icon to my About boxes. Cursors are useful
+to give user information about a particular area that has focus such as
+a string that may resolve to a web link or an
+email address for example (see also </font><a href="AppIcon.htm"><font face="Arial" size="2">The
+application
+icon</font></a><font face="Arial" size="2">).</font></p>
+<p><font face="Arial" size="2">- <b>Menu</b>
+adds a new menu. At this point, think of all the operations that are
+going
+to be performed by your application. You should make a menu entry for
+each one. Every dialog box that has been created
+should have a menu entry, also. Remember our discussion about Ctrl
+keys? This is where they get declared. Every menu
+entry can have two versions of &lsquo;quick keys,&rsquo; they
+are ALT and CTRL.</font></p>
+<p><font face="Arial" size="2">ALT keys are
+declared by adding an ampersand (&amp;) just before the left you
+wish to
+promote to this use. For example, if you want to be able to activate
+the file menu bu pressing ALT+F, you just lable
+that entry as &amp;File. If you wanted it to be ALT+I, you would
+use this label, F&amp;ile, etc. Remember, when working
+in submenus, if you have to different entries in the
+&lsquo;same&rsquo; submenu being promoted using the same
+letter, neither will
+work. For example, you would not want these two labels in the same
+submenu, &amp;Save File, &amp;Save Settings. Instead,
+just promote a different letter in one of the labels. ALT key
+declarations (I call them promotions because, since the
+key has an added function, it has been promoted) are not case sensitive.</font></p>
+<p><font face="Arial" size="2">CTRL keys are
+also declared in the label section of the menu entry, but in the
+following
+manner, "Select &amp;All\tCtrl+A". As you can see, you preface a
+CTRL key promotion with this key sequence, &ldquo;\t&rdquo;. It
+is
+VERY important to note two things:</font></p>
+<p><font face="Arial" size="2">- 1. ALT key
+promotions are limited to within a specific submenu. &amp;File and
+F&amp;ormat, &amp;File are both valid. CTRL key promotions are
+global declarations within the entire menu system. For
+example, if you are using the following, "Select &amp;All\tCtrl+A",
+CTRL+A should not be used anywhere else.</font></p>
+<p><font face="Arial" size="2">- 2. Remember
+that there are CTRL keys inherently promoted by the system. These
+declarations should be considered as reserved keys and should NOT be
+used anywhere else. Examples of these keys are
+CTRL followed by any of these letters, A, C, U, V, X, Y and Z, plus F1,
+TAB, ESC and DEL.</font></p>
+<p><font face="Arial" size="2">CTRL key
+declarations (I call them promotions because, since the key has an
+added
+function, it has been promoted) are not case sensitive. For example,
+the &lsquo;c&rsquo; and &lsquo;C&rsquo; keys are the
+same.</font></p>
+<p><font face="Arial" size="2">- <b>Raw
+Data </b>adds binary data, either, single values or a whole
+file. This area can
+be used to store blocks of data, typically in hexadecimal. Icons and
+bitmap graphics can be embedded into a resource
+file by using this ability</font></p>
+<p><font face="Arial" size="2">- <b>String
+</b>adds a new string. This is where you can declare descriptions
+for
+promoted keys, for example. Also, error and help messages would be
+stored here. An example, a description of Paste
+(CTRL+V) would be &ldquo; "IDM_PASTE" "&amp;Paste" &rdquo;.
+Another example, help message this time, &ldquo; "IDS_UNDO" "To
+undo your
+last change, press CTRL+Z" &rdquo;.</font></p>
+<p><font face="Arial" size="2">- <b>Version
+</b>adds a version resource (just one). It can be deleted if you
+do not
+want the final .exe or .dll to have a version, but if you right click
+the generated EXE or DLL of your application and
+click the version tab, if it exists; it is possible to see certain
+specific information that is declared here. This is
+a nice way to reveal ownership, etc. to your user base.</font></p>
+<p><font face="Arial" size="2">Each resource
+must have a unique <b>ID</b>, usually upper case, and not
+being one of the
+reserved words. Reserved words are those belonging to Macro
+Assembler&rsquo;s syntax, processor register names, Windows
+constants and variables or Easy Code reserved ID's (i.e. <b>IDR_VERSION</b>
+or <b><font color="#800080">RT_FILEDATA</font></b>).
+The Easy Code reserved word list has been build into one of the Example
+projects, sort of killing two birds with one stone.</font></p>
+<p><font face="Arial"><font size="2"><b>The
+Version</b> resource always has the constant ID name of <b>IDR_VERSION</b>,
+which value is <b>1</b>. Only one resource version is
+allowed, but you can delete it if you do not want your final EXE
+or DLL to have a version.</font></font></p>
+<p><font face="Arial"><font size="2"><b>The
+Dialog</b> resource is not available in visual projects, as they
+have their
+own and more complete <b>DialogBox</b> object.</font></font></p>
+<p><font face="Arial" size="2">For <b>Accelerator</b>,
+<b>Image</b>, <b>Raw Data</b> and <b>String</b>
+resources, you
+must specify an <b>ID</b> (i.e. <b>IDS_STRING</b>)
+and a value or data for that ID (a text string for <b>String</b>,
+an
+image file for <b>Image</b>, etc.).</font></p>
+<p><font face="Arial" size="2">When defining <b>Raw</b>
+<b>Data</b>, you can specify two different types of data:</font></p>
+<p><font face="Arial" size="2">- An existing
+file name (the file must be in the <b>RES</b> directory).
+This file will
+be included in the final <b>.EXE</b> or <b>.DLL</b>
+file as a resource.</font></p>
+<p><font face="Arial" size="2">- A value (or
+consecutive values, each entry separated by a comma)</font></p>
+<p><font face="Arial" size="2">Notes:</font></p>
+<p><font face="Arial" size="2">- When
+specifying a file name, the corresponding file has to be in <b>RES</b>
+directory.</font></p>
+<p><font face="Arial" size="2">- When
+specifying values, they must have one of the following valid formats:</font></p>
+<p style="font-family: Courier New; margin-left: 40px;"><font size="2"><b>L"Here is a Unicode string\0"</b> //
+A
+Unicode string (note: explicitly null-terminated)<br>
+<b>"Here is an ANSI string\0"</b> &nbsp; &nbsp;//
+An ANSI string
+(note: explicitly null-terminated)<br>
+<b>1024</b> &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;// An Integer value<br>
+<b>0x029a</b> &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;// A Hex integer value<br>
+<b>0o733</b> &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// An Octal
+integer value<br>
+<b>"\07"</b> &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;// A Byte (8-bit)</font></p>
+<p style="font-family: Courier New;"></p>
+<p><font face="Arial" size="2">Examples:</font></p>
+<p style="font-family: Courier New; margin-left: 40px;"><font size="2"><b>2048</b> &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;
+&nbsp;// A single Integer (16-bit) value<br>
+<b>1,2,3,4</b> &nbsp; &nbsp; &nbsp; &nbsp;
+// 4 Integer (16-bit)
+values<br>
+<b>"1","2","3","4"</b> // 4 Byte (8-bit) values (ASCII
+values: 49, 50, 51 and 52)<br>
+<b>"\r"</b> &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// A control
+character (8-bit) corresponding to ASCII 13 (&lt;<b>C</b>arriage
+<b>R</b>eturn&gt;)<br>
+</font></p>
+<p><font face="Arial" size="2">Note that any
+numerical value (in decimal, hex or octal notation) is always a 16-bit
+integer (<b style="color: rgb(0, 0, 255);">DW</b>
+value in assembler).</font></p>
+<p><font face="Arial"><font size="2"><b>IMPORTANT</b>:
+You are responsible for entering values in any of the valid
+<b>Raw Data</b> formats explained above in order to avoid
+errors when compiling (for more information see the
+<b>RCDATA</b> statement help in <b>GoRC</b> or
+<b>RC</b> help files). Do not forget double quotes when
+needed, and a
+comma when more than one value is specified. On the other hand, when
+specifying a text string as <b>Raw Data</b>, you
+must take into account that it is an ANSI string (unless it is preceded
+by the <b>'L'</b> macro) and it is NOT
+null-terminated, so you have to explicitly add the final zero, if
+needed. This is not necessary for <b>String</b>
+resources, as they are always Unicode, null-terminated strings.</font></font></p>
+<p><font face="Arial" size="2">When you need
+to load a <b>Raw Data</b> resource from any part of the
+code, you first
+must find it (API call: <b style="color: rgb(153, 0, 0);">FindResource</b>).
+The last parameter of <b style="color: rgb(153, 0, 0);">FindResource</b>
+is the type of resource to be found. This type must be <b><font color="#000080">RT_RCDATA</font></b> for data
+values, or <b><font color="#800080">RT_FILEDATA</font></b>
+if the data
+resource is a file (<b><font color="#800080">RT_FILEDATA</font></b>
+is defined by Easy Code as <b>256</b> and it is
+not part of Windows O.S.).</font></p>
+<p><font face="Arial" size="2">- To save all
+resources, Easy Code will create a new file in the project, with an
+<b>ECR</b> extension (projects from Easy Code&rsquo;s
+old versions will be converted with no errors and saved in this new
+format).</font></p>
+<p><font face="Arial" size="2">- Finally,
+when building the project, a complete <b>.rc</b> file
+(with the same name
+plus the .rc file) and its corresponding <b>.h</b> file (a
+header file) will be created in the project directory. Both
+files are rewritten each time a window or module is compiled.</font></p>
+<p><b><font face="Arial" size="2">3 -
+Easy Code resources are ignored when adding an external resources file
+(*.RES)</font></b></p>
+<p><font face="Arial" size="2">Only one
+resource file can be linked to the application. Since all resources can
+now be
+added directly by Easy Code, if you add an external compiled resource
+file (*.RES) to the project, Easy Code will
+suppose that you already have all needed resources in the external file
+that you added and that will be the linked
+one. In this case, Easy Code generated resources (if any) will be
+ignored. On the other hand, when no external resource
+file is added to the project, Easy Code will link its resources (if
+any) to the application.</font></p>
+<p><b><font face="Arial" size="2">4 -
+Easy Code generates an RC file and its corresponding header file
+(*.H)</font></b></p>
+<p><font face="Arial" size="2">When compiling
+an RC file with all Easy Code resources, it will be generated and
+placed
+in the <b =""><res =""></res></b>
+folder of the project directory.</font></p>
+<p><font face="Arial"><font size="2"><br>
+<b>REMARKS</b>: This feature is not available for static
+libraries (<b>lib</b>
+projects) as they cannot have resources.</font></font></p>
+<p><font face="Arial"><font size="2"><b>IMPORTANT</b>:
+If you write any text in the <b>ClassName</b> property of
+a
+dialog box, Easy Code will understand that it is the class name and so
+it will be written in the .RC
+resource-definition file. If it is a number, it will mean a 16-bit
+unsigned integer identifying the class. Otherwise,
+it will mean the name of a class. When having to show the dialog box,
+its class must be registered (or it must be one
+of the Windows pre-defined classes) so that the window can be created.
+If you are not going to register the class, just
+set the <b>ClassName</b> property to no text (default
+value) in order to avoid errors. For more information, see
+<b>CLASS</b> statement help.</font></font></p>
+<p><font face="Arial" size="2">Remeber that
+only one resource file can be linked to the application. So, if you add
+an
+external <b>*.res</b> file, resources made by Easy Code
+will be ignored.</font></p>
+<p><font face="Arial" size="2">Finally, thank
+you for taking the time to evaluate my IDE. It has been made
+specifically
+for your use and entertainment. If you wish to become a part of this
+project, feel free to offer any code you wish to
+become a part of our growing Examples list to our Resource Evaluation
+Team. All entries are treated equally and are
+only evaluated in terms of functionality (i.e.: do they work?) and
+ethics of use (ie: don&rsquo;t bother to send anything
+dealing with cracking or hacking, we have enough TP. J).<br>
+<br>
+</font></p>
+</body></html>

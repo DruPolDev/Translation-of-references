@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>AutoIt в Windows Vista и выше</title>
+  <meta charset=UTF-8"utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+</head>
+<body>
+  <h1><FONT color=#7b7e5f>AutoIt&nbsp;в 
+Windows Vista и выше</FONT>&nbsp;   </h1>
+  <p>Начиная с Windows Vista и выше, в Windows были введены 
+новые функции безопасности, ограничивающие запуск файлов, без прав 
+администратора. Даже пользователи с правами администратора, при запуске 
+исполняемого файла, выполняющего некоторые административные операции (например, 
+запись в раздел реестра HKEY_LOCAL_MACHINE или в каталог C:\Windows), будут 
+получать запрос на подтвекрждение выполнения операции. Это называется 
+<STRONG>контролем учетных записей (UAC)</STRONG>.</p>
+  <p>По умолчанию сценарии запускаются со стандартными правами пользователя, но&nbsp;AutoIt был создан таким образом, что&nbsp; есть возможность работы сценариев как&nbsp;с правами администратора, так и&nbsp;с правами обычного пользователя.</p>
+  <p>Чтобы заставить сценарий попытаться запустить&nbsp;себя 
+с правами администратора, добавьте следующим образом директиву #RequireAdmin:</p>
+<p class="codebox">
+<span><span class="S1"><FONT color=#a6acb9>; Этот сценарий требует полных прав 
+администратора</FONT>      </span><br ><A class=codeSnippetLink href="../keywords/RequireAdmin.htm"><span class="S11"><FONT color=#c695c6>#RequireAdmin</FONT></span></A><br ><br ><A class=codeSnippetLink href="../keywords/include.htm"><span class="S11"><FONT color=#c695c6>#include</FONT></span></A><span class="S0"> </span><span class="S7"><FONT color=#6699cc>&lt;</FONT><FONT color=#99c794>MsgBoxConstants.au3</FONT><FONT color=#6699cc>&gt;</FONT></span><br ><br ><A class=codeSnippetLink href="../functions/MsgBox.htm"><span class="S4"><FONT color=#6699cc>MsgBox</FONT></span></A><span class="S8"><FONT color=#d8dee9>(</FONT></span><span class="S9"><FONT color=#d8dee9>$MB_OK</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Информация</FONT><FONT color=#6699cc>"</FONT></span><span class="S8"><FONT color=#d8dee9>,</FONT></span><span class="S0"> </span><span class="S7"><FONT color=#6699cc>"</FONT><FONT color=#99c794>Этот сценарий имеет права администратора!</FONT><FONT color=#6699cc>"</FONT>     </span><span class="S8"><FONT color=#d8dee9>)</FONT></span></span>
+</p>
+  <p>&nbsp;</p>
+  <p>                      При запуске AutoIt проверит наличие&nbsp; у сценария прав администратора, если их нет, операционная система запросит разрешение у пользователя. Если разрешение пользователем&nbsp;не предоставлено, сценарий
+  завершится.</p>
+  <h2><FONT color=#7b7e5f>Контроль 
+учетных записей UAC</FONT> </h2>
+  <p>                    Отображаемое при запуске программы диалоговое окно, требующее прав администратора представлено ниже. Отображаемая информация будет зависеть от&nbsp;прав пользователя. Имейте в виду, что даже администраторам потребуются
+  повышенные права для выполнения специальных операций.</p>
+  <p> Примечание: представленные запросы относятся к AutoIt3 с цифровой подписью, но бета-версии могут быть не подписаны, поэтому&nbsp;сообщения могут быть аналогичны представленному в разделе "Скомпилированные сценарии".</p>
+  <p>&nbsp;</p>
+  <p><strong><FONT color=#7b7e5f>Окно UAC для обычного пользователя</FONT>  </strong></p>
+  <p><IMG alt="" src="../images/autoit_standarduser_uac_signed.png"></p>
+  <p>        Обычный пользователь должен выбрать имя пользователя и ввести пароль, для запуска сценария с повышенными правами.</p>
+  <p>&nbsp;</p>
+  <p><FONT color=#7b7e5f><STRONG>Окно 
+UAC для администратора</STRONG>  </FONT><STRONG> </STRONG></p>
+  <p><IMG alt="" src="../images/autoit_uac_signed.png"></p>
+  <p>Поскольку пользователь уже является администратором и требуется только повышение прав,&nbsp;необходимо только нажать&nbsp;"Continue" (Продолжить)&nbsp;- пароль не требуется.</p>
+  <h2><FONT color=#7b7e5f>Скомпилированные сценарии</FONT> </h2>
+  <p>Скомпилированные сценарии (и, возможно, бета-версии 
+AutoIt) <STRONG>не имеют</STRONG> цифровой подписи и выдают более серьезное предупреждение, как представлено&nbsp;ниже:</p>
+  <p><IMG alt="" src="../images/compiled_uac_unsigned.png"></p>
+  <p>Пользователь должен нажать "Allow" (Разрешить),&nbsp;для 
+продолжения&nbsp;(или ввести пароль, если он является обычным пользователем).</p>
+  <p>Если у вас есть собственная цифровая подпись, вы можете сами подписывать скомпилированные сценарии.</p>
+  <p>&nbsp;</p>
+  <p><strong>Важно: независимо, от того, подписан сценарий или нет, вы должны запускать сценарии&nbsp;только из источников, которым доверяеете!</strong></p>
+  <p><strong>Даже подписанный код может быть вредоносным!</strong></p>
+</body>
+</html>

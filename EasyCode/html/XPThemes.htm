@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><title>XP themes</title>
+
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+<p><a name="xpthemes"></a><b><font color="#004080" face="Arial" size="6">Enabling
+XP themes (Only Exe Project Type)</font>
+</b></p>
+<hr>
+<p><font face="Arial" size="2"> Easy Code
+allows you to
+automatically include an XP theme manifest in a project.
+XP themes enable the Windows Common controls 6.0 in order
+to take advantage of the new look for controls in Windows
+XP and later. A manifest is just a text file in XML
+format, and for Easy Code to be able to include it in the
+executable, the manifest file must be named
+<b>Manifest.xml</b> and it has to be in the project's
+<b>Res</b> folder (when creating a new project, Easy Code
+also creates a default <b>Manifest.xml</b> file in the
+project's <b>Res</b> folder). Besides, you must check the
+<b>Manifest</b> option in the <a href="Project.htm#project2">Project
+Properties</a>. That way, it will be included in the
+executable file as a resource and the new controls will
+be enabled. Below is a simple example of an
+XP theme manifest for 32-bit applications:</font></p>
+<p><font face="Arial" size="2">&lt;?xml
+version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br>
+</font><font face="Arial" size="2">&lt;assembly
+xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"&gt;<br>
+</font><font face="Arial" size="2">&lt;assemblyIdentity&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+version="<font color="#0000ff"><strong>2.0.00.0001</strong></font>"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+processorArchitecture="<b>x86</b>" <br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+name="<font color="#0000ff"><strong>EasyCode.exe</strong></font>"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+type="win32"<br>
+</font><font face="Arial" size="2">&lt;/assemblyIdentity&gt;<br>
+</font><font face="Arial" size="2">&lt;description&gt;<font color="#0000ff"><strong>Assembly
+visual programming
+environment</strong></font>&lt;/description&gt;<br>
+</font><font face="Arial" size="2">&lt;dependency&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+&lt;dependentAssembly&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;assemblyIdentity&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+type="win32"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+name="Microsoft.Windows.Common-Controls"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+version="6.0.0.0"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+publicKeyToken="6595b64144ccf1df"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+processorArchitecture="<b>x86</b>"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+language="*"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+&lt;/dependentAssembly&gt;<br>
+</font><font face="Arial" size="2">&lt;/dependency&gt;<br>
+&lt;compatibility
+xmlns="urn:schemas-microsoft-com:compatibility.v1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;application&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 10 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 8.1 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows Vista --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 7 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{35138b9a-5d96-4fbd-08e2d-a2440225f93a}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 8 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/application&gt;&gt;<br>
+&lt;/compatibility&gt;<br>
+&lt;trustInfo xmlns="urn:schemas-microsoft-com:asm.v3"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;security&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;requestedPrivileges&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;requestedExecutionLevel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level="asInvoker"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uiAccess="false"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/requestedPrivileges&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/security&gt;<br>
+&lt;/trustInfo&gt;<br>
+</font><font face="Arial" size="2">&lt;/assembly&gt;</font></p>
+<p><font face="Arial" size="2">For 64-bit
+applications, the
+manifest should look like this (note the changes in the
+<b>processorArchitecture</b> entry):</font></p>
+<p><font face="Arial" size="2">&lt;?xml
+version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br>
+</font><font face="Arial" size="2">&lt;assembly
+xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"&gt;<br>
+</font><font face="Arial" size="2">&lt;assemblyIdentity&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+version="<font color="#0000ff"><strong>2.0.00.0001</strong></font>"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+processorArchitecture="<b>amd64</b>" <br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+name="<font color="#0000ff"><strong>EasyCode.exe</strong></font>"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+type="win32"<br>
+</font><font face="Arial" size="2">&lt;/assemblyIdentity&gt;<br>
+</font><font face="Arial" size="2">&lt;description&gt;<font color="#0000ff"><strong>Assembly
+visual programming
+environment</strong></font>&lt;/description&gt;<br>
+</font><font face="Arial" size="2">&lt;dependency&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+&lt;dependentAssembly&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;assemblyIdentity&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+type="win32"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+name="Microsoft.Windows.Common-Controls"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+version="6.0.0.0"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+publicKeyToken="6595b64144ccf1df"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+processorArchitecture="<b>amd64</b>"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+language="*"<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/&gt;<br>
+</font><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;
+&lt;/dependentAssembly&gt;<br>
+</font><font face="Arial" size="2">&lt;/dependency&gt;<br>
+&lt;compatibility
+xmlns="urn:schemas-microsoft-com:compatibility.v1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;application&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 10 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 8.1 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows Vista --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 7 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{35138b9a-5d96-4fbd-08e2d-a2440225f93a}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Windows 8 --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;supportedOS
+Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/application&gt;&gt;<br>
+&lt;/compatibility&gt;<br>
+&lt;trustInfo xmlns="urn:schemas-microsoft-com:asm.v3"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;security&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;requestedPrivileges&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;requestedExecutionLevel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level="asInvoker"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uiAccess="false"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/requestedPrivileges&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/security&gt;<br>
+&lt;/trustInfo&gt;<br>
+</font><font face="Arial" size="2">&lt;/assembly&gt;</font></p>
+<p><font face="Arial" size="2">You just have
+to replace
+the <b>version</b>,
+<b>name</b>
+and <b>description</b>
+fields
+(those shown in blue bold font). Rebuild all the examples coming with
+Easy Code and see
+the look of the new common controls in Windows XP and
+later systems.</font></p>
+<p><font face="Arial" size="2"><b>
+IMPORTANT</b>: The <font color="#800000"><b>GetVersionEx</b></font>
+API function will return the Windows 8 OS version (<font color="#800080"><a href="easy41v1.htm"><b>ecWin8</b></a></font>)
+for applications not specifically manifested for Windows 8.1,
+Windows 10 or Windows 11, even if they are running on Windows 8.1,
+Windows 10 or Windows 11. To manifest your applications for Windows 8.1,
+Windows 10 or Windows 11, the <b>Manifest</b> file has to include some
+additional
+lines (for more information, please click this <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dn481241%28v=vs.85%29.aspx"><b>link</b></a>).
+The default <b>Manifest.xml</b> file generated by Easy
+Code
+when creating a new project, already includes the necessary
+lines for the application to be manifested properly.</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:
+At design time, or
+when testing a window, all control objects will be shown with
+the new common controls style if the <b>Manifest</b>
+option is selected in the <a href="Project.htm#project2">Project
+Properties</a>.
+Otherwise, they will be shown with the old controls style.</font></p>
+<p><font face="Arial" size="2"><b>REMARKS</b>:
+Take into account that
+the <b>Manifest.xml</b>
+file has no effect for Windows systems prior
+to XP.</font></p>
+<br>
+<br>
+</body></html>

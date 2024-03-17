@@ -1,0 +1,149 @@
+<HTML xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:mssdk="winsdk" xmlns:script="urn:script" xmlns:script2="urn:script2" xmlns:build="urn:build" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:ApiRef="http://msdn.microsoft.com/apiref">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MINIDUMP_CALLBACK_TYPE Enumeration</TITLE><META NAME="MS-HAID" CONTENT="_win32_minidump_callback_type">
+<!-- Built on Tuesday, September 25, 2007 -->
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../common/backsdk4.css"/>
+<SCRIPT SRC="../common/langref.js"></SCRIPT>
+</HEAD>
+<BODY TOPMARGIN="0">
+<DIV class="clsServerSDKContent">
+<H1><A NAME="base.minidump_callback_type"></A>MINIDUMP_CALLBACK_TYPE Enumeration</H1>
+<P><P>Identifies the type of information returned by the 
+<A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A> function.</P>
+</P>
+<PRE class="syntaxNew" xml:space="preserve">typedef enum _MINIDUMP_CALLBACK_TYPE
+{
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ModuleCallback</A><div class="classNewTip" ID="ModuleCallback"><DL><DT>ModuleCallback</DT><DD><p>The callback function returns module information.</p>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ThreadCallback</A><div class="classNewTip" ID="ThreadCallback"><DL><DT>ThreadCallback</DT><DD><p>The callback function returns thread information.</p>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ThreadExCallback</A><div class="classNewTip" ID="ThreadExCallback"><DL><DT>ThreadExCallback</DT><DD><p>The callback function returns extended thread information.</p>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">IncludeThreadCallback</A><div class="classNewTip" ID="IncludeThreadCallback"><DL><DT>IncludeThreadCallback</DT><DD><p>The callback function indicates which threads are to be included. It is called as the minidump library is enumerating the threads in a process, rather than after the information gathered, as it is with ThreadCallback or ThreadExCallback. It is called for each thread. If the callback function returns FALSE, the current thread is excluded. This allows the caller to obtain information for a subset of the threads in a process, without suspending threads that are not of interest. Alternately, you can modify the <b>ThreadWriteFlags</b> member of the 
+<A HREF="minidump_callback_output_str.htm"><b>MINIDUMP_CALLBACK_OUTPUT</b></A> structure and return TRUE to avoid gathering unnecessary information for the thread.</p>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">IncludeModuleCallback</A><div class="classNewTip" ID="IncludeModuleCallback"><DL><DT>IncludeModuleCallback</DT><DD><p>The callback function indicates which modules are to be included. The callback function is called as the minidump library is enumerating the modules in a process, rather than after the information is gathered, as it is with ModuleCallback. It is called for each module. If the callback function returns FALSE, the current module is excluded. Alternatively, you can modify the <b>ModuleWriteFlags</b> member of the 
+<b>MINIDUMP_CALLBACK_OUTPUT</b> structure and return TRUE to avoid gathering unnecessary information for the module.</p>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">MemoryCallback</A><div class="classNewTip" ID="MemoryCallback"><DL><DT>MemoryCallback</DT><DD><p>The callback function returns a region of memory to be included in the dump. The callback is called only for dumps generated without the MiniDumpWithFullMemory flag. If the callback function returns FALSE or a region of size 0, the callback will not be called again.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">CancelCallback</A><div class="classNewTip" ID="CancelCallback"><DL><DT>CancelCallback</DT><DD><p>The callback function returns cancellation information.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">WriteKernelMinidumpCallback</A><div class="classNewTip" ID="WriteKernelMinidumpCallback"><DL><DT>WriteKernelMinidumpCallback</DT><DD><p>The user-mode minidump has been successfully completed. To initiate a kernel-mode minidump, the callback should return TRUE and set the <b>Handle</b> member of the <b>MINIDUMP_CALLBACK_OUTPUT</b> structure.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">KernelMinidumpStatusCallback</A><div class="classNewTip" ID="KernelMinidumpStatusCallback"><DL><DT>KernelMinidumpStatusCallback</DT><DD><p>The callback function returns status information for the kernel minidump. </p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">RemoveMemoryCallback</A><div class="classNewTip" ID="RemoveMemoryCallback"><DL><DT>RemoveMemoryCallback</DT><DD><p>The callback function returns a region of memory to be excluded from the dump. The callback is called only for dumps generated without the MiniDumpWithFullMemory flag. If the callback function returns FALSE or a region of size 0, the callback will not be called again.</p>
+<BLOCKQUOTE><B>DbgHelp 6.3 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">IncludeVmRegionCallback</A><div class="classNewTip" ID="IncludeVmRegionCallback"><DL><DT>IncludeVmRegionCallback</DT><DD><p>The callback function returns information about the virtual memory region. It is called twice for each region during the full-memory writing pass. The <b>VmRegion</b> member of the <b>MINIDUMP_CALLBACK_OUTPUT</b> structure contains the current memory region. You can modify the base address and size of the region, as long as the new region remains a subset of the original region; changes to other members are ignored. If the callback returns TRUE and sets the <b>Continue</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to TRUE, the minidump library will use the region specified by <b>VmRegion</b> as the region to be written. If the callback returns FALSE or if <b>Continue</b> is FALSE, the callback will not be called for additional memory regions.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">IoStartCallback</A><div class="classNewTip" ID="IoStartCallback"><DL><DT>IoStartCallback</DT><DD><p>The callback function indicates that the caller will be providing an alternate I/O routine. If the callback returns TRUE and sets the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_FALSE, the minidump library will send all I/O through callbacks. The caller will receive an IoWriteAllCallback callback for each piece of data. </p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">IoWriteAllCallback</A><div class="classNewTip" ID="IoWriteAllCallback"><DL><DT>IoWriteAllCallback</DT><DD><p>The callback must write all requested bytes or fail. The <b>Io</b> member of the <b>MINIDUMP_CALLBACK_OUTPUT</b> structure contains the request. If the write operation fails, the callback should return FALSE.  If the write operation succeeds, the callback should return TRUE and set the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_OK. The caller will receive an IoFinishCallback callback when the I/O has completed.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">IoFinishCallback</A><div class="classNewTip" ID="IoFinishCallback"><DL><DT>IoFinishCallback</DT><DD><p>The callback returns I/O completion information. If the callback returns FALSE or does not set the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_OK, the minidump library assumes the minidump write operation has failed.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">ReadMemoryFailureCallback</A><div class="classNewTip" ID="ReadMemoryFailureCallback"><DL><DT>ReadMemoryFailureCallback</DT><DD><p>There has been a failure to read memory. If the callback returns TRUE and sets the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_OK, the memory failure is ignored and the block is omitted from the minidump. Otherwise, this failure results in a failure to write to the minidump.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>,
+  <A class="classNewTipLink" onmouseover="this.className='classNewTipLinkOver'" onmouseout="this.className='classNewTipLink'">SecondaryFlagsCallback</A><div class="classNewTip" ID="SecondaryFlagsCallback"><DL><DT>SecondaryFlagsCallback</DT><DD><p>The callback returns secondary information.</p>
+<BLOCKQUOTE><B>DbgHelp 6.5 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD></DL></div>
+}MINIDUMP_CALLBACK_TYPE;</PRE>
+<H4>Constants</H4>
+<DL>
+<DT><B>ModuleCallback</B></DT>
+<DD><p>The callback function returns module information.</p>
+</DD>
+<DT><B>ThreadCallback</B></DT>
+<DD><p>The callback function returns thread information.</p>
+</DD>
+<DT><B>ThreadExCallback</B></DT>
+<DD><p>The callback function returns extended thread information.</p>
+</DD>
+<DT><B>IncludeThreadCallback</B></DT>
+<DD><p>The callback function indicates which threads are to be included. It is called as the minidump library is enumerating the threads in a process, rather than after the information gathered, as it is with ThreadCallback or ThreadExCallback. It is called for each thread. If the callback function returns FALSE, the current thread is excluded. This allows the caller to obtain information for a subset of the threads in a process, without suspending threads that are not of interest. Alternately, you can modify the <b>ThreadWriteFlags</b> member of the 
+<A HREF="minidump_callback_output_str.htm"><b>MINIDUMP_CALLBACK_OUTPUT</b></A> structure and return TRUE to avoid gathering unnecessary information for the thread.</p>
+</DD>
+<DT><B>IncludeModuleCallback</B></DT>
+<DD><p>The callback function indicates which modules are to be included. The callback function is called as the minidump library is enumerating the modules in a process, rather than after the information is gathered, as it is with ModuleCallback. It is called for each module. If the callback function returns FALSE, the current module is excluded. Alternatively, you can modify the <b>ModuleWriteFlags</b> member of the 
+<b>MINIDUMP_CALLBACK_OUTPUT</b> structure and return TRUE to avoid gathering unnecessary information for the module.</p>
+</DD>
+<DT><B>MemoryCallback</B></DT>
+<DD><p>The callback function returns a region of memory to be included in the dump. The callback is called only for dumps generated without the MiniDumpWithFullMemory flag. If the callback function returns FALSE or a region of size 0, the callback will not be called again.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>CancelCallback</B></DT>
+<DD><p>The callback function returns cancellation information.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>WriteKernelMinidumpCallback</B></DT>
+<DD><p>The user-mode minidump has been successfully completed. To initiate a kernel-mode minidump, the callback should return TRUE and set the <b>Handle</b> member of the <b>MINIDUMP_CALLBACK_OUTPUT</b> structure.</p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>KernelMinidumpStatusCallback</B></DT>
+<DD><p>The callback function returns status information for the kernel minidump. </p>
+<BLOCKQUOTE><B>DbgHelp 6.1 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>RemoveMemoryCallback</B></DT>
+<DD><p>The callback function returns a region of memory to be excluded from the dump. The callback is called only for dumps generated without the MiniDumpWithFullMemory flag. If the callback function returns FALSE or a region of size 0, the callback will not be called again.</p>
+<BLOCKQUOTE><B>DbgHelp 6.3 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>IncludeVmRegionCallback</B></DT>
+<DD><p>The callback function returns information about the virtual memory region. It is called twice for each region during the full-memory writing pass. The <b>VmRegion</b> member of the <b>MINIDUMP_CALLBACK_OUTPUT</b> structure contains the current memory region. You can modify the base address and size of the region, as long as the new region remains a subset of the original region; changes to other members are ignored. If the callback returns TRUE and sets the <b>Continue</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to TRUE, the minidump library will use the region specified by <b>VmRegion</b> as the region to be written. If the callback returns FALSE or if <b>Continue</b> is FALSE, the callback will not be called for additional memory regions.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>IoStartCallback</B></DT>
+<DD><p>The callback function indicates that the caller will be providing an alternate I/O routine. If the callback returns TRUE and sets the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_FALSE, the minidump library will send all I/O through callbacks. The caller will receive an IoWriteAllCallback callback for each piece of data. </p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>IoWriteAllCallback</B></DT>
+<DD><p>The callback must write all requested bytes or fail. The <b>Io</b> member of the <b>MINIDUMP_CALLBACK_OUTPUT</b> structure contains the request. If the write operation fails, the callback should return FALSE.  If the write operation succeeds, the callback should return TRUE and set the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_OK. The caller will receive an IoFinishCallback callback when the I/O has completed.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>IoFinishCallback</B></DT>
+<DD><p>The callback returns I/O completion information. If the callback returns FALSE or does not set the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_OK, the minidump library assumes the minidump write operation has failed.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>ReadMemoryFailureCallback</B></DT>
+<DD><p>There has been a failure to read memory. If the callback returns TRUE and sets the <b>Status</b> member of <b>MINIDUMP_CALLBACK_OUTPUT</b> to S_OK, the memory failure is ignored and the block is omitted from the minidump. Otherwise, this failure results in a failure to write to the minidump.</p>
+<BLOCKQUOTE><B>DbgHelp 6.4 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+<DT><B>SecondaryFlagsCallback</B></DT>
+<DD><p>The callback returns secondary information.</p>
+<BLOCKQUOTE><B>DbgHelp 6.5 and earlier:  </B>This value is not supported.</BLOCKQUOTE>
+</DD>
+</DL>
+<H4>Requirements</H4>
+<TABLE CLASS="psdkRequirements">
+<TR>
+<TH><P>Redistributable</P></TH>
+<TD><P>Requires DbgHelp.dll 5.1 or later.</P></TD>
+</TR>
+<TR>
+<TH><P>Header</P></TH>
+<TD>
+<P>Declared in DbgHelp.h.</P>
+</TD>
+</TR>
+</TABLE>
+<H4>See Also</H4>
+<P><A HREF="minidump_callback_input_str.htm"><b>MINIDUMP_CALLBACK_INPUT</b></A><BR><A HREF="minidumpcallback.htm"><b>MiniDumpCallback</b></A></P><br><P><A HREF="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [base]:%20MINIDUMP_CALLBACK_TYPE%20 RELEASE:%20(9/25/2007)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe SDK team uses the feedback submitted to improve the SDK documentation. We do not use your e-mail address for any other purpose. We will remove your e-mail address from our system after the issue you are reporting has been resolved. While we are working to resolve this issue, we may send you an e-mail message to request more information about your feedback. After the issues have been addressed, we may send you an e-mail message to let you know that your feedback has been addressed.%0A%0AFor more information about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." TITLE="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft
+       </A></P>
+<P STYLE="font-family: Verdana,sans-serif;font-size:8pt">Build date: 9/25/2007</P>
+</DIV>
+<DIV CLASS="footer"><P>&nbsp;</P></DIV>
+<P style="text-align:left;font-family:Arial,sanserif;font-size:100%;color:black">
+&copy;&nbsp;2007 Microsoft Corporation. All rights reserved.</P>
+</BODY>
+</HTML>

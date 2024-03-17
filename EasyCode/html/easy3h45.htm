@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<title>ScaleMode property</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<p><b><font face="Arial" color="#004080" size="6">ScaleMode
+property</font></b></p>
+<hr>
+
+<p><font face="Arial" size="2">Available for <b>Window</b>, <b>MDIWindow</b> and <b>Picture</b>
+objects.</font> </p>
+
+<p><b><font face="Arial" size=2>Read/Write at design time<br></font></b><b><font face=Arial size=2>Read only at
+run time</font></b></p>
+
+<p><font face="Arial" size="2">Specifies the scale mode for the object and all of its children. It can be one of
+the following values:</font></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+
+<p><font face="Arial" size="2"><b>0 <font color="#800080">ecPixels</font></b><br></font><font face="Arial"
+size=2><b>1</b> <b><font color="#800080">ecTwips</font></b> (<b>default</b>)</font></p></blockquote>
+
+<p><font face="Arial" size="2">The value of this property is used to set or get the dimensions of the object
+(i.e. the <b>Left</b>, <b>Height</b>, <b>Top</b> and <b>Width</b> properties).</font></p>
+
+<p><font face="Arial" size="2"><b><br>REMARKS</b>: <b>Pixels</b> are the logical units in which the screen is
+divided, so an object of 1024 pixels wide takes always 1024 units of the screen. If you have a screen lower
+resolution (i.e. 800 pixels width), part of the object will not be visible. On the other hand, <b>twips</b> may
+vary when converted to logical units depending on the screen resolution and/or the font size (small or large).
+One inch is equal to 1440 <b>twips</b>.</font></p>
+
+<p><font face="Arial" size="2"><b>IMPORTANT</b>: <b>DialogBox</b> objects and all their children are always
+measured in <b>dialog units</b>. When a <b>Picture</b> object is inside a <b>DialogBox</b> object, its
+<b>ScaleMode</b> property is always set to <b><font color="#800080">ecPixels</font></b>, and it cannot be
+changed.<br><br></font></p>
+
+</body>
+</html>
